@@ -21,7 +21,12 @@ def read(p):
 
 
 def digest(p):
-    return hashlib.sha256(p.read_bytes()).hexdigest()
+    hashed=hashlib.sha256()
+    opener=gzip.open if p.suffix==".gz" else open
+    with opener(p,"rb") as stream:
+        for block in iter(lambda:stream.read(1024*1024),b""):
+            hashed.update(block)
+    return hashed.hexdigest()
 
 
 def cells(markup):
@@ -95,13 +100,14 @@ def compare(args):
             handoff=next((p for p in (case/"handoff.json.gz",case/"handoff.json") if p.is_file()),None)
             if not handoff:
                 raise ValueError(f"{ident}: freeze a design handoff before comparing")
-            raw=gzip.decompress(handoff.read_bytes()) if handoff.suffix==".gz" else handoff.read_bytes()
-            package=json.loads(raw)
-            sha=hashlib.sha256(raw).hexdigest()
+            sha=digest(handoff)
             native_dir=source_dir/ident
             if digest(native_dir/"design/openbim_handoff.json")!=sha:
                 raise ValueError(f"{ident}: private job differs from frozen public handoff")
-            for file,expected in package["source_evidence"]["files"].items():
+            opener=gzip.open if handoff.suffix==".gz" else open
+            with opener(handoff,"rt",encoding="utf-8-sig") as stream:
+                bindings=json.load(stream)["source_evidence"]["files"]
+            for file,expected in bindings.items():
                 if digest(native_dir/file)!=expected:
                     raise ValueError(f"{ident}: saved native revision changed at {file}")
             reports=[r for r in index if r["id"].startswith(ident+"_")]
@@ -141,7 +147,7 @@ def report(rows):
         label=r["id"]+((" / "+r["unit"]) if r["unit"]!="Main" else "")
         lines.append(f"| [{label}]({r['report_url']}) | {a['native_status']} / {fmt(a['strength_dc'])} | "
                      f"{b['native_status']} / {fmt(b['strength_dc'])} | {a['governing_member'] or '—'} → {b['governing_member'] or '—'} |")
-    lines+=["","## Items to reconcile",""]
+    lines+=["","The [hot-rolled engineering review](hr/engineering-review.md) and [cold-formed engineering review](cfs/engineering-review.md) identify brief, load and detail differences that can explain these comparisons.","","## Items to reconcile",""]
     for r in rows:
         a,b=r["published"],r["fresh"]
         name=r["id"]+(" / "+r["unit"] if r["unit"]!="Main" else "")

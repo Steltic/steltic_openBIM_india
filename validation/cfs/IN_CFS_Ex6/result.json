@@ -1,0 +1,1758 @@
+{
+  "case": "IN_CFS_Ex6",
+  "city": "Coimbatore",
+  "occupancy": "outpatient clinic",
+  "source_brief": "IN_CFS_Ex6_SCBF_clinic_splitlevel_Coimbatore.txt",
+  "source_brief_sha256": "242c765310f94ce004b120c58e52132ddd0c8f340732b9cc25b057b78003280e",
+  "upstream": "Steltic/steltic_CFS_india",
+  "upstream_design_commit": "6e43e5839a84358a6a23356b2de4d59ab914a38b",
+  "producer_sha256": "98d43913ba645055dc1d1174cc5db8dc4eb2a8fd2a7b5eac01f094e359a21ad7",
+  "authored_input_sha256": "91919667c783663df2389c616cd41d0f267b9a51a239fe712e20fb2f71df7c1d",
+  "dimensions": {
+    "x_m": 37.0,
+    "y_m": 21.0,
+    "storey_heights_m": [
+      3,
+      3.3,
+      3.3,
+      3.3
+    ],
+    "floor_plan_area_m2": [
+      388.5,
+      777.0,
+      777.0,
+      777.0
+    ]
+  },
+  "design_status": "complete",
+  "authority": "cold-formed design status (india_cfs_gates) including the hot-rolled frame status and the open items of the frame report",
+  "reasons": [],
+  "site": {
+    "city": "Coimbatore",
+    "zone": "III",
+    "Z": 0.16,
+    "Vb": 39.0,
+    "soil": "medium",
+    "terrain_category": 2,
+    "Kd": 0.9,
+    "cyclone_belt": false,
+    "wind_structure_class": "other"
+  },
+  "occupancy_basis": {
+    "use": "outpatient clinic",
+    "area_m2": 2719.5,
+    "educational": false,
+    "hospital": false,
+    "food_storage": false
+  },
+  "gravity": {
+    "D_floor": 1.65,
+    "D_roof": 1.0,
+    "L_floor": 5.0,
+    "Lr": 0.75,
+    "clad": 0.35,
+    "partition_design_kNm2": 1.0,
+    "partition_seismic_kNm2": 1.0,
+    "snow": 0.0,
+    "cite": "IS 875-1:2026 project build-up; IS 875-2:1987 Tables 1 and 2; IS 1893:2016 7.3.6"
+  },
+  "snow": {
+    "applicable": false,
+    "s0_kPa": 0.0,
+    "roof_snow_kNm2": 0.0,
+    "source": "Outside snow region in brief"
+  },
+  "dead_load_build_up_kNm2": {
+    "roof": {
+      "deck_and_finishes": 0.55,
+      "services_and_miscellaneous": 0.45
+    },
+    "floor": {
+      "board_and_finishes": 0.95,
+      "ceiling_and_services": 0.45,
+      "secondary_and_miscellaneous": 0.25
+    }
+  },
+  "eor_inputs": [
+    {
+      "item": "Soil profile and terrain",
+      "value": "medium; terrain 2",
+      "source": "Brief when stated, otherwise project assumption; confirm geotechnical report and upwind exposure",
+      "verify": true
+    },
+    {
+      "item": "Sheathing and fastening certificates",
+      "value": "pending",
+      "source": "Confirm actual tested assembly; non-bearing studs calculated without sheathing restraint",
+      "verify": true
+    },
+    {
+      "item": "Concrete grade and anchorage",
+      "value": "M30 provisional",
+      "source": "Verify project foundation and bond assumptions, pedestal reinforcement and group breakout",
+      "verify": true
+    },
+    {
+      "item": "Floor diaphragm proposed performance",
+      "value": "Gd 3600 kN/m, allowable shear 12 kN/m",
+      "source": "Specified performance only; verify tested shear and in-plane stiffness, including slip",
+      "verify": true
+    }
+  ],
+  "assumptions": [
+    "South half walkout below north grade. North supports start at +3 m. Lower diaphragm is the south half only. The design uses the provisional imaging-suite load on every upper floor.",
+    "Levels, member axes and all dimensions in the handoff are in millimetres. Verify site soil, opening ratios, terrain, heat numbers and supplier data.",
+    "Physical framing uses nominal analytic workpoints and untrimmed member ends. Panels follow structural control planes. Coordinate finish buildups, offsets, coping and weld preparations in fabrication details.",
+    "The native design gate and governing member checks travel with this model. Review open primary-frame, concrete, diaphragm and fastening checks before design acceptance.",
+    "Any proposed in-plane board stiffness and allowable shear require full assembly test evidence. Concrete pedestal and group breakout design must be verified.",
+    "Dead loads are preliminary assembly allowances. No imposed-load reduction is used. Primary member self-weight is computed separately by the solver."
+  ],
+  "combined_load_sets": 26,
+  "cfs_check_groups": [
+    {
+      "group": "cfs_member",
+      "member": "stud-S1-CLR80X50X15X2",
+      "check": "interaction",
+      "value": 0.5826732715712898,
+      "limit": 1.0,
+      "dc": 0.5826732715712898,
+      "ok": true,
+      "combo": "DL+1.0W_X",
+      "clause": "IS 801 6.7.1 (fa/Fa1 < 0.15: fa/Fa1 + fbx/Fbx + fby/Fby)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.3333333333333333
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S1-CLR80X50X15X2",
+      "check": "6.4.1 web shear",
+      "value": 5.084485714285715,
+      "limit": 133.33333333333331,
+      "dc": 0.038133642857142866,
+      "ok": true,
+      "combo": "DL+1.0W_X",
+      "clause": "IS 801 6.4.1(a)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.3333333333333333
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S1-CLR80X50X15X2",
+      "check": "6.5 web crippling at track (end reaction)",
+      "value": 1131.8280000000002,
+      "limit": 6600.950791193849,
+      "dc": 0.17146438987394688,
+      "ok": true,
+      "combo": "DL+1.0W_X",
+      "clause": "IS 801 6.5(a)(1)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.3333333333333333
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S1-CLR80X50X15X2",
+      "check": "deflection",
+      "value": 6.14,
+      "limit": 10.0,
+      "dc": 0.6136380564076537,
+      "ok": true,
+      "combo": "DL+1.0WL (service)",
+      "clause": "IS 801 5.1 (no limit); criterion L/300: IS 800:2007 Table 6, other buildings, lateral deflection under wind, elastic cladding: height/300, read for the stud span between floors (stated default: IS 801 5.1 sets no limit and Table 6 has no stud row; 5.6.1 allows a stricter value where the finish is vulnerable to cracking)",
+      "capacity_basis": "IS800_Table6",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S1-CLR80X50X15X2",
+      "check": "5.2.4(a) web h/t",
+      "value": 35.0,
+      "limit": 150.0,
+      "dc": 0.23333333333333334,
+      "ok": true,
+      "combo": "geometry",
+      "clause": "IS 801 5.2.4 (a)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S1-CLR80X50X15X2",
+      "check": "5.2.3(a) flange w/t (simple-lip stiffened)",
+      "value": 20.0,
+      "limit": 60.0,
+      "dc": 0.3333333333333333,
+      "ok": true,
+      "combo": "geometry",
+      "clause": "IS 801 5.2.3 (a)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S1-CLR80X50X15X2",
+      "check": "5.2.3(c) lip w/t (unstiffened)",
+      "value": 5.0,
+      "limit": 60.0,
+      "dc": 0.08333333333333333,
+      "ok": true,
+      "combo": "geometry",
+      "clause": "IS 801 5.2.3 (c)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S2-CLR80X50X15X2",
+      "check": "interaction",
+      "value": 0.8503940359807163,
+      "limit": 1.0,
+      "dc": 0.8503940359807163,
+      "ok": true,
+      "combo": "DL+1.0W_X",
+      "clause": "IS 801 6.7.1 (fa/Fa1 < 0.15: fa/Fa1 + fbx/Fbx + fby/Fby)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.3333333333333333
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S2-CLR80X50X15X2",
+      "check": "6.4.1 web shear",
+      "value": 5.592934285714287,
+      "limit": 133.33333333333331,
+      "dc": 0.04194700714285716,
+      "ok": true,
+      "combo": "DL+1.0W_X",
+      "clause": "IS 801 6.4.1(a)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.3333333333333333
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S2-CLR80X50X15X2",
+      "check": "6.5 web crippling at track (end reaction)",
+      "value": 1245.0108000000002,
+      "limit": 6600.950791193849,
+      "dc": 0.18861082886134156,
+      "ok": true,
+      "combo": "DL+1.0W_X",
+      "clause": "IS 801 6.5(a)(1)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.3333333333333333
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S2-CLR80X50X15X2",
+      "check": "deflection",
+      "value": 8.98,
+      "limit": 11.0,
+      "dc": 0.816752253078587,
+      "ok": true,
+      "combo": "DL+1.0WL (service)",
+      "clause": "IS 801 5.1 (no limit); criterion L/300: IS 800:2007 Table 6, other buildings, lateral deflection under wind, elastic cladding: height/300, read for the stud span between floors (stated default: IS 801 5.1 sets no limit and Table 6 has no stud row; 5.6.1 allows a stricter value where the finish is vulnerable to cracking)",
+      "capacity_basis": "IS800_Table6",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S2-CLR80X50X15X2",
+      "check": "5.2.4(a) web h/t",
+      "value": 35.0,
+      "limit": 150.0,
+      "dc": 0.23333333333333334,
+      "ok": true,
+      "combo": "geometry",
+      "clause": "IS 801 5.2.4 (a)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S2-CLR80X50X15X2",
+      "check": "5.2.3(a) flange w/t (simple-lip stiffened)",
+      "value": 20.0,
+      "limit": 60.0,
+      "dc": 0.3333333333333333,
+      "ok": true,
+      "combo": "geometry",
+      "clause": "IS 801 5.2.3 (a)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S2-CLR80X50X15X2",
+      "check": "5.2.3(c) lip w/t (unstiffened)",
+      "value": 5.0,
+      "limit": 60.0,
+      "dc": 0.08333333333333333,
+      "ok": true,
+      "combo": "geometry",
+      "clause": "IS 801 5.2.3 (c)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S3-CLR80X50X15X2",
+      "check": "interaction",
+      "value": 0.8503940359807163,
+      "limit": 1.0,
+      "dc": 0.8503940359807163,
+      "ok": true,
+      "combo": "DL+1.0W_X",
+      "clause": "IS 801 6.7.1 (fa/Fa1 < 0.15: fa/Fa1 + fbx/Fbx + fby/Fby)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.3333333333333333
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S3-CLR80X50X15X2",
+      "check": "6.4.1 web shear",
+      "value": 5.592934285714287,
+      "limit": 133.33333333333331,
+      "dc": 0.04194700714285716,
+      "ok": true,
+      "combo": "DL+1.0W_X",
+      "clause": "IS 801 6.4.1(a)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.3333333333333333
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S3-CLR80X50X15X2",
+      "check": "6.5 web crippling at track (end reaction)",
+      "value": 1245.0108000000002,
+      "limit": 6600.950791193849,
+      "dc": 0.18861082886134156,
+      "ok": true,
+      "combo": "DL+1.0W_X",
+      "clause": "IS 801 6.5(a)(1)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.3333333333333333
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S3-CLR80X50X15X2",
+      "check": "deflection",
+      "value": 8.98,
+      "limit": 11.0,
+      "dc": 0.816752253078587,
+      "ok": true,
+      "combo": "DL+1.0WL (service)",
+      "clause": "IS 801 5.1 (no limit); criterion L/300: IS 800:2007 Table 6, other buildings, lateral deflection under wind, elastic cladding: height/300, read for the stud span between floors (stated default: IS 801 5.1 sets no limit and Table 6 has no stud row; 5.6.1 allows a stricter value where the finish is vulnerable to cracking)",
+      "capacity_basis": "IS800_Table6",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S3-CLR80X50X15X2",
+      "check": "5.2.4(a) web h/t",
+      "value": 35.0,
+      "limit": 150.0,
+      "dc": 0.23333333333333334,
+      "ok": true,
+      "combo": "geometry",
+      "clause": "IS 801 5.2.4 (a)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S3-CLR80X50X15X2",
+      "check": "5.2.3(a) flange w/t (simple-lip stiffened)",
+      "value": 20.0,
+      "limit": 60.0,
+      "dc": 0.3333333333333333,
+      "ok": true,
+      "combo": "geometry",
+      "clause": "IS 801 5.2.3 (a)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S3-CLR80X50X15X2",
+      "check": "5.2.3(c) lip w/t (unstiffened)",
+      "value": 5.0,
+      "limit": 60.0,
+      "dc": 0.08333333333333333,
+      "ok": true,
+      "combo": "geometry",
+      "clause": "IS 801 5.2.3 (c)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S4-CLR80X50X15X2",
+      "check": "interaction",
+      "value": 0.8988445995675137,
+      "limit": 1.0,
+      "dc": 0.8988445995675137,
+      "ok": true,
+      "combo": "DL+1.0W_X",
+      "clause": "IS 801 6.7.1 (fa/Fa1 < 0.15: fa/Fa1 + fbx/Fbx + fby/Fby)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.3333333333333333
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S4-CLR80X50X15X2",
+      "check": "6.4.1 web shear",
+      "value": 5.92202813202,
+      "limit": 133.33333333333331,
+      "dc": 0.04441521099015001,
+      "ok": true,
+      "combo": "DL+1.0W_X",
+      "clause": "IS 801 6.4.1(a)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.3333333333333333
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S4-CLR80X50X15X2",
+      "check": "6.5 web crippling at track (end reaction)",
+      "value": 1291.0839384828,
+      "limit": 6600.950791193849,
+      "dc": 0.19559060191831765,
+      "ok": true,
+      "combo": "DL+1.0W_X",
+      "clause": "IS 801 6.5(a)(1)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.3333333333333333
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S4-CLR80X50X15X2",
+      "check": "deflection",
+      "value": 9.51,
+      "limit": 11.0,
+      "dc": 0.8648107724019841,
+      "ok": true,
+      "combo": "DL+1.0WL (service)",
+      "clause": "IS 801 5.1 (no limit); criterion L/300: IS 800:2007 Table 6, other buildings, lateral deflection under wind, elastic cladding: height/300, read for the stud span between floors (stated default: IS 801 5.1 sets no limit and Table 6 has no stud row; 5.6.1 allows a stricter value where the finish is vulnerable to cracking)",
+      "capacity_basis": "IS800_Table6",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S4-CLR80X50X15X2",
+      "check": "5.2.4(a) web h/t",
+      "value": 35.0,
+      "limit": 150.0,
+      "dc": 0.23333333333333334,
+      "ok": true,
+      "combo": "geometry",
+      "clause": "IS 801 5.2.4 (a)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S4-CLR80X50X15X2",
+      "check": "5.2.3(a) flange w/t (simple-lip stiffened)",
+      "value": 20.0,
+      "limit": 60.0,
+      "dc": 0.3333333333333333,
+      "ok": true,
+      "combo": "geometry",
+      "clause": "IS 801 5.2.3 (a)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S4-CLR80X50X15X2",
+      "check": "5.2.3(c) lip w/t (unstiffened)",
+      "value": 5.0,
+      "limit": 60.0,
+      "dc": 0.08333333333333333,
+      "ok": true,
+      "combo": "geometry",
+      "clause": "IS 801 5.2.3 (c)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "joist-CLR250X50X20X3.15",
+      "check": "6.1/6.2/6.3 bending",
+      "value": 10542656.25,
+      "limit": 11124000.0,
+      "dc": 0.9477396844660194,
+      "ok": true,
+      "combo": "DL+IL",
+      "clause": "IS 801 6.1 / 6.2 / 6.3 / 5.2.1.1 / 6.1.2",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "joist-CLR250X50X20X3.15",
+      "check": "6.4.1 web shear",
+      "value": 10.88627049180328,
+      "limit": 84.89654597885539,
+      "dc": 0.12822983981603506,
+      "ok": true,
+      "combo": "DL+IL",
+      "clause": "IS 801 6.4.1(a)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "joist-CLR250X50X20X3.15",
+      "check": "6.5 web crippling (end reaction)",
+      "value": 8032.5,
+      "limit": 11957.312503133933,
+      "dc": 0.6717646626610063,
+      "ok": true,
+      "combo": "DL+IL",
+      "clause": "IS 801 6.5(a)(1)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "joist-CLR250X50X20X3.15",
+      "check": "6.4.3 web bending + shear (quarter point)",
+      "value": 0.16688418953081727,
+      "limit": 1.0,
+      "dc": 0.16688418953081727,
+      "ok": true,
+      "combo": "DL+IL",
+      "clause": "IS 801 6.4.3",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "joist-CLR250X50X20X3.15",
+      "check": "deflection under imposed load",
+      "value": 10.49,
+      "limit": 14.583333333333334,
+      "dc": 0.7194796320560186,
+      "ok": true,
+      "combo": "IL (service)",
+      "clause": "IS 801 5.1 (no limit); criterion L/360: IS 800:2007 Table 6; project adopts L/360 floors and L/240 cladding",
+      "capacity_basis": "IS800_Table6",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "joist-CLR250X50X20X3.15",
+      "check": "5.2.4(a) web h/t",
+      "value": 74.36,
+      "limit": 150.0,
+      "dc": 0.49574603174603177,
+      "ok": true,
+      "combo": "geometry",
+      "clause": "IS 801 5.2.4 (a)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "joist-CLR250X50X20X3.15",
+      "check": "5.2.3(a) flange w/t (simple-lip stiffened)",
+      "value": 10.87,
+      "limit": 60.0,
+      "dc": 0.18116402116402114,
+      "ok": true,
+      "combo": "geometry",
+      "clause": "IS 801 5.2.3 (a)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "joist-CLR250X50X20X3.15",
+      "check": "5.2.3(c) lip w/t (unstiffened)",
+      "value": 3.85,
+      "limit": 60.0,
+      "dc": 0.06412698412698412,
+      "ok": true,
+      "combo": "geometry",
+      "clause": "IS 801 5.2.3 (c)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "purlin-CLR250X50X25X4",
+      "check": "6.1/6.2/6.3 bending (gravity, top flange in compression)",
+      "value": 12477865.932291705,
+      "limit": 14040000.0,
+      "dc": 0.8887368897643665,
+      "ok": true,
+      "combo": "DL+IL",
+      "clause": "IS 801 6.1 / 6.2 / 6.3 / 5.2.1.1 / 6.1.2",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "purlin-CLR250X50X25X4",
+      "check": "6.4.1 web shear",
+      "value": 8.797554823369566,
+      "limit": 100.00000000000001,
+      "dc": 0.08797554823369565,
+      "ok": true,
+      "combo": "DL+IL",
+      "clause": "IS 801 6.4.1(a)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "purlin-CLR250X50X25X4",
+      "check": "6.5 web crippling (support)",
+      "value": 8093.750437500001,
+      "limit": 36740.57902837023,
+      "dc": 0.22029458031268895,
+      "ok": true,
+      "combo": "DL+IL",
+      "clause": "IS 801 6.5(a)(2)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "purlin-CLR250X50X25X4",
+      "check": "6.1/6.2/6.3 bending (uplift, bottom flange in compression)",
+      "value": 8740611.412117764,
+      "limit": 17699237.768083386,
+      "dc": 0.49384112054133206,
+      "ok": true,
+      "combo": "0.9DL+1.0W_X",
+      "clause": "IS 801 6.1 / 6.2 / 6.3 / 5.2.1.1 / 6.1.2",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.3333333333333333
+    },
+    {
+      "group": "cfs_member",
+      "member": "purlin-CLR250X50X25X4",
+      "check": "sag rod M20 tension (declared)",
+      "value": 2844.1,
+      "limit": 45868.5,
+      "dc": 0.062005550679117914,
+      "ok": true,
+      "combo": "bracing (governing w)",
+      "clause": "IS 800:2007 11.2.1 / 6.3.1 (working stress)",
+      "capacity_basis": "IS800_WSM",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "purlin-CLR250X50X25X4",
+      "check": "deflection",
+      "value": 25.23,
+      "limit": 25.694445833333337,
+      "dc": 0.9819510902490761,
+      "ok": true,
+      "combo": "service",
+      "clause": "IS 801 5.1 (no limit); criterion L/240: IS 800:2007 Table 6; project adopts L/360 floors and L/240 cladding",
+      "capacity_basis": "IS800_Table6",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "purlin-CLR250X50X25X4",
+      "check": "5.2.4(a) web h/t",
+      "value": 57.5,
+      "limit": 150.0,
+      "dc": 0.38333333333333336,
+      "ok": true,
+      "combo": "geometry",
+      "clause": "IS 801 5.2.4 (a)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "purlin-CLR250X50X25X4",
+      "check": "5.2.3(a) flange w/t (simple-lip stiffened)",
+      "value": 7.5,
+      "limit": 60.0,
+      "dc": 0.125,
+      "ok": true,
+      "combo": "geometry",
+      "clause": "IS 801 5.2.3 (a)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "purlin-CLR250X50X25X4",
+      "check": "5.2.3(c) lip w/t (unstiffened)",
+      "value": 3.75,
+      "limit": 60.0,
+      "dc": 0.0625,
+      "ok": true,
+      "combo": "geometry",
+      "clause": "IS 801 5.2.3 (c)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_connection",
+      "member": "purlin-cleat-CLR250X50X25X4",
+      "check": "bolts in the purlin web: 7.5.1 edge / spacing",
+      "value": 24.000000000000004,
+      "limit": 30.0,
+      "dc": 0.8000000000000002,
+      "ok": true,
+      "combo": "DL",
+      "clause": "IS 801 7.5.1",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_connection",
+      "member": "purlin-cleat-CLR250X50X25X4",
+      "check": "bolts in the purlin web: 7.5.3 bearing",
+      "value": 42.154950195312495,
+      "limit": 525.0,
+      "dc": 0.08029514322916666,
+      "ok": true,
+      "combo": "DL+IL",
+      "clause": "IS 801 7.5.3",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_connection",
+      "member": "purlin-cleat-CLR250X50X25X4",
+      "check": "bolts in the purlin web: 7.5.4 bolt shear",
+      "value": 13.418337398753286,
+      "limit": 80.41453,
+      "dc": 0.1668645877648391,
+      "ok": true,
+      "combo": "DL+IL",
+      "clause": "IS 801 7.5.4",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_connection",
+      "member": "purlin-cleat-CLR250X50X25X4",
+      "check": "cleat compression + minor-axis bending (IS 800 11.5.2)",
+      "value": 0.21134785683155233,
+      "limit": 1.0,
+      "dc": 0.21134785683155233,
+      "ok": true,
+      "combo": "DL+IL",
+      "clause": "IS 800:2007 11.5.2 (a), 11.3.1, 7.1.2.1, 11.4.1 (c)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_connection",
+      "member": "purlin-cleat-CLR250X50X25X4",
+      "check": "cleat fillet welds (IS 800 11.6.3.1)",
+      "value": 23.956188337053575,
+      "limit": 100.0,
+      "dc": 0.23956188337053574,
+      "ok": true,
+      "combo": "DL+IL",
+      "clause": "IS 800:2007 11.6.3.1",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_connection",
+      "member": "purlin-cleat-CLR250X50X25X4",
+      "check": "cleat tension + minor-axis bending (IS 800 11.5.3)",
+      "value": 0.13788277599230886,
+      "limit": 1.0,
+      "dc": 0.13788277599230886,
+      "ok": true,
+      "combo": "0.9DL+1.0W_X",
+      "clause": "IS 800:2007 11.5.3, 11.2.1 (a), 11.4.1 (c)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    }
+  ],
+  "native_member_groups": [
+    {
+      "id": "stud-S1-CLR80X50X15X2",
+      "role": "stud",
+      "section": "CLR80X50X15X2",
+      "n_ply": 1,
+      "DC": 0.6136380564076537,
+      "ok": true,
+      "length_mm": 3000.0,
+      "storey": 1,
+      "Fy_MPa": 250.0
+    },
+    {
+      "id": "stud-S2-CLR80X50X15X2",
+      "role": "stud",
+      "section": "CLR80X50X15X2",
+      "n_ply": 1,
+      "DC": 0.8503940359807163,
+      "ok": true,
+      "length_mm": 3300.0,
+      "storey": 2,
+      "Fy_MPa": 250.0
+    },
+    {
+      "id": "stud-S3-CLR80X50X15X2",
+      "role": "stud",
+      "section": "CLR80X50X15X2",
+      "n_ply": 1,
+      "DC": 0.8503940359807163,
+      "ok": true,
+      "length_mm": 3300.0,
+      "storey": 3,
+      "Fy_MPa": 250.0
+    },
+    {
+      "id": "stud-S4-CLR80X50X15X2",
+      "role": "stud",
+      "section": "CLR80X50X15X2",
+      "n_ply": 1,
+      "DC": 0.8988445995675137,
+      "ok": true,
+      "length_mm": 3300.0,
+      "storey": 4,
+      "Fy_MPa": 250.0
+    },
+    {
+      "id": "joist-CLR250X50X20X3.15",
+      "role": "joist",
+      "section": "CLR250X50X20X3.15",
+      "n_ply": 1,
+      "DC": 0.9477396844660194,
+      "ok": true,
+      "length_mm": 5250.0,
+      "Fy_MPa": 250.0
+    },
+    {
+      "id": "purlin-CLR250X50X25X4",
+      "role": "purlin",
+      "section": "CLR250X50X25X4",
+      "n_ply": 1,
+      "DC": 0.9819510902490761,
+      "ok": true,
+      "length_mm": 6166.667,
+      "Fy_MPa": 250.0
+    }
+  ],
+  "native_lateral": {
+    "system": "SCBF",
+    "R": 4.5,
+    "R_x": null,
+    "R_y": null,
+    "method": "RSA",
+    "drift": [
+      {
+        "storey": 1,
+        "dir": "X",
+        "drift": 7.7e-05,
+        "limit": 0.004,
+        "value": 7.671046212576902e-05,
+        "dc": 0.019177615531442257,
+        "ok": true,
+        "clause": "IS 1893 7.11.1.1 (edges, 7.8.2 eccentricity, gamma 1.0)"
+      },
+      {
+        "storey": 2,
+        "dir": "X",
+        "drift": 0.000101,
+        "limit": 0.004,
+        "value": 0.00010116645747960186,
+        "dc": 0.025291614369900465,
+        "ok": true,
+        "clause": "IS 1893 7.11.1.1 (edges, 7.8.2 eccentricity, gamma 1.0)"
+      },
+      {
+        "storey": 3,
+        "dir": "X",
+        "drift": 8.6e-05,
+        "limit": 0.004,
+        "value": 8.625653052588667e-05,
+        "dc": 0.021564132631471666,
+        "ok": true,
+        "clause": "IS 1893 7.11.1.1 (edges, 7.8.2 eccentricity, gamma 1.0)"
+      },
+      {
+        "storey": 4,
+        "dir": "X",
+        "drift": 5.6e-05,
+        "limit": 0.004,
+        "value": 5.620543892096615e-05,
+        "dc": 0.014051359730241537,
+        "ok": true,
+        "clause": "IS 1893 7.11.1.1 (edges, 7.8.2 eccentricity, gamma 1.0)"
+      },
+      {
+        "storey": 1,
+        "dir": "Y",
+        "drift": 5.4e-05,
+        "limit": 0.004,
+        "value": 5.437566536926058e-05,
+        "dc": 0.013593916342315144,
+        "ok": true,
+        "clause": "IS 1893 7.11.1.1 (edges, 7.8.2 eccentricity, gamma 1.0)"
+      },
+      {
+        "storey": 2,
+        "dir": "Y",
+        "drift": 6.4e-05,
+        "limit": 0.004,
+        "value": 6.426646328768309e-05,
+        "dc": 0.01606661582192077,
+        "ok": true,
+        "clause": "IS 1893 7.11.1.1 (edges, 7.8.2 eccentricity, gamma 1.0)"
+      },
+      {
+        "storey": 3,
+        "dir": "Y",
+        "drift": 7.5e-05,
+        "limit": 0.004,
+        "value": 7.511994017528699e-05,
+        "dc": 0.018779985043821747,
+        "ok": true,
+        "clause": "IS 1893 7.11.1.1 (edges, 7.8.2 eccentricity, gamma 1.0)"
+      },
+      {
+        "storey": 4,
+        "dir": "Y",
+        "drift": 5.4e-05,
+        "limit": 0.004,
+        "value": 5.394607239606373e-05,
+        "dc": 0.013486518099015932,
+        "ok": true,
+        "clause": "IS 1893 7.11.1.1 (edges, 7.8.2 eccentricity, gamma 1.0)"
+      }
+    ],
+    "seismic": {
+      "zone": "III",
+      "Z": 0.16,
+      "I": 1.2,
+      "R": 4.5,
+      "soil": "medium",
+      "W_kN": 14347.868,
+      "R_x": 4.5,
+      "Ta_x_s": 0.19086722426151978,
+      "R_y": 4.5,
+      "Ta_y_s": 0.25335097056398714,
+      "Ta_s": 0.1909,
+      "Sa_g": 2.5,
+      "Ah": 0.053333,
+      "VB_kN": 765.22
+    },
+    "members": [
+      {
+        "id": "floor-WPB360X300X163",
+        "role": "floor",
+        "section": "WPB360X300X163",
+        "DC": 0.5066474538090796,
+        "governing_combo": "1.5DL+1.5LL+N_X",
+        "n": 148,
+        "value": 0.5066474538090796,
+        "limit": 1.0,
+        "governing_check": "IS 800 9.3 interaction / member resistance (governing combination 1.5DL+1.5LL)",
+        "governing_clause": "IS 800:2007 7.1.2, 8.2, 8.4, 9.3; Table 2/3/10",
+        "strength_dc": 0.5066474538090796,
+        "strength_combo": "1.5DL+1.5LL",
+        "slenderness_ratio": 0.2803738317757009,
+        "KL_r": 70.09345794392523,
+        "KL_r_limit": 250
+      },
+      {
+        "id": "roof-WPB360X300X163",
+        "role": "roof",
+        "section": "WPB360X300X163",
+        "DC": 0.1289359337531095,
+        "governing_combo": "1.5DL+1.5LL",
+        "n": 58,
+        "value": 0.1289359337531095,
+        "limit": 1.0,
+        "governing_check": "IS 800 9.3 interaction / member resistance (governing combination 1.5DL+1.5LL)",
+        "governing_clause": "IS 800:2007 7.1.2, 8.2, 8.4, 9.3; Table 2/3/10",
+        "strength_dc": 0.1289359337531095,
+        "strength_combo": "1.5DL+1.5LL",
+        "slenderness_ratio": 0.06675567423230974,
+        "KL_r": 20.026702269692922,
+        "KL_r_limit": 300
+      },
+      {
+        "id": "brace-WPB250X250X117.58",
+        "role": "brace",
+        "section": "WPB250X250X117.58",
+        "DC": 0.5941322470453955,
+        "governing_combo": "1.5DL-1.5EQ_X[eb]",
+        "n": 88,
+        "value": 106.94380446817117,
+        "limit": 180,
+        "governing_check": "IS 800 Table 3 slenderness KL/r (element e237, combination 1.5DL+1.5LL-N_X; the largest in the group)",
+        "governing_clause": "IS 800:2007 3.8 / Table 3",
+        "strength_dc": 0.13323629791833036,
+        "strength_combo": "1.2DL+1.2LL-1.2EQ_X[ea]",
+        "slenderness_ratio": 0.5941322470453954,
+        "KL_r": 106.94380446817117,
+        "KL_r_limit": 180
+      },
+      {
+        "id": "gravity_col-WPB400X400X239.62",
+        "role": "gravity_col",
+        "section": "WPB400X400X239.62",
+        "DC": 0.21736861507233102,
+        "governing_combo": "1.5DL+1.5LL",
+        "n": 50,
+        "value": 0.21736861507233102,
+        "limit": 1.0,
+        "governing_check": "IS 800 9.3 interaction / member resistance (governing combination 1.5DL+1.5LL+N_X)",
+        "governing_clause": "IS 800:2007 7.1.2, 8.2, 8.4, 9.3; Table 2/3/10",
+        "strength_dc": 0.21736861507233102,
+        "strength_combo": "1.5DL+1.5LL+N_X",
+        "slenderness_ratio": 0.18333333333333332,
+        "KL_r": 33.0,
+        "KL_r_limit": 180
+      },
+      {
+        "id": "lateral_col-WPB400X400X239.62",
+        "role": "lateral_col",
+        "section": "WPB400X400X239.62",
+        "DC": 0.20936511676086159,
+        "governing_combo": "1.5DL+1.5LL+N_Y",
+        "n": 76,
+        "value": 0.20936511676086159,
+        "limit": 1.0,
+        "governing_check": "IS 800 9.3 interaction / member resistance (governing combination 1.5DL+1.5LL+N_Y)",
+        "governing_clause": "IS 800:2007 7.1.2, 8.2, 8.4, 9.3; Table 2/3/10",
+        "strength_dc": 0.20936511676086159,
+        "strength_combo": "1.5DL+1.5LL+N_Y",
+        "slenderness_ratio": 0.18333333333333332,
+        "KL_r": 33.0,
+        "KL_r_limit": 180
+      }
+    ],
+    "connections": [
+      {
+        "id": "conn-floor-WPB360X300X163",
+        "type": "beam-to-column",
+        "DC": 0.24709409926231532,
+        "not_evaluated": [],
+        "check_names": [
+          "beam-end shear connection: (V + N resultant) bolts_10_3",
+          "beam-end shear connection: (V + N resultant) plate_shear_8_4_1",
+          "beam-end shear connection: (V + N resultant) block_shear_6_4_1",
+          "beam-end shear connection: (V + N resultant) support_weld",
+          "beam-end bolts slip_service_10_4_3",
+          "12.4.2 weld type",
+          "12.4.1 bolt type"
+        ],
+        "all_checks_ok": true,
+        "value": 293264.96221616725,
+        "limit": 1186855.3846153845,
+        "governing_check": "beam-end shear connection: (V + N resultant) bolts_10_3",
+        "governing_clause": "IS 800:2007 10.3.2"
+      },
+      {
+        "id": "conn-roof-WPB360X300X163",
+        "type": "beam-to-column",
+        "DC": 0.08029720835288771,
+        "not_evaluated": [],
+        "check_names": [
+          "beam-end shear connection: (V + N resultant) bolts_10_3",
+          "beam-end shear connection: (V + N resultant) plate_shear_8_4_1",
+          "beam-end shear connection: (V + N resultant) block_shear_6_4_1",
+          "beam-end shear connection: (V + N resultant) support_weld",
+          "beam-end bolts slip_service_10_4_3",
+          "12.4.2 weld type",
+          "12.4.1 bolt type"
+        ],
+        "all_checks_ok": true,
+        "value": 95301.1741032082,
+        "limit": 1186855.3846153845,
+        "governing_check": "beam-end shear connection: (V + N resultant) bolts_10_3",
+        "governing_clause": "IS 800:2007 10.3.2"
+      },
+      {
+        "id": "conn-brace-WPB250X250X117.58",
+        "type": "brace-to-gusset",
+        "DC": 0.9067854778073383,
+        "not_evaluated": [],
+        "check_names": [
+          "brace end: brace_conn_bolts",
+          "brace end: brace_conn_welds",
+          "brace end: brace_conn_block_shear",
+          "brace end: gusset_whitmore_yield",
+          "brace end: gusset_out_of_plane_buckling",
+          "brace end: brace_conn_1p2Mp",
+          "brace end: 12.4.2_weld_type",
+          "brace end: 12.4.1_bolt_type",
+          "brace end: 12.4.3_no_load_sharing",
+          "brace end bolts slip_service_10_4_3"
+        ],
+        "all_checks_ok": true,
+        "value": 7330800.0,
+        "limit": 8084381.785343887,
+        "governing_check": "brace end: brace_conn_welds",
+        "governing_clause": "IS 800:2007 10.5.7.1.2 at 12.8.3.1 force"
+      },
+      {
+        "id": "conn-gravity_col-WPB400X400X239.62",
+        "type": "column splice / base",
+        "DC": 0.0628939762800528,
+        "not_evaluated": [],
+        "check_names": [
+          "column base (base-e23): bearing",
+          "column base (base-e23): anchor_tension_10_3_5",
+          "column base (base-e23): anchor_shear_10_3_3",
+          "column base (base-e23): anchor_combined_10_3_6",
+          "column base (base-e23): shear_key",
+          "column base (base-e23): geometry_anchor_pitch",
+          "column base (base-e23): geometry_anchor_edge",
+          "column base (base-e23): geometry_anchor_fit",
+          "column base (base-e23): anchorage_embedment",
+          "column base (base-e23): plate_thickness",
+          "column base (base-e23): gusset_outstand_table2",
+          "column base (base-e23): gusset_shear_8_4",
+          "column base (base-e23): gusset_bending",
+          "column base (base-e23): gusset_weld_to_column_10_5_7",
+          "column base (base-e23): gusset_weld_to_plate_10_5_7",
+          "column base (base-e23): y:bearing",
+          "column base (base-e23): y:anchor_tension_10_3_5",
+          "column base (base-e23): y:anchor_combined_10_3_6",
+          "column base (base-e23): y:plate_thickness",
+          "column base (base-e23): y:gusset_outstand_table2",
+          "column base (base-e23): y:gusset_shear_8_4",
+          "column base (base-e23): y:gusset_bending",
+          "column base (base-e23): y:gusset_weld_to_column_10_5_7",
+          "column base (base-e23): y:gusset_weld_to_plate_10_5_7",
+          "column base (base-e23): anchor_tension_biaxial_10_3_5",
+          "column base (base-e23): anchor_combined_biaxial_10_3_6",
+          "column base (base-e23): bearing_biaxial",
+          "column splice: cjp_parent_metal"
+        ],
+        "all_checks_ok": true,
+        "value": 11.572491635529717,
+        "limit": 184.0,
+        "governing_check": "column base (base-e23): gusset_weld_to_column_10_5_7",
+        "governing_clause": "IS 800:2007 10.5.7.1.2 / 10.5.10.2.2 / 7.4.2.1"
+      },
+      {
+        "id": "conn-lateral_col-WPB400X400X239.62",
+        "type": "column splice / base",
+        "DC": 0.9288325544453152,
+        "not_evaluated": [],
+        "check_names": [
+          "column base (base-e1): anchor_tension_10_3_5",
+          "column base (base-e1): anchor_shear_10_3_3",
+          "column base (base-e1): anchor_combined_10_3_6",
+          "column base (base-e1): shear_key",
+          "column base (base-e1): geometry_anchor_pitch",
+          "column base (base-e1): geometry_anchor_edge",
+          "column base (base-e1): geometry_anchor_fit",
+          "column base (base-e1): anchorage_embedment",
+          "column base (base-e1): plate_thickness",
+          "column base (base-e1): gusset_outstand_table2",
+          "column base (base-e1): gusset_shear_8_4",
+          "column base (base-e1): gusset_bending",
+          "column base (base-e1): gusset_weld_to_column_10_5_7",
+          "column base (base-e1): gusset_weld_to_plate_10_5_7",
+          "column base (base-e1): y:bearing",
+          "column base (base-e1): y:anchor_tension_10_3_5",
+          "column base (base-e1): y:anchor_combined_10_3_6",
+          "column base (base-e1): y:plate_thickness",
+          "column base (base-e1): y:gusset_outstand_table2",
+          "column base (base-e1): y:gusset_shear_8_4",
+          "column base (base-e1): y:gusset_bending",
+          "column base (base-e1): y:gusset_weld_to_column_10_5_7",
+          "column base (base-e1): y:gusset_weld_to_plate_10_5_7",
+          "column base (base-e1): anchor_tension_biaxial_10_3_5",
+          "column base (base-e1): anchor_combined_biaxial_10_3_6",
+          "column base (base-e1): bearing_biaxial",
+          "column splice: cjp_parent_metal"
+        ],
+        "all_checks_ok": true,
+        "value": 3606394.3127544676,
+        "limit": 3882717.3913043477,
+        "governing_check": "column base (base-e1): shear_key",
+        "governing_clause": "IS 800:2007 7.4.1 (base shear transfer) / 12.12.2; EOR shear key capacity"
+      }
+    ],
+    "wind_vs_eq": null,
+    "irregularity": {
+      "torsion": false,
+      "soft_storey": false,
+      "mass": true,
+      "vertical_geometric": false,
+      "reentrant": false,
+      "nonparallel": false,
+      "floating_columns": false,
+      "in_plane_discontinuity": false,
+      "strength": false,
+      "out_of_plane_offset": false,
+      "modes": false
+    },
+    "flexible_diaphragm_run": null,
+    "diaphragm": [
+      {
+        "storey": 1,
+        "dir": "X",
+        "F_EQ_N": 19951.456006682085,
+        "F_W_N": 41342.77118003759,
+        "governing": "EQ",
+        "v_unit_kN_per_m": 0.6811126660480927,
+        "chord_force_kN": 13.0644,
+        "dc": 0.05675938883734106,
+        "ok": true,
+        "demand_evaluated": true
+      },
+      {
+        "storey": 1,
+        "dir": "Y",
+        "F_EQ_N": 19951.456006682085,
+        "F_W_N": 89122.00178700002,
+        "governing": "W",
+        "v_unit_kN_per_m": 2.185019047619048,
+        "chord_force_kN": 14.979339088535582,
+        "dc": 0.18208492063492066,
+        "ok": true,
+        "demand_evaluated": true
+      },
+      {
+        "storey": 2,
+        "dir": "X",
+        "F_EQ_N": 161852.2445113511,
+        "F_W_N": 43311.474569563194,
+        "governing": "EQ",
+        "v_unit_kN_per_m": 4.009841518984606,
+        "chord_force_kN": 54.798385992889706,
+        "dc": 0.33415345991538387,
+        "ok": true,
+        "demand_evaluated": true
+      },
+      {
+        "storey": 2,
+        "dir": "Y",
+        "F_EQ_N": 161852.2445113511,
+        "F_W_N": 93365.90663400001,
+        "governing": "EQ",
+        "v_unit_kN_per_m": 2.506672861090426,
+        "chord_force_kN": 22.771639756182843,
+        "dc": 0.20888940509086884,
+        "ok": true,
+        "demand_evaluated": true
+      },
+      {
+        "storey": 3,
+        "dir": "X",
+        "F_EQ_N": 377018.77070352633,
+        "F_W_N": 43311.474569563194,
+        "governing": "EQ",
+        "v_unit_kN_per_m": 4.0998184479155695,
+        "chord_force_kN": 26.653405250030428,
+        "dc": 0.34165153732629744,
+        "ok": true,
+        "demand_evaluated": true
+      },
+      {
+        "storey": 3,
+        "dir": "Y",
+        "F_EQ_N": 377018.77070352633,
+        "F_W_N": 93365.90663400001,
+        "governing": "EQ",
+        "v_unit_kN_per_m": 6.852663739770301,
+        "chord_force_kN": 59.52336813414751,
+        "dc": 0.5710553116475251,
+        "ok": true,
+        "demand_evaluated": true
+      },
+      {
+        "storey": 4,
+        "dir": "X",
+        "F_EQ_N": 206397.1708392115,
+        "F_W_N": 22929.982522355433,
+        "governing": "EQ",
+        "v_unit_kN_per_m": 3.3684535830292943,
+        "chord_force_kN": 22.598899442734382,
+        "dc": 0.2807044652524412,
+        "ok": true,
+        "demand_evaluated": true
+      },
+      {
+        "storey": 4,
+        "dir": "Y",
+        "F_EQ_N": 206397.1708392115,
+        "F_W_N": 49429.8249731256,
+        "governing": "EQ",
+        "v_unit_kN_per_m": 4.016198960974768,
+        "chord_force_kN": 35.38946969330911,
+        "dc": 0.33468324674789734,
+        "ok": true,
+        "demand_evaluated": true
+      }
+    ]
+  },
+  "physical_layout": {
+    "roles": {
+      "column": 126,
+      "beam": 206,
+      "brace": 88,
+      "joist": 970,
+      "stud": 1160,
+      "purlin": 102
+    },
+    "panel_roles": {
+      "Floor": 60,
+      "Exterior wall": 76,
+      "Roof": 24
+    },
+    "part_counts": {
+      "plate": 2320,
+      "bolt": 12140,
+      "weld": 816
+    },
+    "joint_types": {
+      "Column base": 35,
+      "Beam shear connection": 412,
+      "Brace end": 176,
+      "Purlin cleat": 204
+    },
+    "panel_openings": 0,
+    "member_workpoint_top_mm": 12900.0,
+    "declared_roof_planes": [],
+    "floor_footprints_m": [
+      {
+        "level": 1,
+        "occupied_rectangles": [
+          [
+            0,
+            0,
+            37,
+            10.5
+          ]
+        ]
+      },
+      {
+        "level": 2,
+        "occupied_rectangles": [
+          [
+            0,
+            0,
+            37,
+            21
+          ]
+        ]
+      },
+      {
+        "level": 3,
+        "occupied_rectangles": [
+          [
+            0,
+            0,
+            37,
+            21
+          ]
+        ]
+      },
+      {
+        "level": 4,
+        "occupied_rectangles": [
+          [
+            0,
+            0,
+            37,
+            21
+          ]
+        ]
+      }
+    ]
+  },
+  "grounding": [
+    {
+      "stem": "IS_801_1975",
+      "query": "section 5.2",
+      "found": true,
+      "cite": "IS_801_1975 section 5.2, PDF p. 6",
+      "purpose": "cold-formed member",
+      "source_file": "IS_801_1975/indexes/sections.json",
+      "source_sha256": "87599eebf6e99e2f6bfa36886ddc9f56d9147c0d06c8d29eb94b374b18649021"
+    },
+    {
+      "stem": "IS_801_1975",
+      "query": "section 6.1",
+      "found": true,
+      "cite": "IS_801_1975 section 6.1, PDF p. 12",
+      "purpose": "cold-formed member",
+      "source_file": "IS_801_1975/indexes/sections.json",
+      "source_sha256": "87599eebf6e99e2f6bfa36886ddc9f56d9147c0d06c8d29eb94b374b18649021"
+    },
+    {
+      "stem": "IS_801_1975",
+      "query": "section 6.3",
+      "found": true,
+      "cite": "IS_801_1975 section 6.3, PDF p. 15",
+      "purpose": "cold-formed member",
+      "source_file": "IS_801_1975/indexes/sections.json",
+      "source_sha256": "87599eebf6e99e2f6bfa36886ddc9f56d9147c0d06c8d29eb94b374b18649021"
+    },
+    {
+      "stem": "IS_801_1975",
+      "query": "section 6.4",
+      "found": true,
+      "cite": "IS_801_1975 section 6.4, PDF p. 16",
+      "purpose": "cold-formed member",
+      "source_file": "IS_801_1975/indexes/sections.json",
+      "source_sha256": "87599eebf6e99e2f6bfa36886ddc9f56d9147c0d06c8d29eb94b374b18649021"
+    },
+    {
+      "stem": "IS_801_1975",
+      "query": "section 6.5",
+      "found": true,
+      "cite": "IS_801_1975 section 6.5, PDF p. 17",
+      "purpose": "cold-formed member",
+      "source_file": "IS_801_1975/indexes/sections.json",
+      "source_sha256": "87599eebf6e99e2f6bfa36886ddc9f56d9147c0d06c8d29eb94b374b18649021"
+    },
+    {
+      "stem": "IS_801_1975",
+      "query": "section 6.6",
+      "found": true,
+      "cite": "IS_801_1975 section 6.6, PDF p. 18",
+      "purpose": "cold-formed member",
+      "source_file": "IS_801_1975/indexes/sections.json",
+      "source_sha256": "87599eebf6e99e2f6bfa36886ddc9f56d9147c0d06c8d29eb94b374b18649021"
+    },
+    {
+      "stem": "IS_801_1975",
+      "query": "section 6.7",
+      "found": true,
+      "cite": "IS_801_1975 section 6.7, PDF p. 22",
+      "purpose": "cold-formed member",
+      "source_file": "IS_801_1975/indexes/sections.json",
+      "source_sha256": "87599eebf6e99e2f6bfa36886ddc9f56d9147c0d06c8d29eb94b374b18649021"
+    },
+    {
+      "stem": "IS_801_1975",
+      "query": "section 7.3",
+      "found": true,
+      "cite": "IS_801_1975 section 7.3, PDF p. 28",
+      "purpose": "cold-formed member",
+      "source_file": "IS_801_1975/markdown/pages_search/page_028.md",
+      "source_sha256": "aec6a0f8aec6dec459a59b223bbf0c341f4347c5d98efeb0b094509ae2031c8f"
+    },
+    {
+      "stem": "IS_801_1975",
+      "query": "section 7.5",
+      "found": true,
+      "cite": "IS_801_1975 section 7.5, PDF p. 30",
+      "purpose": "cold-formed member",
+      "source_file": "IS_801_1975/indexes/sections.json",
+      "source_sha256": "87599eebf6e99e2f6bfa36886ddc9f56d9147c0d06c8d29eb94b374b18649021"
+    },
+    {
+      "stem": "IS_801_1975",
+      "query": "section 8.1",
+      "found": true,
+      "cite": "IS_801_1975 section 8.1, PDF p. 31",
+      "purpose": "cold-formed member",
+      "source_file": "IS_801_1975/indexes/sections.json",
+      "source_sha256": "87599eebf6e99e2f6bfa36886ddc9f56d9147c0d06c8d29eb94b374b18649021"
+    },
+    {
+      "stem": "IS_801_1975",
+      "query": "section 8.2",
+      "found": true,
+      "cite": "IS_801_1975 section 8.2, PDF p. 33",
+      "purpose": "cold-formed member",
+      "source_file": "IS_801_1975/indexes/sections.json",
+      "source_sha256": "87599eebf6e99e2f6bfa36886ddc9f56d9147c0d06c8d29eb94b374b18649021"
+    },
+    {
+      "stem": "IS_811_1987",
+      "query": "table 3",
+      "found": true,
+      "cite": "IS_811_1987 table 3, PDF p. 12",
+      "purpose": "cold-formed section properties",
+      "source_file": "IS_811_1987/indexes/tables.json",
+      "source_sha256": "233268814fe3e7be90fbdc9b5829e17e685fc906a0b24256cf2319c92940634b"
+    },
+    {
+      "stem": "IS_811_1987",
+      "query": "table 4",
+      "found": true,
+      "cite": "IS_811_1987 table 4, PDF p. 14",
+      "purpose": "cold-formed section properties",
+      "source_file": "IS_811_1987/indexes/tables.json",
+      "source_sha256": "233268814fe3e7be90fbdc9b5829e17e685fc906a0b24256cf2319c92940634b"
+    },
+    {
+      "stem": "IS_875_Part_1_2026",
+      "query": "table 1",
+      "found": true,
+      "cite": "IS_875_Part_1_2026 table 1, PDF p. 4",
+      "purpose": "dead load",
+      "source_file": "IS_875_Part_1_2026/indexes/tables.json",
+      "source_sha256": "741cb4a0f3e9746696e81fe550be62fc503cb158876b26c0e37524e9008f4b2d"
+    },
+    {
+      "stem": "IS_875_Part_2_1987",
+      "query": "table 1",
+      "found": true,
+      "cite": "IS_875_Part_2_1987 table 1, PDF p. 9",
+      "purpose": "imposed load",
+      "source_file": "IS_875_Part_2_1987/indexes/tables.json",
+      "source_sha256": "76aada395beacebe01041b7c1263fb4926a7a633ab0c4e7d2bff15de6709ed23"
+    },
+    {
+      "stem": "IS_875_Part_2_1987",
+      "query": "table 2",
+      "found": true,
+      "cite": "IS_875_Part_2_1987 table 2, PDF p. 16",
+      "purpose": "imposed load",
+      "source_file": "IS_875_Part_2_1987/indexes/tables.json",
+      "source_sha256": "76aada395beacebe01041b7c1263fb4926a7a633ab0c4e7d2bff15de6709ed23"
+    },
+    {
+      "stem": "IS_875_Part_2_1987",
+      "query": "section 3.1.2",
+      "found": true,
+      "cite": "IS_875_Part_2_1987 section 3.1.2, PDF p. 14",
+      "purpose": "partition allowance",
+      "source_file": "IS_875_Part_2_1987/indexes/sections.json",
+      "source_sha256": "4c3294b3ae41393301831a81e7fdbb3a2e2119ebe2552b40072705ef5ecbd823"
+    },
+    {
+      "stem": "IS_875_Part_3_2015",
+      "query": "table 2",
+      "found": true,
+      "cite": "IS_875_Part_3_2015 table 2, PDF p. 10",
+      "purpose": "wind",
+      "source_file": "IS_875_Part_3_2015/indexes/tables.json",
+      "source_sha256": "ffdaf0575f9fd700bbb467b7d4e4a4f2c0575804f91868c7c4eb224b494766ca"
+    },
+    {
+      "stem": "IS_875_Part_3_2015",
+      "query": "table 4",
+      "found": true,
+      "cite": "IS_875_Part_3_2015 table 4, PDF p. 12",
+      "purpose": "wind",
+      "source_file": "IS_875_Part_3_2015/indexes/tables.json",
+      "source_sha256": "ffdaf0575f9fd700bbb467b7d4e4a4f2c0575804f91868c7c4eb224b494766ca"
+    },
+    {
+      "stem": "IS_875_Part_3_2015",
+      "query": "table 5",
+      "found": true,
+      "cite": "IS_875_Part_3_2015 table 5, PDF p. 15",
+      "purpose": "wind",
+      "source_file": "IS_875_Part_3_2015/indexes/tables.json",
+      "source_sha256": "ffdaf0575f9fd700bbb467b7d4e4a4f2c0575804f91868c7c4eb224b494766ca"
+    },
+    {
+      "stem": "IS_875_Part_3_2015",
+      "query": "table 6",
+      "found": true,
+      "cite": "IS_875_Part_3_2015 table 6, PDF p. 16",
+      "purpose": "wind",
+      "source_file": "IS_875_Part_3_2015/indexes/tables.json",
+      "source_sha256": "ffdaf0575f9fd700bbb467b7d4e4a4f2c0575804f91868c7c4eb224b494766ca"
+    },
+    {
+      "stem": "IS_875_Part_3_2015",
+      "query": "section 6.3.4",
+      "found": true,
+      "cite": "IS_875_Part_3_2015 section 6.3.4, PDF p. 10",
+      "purpose": "wind",
+      "source_file": "IS_875_Part_3_2015/indexes/sections.json",
+      "source_sha256": "1991beaab87f2cb8b9f7acbf2c25266255a2ffa459fbbad88e476073b067c7cc"
+    },
+    {
+      "stem": "IS_875_Part_3_2015",
+      "query": "section 7.2.1",
+      "found": true,
+      "cite": "IS_875_Part_3_2015 section 7.2.1, PDF p. 11",
+      "purpose": "wind",
+      "source_file": "IS_875_Part_3_2015/indexes/sections.json",
+      "source_sha256": "1991beaab87f2cb8b9f7acbf2c25266255a2ffa459fbbad88e476073b067c7cc"
+    },
+    {
+      "stem": "IS_875_Part_3_2015",
+      "query": "section 7.3",
+      "found": true,
+      "cite": "IS_875_Part_3_2015 section 7.3, PDF p. 12",
+      "purpose": "wind",
+      "source_file": "IS_875_Part_3_2015/indexes/sections.json",
+      "source_sha256": "1991beaab87f2cb8b9f7acbf2c25266255a2ffa459fbbad88e476073b067c7cc"
+    },
+    {
+      "stem": "IS_875_Part_5_1987",
+      "query": "section 8.1",
+      "found": true,
+      "cite": "IS_875_Part_5_1987 section 8.1, PDF p. 18",
+      "purpose": "working stress combinations",
+      "source_file": "IS_875_Part_5_1987/indexes/sections.json",
+      "source_sha256": "794001c5d3f5d8920f63fcdf531959630ab2c6e85d427be1c7dc053e4f525e70"
+    },
+    {
+      "stem": "IS_1893_Part_1_2016",
+      "query": "table 3",
+      "found": true,
+      "cite": "IS_1893_Part_1_2016 table 3, PDF p. 12",
+      "purpose": "seismic",
+      "source_file": "IS_1893_Part_1_2016/indexes/tables.json",
+      "source_sha256": "f4f11eb3347a51669b4825ce4557af08aab657792a08844c2bbfbd390ac228aa"
+    },
+    {
+      "stem": "IS_1893_Part_1_2016",
+      "query": "table 7",
+      "found": true,
+      "cite": "IS_1893_Part_1_2016 table 7, PDF p. 21",
+      "purpose": "seismic",
+      "source_file": "IS_1893_Part_1_2016/indexes/tables.json",
+      "source_sha256": "f4f11eb3347a51669b4825ce4557af08aab657792a08844c2bbfbd390ac228aa"
+    },
+    {
+      "stem": "IS_1893_Part_1_2016",
+      "query": "table 8",
+      "found": true,
+      "cite": "IS_1893_Part_1_2016 table 8, PDF p. 21",
+      "purpose": "seismic",
+      "source_file": "IS_1893_Part_1_2016/indexes/tables.json",
+      "source_sha256": "f4f11eb3347a51669b4825ce4557af08aab657792a08844c2bbfbd390ac228aa"
+    },
+    {
+      "stem": "IS_1893_Part_1_2016",
+      "query": "table 9",
+      "found": true,
+      "cite": "IS_1893_Part_1_2016 table 9, PDF p. 22",
+      "purpose": "seismic",
+      "source_file": "IS_1893_Part_1_2016/indexes/tables.json",
+      "source_sha256": "f4f11eb3347a51669b4825ce4557af08aab657792a08844c2bbfbd390ac228aa"
+    },
+    {
+      "stem": "IS_1893_Part_1_2016",
+      "query": "table 10",
+      "found": true,
+      "cite": "IS_1893_Part_1_2016 table 10, PDF p. 22",
+      "purpose": "seismic",
+      "source_file": "IS_1893_Part_1_2016/indexes/tables.json",
+      "source_sha256": "f4f11eb3347a51669b4825ce4557af08aab657792a08844c2bbfbd390ac228aa"
+    },
+    {
+      "stem": "IS_1893_Part_1_2016",
+      "query": "section 6.4.2",
+      "found": true,
+      "cite": "IS_1893_Part_1_2016 section 6.4.2, PDF p. 11",
+      "purpose": "seismic",
+      "source_file": "IS_1893_Part_1_2016/indexes/sections.json",
+      "source_sha256": "9f96819fa1867ecd3da865181b3a666abe591bde6e326fad0b53c08bc3ff715c"
+    },
+    {
+      "stem": "IS_1893_Part_1_2016",
+      "query": "section 7.7.1",
+      "found": true,
+      "cite": "IS_1893_Part_1_2016 section 7.7.1, PDF p. 25",
+      "purpose": "seismic",
+      "source_file": "IS_1893_Part_1_2016/indexes/sections.json",
+      "source_sha256": "9f96819fa1867ecd3da865181b3a666abe591bde6e326fad0b53c08bc3ff715c"
+    },
+    {
+      "stem": "IS_1893_Part_1_2016",
+      "query": "section 7.11.1",
+      "found": true,
+      "cite": "IS_1893_Part_1_2016 section 7.11.1, PDF p. 28",
+      "purpose": "seismic",
+      "source_file": "IS_1893_Part_1_2016/indexes/sections.json",
+      "source_sha256": "9f96819fa1867ecd3da865181b3a666abe591bde6e326fad0b53c08bc3ff715c"
+    },
+    {
+      "stem": "IS_800_2007",
+      "query": "table 6",
+      "found": true,
+      "cite": "IS_800_2007 table 6, PDF p. 37",
+      "purpose": "serviceability_limits_table6",
+      "source_file": "IS_800_2007/indexes/tables.json",
+      "source_sha256": "ac4e3b05f1c81992b3e5c310bac18cd5beb382b899cd084ad45643753de9436e"
+    },
+    {
+      "stem": "IS_800_2007",
+      "query": "table 4",
+      "found": true,
+      "cite": "IS_800_2007 table 4, PDF p. 35",
+      "purpose": "lateral_frame_is800",
+      "source_file": "IS_800_2007/indexes/tables.json",
+      "source_sha256": "ac4e3b05f1c81992b3e5c310bac18cd5beb382b899cd084ad45643753de9436e"
+    },
+    {
+      "stem": "IS_800_2007",
+      "query": "table 5",
+      "found": true,
+      "cite": "IS_800_2007 table 5, PDF p. 36",
+      "purpose": "lateral_frame_is800",
+      "source_file": "IS_800_2007/indexes/tables.json",
+      "source_sha256": "ac4e3b05f1c81992b3e5c310bac18cd5beb382b899cd084ad45643753de9436e"
+    },
+    {
+      "stem": "IS_800_2007",
+      "query": "section 12",
+      "found": true,
+      "cite": "IS_800_2007 section 12, PDF p. 93",
+      "purpose": "lateral_frame_is800",
+      "source_file": "IS_800_2007/markdown/pages_search/page_093.md",
+      "source_sha256": "96f98b81e71a3b8cbedf12ed244867b8b6153e8fac1c6a578d0b7a8a1712cb8e"
+    },
+    {
+      "stem": "IS_18168_2023",
+      "query": "section 1.3",
+      "found": true,
+      "cite": "IS_18168_2023 section 1.3, PDF p. 3",
+      "purpose": "lateral_frame_is800",
+      "source_file": "IS_18168_2023/indexes/sections.json",
+      "source_sha256": "44eb0397a8e58a52888808412dcb82773a3a8adaef752a81c4ef75cd6b990fba"
+    },
+    {
+      "stem": "IS_875_Part_3_2015",
+      "query": "Annex A Coimbatore",
+      "found": true,
+      "cite": "IS_875_Part_3_2015 Annex A Coimbatore, PDF p. 59",
+      "purpose": "design loads",
+      "source_file": "IS_875_Part_3_2015/tables/IS_875_Part_3_2015_Table_AnnexA_recovered.csv",
+      "source_sha256": "4d81896bccbae71a3cfa5a5de4c47542db1e537053d6cbaa660286ddd68fdcb6"
+    },
+    {
+      "stem": "IS_1893_Part_1_2016",
+      "query": "Annex E Coimbatore",
+      "found": true,
+      "cite": "IS_1893_Part_1_2016 Annex E Coimbatore, PDF p. 38",
+      "purpose": "design loads",
+      "source_file": "IS_1893_Part_1_2016/markdown/pages_recovered/page_038.md",
+      "source_sha256": "afea7c09e8c0e1ce86679fa1c17b2cdb18c9d5ab262539aa6459e1d295a7f541"
+    },
+    {
+      "stem": "IS_875_Part_4_1987",
+      "query": "site snow applicability",
+      "found": false,
+      "cite": "IS_875_Part_4_1987 site snow applicability",
+      "source": "Site is outside the snow region per brief",
+      "verify": true,
+      "value": 0
+    }
+  ],
+  "physical_member_count": 2652,
+  "physical_panel_count": 160,
+  "connection_occurrences": 827,
+  "profile_count": 6,
+  "handoff_sha256": "a15f2ef0c3cd5d41be117dfd7db3d6aebf11a27f6b8c3cbd181bcf96bb70bbdc",
+  "native_files": {
+    "design/calc_package_cfs.json": "495670fc12650a706e70244a0eea15297e0c130b7f7a6d1e245ca999bb76f6ac",
+    "cfg_snapshot.json": "a4e7f9b81950a5e560b39e605fd3709d258cb0d6588bdb9a7e965c3353614115",
+    "load_plan.json": "3ba2e7dfc75979e61903a817af221bb6a3f9dd5c4c524eca334f2f703dfb1777",
+    "STATUS.md": "e55e3c8c0c0bd8d04aba0fc41ed3a164b1998dbcf2c3fc744cd9b724d2a76b4a",
+    "EOR_inputs.json": "7b8e36e53be98ff65facb39eaea7328509634c36355bd257108d4c021f014634",
+    "report.html": "499807c13512b9467c6cd6d08c0456a5220ee92e964628db2203d920eb0badb6",
+    "viewer_3d.html": "b4f97104e08518948053550602eb1a67b834392e18d0f4c0a73e8f457d446554",
+    "lateral/IN_CFS_Ex6_lateral/design/calc_package.json": "423b6ec96d9d283147f0c643d82bfc005bdac3bf10d8acb49444739bd67f345b",
+    "lateral/IN_CFS_Ex6_lateral/design/member_schedule.csv": "6bab8d74fb069b97dff352673fe61c46638da800393977eafad79788da551e44",
+    "lateral/IN_CFS_Ex6_lateral/lateral_result.json": "5bc39df20c175e0a755b5dd3d531c18c78cd4c5792e5eb27868976c4d3bd7b85",
+    "lateral/IN_CFS_Ex6_lateral/report.html": "2fa6a6a625aaf05d777800b18bbf1905213c2590725c8afec839e690af6171ed",
+    "lateral/IN_CFS_Ex6_lateral/viewer_3d.html": "b4f97104e08518948053550602eb1a67b834392e18d0f4c0a73e8f457d446554"
+  }
+}

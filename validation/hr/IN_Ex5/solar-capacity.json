@@ -1,0 +1,131 @@
+{
+  "criterion": "All native member, seismic, connection and serviceability gates plus frozen IS 801 purlin checks.",
+  "datum": "Uniform added permanent PV load over the whole roof plan, kN/m²",
+  "resolution_kNm2": 0.01,
+  "last_passing_kNm2": 0.11,
+  "first_failing_kNm2": 0.12,
+  "history": [
+    {
+      "uniform_pv_kNm2": 0.0,
+      "section": "LZ280X75X20X2.55",
+      "dc": 0.9040069820374018,
+      "governing": "IS 801 gravity bending"
+    },
+    {
+      "uniform_pv_kNm2": 0.06,
+      "section": "LZ280X75X20X2.55",
+      "dc": 0.9524506336122049,
+      "governing": "IS 801 gravity bending"
+    },
+    {
+      "uniform_pv_kNm2": 0.09,
+      "section": "LZ280X75X20X2.55",
+      "dc": 0.9766724593996066,
+      "governing": "IS 801 gravity bending"
+    },
+    {
+      "uniform_pv_kNm2": 0.1,
+      "section": "LZ280X75X20X2.55",
+      "dc": 0.9847464013287404,
+      "governing": "IS 801 gravity bending"
+    },
+    {
+      "uniform_pv_kNm2": 0.11,
+      "section": "LZ280X75X20X2.55",
+      "dc": 0.9928203432578744,
+      "governing": "IS 801 gravity bending",
+      "native": {
+        "native_status": "complete",
+        "native_reasons": [],
+        "max_member_dc": 0.8763907940862672,
+        "max_connection_dc": 0.9762185601665416,
+        "native_gates": {
+          "esm_permitted": true,
+          "stability": true,
+          "drift_X": true,
+          "drift_Y": true,
+          "wind_defl_X": true,
+          "wind_defl_Y": true,
+          "beam_deflection": true,
+          "model_declared": true,
+          "model_consistent": true,
+          "model_complete": true
+        },
+        "sha256": "5a933668829f2cb9f77d65a5dedac0c457ff83e05c6244f6e9439d71a9cac36f"
+      }
+    },
+    {
+      "uniform_pv_kNm2": 0.12,
+      "section": "LZ280X75X20X2.55",
+      "dc": 1.0008942851870082,
+      "governing": "IS 801 gravity bending",
+      "native": {
+        "native_status": "complete",
+        "native_reasons": [],
+        "max_member_dc": 0.8763907940862672,
+        "max_connection_dc": 0.9762185601665416,
+        "native_gates": {
+          "esm_permitted": true,
+          "stability": true,
+          "drift_X": true,
+          "drift_Y": true,
+          "wind_defl_X": true,
+          "wind_defl_Y": true,
+          "beam_deflection": true,
+          "model_declared": true,
+          "model_consistent": true,
+          "model_complete": true
+        },
+        "sha256": "0678d3edb04f844a1ba908222c6b6665e2b449dd99361fb8e50cad32147ba5ab"
+      }
+    },
+    {
+      "uniform_pv_kNm2": 0.25,
+      "section": "LZ280X75X20X2.55",
+      "dc": 1.1058555302657482,
+      "governing": "IS 801 gravity bending"
+    }
+  ],
+  "covered_area_m2": 1687.5,
+  "covered_load_kNm2": 0.15,
+  "average_frame_load_kNm2": 0.1125,
+  "fields_mm": [
+    [
+      600,
+      12002.027027027027,
+      0,
+      37000.0
+    ],
+    [
+      600,
+      12002.027027027027,
+      38000.0,
+      75000
+    ],
+    [
+      17997.972972972973,
+      29400,
+      0,
+      37000.0
+    ],
+    [
+      17997.972972972973,
+      29400,
+      38000.0,
+      75000
+    ]
+  ],
+  "proposed_failure_count": 160,
+  "assessment": "Every purlin whose tributary strip intersects an array is conservatively checked at full covered load over the bay.",
+  "strengthening_options": [
+    "Lighter array and rail system",
+    "Supplemental purlins",
+    "Engineered reinforcement of existing Z sections and laps"
+  ],
+  "physical_member_count": 618,
+  "unquantified_physical_roles": [
+    "door jamb",
+    "door lintel",
+    "roof brace"
+  ]
+}
