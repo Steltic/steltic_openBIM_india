@@ -1,0 +1,5 @@
+* text=auto eol=lf
+validation/**/handoff.json -text
+*.gz binary
+*.zip binary
+*.pdf binary

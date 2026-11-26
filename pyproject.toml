@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "steltic-openbim-india"
+version = "0.1.0"
+description = "Metric drawings and IFC4 for Indian hot-rolled and cold-formed steel design handoffs"
+requires-python = ">=3.10"
+dependencies = ["ifcopenshell>=0.8.3,<1", "reportlab>=4.2", "shapely>=2.0,<3", "pypdf>=5", "pymupdf>=1.25"]
+
+[project.optional-dependencies]
+hub = ["fastapi>=0.110", "httpx>=0.27", "python-multipart>=0.0.9", "uvicorn>=0.27"]
+test = ["pytest>=8", "fastapi>=0.110", "httpx>=0.27", "python-multipart>=0.0.9", "uvicorn>=0.27"]
+
+[project.scripts]
+steltic-openbim-india = "steltic_openbim_india.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+steltic_openbim_india = ["static/*", "handoff.schema.json"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

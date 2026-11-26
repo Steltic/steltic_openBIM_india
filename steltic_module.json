@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "id": "steltic_openbim_india",
+  "name": "openBIM India",
+  "blurb": "Drawings, IFC4 delivery and model review for Steltic India HR and CFS.",
+  "order": 30,
+  "accent": "#245653",
+  "homepage": "https://github.com/Steltic/steltic_openBIM_india",
+  "source": {"url": "https://github.com/Steltic/steltic_openBIM_india", "branch": "main"},
+  "env": {"python": "3.12", "install": [".[hub]"]},
+  "env_vars": {"OPENBIM_JOBS": "{jobs_dir}", "HR_JOBS": "{data_dir}/modules_data/steltic_india/sessions/local/jobs", "CFS_JOBS": "{data_dir}/modules_data/steltic_CFS_india/sessions/local/jobs"},
+  "server": {"command": ["-m", "uvicorn", "steltic_openbim_india.webapp:app", "--host", "127.0.0.1", "--port", "{port}"], "health": "/healthz", "cwd": "{module_dir}"},
+  "output": {"root": "{job_dir}"},
+  "tabs": [
+    {"id": "drawings", "title": "Steltic import", "kind": "embed", "src": "/?project={job}"},
+    {"id": "ifc-import", "title": "IFC import", "kind": "embed", "src": "/ifc-import?project={job}"},
+    {"id": "ifc-export", "title": "IFC export", "kind": "embed", "src": "/ifc-export?project={job}"},
+    {"id": "files", "title": "Files", "kind": "files"}
+  ]
+}

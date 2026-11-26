@@ -1,0 +1,59 @@
+name: India drawing and IFC acceptance
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: python -m pip install '.[test]'
+      - run: python -m pytest -q
+
+  examples:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {module: hr, first: 1, last: 7}
+          - {module: hr, first: 8, last: 14}
+          - {module: hr, first: 15, last: 21}
+          - {module: cfs, first: 1, last: 5}
+          - {module: cfs, first: 6, last: 10}
+          - {module: cfs, first: 11, last: 15}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: python -m pip install .
+      - name: Generate and read back each PDF and IFC
+        shell: bash
+        env:
+          FAMILY: ${{ matrix.module }}
+          FIRST: ${{ matrix.first }}
+          LAST: ${{ matrix.last }}
+          OPENBLAS_NUM_THREADS: '1'
+          OMP_NUM_THREADS: '1'
+        run: |
+          cases=()
+          for (( n=FIRST; n<=LAST; n++ )); do
+            cases+=(--case "$FAMILY:$n")
+          done
+          python tools/validate_examples.py --output "$RUNNER_TEMP/deliveries" "${cases[@]}"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ${{ matrix.module }}-${{ matrix.first }}-${{ matrix.last }}-certificates
+          path: |
+            ${{ runner.temp }}/deliveries/validation*.json
+            ${{ runner.temp }}/deliveries/**/certificate.json

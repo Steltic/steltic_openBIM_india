@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Steltic openBIM India</title>
+  <link rel="stylesheet" href="./static/ifc_ui.css"><link rel="stylesheet" href="./static/india.css">
+  <script defer src="./static/ifc_viewer.js"></script><script defer src="./static/india.js"></script>
+</head>
+<body>
+  <header>
+    <div class="mast"><a href="./">Steltic <strong>openBIM India</strong></a>
+      <form id="project-form"><label>Project <input id="project" value="Project" required maxlength="100"></label><button>Open</button></form>
+    </div>
+    <nav aria-label="Workflow"><a href="./" data-tab="design">Steltic import</a><a href="./ifc-import" data-tab="import">IFC import</a><a href="./ifc-export" data-tab="export">IFC export</a></nav>
+  </header>
+  <main class="ifc-ui">
+    <section id="design" hidden><h1>Generate drawings and IFC</h1><p>Upload a physical handoff from an India HR or CFS design job.</p>
+      <form id="design-form" class="upload"><label>Design handoff <input name="file" type="file" accept=".json,application/json" required></label><button class="primary">Generate delivery</button></form>
+      <form id="job-form" class="upload" hidden><label>Local design job <select id="source-jobs"></select></label><button>Import job</button></form>
+    </section>
+    <section id="import" hidden><h1>Review an IFC model</h1><p>Inspect the source units, storeys, member profiles and three-dimensional geometry.</p>
+      <form id="import-form" class="upload"><label>IFC2x3, IFC4 or IFC4x3 <input name="file" type="file" accept=".ifc" required></label><button class="primary">Inspect IFC</button></form>
+      <section id="review-options" hidden><h2>Model review</h2>
+        <label>Imported model <select id="model"></select></label><p id="summary"></p>
+        <form id="review-form" class="options">
+          <label>Scope <select name="scope"><option value="all">All products</option><option value="structural">Structural products</option></select></label>
+          <label>Units <select name="units"><option value="auto">As declared</option><option>mm</option><option>m</option><option>ft</option><option>in</option></select></label>
+          <label>Storey <select id="storeys" name="storey"></select></label><label>Group <input name="group" placeholder="All" type="number" min="1"></label><button>Build 3D review</button>
+        </form>
+        <div id="viewer"></div>
+        <details><summary>Prepare an architectural brief for a new steel design</summary><form id="brief-form"><label>Design engine <select name="module"><option>HR</option><option>CFS</option></select></label><label>Site, loads, occupancy and design requirements <textarea name="brief" required maxlength="60000"></textarea></label><button>Generate brief</button></form></details>
+      </section>
+    </section>
+    <section id="export" hidden><h1>Project files</h1><p>Download a design delivery or the original bytes of an imported IFC. Each revision has its own source fingerprint.</p></section>
+    <p id="status" role="status"></p><section id="history" aria-label="Project revisions"></section>
+  </main>
+</body>
+</html>

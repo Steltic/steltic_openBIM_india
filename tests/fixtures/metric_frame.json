@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "project": {"id":"SI-FIXTURE","name":"Metric exchange regression frame","module":"HR","units":"mm","design_basis":["Synthetic exchange fixture; dimensions supplied directly."]},
+  "levels": [{"id":"Ground","elevation_mm":0},{"id":"Eaves","elevation_mm":3800},{"id":"Roof","elevation_mm":4200}],
+  "grids": {"x":[{"id":"A","coordinate_mm":0},{"id":"B","coordinate_mm":6000}],"y":[{"id":"1","coordinate_mm":0},{"id":"2","coordinate_mm":4000}]},
+  "materials": {"E250":{"grade":"E250","standard":"IS 2062","fy_mpa":250},"Sheet":{"grade":"G350","standard":"IS 277"},"Fastener":{"grade":"8.8","standard":"IS 1367"}},
+  "profiles": {
+    "I300":{"family":"I","dimensions_mm":{"d":300,"b":150,"tw":7,"tf":11}},
+    "I450":{"family":"I","dimensions_mm":{"d":450,"b":150,"tw":7,"tf":11}},
+    "C150":{"family":"C","dimensions_mm":{"d":150,"b":60,"t":2,"lip":15}},
+    "Rod16":{"family":"ROD","dimensions_mm":{"diameter":16}}
+  },
+  "members": [
+    {"id":"COL-1","role":"column","profile":"I300","material":"E250","start":[0,0,0],"end":[0,0,3800],"ref_direction":[0,1,0],"checks":["T1"]},
+    {"id":"COL-2","role":"column","profile":"I300","material":"E250","start":[6000,0,0],"end":[6000,0,3800]},
+    {"id":"COL-3","role":"column","profile":"I300","material":"E250","start":[0,4000,0],"end":[0,4000,3800]},
+    {"id":"RF-1","role":"rafter","profile":"I450","end_profile":"I300","material":"E250","start":[0,0,3800],"end":[6000,0,4200]},
+    {"id":"CFS-1","role":"girt","profile":"C150","material":"Sheet","start":[0,0,2000],"end":[0,4000,2000],"ref_direction":[0,0,1]},
+    {"id":"BR-1","role":"brace","profile":"Rod16","material":"E250","start":[0,0,0],"end":[0,4000,3800]}
+  ],
+  "panels": [{"id":"W1","role":"wall panel","material":"Sheet","thickness_mm":4,"outline":[[0,0,0],[6000,0,0],[6000,0,3800],[0,0,3800]],"openings":[[[2100,0,150],[3300,0,150],[3300,0,2100],[2100,0,2100]]]}],
+  "connections": [
+    {"id":"K1","type":"column base","at":[0,0,0],"members":["COL-1"],"description":"Located test plate, shaft and fillet.","parts":[
+      {"id":"P1","kind":"plate","material":"E250","outline":[[-180,-180,-16],[180,-180,-16],[180,180,-16],[-180,180,-16]],"thickness_mm":16},
+      {"id":"A1","kind":"bolt","material":"Fastener","start":[110,110,-80],"end":[110,110,12],"diameter_mm":16},
+      {"id":"WELD1","kind":"weld","material":"E250","start":[-75,-150,0],"end":[75,-150,0],"ref_direction":[0,-1,0],"leg_mm":6}]},
+    {"id":"K2","type":"eave joint","at":[0,0,3800],"members":["RF-1","COL-1"],"description":"Selected occurrence, fastener set-out open."}
+  ],
+  "checks":[{"id":"T1","description":"Synthetic transfer check","utilization":0.62,"status":"pass","reference":"fixture"}],
+  "assumptions":["Regression test geometry only."]
+}
