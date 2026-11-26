@@ -171,7 +171,8 @@ def package(args):
         names.extend(s for r in cases for s in r["supplements"])
         names.extend(n for n in ("README.md","acceptance.json","revision-checklist.md","comparison.json","corpus-verification.json",
                                  "visual-review.json","workflow-verification.json","roof-link-verification.json",
-                                 "cfs/engineering-review.md","cfs/replay-results.json","hr/engineering-review.md"))
+                                 "cfs/engineering-review.md","cfs/replay-results.json","hr/engineering-review.md",
+                                 "hr/verify_eave_edges.py","hr/verify_peb_bearings.py"))
         archive(args.output,((n,dest/n) for n in names))
     print(json.dumps(summary["totals"]))
 
