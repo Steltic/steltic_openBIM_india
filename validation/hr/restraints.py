@@ -70,6 +70,8 @@ def declare(case,u,cfg):
             overrides['e'+str(tag)]={'LLT_sag_mm':span,'LLT_hog_mm':span}
         if n==9 and data.get('physical_roles',{}).get(tag)=='lean-to purlin':
             overrides['e'+str(tag)]={'Ky':1/3,'Ly_mm':2500,'LLT_sag_mm':2500,'LLT_hog_mm':2500}
+        if n==9 and data.get('physical_roles',{}).get(tag)=='lean-to roof beam':
+            overrides['e'+str(tag)]={'Ky':1,'Ly_mm':3000,'LLT_sag_mm':3000,'LLT_hog_mm':3000}
         if n==21 and data.get('physical_roles',{}).get(tag)=='gable post':
             L=math.dist(a,b)
             # The new tie at mid-height connects to the sidewall girt lines.
@@ -85,6 +87,14 @@ def draw(model):
               'at':model.xyz(row['at']),'unit':model.u.name,'level':model.level(row['at'][2]),'members':ids,
               'description':'Connected crossing required for the declared compression length. Detail the continuous brace, interrupted brace and transverse restraint for both load reversals.'})
     if n==9:
+        import sections as S
+        depth=S.props(model.cfg['lean_beam'])['d']
+        for j in range(5):
+            y=j*model.u.sy*1000
+            for i in range(1,5):
+                x=-3000*i
+                model.member('lean-to girder flange brace','ISA75X75X6',(x,y,5000-depth/2),(x,y+(600 if j<4 else -600),5000),
+                             mid=f'LOW-FLY-{j}-{i}',bind=False)
         for j in range(4):
             for station in (1/3,2/3):
                 y=(j+station)*model.u.sy*1000

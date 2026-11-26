@@ -68,6 +68,7 @@ def brace_bays(case,u,k,allowed):
             continue
         bays=sorted({0,max(n-1,0)})
         if case.number==10: bays=[1,4] if ax=='X' else [0,3]
+        if case.number==13 and ax=='X':bays=[0,n//2,n-1]
         if case.number==14: bays=[1,2,3] if ax=='X' else list(range(n))
         if case.number==19 and u.name=='Flange':
             bays=([0,2,4] if ax=='X' else [0,1])
@@ -200,13 +201,25 @@ def make(case,u,corpus):
     if n==10:
         # True-slope girders carry a 15 m transverse tributary; the preceding
         # iteration failed both IS 800 interaction and roof service deflection.
-        g['roof_planes'][0]['rafter_sec']='WPB900X300X291.46'
-        g['beam_sec']['roof_Y']='WPB900X300X291.46'
+        g['roof_planes'][0]['rafter_sec']='WPB800X300X317.36'
+        g['beam_sec']['roof_Y']='WPB800X300X317.36'
     if n==7:g['brace_sec']={k:'WPB360X370X197.66' for k in g['brace_sec']}
+    if n==12 and u.name in ('Link','Gym'):
+        # The equal 17 m sides gave almost coincident modes in the link wing.
+        # Increase the section stiffness in the X perimeter direction and on
+        # the gym's 17 m clear-span line, preserving all pinned gravity bays.
+        g['beam_sec']['floor_X']='WPB800X300X317.36'
+        g['beam_sec']['roof_X']='WPB650X300X224.78'
+        if u.name=='Gym':g['beam_sec_by_line']['X1']='WPB800X300X317.36'
     if n==21:
         g['brace_sec']={k:'CHS244.5X8' for k in g['brace_sec']}
         g['beam_sec']['roof_Y']='CHS193.7X8'
         g['roof_planes'][0]['ridge_sec']='CHS193.7X8'
+    from transfer_members import decisions as transfer_decisions
+    final_selection=transfer_decisions(n,u.name)
+    if final_selection:
+        section_changes(case,u,g,final_selection)
+        refinement={**refinement,'sections':{**refinement.get('sections',{}),**{a:b for role in final_selection['sections'].values() for a,b in role.items()}}}
     use=('hospital' if n==14 else 'school' if n==12 else 'residential' if n==19 else 'commercial office' if n>=11 and n!=21 and u.name!='Workshop'
          else 'commercial retail' if n==10 else 'industrial')
     occ={'use':use,'area_m2':sum(areas(case,u)),'food_storage':False}
@@ -231,10 +244,20 @@ def make(case,u,corpus):
              LLT_sag_mm=min(u.sy/3,3.)*1000,LLT_hog_mm=u.sx*1000)
     cfg['diaphragm_7_6_4']={'basis':'Bare metal deck distributes roof inertia by tributary width.' if n==10 else
                               ('Roof plan bracing ties the frames.' if case.rise else 'Concrete topped steel deck acts in-plane.') }
+    if n==6 or 10<=n<=20:
+        # With a secondary spacing, Steltic's H13 one-way routine takes the
+        # secondary (not the sheet corrugation) direction in deck_span.
+        cfg['deck_span']='Y' if n in (11,12,13,14,16) else 'X'
+        across=u.sx if cfg['deck_span']=='Y' else u.sy
+        target=case.purlin_spacing if n==6 else 2.5 if n in (10,11) else 3.
+        cfg['secondary_spacing_mm']=1000*across/ceil(across/target)
+    if 6<=n<=21:
+        from secondary_weight import proposed as physical_dead_load
+        physical_dead_load(n,u,cfg)
     if n==9:
-        cfg['lean_beam']=refinement.get('sections',{}).get('MB600','MB600')
+        cfg['lean_beam']='WPB800X300X317.36'
         cfg['lean_purlin']='MC400'
-        cfg['lean_column']=refinement.get('sections',{}).get('WPB300X300X88.34','WPB300X300X88.34')
+        cfg['lean_column']='WPB400X400X239.62'
     if n==15:
         cfg['diaphragm_stiffness']=dict(type='metal_deck',topping_t_mm=100,fck_MPa=25,source='Trial design assumption',cite='IS 456 6.2.3.1; verify with decking engineer')
     if n==9:
@@ -260,6 +283,15 @@ def make(case,u,corpus):
     if 6<=n<=21:
         from joint_iteration import revise
         revise(case,u,cfg,refinement)
+        if n not in (15,19):
+            from seismic_details import revise as revise_seismic
+            revise_seismic(case,u,cfg)
+        if n==15:
+            from pune_ebf import revise as revise_pune
+            revise_pune(case,u,cfg,refinement,gr)
+        if n==19:
+            from guwahati import revise as revise_guwahati
+            revise_guwahati(case,u,cfg,refinement,gr)
     if n<=5:
         from peb_iteration import revise
         revise(case,u,cfg)
@@ -303,4 +335,12 @@ def make(case,u,corpus):
     cfg['load_plan']=plan
     from rolled_secondary import add as select_rolled_secondaries
     select_rolled_secondaries(cfg,case,u)
+    if case.rise:
+        cfg['roof_pitch_deg']=degrees(atan2(2*case.rise,u.nx*u.sx))
+    if n==10:
+        from roof_drainage import indore
+        indore(cfg)
+    if n==9:
+        from roof_drainage import shimla
+        shimla(cfg)
     return cfg

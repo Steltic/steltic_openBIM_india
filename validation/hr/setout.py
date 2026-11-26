@@ -15,6 +15,7 @@ def translate(data,unit,axis,delta):
         for ring in row.get('openings',[]):
             for pt in ring:translate_point(pt)
         for part in row.get('parts',[]):physical(part)
+        for opening in row.get('member_voids',[]):physical(opening)
         refs=row.get('source_elements') or ([row['source_element']] if 'source_element' in row else [])
         # Each reference carries a separate copy of its set-out, assigned after moving.
         for ref in refs:ref['offset_mm']=list(unit['origin_mm'])

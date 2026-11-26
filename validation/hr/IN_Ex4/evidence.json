@@ -41,17 +41,17 @@
         "soil": "II",
         "R_x": 5.0,
         "R_y": 4.5,
-        "W_kN": 4452.402,
+        "W_kN": 4951.902,
         "Ta_x_s": 0.4958,
         "Ta_y_s": 0.0996,
         "Sa_g_x": 2.5,
         "Sa_g_y": 2.5,
         "Ah_x": 0.06,
         "Ah_y": 0.066667,
-        "VB_x_kN": 267.144,
-        "VB_y_kN": 296.827,
+        "VB_x_kN": 297.114,
+        "VB_y_kN": 330.127,
         "W_by_floor_kN": [
-          4452.402
+          4951.902
         ]
       },
       "wind": {
@@ -73,17 +73,17 @@
         "rsa_used_in_demands": true,
         "scale_by_axis": {
           "X": {
-            "VB_rsa_kN": 267.14,
-            "VBbar_kN": 267.14,
+            "VB_rsa_kN": 297.11,
+            "VBbar_kN": 297.11,
             "scale": 1.0,
-            "VB_scaled_kN": 267.14,
+            "VB_scaled_kN": 297.11,
             "mass_participation": 1.0
           },
           "Y": {
-            "VB_rsa_kN": 296.83,
-            "VBbar_kN": 296.83,
+            "VB_rsa_kN": 330.13,
+            "VBbar_kN": 330.13,
             "scale": 1.0,
-            "VB_scaled_kN": 296.83,
+            "VB_scaled_kN": 330.13,
             "mass_participation": 1.0
           }
         }
@@ -294,6 +294,31 @@
         },
         {
           "found": true,
+          "cite": "IS 800 12.11.3.3, column restraint at both beam-flange levels",
+          "source_path": "IS_800_2007/markdown/pages_search/page_096.md",
+          "sha256": "c5965bf0c42cfba0f9fe5f3de4e48fd7644d6f5755c81beeda4965a5367ba3b9",
+          "selected_inputs": {
+            "minimum_fraction_of_beam_flange_strength": 0.02
+          },
+          "edition": "IS 800:2007",
+          "licensed_pdf": {
+            "file": "IS_800_2007.pdf",
+            "sha256": "06711fe3c87a3da0351806a9cdd87f014a7df974e9e07200a2dc0ddbc288617b"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 18168 section 6.2, seismic beam flange restraints",
+          "source_path": "IS_18168_2023/markdown/pages_search/page_009.md",
+          "sha256": "2a2409308eb11b9ea46e72917ff1531516105a4a1890925a7d894cae1405e270",
+          "edition": "IS 18168:2023",
+          "licensed_pdf": {
+            "file": "IS_18168_2023.pdf",
+            "sha256": "e3563ca3bbf2c1f0febb28278f1d081290cea32e4115c3e4dd52aa9f065bd415"
+          }
+        },
+        {
+          "found": true,
           "cite": "IS 875 Part 3, Annex A, Delhi",
           "source_path": "IS_875_Part_3_2015/tables/IS_875_Part_3_2015_Table_AnnexA_recovered.csv",
           "sha256": "4d81896bccbae71a3cfa5a5de4c47542db1e537053d6cbaa660286ddd68fdcb6",
@@ -378,9 +403,9 @@
         "governing_drift": {
           "storey": 1,
           "dir": "X",
-          "value": 0.0001671741046829295,
+          "value": 0.0001859335206445176,
           "limit": 0.004,
-          "dc": 0.04179352617073238,
+          "dc": 0.0464833801611294,
           "ok": true
         },
         "post_report_status_sha256": "ccd2ef5c5c2610557bc8e3c3d35adcfebe2b170e60f99d46b835ec035d19fcc2"
@@ -429,6 +454,13 @@
           "verified": true
         },
         {
+          "file": "IS_875_Part_1_2026.pdf",
+          "sha256": "510034f7a6678a4cbdde39ee8c139196febb20b041856a7428417db29b9837cc",
+          "pdf_page": 4,
+          "clause": "Thermal insulation, mineral or glass wool quilts and mats",
+          "verified": true
+        },
+        {
           "file": "IS_18168_2023.pdf",
           "sha256": "e3563ca3bbf2c1f0febb28278f1d081290cea32e4115c3e4dd52aa9f065bd415",
           "pdf_page": 7,
@@ -452,19 +484,19 @@
       ]
     }
   ],
-  "handoff_sha256": "9e07d834784e13c5c78d691dc008c6d61a7450498c9b67127cad07acefa29815",
-  "members": 898,
-  "panels": 44,
-  "connections": 123,
+  "handoff_sha256": "16c8ef867729272e9d9cc5eb567460b5665cd3d656a5c48913a24e1122e51c54",
+  "members": 962,
+  "panels": 74,
+  "connections": 667,
   "physical_profiles": 13,
   "source_evidence": {
     "producer": "steltic_india.openbim_handoff",
     "files": {
-      "design/calc_package.json": "592ab57a369f79f1729d4fb41a50521110ec05396271ca9941c0448d5f29963e",
-      "design/cfg_snapshot.json": "815dc905f9bdf80ff665bc6a179c47434f5ace5d3855cafbf5e8abf458b281e5",
-      "design/member_schedule.csv": "f1d2308536c88bc98b6ac296fc1d0ea1a1f1aac5c86a64d0a6e9126efad4da9e",
-      "report.html": "0afbfd4cb3bfb7da9118e0b307621298e0d8017b0086664ace6b60fd87b6a177",
-      "viewer_3d.html": "e92b95f6eaf7baf5a4ebe04ee06233295b1305c92abacf9fa0552133be3b3f42",
+      "design/calc_package.json": "4cb0a9d131e08b5d907b46d709cb9e9084d25afc23b19eb375f52db7c8d85919",
+      "design/cfg_snapshot.json": "eb7cdf14e1e285beae1c8ce360fb3a54bca92bd5fbca0a8c57bab00a91d45e84",
+      "design/member_schedule.csv": "922854f66e318c31da459438c2e978990caf8608e465756af8ad2da1157322bb",
+      "report.html": "25dbf91766e172acf7580b8eae708f5b527416003523d50341fe1637a6380339",
+      "viewer_3d.html": "b7073fd5865a5a50fce15a1fdcc6054650321dca62638abb149da3a74a4daab4",
       "STATUS.engine.md": "ccd2ef5c5c2610557bc8e3c3d35adcfebe2b170e60f99d46b835ec035d19fcc2"
     },
     "native_status": {
@@ -478,7 +510,12 @@
   "assumptions": [
     "Delhi/Gurugram site proxy; confirm zone and wind at 28.45 N, 76.82 E.",
     "Site soil Type II pending geotechnical confirmation.",
-    "Trial connection details and matched source member checks are recorded where available. Each unverified design item retains review status."
+    "Trial connection details and matched source member checks are recorded where available. Each unverified design item retains review status.",
+    "Rooflight openings and separate translucent sheets occupy 3% of the gross main roof in plan and on the slope. Producer design uses a 1.5 mm polycarbonate envelope allowance; the supplier confirms sheet grade, curb and trimmer details, fall protection, overlaps, fasteners and watertight seals.",
+    "The endwall sheeting is set on outward-facing IS 811 Z rails. Remaining triangular verge infill, local corner closure, lap lengths, gable cleats and cladding fasteners require envelope detailing.",
+    "The 50 mm roof insulation is included in roof dead load. The envelope supplier coordinates the thermal blanket, standing seam or profiled liner, spacers and sealed rooflight transitions.",
+    "The 230 mm masonry dado bears on its own plinth. Its out-of-plane ties, foundation and movement joints require local masonry and foundation detailing.",
+    "Portal eave and ridge values are fixed structural workline elevations. Across the main roof the inner skin is 845.2 mm vertically above that datum. The long façade is 821.0 mm outside the column grid. Roof and long-wall packing varies from 33.9 to 201.0 mm. The gable and door jamb attachments, outer cladding fixings, water seals and thermal movement require envelope-supplier details."
   ],
   "separation_joints": []
 }

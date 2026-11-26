@@ -50,8 +50,8 @@ def support_face(col,run):
     p=S.props(col['profile']);wide,deep,_=flange_frame(col)
     if abs(dot(run,wide))>abs(dot(run,deep)):
         # A perpendicular beam meets the web between flanges on an open I.
-        return (p['tw'] if p['section_type']=='I' else p['bf'])/2
-    return p['d']/2
+        return (p['tw'] if p['section_type']=='I' else p['bf'])/(2*abs(dot(run,wide)))
+    return p['d']/(2*abs(dot(run,deep)))
 
 
 def fin(model,row,beam,col,spec):
@@ -69,6 +69,10 @@ def fin(model,row,beam,col,spec):
     hole=[(edge+j*gauge,edge+i*spacing,radius) for j in range(lines) for i in range(n)]
     normal=cross(run,up)
     base=location(origin,(up,-height/2)); web=p['tw']
+    end=0 if math.dist(beam['start'],row['at'])<1 else 1
+    cuts=beam.setdefault('end_cutbacks_mm',[0.,0.])
+    cuts[end]=max(cuts[end],face)
+    drilled=p['section_type']=='I' and abs(dot(flange_frame(beam)[0],normal))>.9999
     offsets=[web/2] if spec.get('n_plates',1)==1 else [web/2,-web/2-thick]
     for i,offset in enumerate(offsets,1):
         part=plate(row['id']+f'-FIN{i}',location(base,(normal,offset)),run,up,width,height,thick,steel(model,spec.get('plate_grade')),hole)
@@ -77,9 +81,12 @@ def fin(model,row,beam,col,spec):
     for i,(x,y,r) in enumerate(hole,1):
         at=location(base,(run,x),(up,y))
         row['parts'].append(bolt(model,row['id']+f'-B{i}',at,normal,lo,web/2+thick,fast['d_mm'],fast['grade']))
+        if drilled:
+            beam.setdefault('member_voids',[]).append(dict(id=row['id']+f'-W{i}',kind='bore',connection=row['id'],
+                 start=location(at,(normal,-web/2-1.)),end=location(at,(normal,web/2+1.)),diameter_mm=2*r))
     row['parameters'].update(fin_plate_count=len(offsets),fin_thickness_mm=thick,fin_height_mm=height,fin_width_mm=width,
         hole_diameter_mm=2*radius,bolt_count=bolts,bolt_diameter_mm=fast['d_mm'],bolt_grade=str(fast['grade']),
-        bolt_lines=lines,edge_mm=edge,pitch_mm=spacing,gauge_mm=gauge)
+        bolt_lines=lines,edge_mm=edge,pitch_mm=spacing,gauge_mm=gauge,beam_web_holes=bolts if drilled else 0)
     return origin,run,lateral,up
 
 
@@ -123,6 +130,8 @@ def base(model,row,col,spec):
         v_column_depth_mm=p['d'],concrete_mpa=spec['fck_MPa'])
     if embed:row['parameters']['declared_embedment_mm']=embed
     row['description']='Base plate drilled for the selected perimeter anchor ring. Shaft model shows the steel grip and any declared embedment. Foundations, grout thickness and anchor hardware require coordination.'
+    from base_fabrication import detail as base_fabrication
+    base_fabrication(model,row,col,spec,corner,width,deep,pts)
 
 
 def gusset(model,row,brace,spec):
@@ -222,9 +231,9 @@ def detail(model):
                 axes=fin(model,row,beam,col,sh)
                 if moment and spec.get('cover_plate'):
                     cover(model,row,beam,axes,spec)
-                    row['description']='CJP beam flanges, fillet-welded cover plates and HSFG web fins. Fin holes model the selected bolt group. Coordinate the beam web drilling, CJP preparation, hardware and panel-zone assembly at fabrication.'
+                    row['description']='CJP beam flanges, fillet-welded cover plates and HSFG web fins. The schedule gives the selected bolt group and bored web count. Coordinate the CJP preparation, hardware and panel-zone assembly at fabrication.'
                 else:
-                    row['description']='HSFG bolts pass through the fin plate and beam-web grip. The selected fin height, bolt group and welded support edge are from the native design. Beam web drilling, cope and fabrication clearances require coordination.'
+                    row['description']='HSFG bolts pass through the selected fin plates. The schedule records the bored beam web and physical end set-out. Check any flange cope and fabrication clearances at the support.'
         for brace in braces:
             if brace['id'] in assigned:continue
             spec=specs.get('brace_end',{}).get(brace['profile'])

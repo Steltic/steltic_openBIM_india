@@ -2406,7 +2406,8 @@
           "native_element": 322
         }
       ]
-    }
+    },
+    "diaphragm_classification": {}
   },
   "physical_layout": {
     "roles": {
@@ -2927,5 +2928,6 @@
       "min_panel_underside_offset_mm": 470.0,
       "max_panel_underside_offset_mm": 470.0
     }
-  }
+  },
+  "native_warnings": []
 }

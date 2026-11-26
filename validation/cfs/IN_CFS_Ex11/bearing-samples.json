@@ -1,0 +1,145 @@
+[
+  {
+    "id": "Floor / WPB400X300X155.26 / CLR250X50X20X3.15",
+    "chain": [
+      "M00351",
+      "M01188",
+      "P0001"
+    ],
+    "normal": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "stations_mm": [
+      [
+        12.0,
+        40.0,
+        3200.0
+      ]
+    ],
+    "expected_gaps_mm": [
+      0.0,
+      0.0
+    ],
+    "tolerance_mm": 1.0,
+    "structural_datum_mm": 3000,
+    "panel_underside_above_datum_mm": 450.0
+  },
+  {
+    "id": "Amenity deck / WPB400X300X155.26 / 2xCLR250X50X25X4",
+    "chain": [
+      "M00987",
+      "J01745-7",
+      "M06440",
+      "P0349"
+    ],
+    "normal": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "stations_mm": [
+      [
+        40.0,
+        12.0,
+        14800.0
+      ]
+    ],
+    "expected_gaps_mm": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "tolerance_mm": 1.0,
+    "structural_datum_mm": 14600.0,
+    "panel_underside_above_datum_mm": 474.0
+  },
+  {
+    "id": "Pitched roof 0.0000/-0.1661/0.9861 / WPB400X300X155.26 / 2xCLR250X50X25X4",
+    "chain": [
+      "M01071",
+      "J01811-7",
+      "M06473",
+      "P0355"
+    ],
+    "normal": [
+      0.0,
+      -0.1660820115642897,
+      0.9861119436629693
+    ],
+    "stations_mm": [
+      [
+        40.0,
+        28874.63097,
+        15142.88206
+      ]
+    ],
+    "expected_gaps_mm": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "tolerance_mm": 1.0,
+    "structural_datum": "Original sloping primary workplane",
+    "panel_underside_normal_offset_mm": 474.0,
+    "vertical_plane_offset_mm": 480.676
+  },
+  {
+    "id": "Pitched roof -0.0000/0.1661/0.9861 / WPB400X300X155.26 / 2xCLR250X50X25X4",
+    "chain": [
+      "M01073",
+      "J01833-7",
+      "M06484",
+      "P0359"
+    ],
+    "normal": [
+      -0.0,
+      0.1660820115642897,
+      0.9861119436629693
+    ],
+    "stations_mm": [
+      [
+        40.0,
+        38449.03571,
+        16098.8961
+      ]
+    ],
+    "expected_gaps_mm": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "tolerance_mm": 1.0,
+    "structural_datum": "Original sloping primary workplane",
+    "panel_underside_normal_offset_mm": 474.0,
+    "vertical_plane_offset_mm": 480.676
+  },
+  {
+    "id": "Ceiling diaphragm / WPB400X300X155.26 / Ceiling-CLR180X80X25X4",
+    "chain": [
+      "M00992",
+      "P0354-CJ1",
+      "P0354"
+    ],
+    "normal": [
+      0,
+      0,
+      -1
+    ],
+    "stations_mm": [
+      [
+        35.0,
+        27387.833333333332,
+        14400.0
+      ]
+    ],
+    "expected_gaps_mm": [
+      0.0,
+      0.0
+    ],
+    "tolerance_mm": 1.0,
+    "structural_datum_mm": 14600.0,
+    "ceiling_top_below_datum_mm": 380.0
+  }
+]

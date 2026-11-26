@@ -48,24 +48,24 @@
         "soil": "II",
         "R_x": 5.0,
         "R_y": 5.0,
-        "W_kN": 93445.045,
+        "W_kN": 107947.837,
         "Ta_x_s": 0.364,
         "Ta_y_s": 0.4307,
         "Sa_g_x": 2.5,
         "Sa_g_y": 2.5,
         "Ah_x": 0.048,
         "Ah_y": 0.048,
-        "VB_x_kN": 4485.362,
-        "VB_y_kN": 4485.362,
+        "VB_x_kN": 5181.496,
+        "VB_y_kN": 5181.496,
         "W_by_floor_kN": [
-          15762.778,
-          15490.632,
-          15434.464,
-          15204.071,
-          11636.879,
-          8076.419,
-          7944.368,
-          3895.435
+          17747.064,
+          17401.827,
+          17345.492,
+          17363.393,
+          13756.06,
+          9723.365,
+          9673.07,
+          4937.566
         ]
       },
       "wind": {
@@ -87,17 +87,17 @@
         "rsa_used_in_demands": true,
         "scale_by_axis": {
           "X": {
-            "VB_rsa_kN": 3595.67,
-            "VBbar_kN": 4485.36,
-            "scale": 1.2474,
-            "VB_scaled_kN": 4485.36,
+            "VB_rsa_kN": 4365.84,
+            "VBbar_kN": 5181.5,
+            "scale": 1.1868,
+            "VB_scaled_kN": 5181.5,
             "mass_participation": 1.0
           },
           "Y": {
-            "VB_rsa_kN": 3333.43,
-            "VBbar_kN": 4485.36,
-            "scale": 1.3456,
-            "VB_scaled_kN": 4485.36,
+            "VB_rsa_kN": 4239.5,
+            "VBbar_kN": 5181.5,
+            "scale": 1.2222,
+            "VB_scaled_kN": 5181.5,
             "mass_participation": 1.0
           }
         }
@@ -324,6 +324,118 @@
         },
         {
           "found": true,
+          "cite": "IS 18168, 6.3.1",
+          "source_path": "IS_18168_2023/markdown/pages_search/page_009.md",
+          "sha256": "2a2409308eb11b9ea46e72917ff1531516105a4a1890925a7d894cae1405e270",
+          "selected_inputs": {
+            "link_section": "WPB400X400X239.62",
+            "brace_section": "WPB400X400X219.67",
+            "centre_link_length_mm": 900
+          },
+          "edition": "IS 18168:2023",
+          "licensed_pdf": {
+            "file": "IS_18168_2023.pdf",
+            "sha256": "e3563ca3bbf2c1f0febb28278f1d081290cea32e4115c3e4dd52aa9f065bd415"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 18168, 6.3.3",
+          "source_path": "IS_18168_2023/markdown/pages_search/page_010.md",
+          "sha256": "ab46e9fe85264598f7399b6853e07bc9a56122073db62cf34e93c5dd20fccd4f",
+          "selected_inputs": {
+            "link_section": "WPB400X400X239.62",
+            "brace_section": "WPB400X400X219.67",
+            "centre_link_length_mm": 900
+          },
+          "edition": "IS 18168:2023",
+          "licensed_pdf": {
+            "file": "IS_18168_2023.pdf",
+            "sha256": "e3563ca3bbf2c1f0febb28278f1d081290cea32e4115c3e4dd52aa9f065bd415"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 18168, 11.2 and 11.4.1",
+          "source_path": "IS_18168_2023/markdown/pages_search/page_015.md",
+          "sha256": "6b07fd8d554544546cd70508ff56855282020de353cdb28071213d0c8428e711",
+          "selected_inputs": {
+            "link_section": "WPB400X400X239.62",
+            "brace_section": "WPB400X400X219.67",
+            "centre_link_length_mm": 900
+          },
+          "edition": "IS 18168:2023",
+          "licensed_pdf": {
+            "file": "IS_18168_2023.pdf",
+            "sha256": "e3563ca3bbf2c1f0febb28278f1d081290cea32e4115c3e4dd52aa9f065bd415"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 18168, 11.4.2",
+          "source_path": "IS_18168_2023/markdown/pages_search/page_016.md",
+          "sha256": "606d074018d27472eb35e823963df41fc7efedfa412b852b65f65b001db6d143",
+          "selected_inputs": {
+            "link_section": "WPB400X400X239.62",
+            "brace_section": "WPB400X400X219.67",
+            "centre_link_length_mm": 900
+          },
+          "edition": "IS 18168:2023",
+          "licensed_pdf": {
+            "file": "IS_18168_2023.pdf",
+            "sha256": "e3563ca3bbf2c1f0febb28278f1d081290cea32e4115c3e4dd52aa9f065bd415"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 18168, 12.3.2.2 and 12.3.3",
+          "source_path": "IS_18168_2023/markdown/pages_search/page_021.md",
+          "sha256": "bc924e067ac70ab1db47a3bc694e68f7eb0df1a5d4eb338cd52c31c311eec1b1",
+          "selected_inputs": {
+            "link_section": "WPB400X400X239.62",
+            "brace_section": "WPB400X400X219.67",
+            "centre_link_length_mm": 900
+          },
+          "edition": "IS 18168:2023",
+          "licensed_pdf": {
+            "file": "IS_18168_2023.pdf",
+            "sha256": "e3563ca3bbf2c1f0febb28278f1d081290cea32e4115c3e4dd52aa9f065bd415"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 18168, 12.3.4.4 and 12.3.4.5",
+          "source_path": "IS_18168_2023/markdown/pages_search/page_022.md",
+          "sha256": "500595a455fc631fdcaf1db5793a820eb674110e9cf84e46d941a90270a923e7",
+          "selected_inputs": {
+            "link_section": "WPB400X400X239.62",
+            "brace_section": "WPB400X400X219.67",
+            "centre_link_length_mm": 900
+          },
+          "edition": "IS 18168:2023",
+          "licensed_pdf": {
+            "file": "IS_18168_2023.pdf",
+            "sha256": "e3563ca3bbf2c1f0febb28278f1d081290cea32e4115c3e4dd52aa9f065bd415"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 875 Part 2, 3.2.1 and exceptions",
+          "source_path": "IS_875_Part_2_1987/markdown/pages_search/page_014.md",
+          "sha256": "a38b90b378d942e51d6e5beebf9c142a66af025024d52d21b13181dc99a99d71",
+          "selected_inputs": {
+            "office_floor_imposed_kNm2": 4,
+            "partition_allowance_kNm2": 1,
+            "column_imposed_load_reduction": true
+          },
+          "edition": "IS 875 (Part 2):1987",
+          "licensed_pdf": {
+            "file": "IS_875_Part_2_1987.pdf",
+            "sha256": "9b77c1cd890b37df19b04ca8704d11e7657a45b36e8e124c6f30d36ab9044943"
+          }
+        },
+        {
+          "found": true,
           "cite": "IS 875 Part 3, Annex A, Pune",
           "source_path": "IS_875_Part_3_2015/tables/IS_875_Part_3_2015_Table_AnnexA_recovered.csv",
           "sha256": "4d81896bccbae71a3cfa5a5de4c47542db1e537053d6cbaa660286ddd68fdcb6",
@@ -501,12 +613,9 @@
         }
       ],
       "native_checks": {
-        "status": "partial",
-        "native_findings": 1341,
-        "finding_classes": {
-          "gates": 556,
-          "elements": 785
-        },
+        "status": "complete",
+        "native_findings": 0,
+        "finding_classes": {},
         "model_gates": {
           "rsa_X": true,
           "modalmass_X": true,
@@ -524,65 +633,1510 @@
         },
         "combination_count": 70,
         "members": {
-          "groups": 25,
-          "groups_with_numeric_dc": 25,
+          "groups": 19,
+          "groups_with_numeric_dc": 19,
           "groups_above_unity": 0,
-          "governing_group": "gravity_col-BOX650X650X16",
-          "governing_dc": 0.8353672627723183,
-          "section": "BOX650X650X16",
+          "governing_group": "gravity_col-WPB200X200X34.65",
+          "governing_dc": 0.8797209639667736,
+          "section": "WPB200X200X34.65",
           "limit_state": "IS 800 9.3 interaction / member resistance",
-          "governing_element": 63,
-          "governing_combination": "1.5DL+1.5LL"
+          "governing_element": 70,
+          "governing_combination": "1.5DL+1.5LL+N_X"
         },
         "connections": {
-          "groups": 25,
-          "groups_with_numeric_dc": 25,
-          "groups_above_unity": 3,
-          "governing_group": "conn-floor-WPB800X300X179.9",
-          "governing_dc": 14.026565464895636,
-          "section": "WPB800X300X179.9",
-          "limit_state": "IS 18168 12.3.4.4 12.3.4.4_column_strength (joint J700705-Y)",
+          "groups": 19,
+          "groups_with_numeric_dc": 19,
+          "groups_above_unity": 0,
+          "governing_group": "conn-floor-WPB400X400X239.62",
+          "governing_dc": 0.9329790790012837,
+          "section": "WPB400X400X239.62",
+          "limit_state": "beam-end shear connection: (V + N resultant) support_weld",
           "governing_element": null,
           "governing_combination": null
         },
         "governing_drift": {
           "storey": 6,
           "dir": "Y",
-          "value": 0.0004940413743818849,
-          "limit": 0.004,
-          "dc": 0.12351034359547124,
+          "value": 0.0004923902846625981,
+          "limit": 0.002,
+          "dc": 0.24619514233129902,
           "ok": true
+        },
+        "post_report_status_sha256": "e3d1068373c569415c888b5eedcb3fca5dace7407ce3f2bfba9e7290d82bdcc6"
+      },
+      "office_load_basis": {
+        "edition": "IS 875 Part 2:1987",
+        "locator": "Table 1(v)(b), printed page 9, PDF page 11",
+        "rooms_without_separate_storage_kNm2": 4.0,
+        "adopted_floor_live_kNm2": 4.0,
+        "partition_allowance_kNm2": 1.0,
+        "floor_live_seismic_participation": 0.5,
+        "seismic_locator": "IS 1893 Part 1:2016, Table 10"
+      },
+      "additional_dead_kNm2_by_level": {
+        "1": 0.9,
+        "2": 0.9,
+        "3": 0.9,
+        "4": 0.9,
+        "5": 0.75,
+        "6": 1.0,
+        "7": 1.0,
+        "8": 0.6
+      },
+      "one_way_load_path": {
+        "global_secondary_axis": "X",
+        "secondary_spacing_mm": 3000.0,
+        "primary_girder_axis": "Y",
+        "reference": "Steltic India one_way_trib_mm, actual adjacent floor bays and H13 secondary-strip load distribution."
+      },
+      "full_imposed_check": {
+        "status": "complete",
+        "calc_sha256": "4bd26f4e1387d0171265b428606a7109f8f69adf3d20dd89eb3b6b7101da1d96",
+        "parent_calc_sha256": "e5df64b928ac4b48d06c6cd8568935adaffdcb50691a71fca2024c5c140b89a9",
+        "columns": 12,
+        "column_max_dc": 0.9330838301689527,
+        "governing_column": "gravity_col-BOX650X650X16",
+        "available_reductions_by_storey": {
+          "5": [
+            0.4,
+            0.3,
+            0.2,
+            0.1,
+            0.0
+          ],
+          "8": [
+            0.4,
+            0.4,
+            0.4,
+            0.4,
+            0.3,
+            0.2,
+            0.1,
+            0.0
+          ]
+        }
+      },
+      "fabricated_sections": {
+        "ids": [
+          "BOX400X400X22",
+          "BOX400X400X32",
+          "BOX450X450X22",
+          "BOX500X500X25",
+          "BOX550X550X32",
+          "BOX650X650X16"
+        ],
+        "basis": "Independent sizing used fabricated members where the selected rolled families did not pass all trial demands. Confirm substitution and procurement where the brief specifies a rolled family."
+      },
+      "installed_bearing": {
+        "installed_surfaces": [
+          {
+            "panel": "Main-DECK-1-0-0",
+            "role": "floor deck",
+            "reference_elevation_mm": 4800.0,
+            "installed_soffit_elevation_mm": 5860.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-1-0-1",
+            "role": "floor deck",
+            "reference_elevation_mm": 4800.0,
+            "installed_soffit_elevation_mm": 5860.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-1-0-2",
+            "role": "floor deck",
+            "reference_elevation_mm": 4800.0,
+            "installed_soffit_elevation_mm": 5860.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-1-0-3",
+            "role": "floor deck",
+            "reference_elevation_mm": 4800.0,
+            "installed_soffit_elevation_mm": 5860.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-1-0-4",
+            "role": "floor deck",
+            "reference_elevation_mm": 4800.0,
+            "installed_soffit_elevation_mm": 5860.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-1-1-0",
+            "role": "floor deck",
+            "reference_elevation_mm": 4800.0,
+            "installed_soffit_elevation_mm": 5860.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-1-1-1",
+            "role": "floor deck",
+            "reference_elevation_mm": 4800.0,
+            "installed_soffit_elevation_mm": 5860.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-1-1-2",
+            "role": "floor deck",
+            "reference_elevation_mm": 4800.0,
+            "installed_soffit_elevation_mm": 5860.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-1-1-3",
+            "role": "floor deck",
+            "reference_elevation_mm": 4800.0,
+            "installed_soffit_elevation_mm": 5860.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-1-1-4",
+            "role": "floor deck",
+            "reference_elevation_mm": 4800.0,
+            "installed_soffit_elevation_mm": 5860.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-1-2-0",
+            "role": "floor deck",
+            "reference_elevation_mm": 4800.0,
+            "installed_soffit_elevation_mm": 5860.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-1-2-1",
+            "role": "floor deck",
+            "reference_elevation_mm": 4800.0,
+            "installed_soffit_elevation_mm": 5860.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-1-2-2",
+            "role": "floor deck",
+            "reference_elevation_mm": 4800.0,
+            "installed_soffit_elevation_mm": 5860.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-1-2-3",
+            "role": "floor deck",
+            "reference_elevation_mm": 4800.0,
+            "installed_soffit_elevation_mm": 5860.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-1-2-4",
+            "role": "floor deck",
+            "reference_elevation_mm": 4800.0,
+            "installed_soffit_elevation_mm": 5860.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-1-3-0",
+            "role": "floor deck",
+            "reference_elevation_mm": 4800.0,
+            "installed_soffit_elevation_mm": 5860.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-1-3-1",
+            "role": "floor deck",
+            "reference_elevation_mm": 4800.0,
+            "installed_soffit_elevation_mm": 5860.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-1-3-2",
+            "role": "floor deck",
+            "reference_elevation_mm": 4800.0,
+            "installed_soffit_elevation_mm": 5860.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-1-3-3",
+            "role": "floor deck",
+            "reference_elevation_mm": 4800.0,
+            "installed_soffit_elevation_mm": 5860.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-1-3-4",
+            "role": "floor deck",
+            "reference_elevation_mm": 4800.0,
+            "installed_soffit_elevation_mm": 5860.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-1-4-3",
+            "role": "floor deck",
+            "reference_elevation_mm": 4800.0,
+            "installed_soffit_elevation_mm": 5860.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-1-4-4",
+            "role": "floor deck",
+            "reference_elevation_mm": 4800.0,
+            "installed_soffit_elevation_mm": 5860.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-1-5-3",
+            "role": "floor deck",
+            "reference_elevation_mm": 4800.0,
+            "installed_soffit_elevation_mm": 5860.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-1-5-4",
+            "role": "floor deck",
+            "reference_elevation_mm": 4800.0,
+            "installed_soffit_elevation_mm": 5860.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-1-6-3",
+            "role": "floor deck",
+            "reference_elevation_mm": 4800.0,
+            "installed_soffit_elevation_mm": 5860.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-1-6-4",
+            "role": "floor deck",
+            "reference_elevation_mm": 4800.0,
+            "installed_soffit_elevation_mm": 5860.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-2-0-0",
+            "role": "floor deck",
+            "reference_elevation_mm": 8700.0,
+            "installed_soffit_elevation_mm": 9760.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-2-0-1",
+            "role": "floor deck",
+            "reference_elevation_mm": 8700.0,
+            "installed_soffit_elevation_mm": 9760.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-2-0-2",
+            "role": "floor deck",
+            "reference_elevation_mm": 8700.0,
+            "installed_soffit_elevation_mm": 9760.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-2-0-3",
+            "role": "floor deck",
+            "reference_elevation_mm": 8700.0,
+            "installed_soffit_elevation_mm": 9760.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-2-0-4",
+            "role": "floor deck",
+            "reference_elevation_mm": 8700.0,
+            "installed_soffit_elevation_mm": 9760.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-2-1-0",
+            "role": "floor deck",
+            "reference_elevation_mm": 8700.0,
+            "installed_soffit_elevation_mm": 9760.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-2-1-1",
+            "role": "floor deck",
+            "reference_elevation_mm": 8700.0,
+            "installed_soffit_elevation_mm": 9760.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-2-1-2",
+            "role": "floor deck",
+            "reference_elevation_mm": 8700.0,
+            "installed_soffit_elevation_mm": 9760.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-2-1-3",
+            "role": "floor deck",
+            "reference_elevation_mm": 8700.0,
+            "installed_soffit_elevation_mm": 9760.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-2-1-4",
+            "role": "floor deck",
+            "reference_elevation_mm": 8700.0,
+            "installed_soffit_elevation_mm": 9760.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-2-2-0",
+            "role": "floor deck",
+            "reference_elevation_mm": 8700.0,
+            "installed_soffit_elevation_mm": 9760.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-2-2-1",
+            "role": "floor deck",
+            "reference_elevation_mm": 8700.0,
+            "installed_soffit_elevation_mm": 9760.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-2-2-2",
+            "role": "floor deck",
+            "reference_elevation_mm": 8700.0,
+            "installed_soffit_elevation_mm": 9760.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-2-2-3",
+            "role": "floor deck",
+            "reference_elevation_mm": 8700.0,
+            "installed_soffit_elevation_mm": 9760.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-2-2-4",
+            "role": "floor deck",
+            "reference_elevation_mm": 8700.0,
+            "installed_soffit_elevation_mm": 9760.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-2-3-0",
+            "role": "floor deck",
+            "reference_elevation_mm": 8700.0,
+            "installed_soffit_elevation_mm": 9760.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-2-3-1",
+            "role": "floor deck",
+            "reference_elevation_mm": 8700.0,
+            "installed_soffit_elevation_mm": 9760.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-2-3-2",
+            "role": "floor deck",
+            "reference_elevation_mm": 8700.0,
+            "installed_soffit_elevation_mm": 9760.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-2-3-3",
+            "role": "floor deck",
+            "reference_elevation_mm": 8700.0,
+            "installed_soffit_elevation_mm": 9760.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-2-3-4",
+            "role": "floor deck",
+            "reference_elevation_mm": 8700.0,
+            "installed_soffit_elevation_mm": 9760.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-2-4-3",
+            "role": "floor deck",
+            "reference_elevation_mm": 8700.0,
+            "installed_soffit_elevation_mm": 9760.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-2-4-4",
+            "role": "floor deck",
+            "reference_elevation_mm": 8700.0,
+            "installed_soffit_elevation_mm": 9760.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-2-5-3",
+            "role": "floor deck",
+            "reference_elevation_mm": 8700.0,
+            "installed_soffit_elevation_mm": 9760.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-2-5-4",
+            "role": "floor deck",
+            "reference_elevation_mm": 8700.0,
+            "installed_soffit_elevation_mm": 9760.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-2-6-3",
+            "role": "floor deck",
+            "reference_elevation_mm": 8700.0,
+            "installed_soffit_elevation_mm": 9760.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-2-6-4",
+            "role": "floor deck",
+            "reference_elevation_mm": 8700.0,
+            "installed_soffit_elevation_mm": 9760.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-3-0-0",
+            "role": "floor deck",
+            "reference_elevation_mm": 12600.0,
+            "installed_soffit_elevation_mm": 13660.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-3-0-1",
+            "role": "floor deck",
+            "reference_elevation_mm": 12600.0,
+            "installed_soffit_elevation_mm": 13660.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-3-0-2",
+            "role": "floor deck",
+            "reference_elevation_mm": 12600.0,
+            "installed_soffit_elevation_mm": 13660.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-3-0-3",
+            "role": "floor deck",
+            "reference_elevation_mm": 12600.0,
+            "installed_soffit_elevation_mm": 13660.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-3-0-4",
+            "role": "floor deck",
+            "reference_elevation_mm": 12600.0,
+            "installed_soffit_elevation_mm": 13660.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-3-1-0",
+            "role": "floor deck",
+            "reference_elevation_mm": 12600.0,
+            "installed_soffit_elevation_mm": 13660.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-3-1-1",
+            "role": "floor deck",
+            "reference_elevation_mm": 12600.0,
+            "installed_soffit_elevation_mm": 13660.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-3-1-2",
+            "role": "floor deck",
+            "reference_elevation_mm": 12600.0,
+            "installed_soffit_elevation_mm": 13660.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-3-1-3",
+            "role": "floor deck",
+            "reference_elevation_mm": 12600.0,
+            "installed_soffit_elevation_mm": 13660.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-3-1-4",
+            "role": "floor deck",
+            "reference_elevation_mm": 12600.0,
+            "installed_soffit_elevation_mm": 13660.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-3-2-0",
+            "role": "floor deck",
+            "reference_elevation_mm": 12600.0,
+            "installed_soffit_elevation_mm": 13660.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-3-2-1",
+            "role": "floor deck",
+            "reference_elevation_mm": 12600.0,
+            "installed_soffit_elevation_mm": 13660.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-3-2-2",
+            "role": "floor deck",
+            "reference_elevation_mm": 12600.0,
+            "installed_soffit_elevation_mm": 13660.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-3-2-3",
+            "role": "floor deck",
+            "reference_elevation_mm": 12600.0,
+            "installed_soffit_elevation_mm": 13660.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-3-2-4",
+            "role": "floor deck",
+            "reference_elevation_mm": 12600.0,
+            "installed_soffit_elevation_mm": 13660.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-3-3-0",
+            "role": "floor deck",
+            "reference_elevation_mm": 12600.0,
+            "installed_soffit_elevation_mm": 13660.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-3-3-1",
+            "role": "floor deck",
+            "reference_elevation_mm": 12600.0,
+            "installed_soffit_elevation_mm": 13660.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-3-3-2",
+            "role": "floor deck",
+            "reference_elevation_mm": 12600.0,
+            "installed_soffit_elevation_mm": 13660.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-3-3-3",
+            "role": "floor deck",
+            "reference_elevation_mm": 12600.0,
+            "installed_soffit_elevation_mm": 13660.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-3-3-4",
+            "role": "floor deck",
+            "reference_elevation_mm": 12600.0,
+            "installed_soffit_elevation_mm": 13660.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-3-4-3",
+            "role": "floor deck",
+            "reference_elevation_mm": 12600.0,
+            "installed_soffit_elevation_mm": 13660.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-3-4-4",
+            "role": "floor deck",
+            "reference_elevation_mm": 12600.0,
+            "installed_soffit_elevation_mm": 13660.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-3-5-3",
+            "role": "floor deck",
+            "reference_elevation_mm": 12600.0,
+            "installed_soffit_elevation_mm": 13660.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-3-5-4",
+            "role": "floor deck",
+            "reference_elevation_mm": 12600.0,
+            "installed_soffit_elevation_mm": 13660.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-3-6-3",
+            "role": "floor deck",
+            "reference_elevation_mm": 12600.0,
+            "installed_soffit_elevation_mm": 13660.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-3-6-4",
+            "role": "floor deck",
+            "reference_elevation_mm": 12600.0,
+            "installed_soffit_elevation_mm": 13660.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-4-0-0",
+            "role": "floor deck",
+            "reference_elevation_mm": 16500.0,
+            "installed_soffit_elevation_mm": 17560.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-4-0-1",
+            "role": "floor deck",
+            "reference_elevation_mm": 16500.0,
+            "installed_soffit_elevation_mm": 17560.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-4-0-2",
+            "role": "floor deck",
+            "reference_elevation_mm": 16500.0,
+            "installed_soffit_elevation_mm": 17560.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-4-0-3",
+            "role": "floor deck",
+            "reference_elevation_mm": 16500.0,
+            "installed_soffit_elevation_mm": 17560.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-4-0-4",
+            "role": "floor deck",
+            "reference_elevation_mm": 16500.0,
+            "installed_soffit_elevation_mm": 17560.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-4-1-0",
+            "role": "floor deck",
+            "reference_elevation_mm": 16500.0,
+            "installed_soffit_elevation_mm": 17560.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-4-1-1",
+            "role": "floor deck",
+            "reference_elevation_mm": 16500.0,
+            "installed_soffit_elevation_mm": 17560.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-4-1-2",
+            "role": "floor deck",
+            "reference_elevation_mm": 16500.0,
+            "installed_soffit_elevation_mm": 17560.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-4-1-3",
+            "role": "floor deck",
+            "reference_elevation_mm": 16500.0,
+            "installed_soffit_elevation_mm": 17560.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-4-1-4",
+            "role": "floor deck",
+            "reference_elevation_mm": 16500.0,
+            "installed_soffit_elevation_mm": 17560.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-4-2-0",
+            "role": "floor deck",
+            "reference_elevation_mm": 16500.0,
+            "installed_soffit_elevation_mm": 17560.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-4-2-1",
+            "role": "floor deck",
+            "reference_elevation_mm": 16500.0,
+            "installed_soffit_elevation_mm": 17560.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-4-2-2",
+            "role": "floor deck",
+            "reference_elevation_mm": 16500.0,
+            "installed_soffit_elevation_mm": 17560.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-4-2-3",
+            "role": "floor deck",
+            "reference_elevation_mm": 16500.0,
+            "installed_soffit_elevation_mm": 17560.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-4-2-4",
+            "role": "floor deck",
+            "reference_elevation_mm": 16500.0,
+            "installed_soffit_elevation_mm": 17560.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-4-3-0",
+            "role": "floor deck",
+            "reference_elevation_mm": 16500.0,
+            "installed_soffit_elevation_mm": 17560.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-4-3-1",
+            "role": "floor deck",
+            "reference_elevation_mm": 16500.0,
+            "installed_soffit_elevation_mm": 17560.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-4-3-2",
+            "role": "floor deck",
+            "reference_elevation_mm": 16500.0,
+            "installed_soffit_elevation_mm": 17560.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-4-3-3",
+            "role": "floor deck",
+            "reference_elevation_mm": 16500.0,
+            "installed_soffit_elevation_mm": 17560.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-4-3-4",
+            "role": "floor deck",
+            "reference_elevation_mm": 16500.0,
+            "installed_soffit_elevation_mm": 17560.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-4-4-3",
+            "role": "floor deck",
+            "reference_elevation_mm": 16500.0,
+            "installed_soffit_elevation_mm": 17560.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-4-4-4",
+            "role": "floor deck",
+            "reference_elevation_mm": 16500.0,
+            "installed_soffit_elevation_mm": 17560.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-4-5-3",
+            "role": "floor deck",
+            "reference_elevation_mm": 16500.0,
+            "installed_soffit_elevation_mm": 17560.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-4-5-4",
+            "role": "floor deck",
+            "reference_elevation_mm": 16500.0,
+            "installed_soffit_elevation_mm": 17560.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-4-6-3",
+            "role": "floor deck",
+            "reference_elevation_mm": 16500.0,
+            "installed_soffit_elevation_mm": 17560.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-4-6-4",
+            "role": "floor deck",
+            "reference_elevation_mm": 16500.0,
+            "installed_soffit_elevation_mm": 17560.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-5-0-0",
+            "role": "roof deck",
+            "reference_elevation_mm": 20400.0,
+            "installed_soffit_elevation_mm": 21460.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-5-0-1",
+            "role": "roof deck",
+            "reference_elevation_mm": 20400.0,
+            "installed_soffit_elevation_mm": 21460.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-5-0-2",
+            "role": "roof deck",
+            "reference_elevation_mm": 20400.0,
+            "installed_soffit_elevation_mm": 21460.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-5-0-3",
+            "role": "floor deck",
+            "reference_elevation_mm": 20400.0,
+            "installed_soffit_elevation_mm": 21460.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-5-0-4",
+            "role": "floor deck",
+            "reference_elevation_mm": 20400.0,
+            "installed_soffit_elevation_mm": 21460.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-5-1-0",
+            "role": "roof deck",
+            "reference_elevation_mm": 20400.0,
+            "installed_soffit_elevation_mm": 21460.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-5-1-1",
+            "role": "roof deck",
+            "reference_elevation_mm": 20400.0,
+            "installed_soffit_elevation_mm": 21460.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-5-1-2",
+            "role": "roof deck",
+            "reference_elevation_mm": 20400.0,
+            "installed_soffit_elevation_mm": 21460.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-5-1-3",
+            "role": "floor deck",
+            "reference_elevation_mm": 20400.0,
+            "installed_soffit_elevation_mm": 21460.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-5-1-4",
+            "role": "floor deck",
+            "reference_elevation_mm": 20400.0,
+            "installed_soffit_elevation_mm": 21460.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-5-2-0",
+            "role": "roof deck",
+            "reference_elevation_mm": 20400.0,
+            "installed_soffit_elevation_mm": 21460.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-5-2-1",
+            "role": "roof deck",
+            "reference_elevation_mm": 20400.0,
+            "installed_soffit_elevation_mm": 21460.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-5-2-2",
+            "role": "roof deck",
+            "reference_elevation_mm": 20400.0,
+            "installed_soffit_elevation_mm": 21460.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-5-2-3",
+            "role": "floor deck",
+            "reference_elevation_mm": 20400.0,
+            "installed_soffit_elevation_mm": 21460.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-5-2-4",
+            "role": "floor deck",
+            "reference_elevation_mm": 20400.0,
+            "installed_soffit_elevation_mm": 21460.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-5-3-0",
+            "role": "roof deck",
+            "reference_elevation_mm": 20400.0,
+            "installed_soffit_elevation_mm": 21460.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-5-3-1",
+            "role": "roof deck",
+            "reference_elevation_mm": 20400.0,
+            "installed_soffit_elevation_mm": 21460.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-5-3-2",
+            "role": "roof deck",
+            "reference_elevation_mm": 20400.0,
+            "installed_soffit_elevation_mm": 21460.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-5-3-3",
+            "role": "floor deck",
+            "reference_elevation_mm": 20400.0,
+            "installed_soffit_elevation_mm": 21460.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-5-3-4",
+            "role": "floor deck",
+            "reference_elevation_mm": 20400.0,
+            "installed_soffit_elevation_mm": 21460.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-5-4-3",
+            "role": "floor deck",
+            "reference_elevation_mm": 20400.0,
+            "installed_soffit_elevation_mm": 21460.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-5-4-4",
+            "role": "floor deck",
+            "reference_elevation_mm": 20400.0,
+            "installed_soffit_elevation_mm": 21460.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-5-5-3",
+            "role": "floor deck",
+            "reference_elevation_mm": 20400.0,
+            "installed_soffit_elevation_mm": 21460.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-5-5-4",
+            "role": "floor deck",
+            "reference_elevation_mm": 20400.0,
+            "installed_soffit_elevation_mm": 21460.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-5-6-3",
+            "role": "floor deck",
+            "reference_elevation_mm": 20400.0,
+            "installed_soffit_elevation_mm": 21460.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-5-6-4",
+            "role": "floor deck",
+            "reference_elevation_mm": 20400.0,
+            "installed_soffit_elevation_mm": 21460.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-6-0-3",
+            "role": "floor deck",
+            "reference_elevation_mm": 24300.0,
+            "installed_soffit_elevation_mm": 25360.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-6-0-4",
+            "role": "floor deck",
+            "reference_elevation_mm": 24300.0,
+            "installed_soffit_elevation_mm": 25360.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-6-1-3",
+            "role": "floor deck",
+            "reference_elevation_mm": 24300.0,
+            "installed_soffit_elevation_mm": 25360.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-6-1-4",
+            "role": "floor deck",
+            "reference_elevation_mm": 24300.0,
+            "installed_soffit_elevation_mm": 25360.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-6-2-3",
+            "role": "floor deck",
+            "reference_elevation_mm": 24300.0,
+            "installed_soffit_elevation_mm": 25360.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-6-2-4",
+            "role": "floor deck",
+            "reference_elevation_mm": 24300.0,
+            "installed_soffit_elevation_mm": 25360.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-6-3-3",
+            "role": "floor deck",
+            "reference_elevation_mm": 24300.0,
+            "installed_soffit_elevation_mm": 25360.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-6-3-4",
+            "role": "floor deck",
+            "reference_elevation_mm": 24300.0,
+            "installed_soffit_elevation_mm": 25360.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-6-4-3",
+            "role": "floor deck",
+            "reference_elevation_mm": 24300.0,
+            "installed_soffit_elevation_mm": 25360.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-6-4-4",
+            "role": "floor deck",
+            "reference_elevation_mm": 24300.0,
+            "installed_soffit_elevation_mm": 25360.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-6-5-3",
+            "role": "floor deck",
+            "reference_elevation_mm": 24300.0,
+            "installed_soffit_elevation_mm": 25360.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-6-5-4",
+            "role": "floor deck",
+            "reference_elevation_mm": 24300.0,
+            "installed_soffit_elevation_mm": 25360.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-6-6-3",
+            "role": "floor deck",
+            "reference_elevation_mm": 24300.0,
+            "installed_soffit_elevation_mm": 25360.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-6-6-4",
+            "role": "floor deck",
+            "reference_elevation_mm": 24300.0,
+            "installed_soffit_elevation_mm": 25360.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-7-0-3",
+            "role": "floor deck",
+            "reference_elevation_mm": 28200.0,
+            "installed_soffit_elevation_mm": 29260.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-7-0-4",
+            "role": "floor deck",
+            "reference_elevation_mm": 28200.0,
+            "installed_soffit_elevation_mm": 29260.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-7-1-3",
+            "role": "floor deck",
+            "reference_elevation_mm": 28200.0,
+            "installed_soffit_elevation_mm": 29260.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-7-1-4",
+            "role": "floor deck",
+            "reference_elevation_mm": 28200.0,
+            "installed_soffit_elevation_mm": 29260.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-7-2-3",
+            "role": "floor deck",
+            "reference_elevation_mm": 28200.0,
+            "installed_soffit_elevation_mm": 29260.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-7-2-4",
+            "role": "floor deck",
+            "reference_elevation_mm": 28200.0,
+            "installed_soffit_elevation_mm": 29260.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-7-3-3",
+            "role": "floor deck",
+            "reference_elevation_mm": 28200.0,
+            "installed_soffit_elevation_mm": 29260.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-7-3-4",
+            "role": "floor deck",
+            "reference_elevation_mm": 28200.0,
+            "installed_soffit_elevation_mm": 29260.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-7-4-3",
+            "role": "floor deck",
+            "reference_elevation_mm": 28200.0,
+            "installed_soffit_elevation_mm": 29260.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-7-4-4",
+            "role": "floor deck",
+            "reference_elevation_mm": 28200.0,
+            "installed_soffit_elevation_mm": 29260.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-7-5-3",
+            "role": "floor deck",
+            "reference_elevation_mm": 28200.0,
+            "installed_soffit_elevation_mm": 29260.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-7-5-4",
+            "role": "floor deck",
+            "reference_elevation_mm": 28200.0,
+            "installed_soffit_elevation_mm": 29260.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-7-6-3",
+            "role": "floor deck",
+            "reference_elevation_mm": 28200.0,
+            "installed_soffit_elevation_mm": 29260.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-7-6-4",
+            "role": "floor deck",
+            "reference_elevation_mm": 28200.0,
+            "installed_soffit_elevation_mm": 29260.0,
+            "normal_offset_mm": 1060.0
+          },
+          {
+            "panel": "Main-DECK-8-0-3",
+            "role": "roof deck",
+            "reference_elevation_mm": 32100.0,
+            "installed_soffit_elevation_mm": 32840.0,
+            "normal_offset_mm": 740.0
+          },
+          {
+            "panel": "Main-DECK-8-0-4",
+            "role": "roof deck",
+            "reference_elevation_mm": 32100.0,
+            "installed_soffit_elevation_mm": 32840.0,
+            "normal_offset_mm": 740.0
+          },
+          {
+            "panel": "Main-DECK-8-1-3",
+            "role": "roof deck",
+            "reference_elevation_mm": 32100.0,
+            "installed_soffit_elevation_mm": 32840.0,
+            "normal_offset_mm": 740.0
+          },
+          {
+            "panel": "Main-DECK-8-1-4",
+            "role": "roof deck",
+            "reference_elevation_mm": 32100.0,
+            "installed_soffit_elevation_mm": 32840.0,
+            "normal_offset_mm": 740.0
+          },
+          {
+            "panel": "Main-DECK-8-2-3",
+            "role": "roof deck",
+            "reference_elevation_mm": 32100.0,
+            "installed_soffit_elevation_mm": 32840.0,
+            "normal_offset_mm": 740.0
+          },
+          {
+            "panel": "Main-DECK-8-2-4",
+            "role": "roof deck",
+            "reference_elevation_mm": 32100.0,
+            "installed_soffit_elevation_mm": 32840.0,
+            "normal_offset_mm": 740.0
+          },
+          {
+            "panel": "Main-DECK-8-3-3",
+            "role": "roof deck",
+            "reference_elevation_mm": 32100.0,
+            "installed_soffit_elevation_mm": 32840.0,
+            "normal_offset_mm": 740.0
+          },
+          {
+            "panel": "Main-DECK-8-3-4",
+            "role": "roof deck",
+            "reference_elevation_mm": 32100.0,
+            "installed_soffit_elevation_mm": 32840.0,
+            "normal_offset_mm": 740.0
+          },
+          {
+            "panel": "Main-DECK-8-4-3",
+            "role": "roof deck",
+            "reference_elevation_mm": 32100.0,
+            "installed_soffit_elevation_mm": 32840.0,
+            "normal_offset_mm": 740.0
+          },
+          {
+            "panel": "Main-DECK-8-4-4",
+            "role": "roof deck",
+            "reference_elevation_mm": 32100.0,
+            "installed_soffit_elevation_mm": 32840.0,
+            "normal_offset_mm": 740.0
+          },
+          {
+            "panel": "Main-DECK-8-5-3",
+            "role": "roof deck",
+            "reference_elevation_mm": 32100.0,
+            "installed_soffit_elevation_mm": 32840.0,
+            "normal_offset_mm": 740.0
+          },
+          {
+            "panel": "Main-DECK-8-5-4",
+            "role": "roof deck",
+            "reference_elevation_mm": 32100.0,
+            "installed_soffit_elevation_mm": 32840.0,
+            "normal_offset_mm": 740.0
+          },
+          {
+            "panel": "Main-DECK-8-6-3",
+            "role": "roof deck",
+            "reference_elevation_mm": 32100.0,
+            "installed_soffit_elevation_mm": 32840.0,
+            "normal_offset_mm": 740.0
+          },
+          {
+            "panel": "Main-DECK-8-6-4",
+            "role": "roof deck",
+            "reference_elevation_mm": 32100.0,
+            "installed_soffit_elevation_mm": 32840.0,
+            "normal_offset_mm": 740.0
+          }
+        ],
+        "seat_steel_mass_kg_by_source_level": {
+          "EL-4800": 9995.29,
+          "EL-8700": 9995.29,
+          "EL-12600": 9995.29,
+          "EL-16500": 9995.29,
+          "EL-20400": 10007.29,
+          "EL-24300": 6473.44,
+          "EL-28200": 6473.44,
+          "EL-32100": 2745.81
+        },
+        "added_boundary_bearer_mass_kg_by_source_level": {
+          "EL-4800": 5259.75,
+          "EL-8700": 5259.75,
+          "EL-12600": 5259.75,
+          "EL-16500": 5259.75,
+          "EL-20400": 5259.75,
+          "EL-24300": 3347.11,
+          "EL-28200": 3347.11,
+          "EL-32100": 3347.11
+        },
+        "source_workline_to_soffit": [
+          {
+            "roles": [
+              "floor deck"
+            ],
+            "normal": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "datum_mm": 4800.0,
+            "soffit_lift_mm": 1060.0,
+            "installed_secondary_count": 85
+          },
+          {
+            "roles": [
+              "floor deck"
+            ],
+            "normal": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "datum_mm": 8700.0,
+            "soffit_lift_mm": 1060.0,
+            "installed_secondary_count": 85
+          },
+          {
+            "roles": [
+              "floor deck"
+            ],
+            "normal": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "datum_mm": 12600.0,
+            "soffit_lift_mm": 1060.0,
+            "installed_secondary_count": 85
+          },
+          {
+            "roles": [
+              "floor deck"
+            ],
+            "normal": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "datum_mm": 16500.0,
+            "soffit_lift_mm": 1060.0,
+            "installed_secondary_count": 85
+          },
+          {
+            "roles": [
+              "floor deck",
+              "roof deck"
+            ],
+            "normal": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "datum_mm": 20400.0,
+            "soffit_lift_mm": 1060.0,
+            "installed_secondary_count": 85
+          },
+          {
+            "roles": [
+              "floor deck"
+            ],
+            "normal": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "datum_mm": 24300.0,
+            "soffit_lift_mm": 1060.0,
+            "installed_secondary_count": 49
+          },
+          {
+            "roles": [
+              "floor deck"
+            ],
+            "normal": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "datum_mm": 28200.0,
+            "soffit_lift_mm": 1060.0,
+            "installed_secondary_count": 49
+          },
+          {
+            "roles": [
+              "roof deck"
+            ],
+            "normal": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "datum_mm": 32100.0,
+            "soffit_lift_mm": 740.0,
+            "installed_secondary_count": 49
+          }
+        ],
+        "physical_receiver_contacts": 2968,
+        "open_contacts": []
+      },
+      "auxiliary_dead_load": {
+        "1": {
+          "physical_kg": 208836.1,
+          "plan_m2": 2106,
+          "actual_kNm2": 0.97278
+        },
+        "2": {
+          "physical_kg": 180679.4,
+          "plan_m2": 2106,
+          "actual_kNm2": 0.84163
+        },
+        "3": {
+          "physical_kg": 178702.2,
+          "plan_m2": 2106,
+          "actual_kNm2": 0.83242
+        },
+        "4": {
+          "physical_kg": 176049.3,
+          "plan_m2": 2106,
+          "actual_kNm2": 0.82006
+        },
+        "5": {
+          "physical_kg": 150724.3,
+          "plan_m2": 2106,
+          "actual_kNm2": 0.70209
+        },
+        "6": {
+          "physical_kg": 110025.3,
+          "plan_m2": 1134,
+          "actual_kNm2": 0.95181
+        },
+        "7": {
+          "physical_kg": 109124.9,
+          "plan_m2": 1134,
+          "actual_kNm2": 0.94402
+        },
+        "8": {
+          "physical_kg": 61311.3,
+          "plan_m2": 1134,
+          "actual_kNm2": 0.53039
         }
       }
     }
   ],
-  "handoff_sha256": "4829a7930d98c44e883d999e0f2fc3c9006dae852cdfcb502b03fc2fb9bcb0bb",
-  "members": 1882,
+  "handoff_sha256": "144923eef3d87fb9604907a93a6af0ee8f726248f5e57d52ae6e6c3dbd5a5d01",
+  "members": 2950,
   "panels": 172,
-  "connections": 726,
-  "physical_profiles": 18,
+  "connections": 5987,
+  "physical_profiles": 20,
   "source_evidence": {
     "producer": "steltic_india.openbim_handoff",
     "files": {
-      "design/calc_package.json": "6b7273d236d6484f00be5e2937551239636ca5e7c926c089cd8757182051457a",
-      "design/cfg_snapshot.json": "578e1623eeea90e17b681589aabab58d402327e3d20d56d0489450cbdddc9f2f",
-      "design/member_schedule.csv": "4e417da39d461fb82edd531de1d6028c8b20f4254330a0f6a9987a4f14b52fc8",
-      "report.html": "4ca2ceb2dbb438c81a0534a683f54d17fed5b0c4a63bd3d8e37f7baae1c1ca94",
-      "viewer_3d.html": "1467c1bfe597719dab10f0011a5d8a3c2a29fa791b6aa388a2ade36c907224bb",
-      "STATUS.engine.md": "7e9bbc2448e756be9429e22f5aa398a1c080dfc17dbdfce1ae2dc3a7ea42d61f"
+      "design/calc_package.json": "e5df64b928ac4b48d06c6cd8568935adaffdcb50691a71fca2024c5c140b89a9",
+      "design/cfg_snapshot.json": "9b3eb37fa1aeeb73d643aee36d0261ee13db03a262220cb198b5370a62a36343",
+      "design/member_schedule.csv": "aecc824d178d3d9af7656b8a094b5b9ea92cae942469bd76c5c94631874046a1",
+      "report.html": "f98cb46dcc9b10c6b33c0cd059d246d19a8de1caa9dffc2355a99304216c95de",
+      "viewer_3d.html": "82666d8d345890e35405dad8e5fdefb43c4e4ca403ef0f53d8da17c3d9cc4d20",
+      "STATUS.engine.md": "e3d1068373c569415c888b5eedcb3fca5dace7407ce3f2bfba9e7290d82bdcc6"
     },
     "native_status": {
-      "Main": "partial"
+      "Main": "complete"
     },
     "native_elements": 1538,
     "bound_elements": 1538,
     "open_items": []
   },
-  "checked_design_status": "fail",
+  "checked_design_status": "review",
   "assumptions": [
     "Assumed 100 mm concrete topping of fck 25 MPa; verify diaphragm stiffness and openings with deck supplier.",
     "Site soil Type II pending geotechnical confirmation.",
-    "Trial connection details and matched source member checks are recorded where available. Each unverified design item retains review status."
+    "Trial connection details and matched source member checks are recorded where available. Each unverified design item retains review status.",
+    "Form the circular link restraints from certified IS 2062 E250 B0 feedstock with a full-penetration longitudinal seam. IS 1161 Table 1 supplies finished dimensions. Axial design uses 250 MPa yield, 410 MPa tensile and the cold-formed hollow-section buckling curve.",
+    "Secondary joists, link flange restraints and connection steel are added to the primary model as 0.90 kN/m² at levels 1–4, 0.75 at level 5, 1.00 at levels 6–7 and 0.60 at the upper roof. The complete 100%-imposed companion envelopes floor-count differences at the five-storey leg and adjoining eight-storey column stacks."
   ],
   "separation_joints": []
 }

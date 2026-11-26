@@ -15,10 +15,10 @@ def decisions():
     return json.loads(DATA.read_bytes()) if DATA.exists() else {}
 
 
-def section_changes(case,unit,g):
+def section_changes(case,unit,g,trial=None):
     import hr_autosize as HR
     if case.number<=5:return {}
-    trial=decisions().get(str(case.number),{}).get(unit.name,{})
+    if trial is None:trial=decisions().get(str(case.number),{}).get(unit.name,{})
     names=trial.get('sections',{})
     def replace(role,name):
         selected=names.get(role,{}).get(name,name)
@@ -42,7 +42,7 @@ def section_changes(case,unit,g):
     return trial
 
 
-def select(case,unit,folder):
+def select(case,unit,folder,rolled_gravity=False):
     import hr_autosize as HR
     import india_is800 as I8
     import india_is18168 as I18
@@ -97,6 +97,8 @@ def select(case,unit,folder):
             candidates+= [HR.wi_label(d,b,tf,tw) for d in (700,850,1000,1200) for b in (350,450,550)
                            for tf,tw in ((32,20),(40,25),(50,32))]
         if sec.startswith('BOX') and kind=='col':candidates=[s for s in candidates if s.startswith('BOX')]
+        if rolled_gravity and role=='gravity_col' and not sec.startswith('BOX'):
+            candidates=[s for s in candidates if not s.startswith(('BOX','WI'))]
         for selected in sorted(set(candidates),key=HR.mass_kg_m):
             v=HR.props(selected); fy=I8.material_for_section(v,q['grade']).get('fy_MPa')
             if not fy or v['A']<old['A']*.96 or v['Ix']<min_ix or (kind=='col' and v['Iy']<old['Iy']*.95):continue
@@ -104,7 +106,7 @@ def select(case,unit,folder):
             else:KL=L
             if kind=='brace' and KL/min(v['rx'],v['ry'])>(119 if 'OCBF' in case.system else 157):continue
             if role=='lateral_col' and case.zone!='II' and L/min(v['rx'],v['ry'])>74:continue
-            if case.zone!='II' and (role in ('lateral_col','brace') or kind=='beam' and targeted):
+            if case.zone!='II' and (role in ('lateral_col','brace') or kind=='beam' and (targeted or rolled_gravity and 'SCBF' in case.system)):
                 component=('link' if 'is18168_table2_link' in kinds else role0)
                 if not I18.table2_check(component,v,fy,1.4,1.1*pmax/(fy*v['A'])).get('ok'):continue
                 if I8.section_class_table2(v,fy,P_N=pmax)['section_class']!='plastic':continue

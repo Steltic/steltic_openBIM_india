@@ -106,7 +106,8 @@
     "Physical framing uses nominal analytic workpoints and untrimmed member ends. Panels follow structural control planes. Coordinate finish buildups, offsets, coping and weld preparations in fabrication details.",
     "The native design gate and governing member checks travel with this model. Review open primary-frame, concrete, diaphragm and fastening checks before design acceptance.",
     "Any proposed in-plane board stiffness and allowable shear require full assembly test evidence. Concrete pedestal and group breakout design must be verified.",
-    "Dead loads are preliminary assembly allowances. No imposed-load reduction is used. Primary member self-weight is computed separately by the solver."
+    "Dead loads are preliminary assembly allowances. No imposed-load reduction is used. Primary member self-weight is computed separately by the solver.",
+    "Pitched purlins sit on the modeled seats, with 75 mm workpoint setbacks on both sides of roof folds. Roof surfaces retain the architectural ridge and eave plan coordinates. Supplier flashing, ridge and valley closures, roof and gable transition, screw patterns, waterproofing and tolerances require coordination."
   ],
   "combined_load_sets": 26,
   "cfs_check_groups": [
@@ -958,7 +959,8 @@
           "native_element": 19
         }
       ]
-    }
+    },
+    "diaphragm_classification": {}
   },
   "physical_layout": {
     "roles": {
@@ -966,8 +968,8 @@
       "beam": 42,
       "brace": 8,
       "roof bracing": 16,
-      "purlin": 184,
-      "Rafter fly stay": 207,
+      "purlin": 192,
+      "Rafter fly stay": 216,
       "eave_strut": 16,
       "girt": 48
     },
@@ -977,9 +979,9 @@
       "Gable end wall": 4
     },
     "part_counts": {
-      "plate": 1304,
-      "bolt": 3952,
-      "weld": 1544
+      "plate": 1336,
+      "bolt": 4000,
+      "weld": 1608
     },
     "joint_types": {
       "Column base": 18,
@@ -987,10 +989,10 @@
       "Moment connection": 18,
       "Beam end": 34,
       "Brace end": 48,
-      "Purlin cleat": 368
+      "Purlin cleat": 384
     },
     "panel_openings": 0,
-    "member_workpoint_top_mm": 7500.0,
+    "member_workpoint_top_mm": 7856.41133,
     "declared_roof_planes": [
       {
         "axis": "Y",
@@ -1401,11 +1403,11 @@
       "value": 0
     }
   ],
-  "physical_member_count": 539,
+  "physical_member_count": 556,
   "physical_panel_count": 36,
-  "connection_occurrences": 518,
+  "connection_occurrences": 534,
   "profile_count": 8,
-  "handoff_sha256": "c381a07ee925c63a41af3cafb539513dac506ef59107a7300b0b4760b8e1087d",
+  "handoff_sha256": "357a284684ff0933e21bbfd52d1b9b074013cf150327eb52a6a0b1043e43895f",
   "native_files": {
     "design/calc_package_cfs.json": "bb223747117093818b29ef7a0c64c17efe40c3467a6d72b571888042ec92e2d8",
     "cfg_snapshot.json": "d6c6876c19267acd96281d8e6bc2e2f80aa75fc8c1567cdea7472a01a9bd7abc",
@@ -1451,5 +1453,18 @@
     },
     "VB_x_kN": 68.55839999999998,
     "VB_y_kN": 240.2590135409999
-  }
+  },
+  "installed_bearings": {
+    "Pitched roof 0.0000/-0.1644/0.9864 / WPB450X300X171.12 / CLR250X80X25X5": {
+      "measured_workline_conditions": 192,
+      "min_normal_skin_offset_mm": 499.0,
+      "max_normal_skin_offset_mm": 499.0
+    },
+    "Pitched roof -0.0000/0.1644/0.9864 / WPB450X300X171.12 / CLR250X80X25X5": {
+      "measured_workline_conditions": 192,
+      "min_normal_skin_offset_mm": 499.0,
+      "max_normal_skin_offset_mm": 499.0
+    }
+  },
+  "native_warnings": []
 }

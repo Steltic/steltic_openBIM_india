@@ -111,7 +111,10 @@
     "Physical framing uses nominal analytic workpoints and untrimmed member ends. Panels follow structural control planes. Coordinate finish buildups, offsets, coping and weld preparations in fabrication details.",
     "The native design gate and governing member checks travel with this model. Review open primary-frame, concrete, diaphragm and fastening checks before design acceptance.",
     "Any proposed in-plane board stiffness and allowable shear require full assembly test evidence. Concrete pedestal and group breakout design must be verified.",
-    "Dead loads are preliminary assembly allowances. No imposed-load reduction is used. Primary member self-weight is computed separately by the solver."
+    "Dead loads are preliminary assembly allowances. No imposed-load reduction is used. Primary member self-weight is computed separately by the solver.",
+    "Native levels are analytic structural worklines. Floor joists bear on girder flanges; roof purlins bear through their detailed seats. The issued board or roof skin starts on the upper flange. Supplier floor retention, deck fasteners and the podium deck/slab specification remain project inputs.",
+    "Pitched purlins sit on the modeled seats, with 75 mm workpoint setbacks on both sides of roof folds. Roof surfaces retain the architectural ridge and eave plan coordinates. Supplier flashing, ridge and valley closures, roof and gable transition, screw patterns, waterproofing and tolerances require coordination.",
+    "The nonwalkable horizontal ceiling diaphragm is attached to dedicated unbraced ceiling joists below the primary roof tie beams. Two shop-welded M10 studs per end transfer gravity. Ceiling/services and secondary steel draw on the declared roof allowances. Verify stud working load and tested in-plane diaphragm screw schedule before issue."
   ],
   "combined_load_sets": 26,
   "cfs_check_groups": [
@@ -2835,6 +2838,32 @@
           "native_element": 674
         }
       ]
+    },
+    "diaphragm_classification": {
+      "computed_by_level": {
+        "1": {
+          "ratio": 0.9954752612237368,
+          "dir": "Y",
+          "classification": "rigid"
+        },
+        "2": {
+          "ratio": 1.0400744184568702,
+          "dir": "Y",
+          "classification": "rigid"
+        },
+        "3": {
+          "ratio": 0.938464069328851,
+          "dir": "X",
+          "classification": "rigid"
+        },
+        "4": {
+          "ratio": 0.9836873512764858,
+          "dir": "X",
+          "classification": "rigid"
+        }
+      },
+      "computed_classification": "rigid",
+      "computed_ratio": 1.0400744184568702
     }
   },
   "physical_layout": {
@@ -2849,7 +2878,8 @@
       "joist": 1788,
       "stud": 2156,
       "header": 248,
-      "purlin": 154
+      "purlin": 168,
+      "Ceiling joist": 160
     },
     "panel_roles": {
       "Floor": 134,
@@ -2859,9 +2889,9 @@
       "Pitched roof": 32
     },
     "part_counts": {
-      "plate": 4158,
-      "bolt": 19392,
-      "weld": 1232
+      "plate": 4854,
+      "bolt": 20116,
+      "weld": 1344
     },
     "joint_types": {
       "Column base": 65,
@@ -2869,10 +2899,11 @@
       "Brace end": 224,
       "Beam end": 102,
       "Truss gusset": 90,
-      "Purlin cleat": 308
+      "Purlin cleat": 336,
+      "Ceiling joist suspension": 320
     },
     "panel_openings": 124,
-    "member_workpoint_top_mm": 13150.0,
+    "member_workpoint_top_mm": 13401.0922,
     "declared_roof_planes": [
       {
         "axis": "Y",
@@ -3364,11 +3395,11 @@
       "value": 0
     }
   ],
-  "physical_member_count": 5237,
+  "physical_member_count": 5411,
   "physical_panel_count": 338,
-  "connection_occurrences": 1659,
-  "profile_count": 9,
-  "handoff_sha256": "545ca61189595823163cb86b830128e61f20fc24abe82cd6c1364f3269440262",
+  "connection_occurrences": 2007,
+  "profile_count": 10,
+  "handoff_sha256": "fd5fd43b7d754a1134604aa5e87b41b43bee2dcf1338827b4e18c9ddc4b82c05",
   "native_files": {
     "design/calc_package_cfs.json": "b6602c471e9122d740e2242e165304ad0d4e253591fdf9199bd1ffc8f5874ba9",
     "cfg_snapshot.json": "7a6367fae3fae40d3f326ddfccd5fdd1b20d434aeaef82b18b32c3db2188a5ab",
@@ -3414,5 +3445,32 @@
     },
     "VB_x_kN": 193.9555056508387,
     "VB_y_kN": 602.9490560533034
-  }
+  },
+  "installed_bearings": {
+    "Floor / WPB360X300X163 / CLR150X50X20X3.15": {
+      "samples": 3576,
+      "min_panel_underside_offset_mm": 330.0,
+      "max_panel_underside_offset_mm": 330.0
+    },
+    "Roof / WPB360X300X163 / CLR250X80X25X5": {
+      "samples": 112,
+      "min_panel_underside_offset_mm": 450.0,
+      "max_panel_underside_offset_mm": 450.0
+    },
+    "Pitched roof 0.0000/-0.1544/0.9880 / NPB240X120X34.32 / CLR250X80X25X5": {
+      "measured_workline_conditions": 112,
+      "min_normal_skin_offset_mm": 391.0,
+      "max_normal_skin_offset_mm": 391.0
+    },
+    "Pitched roof -0.0000/0.1544/0.9880 / NPB240X120X34.32 / CLR250X80X25X5": {
+      "measured_workline_conditions": 112,
+      "min_normal_skin_offset_mm": 391.0,
+      "max_normal_skin_offset_mm": 391.0
+    },
+    "Ceiling diaphragm / NPB240X120X34.32 / Ceiling-CLR180X80X25X4": {
+      "joist_ends": 320,
+      "ceiling_top_below_datum_mm": 301.0
+    }
+  },
+  "native_warnings": []
 }

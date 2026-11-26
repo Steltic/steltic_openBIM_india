@@ -14,6 +14,7 @@ def specification_pages(specs,case):
         (64,'8.3.2','8.3.2 flange restraint'),(95,'12.10','12.10 ordinary moment connections')],
         'IS_2062_Part_1_2025.pdf':[(9,'350','Table 3 E350 steel by thickness')]}
     if case.number in (2,4):
+        pages['IS_875_Part_1_2026.pdf']=[(4,'glass wool quilts','Thermal insulation, mineral or glass wool quilts and mats')]
         pages['IS_800_2007.pdf'].append((96,'12.11','12.11 special moment framing'))
         pages['IS_18168_2023.pdf']=[(7,'classification','5.3 seismic compactness'),(9,'6.2','6.2 beam restraint'),
                                     (10,'slenderness','7.2 seismic column slenderness')]
@@ -42,10 +43,42 @@ def _roof_depth(model,j,distance):
 
 
 def restraints(model):
+    from math import dist
+    from native_joint_parts import location
+    from steltic_openbim_india.geometry import frame
+    from peb_envelope import place,flange
+    place(model)
     u=model.u;c=model.cfg;w=u.sx*u.nx*1000;h=sum(u.heights)*1000; sy=u.sy*1000
     slope=2*model.case.rise*1000/w;rise=math.hypot(1,slope)
     section=c['flange_braces']['members']['default']['section']
     fly=c['flange_braces']['rafter']['fly_braces_mm']
+    # Get a point within the material halfway along the projecting inside flange.
+    # For a folded Z section that point is offset from the analytical support axis.
+    supports={};flanges={}
+    for m in model.data['members']:
+        if m['unit']!=u.name or m['role'] not in ('purlin','girt'):continue
+        p=[a-d for a,d in zip(m['start'],model.offset)];q=[a-d for a,d in zip(m['end'],model.offset)]
+        design_x,design_z=model.peb_secondary_stations[m['id']]
+        positive=m['role']=='girt' and design_x<w/2
+        key=(m['profile'],positive)
+        if key not in flanges:
+            flanges[key]=flange(model.data['profiles'][m['profile']],positive)
+        x,y,_=frame(p,q,m.get('ref_direction'));dx,dy=flanges[key]
+        support=location(p,(x,dx),(y,dy))
+        station=(m['role'],round(design_x,2),round(design_z,2) if m['role']=='girt' else 0)
+        supports.setdefault(station,[]).append((m['id'],support,min(p[1],q[1]),max(p[1],q[1])))
+    def attach(a,station,preferred):
+        candidates=[]
+        for mid,support,lo,hi in supports.get(station,[]):
+            run=math.hypot(a[0]-support[0],a[2]-support[2]);margin=80.
+            if hi-lo<=2*margin:continue
+            for sign in (preferred,-preferred):
+                ideal=a[1]+sign*min(run,math.sqrt(max(0,1499.9**2-run**2)));y=min(max(ideal,lo+margin),hi-margin)
+                b=[support[0],y,support[2]]
+                if sign*(y-a[1])>100 and dist(a,b)<=1500:
+                    candidates.append((abs(ideal-y)+int(sign!=preferred),mid,b))
+        if not candidates:raise ValueError(f'{station}: no in-plane girt or purlin flange within the 1.5 m restraint envelope')
+        _,mid,b=min(candidates);return b,mid
     for j in range(u.ny+1):
         sign=1 if j<u.ny else -1
         y=sy*j
@@ -54,20 +87,21 @@ def restraints(model):
                 x=distance if side==0 else w-distance
                 z=model.roof_z(x)
                 depth=_roof_depth(model,j,distance)
-                # The diagonal links the lower flange to its purlin at the
-                # underside of the roof sheet. It is inclined 45° in the YZ plane.
-                a=(x,y,z-depth/(2*rise));b=(x,y+sign*depth/rise,z+depth/(2*rise))
+                plate=c['gold']['roof_planes'][0]['rafter_members']['lo'][0][1]
+                tf=S.props(PB.section_at(plate,0))['tf'];half=(depth-tf)/2
+                a=(x+(1 if side==0 else -1)*slope*half/rise,y,z-half/rise)
+                b,support=attach(a,('purlin',round(x,2),0),sign)
                 row=model.member('rafter flange brace',section,a,b,material='E250B0',
                     mid=f'FLY-R-{j}-{side}-{i}',bind=False)
-                row['basis']='IS 800 8.3.2; one-leg connection with two M20 class 8.8 bolts; native 1.5 m length envelope.'
+                row['basis']=f'Inside rafter flange to the inside Z flange of {support}; IS 800 8.3.2; two M20 class 8.8 bolts and a native 1.5 m maximum length.'
             for i,z in enumerate(c['flange_braces']['column']['fly_braces_mm'],1):
                 label=c['gold']['peb_column']
-                depth=S.props(PB.section_at(label,z/h))['d']
+                props=S.props(PB.section_at(label,z/h));half=(props['d']-props['tf'])/2
                 x=0 if side==0 else w; inward=1 if side==0 else -1
-                a=(x+inward*depth/2,y,z);b=(x-inward*depth/2,y+sign*depth,z)
+                a=(x+inward*half,y,z);b,support=attach(a,('girt',round(x,2),round(z,2)),sign)
                 row=model.member('column flange brace',section,a,b,material='E250B0',
                                  mid=f'FLY-C-{j}-{side}-{i}',bind=False)
-                row['basis']='Both flange levels are tied via the outer girt line; two M20 class 8.8 bolts.'
+                row['basis']=f'Inside column flange to the inside Z flange of {support}; two M20 class 8.8 bolts within the native length envelope.'
 
 
 def _base(model,joint,detail,ref):
@@ -121,14 +155,41 @@ def _moment(model,joint,spec,normal,face,paired):
     for i,(x,y,r) in enumerate(holes,1):
         at=location(origin,(width_axis,x),(depth_axis,y))
         parts.append(bolt(model,joint['id']+f'-M{i}',at,normal,-thickness if paired else 0,thickness,dia,ep['grade']))
+    # The native selected two fins, a drilled double-shear group and the actual
+    # connected web thickness. Locate the pair on the beam side of the plate.
+    b=sh['bolts'];nf=int(sh['n_plates']);lines=int(sh['bolt_lines']);count=int(b['n_bolts'])
+    fin_t=sh['t_plate_mm']/nf;fin_h=sh['h_plate_mm'];edge=b['e_mm'];pitch=b['p_mm'];gauge=sh['gauge_mm']
+    fin_w=2*edge+(lines-1)*gauge;web=b['t_mm'];fin_normal=unit(cross(normal,depth_axis))
+    if nf!=2 or count%lines or abs(2*edge+(count//lines-1)*pitch-fin_h)>.01:
+        raise ValueError(f"{joint['id']}: selected shear fin dimensions disagree with its bolt group")
+    fin_origin=location(face,(normal,thickness),(depth_axis,-fin_h/2))
+    fin_holes=[(edge+i*gauge,edge+j*pitch,b['d0_mm']/2) for i in range(lines) for j in range(count//lines)]
+    for i,off in enumerate((-web/2-fin_t,web/2),1):
+        parts.append(plate(joint['id']+f'-SF{i}',location(fin_origin,(fin_normal,off)),normal,depth_axis,
+                           fin_w,fin_h,fin_t,steel(model,'E250'),fin_holes))
+    for i,(x,y,r) in enumerate(fin_holes,1):
+        at=location(fin_origin,(normal,x),(depth_axis,y))
+        parts.append(bolt(model,joint['id']+f'-S{i}',at,fin_normal,-web/2-fin_t,web/2+fin_t,b['d_mm'],b['grade']))
     joint['parts']=parts
     joint['parameters']=dict(plate_width_mm=f['width_mm'],plate_depth_mm=round(f['height_mm'],2),
         plate_thickness_mm=ep['t_plate_mm'],plate_grade=ep['plate_grade'],bolt_diameter_mm=ep['d_mm'],
         bolt_grade=ep['grade'],moment_bolt_count=len(holes),gauge_mm=f['gauge_mm'],
-        pitch_mm=f['pitch_mm'],web_doubler_mm=20,continuity_plate_mm=spec['continuity_plate_t_mm'],
+        pitch_mm=f['pitch_mm'],rafter_web_doubler_mm=20,
         shear_bolt_count=sh['bolts']['n_bolts'],shear_bolt_diameter_mm=sh['bolts']['d_mm'],
-        shear_fin_count=sh['n_plates'],shear_fin_thickness_mm=sh['t_plate_mm']/sh['n_plates'])
-    joint['description']='Symmetric extended end plate with matched HSFG bolt rows, double shear fins and CJP flange welds. The model gives the bolt grip through the shown plates. Coordinate the host holes, member cutbacks and weld bevels at fabrication.'
+        shear_fin_count=nf,shear_fin_thickness_mm=fin_t,shear_fin_height_mm=fin_h,shear_fin_width_mm=fin_w,
+        shear_fin_pitch_mm=pitch,shear_fin_gauge_mm=gauge,shear_fin_edge_mm=edge)
+    desc='Symmetric HSFG end-plate joint and a cored double-fin group on the rafter side. Bolt grips include both fins and the connected web. Check interface shear transfer, host holes, rafter web backing, member cutbacks and all CJP preparation before fabrication.'
+    if not paired:
+        joint['parameters'].update(local_column_flange_mm=spec['column_flange_t_mm'],column_flange_grade=spec['column_flange_grade'],
+                                  column_web_doubler_mm=spec['column_web_doubler_mm'])
+        desc+=' The native receiver uses a reinforced local column flange. Its transition and doubler attachment require an approved detail.'
+    if joint['type']=='portal knee':
+        kp=model.cfg['connections']['knee_panel']; st=kp['diagonal_stiffener'];fs=kp['flange_stiffener']
+        joint['parameters'].update(continuity_plate_mm=spec['continuity_plate_t_mm'],panel_web_doubler_mm=kp['doubler_t_mm'],
+                                   diagonal_stiffener_count=st['n'],diagonal_stiffener_width_mm=st['b_mm'],diagonal_stiffener_thickness_mm=st['t_mm'],
+                                   flange_stiffener_count=fs['n'],flange_stiffener_width_mm=fs['b_mm'],flange_stiffener_thickness_mm=fs['t_mm'])
+        desc+=' The scheduled panel stiffeners and continuity plates require attachment and set-out details.'
+    joint['description']=desc
 
 
 def detail(model):
@@ -172,10 +233,12 @@ def detail(model):
         from secondary import select_z
         d['materials']['PV']=dict(grade='PV module assembly',standard='PV vendor load supplied in test brief')
         regions=fields(w,sy*u.ny)
+        # Measured normal to the inclined sheet, from its exposed face to the underside of the PV.
+        stand_off=(100+.5)*math.hypot(1,2*model.case.rise*1000/w)
         for i,(x0,x1,y0,y1) in enumerate(regions,1):
-            points=[(a,b,model.roof_z(a)+100) for a,b in ((x0,y0),(x1,y0),(x1,y1),(x0,y1))]
+            points=[(a,b,model.roof_z(a)+model.peb_roof_steel_offset_mm+stand_off) for a,b in ((x0,y0),(x1,y0),(x1,y1),(x0,y1))]
             model.panel('PV array',points,35,'PV',f'PV-FIELD-{i}')
-        d['assumptions'].append('Four PV module fields supply 75% coverage, at least 0.6 m clear of eaves and ridge, with 1 m clear across mid-length. Module depth assumed 35 mm; vendor designs rail and clamp fixings.')
+        d['assumptions'].append('Four PV module fields supply 75% coverage at 100 mm clear normal to the outer roof sheet, at least 0.6 m clear of eaves and ridge, with 1 m clear across mid-length. Module depth assumed 35 mm. Vendor designs rail and clamp fixings.')
         purlins=[r for r in members.values() if r['role']=='purlin']
         gravity=c['D_roof']+c['D_roof_collateral']+c['Lr'];mw=c['load_plan']['member_wind']
         uplift=max(abs(min(v['roof_windward_kNm2'],v['roof_leeward_kNm2'])) for v in mw)

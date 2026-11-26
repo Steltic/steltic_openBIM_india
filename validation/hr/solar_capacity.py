@@ -160,6 +160,10 @@ def before_after(base,solar,cfs,cfg):
         candidates=[table['e'+str(r['tag'])] for r in refs]
         role=existing['role']
         if role=='girt':candidates=[table['Main-Z-WALL']]
+        if role=='gable girt':
+            checks=[next(c for c in h['checks'] if c['id']=='Main-Z-GABLE') for h in handoffs]
+            candidates=[dict(baseline_dc=checks[0]['utilization'],retrofit_dc=checks[1]['utilization'],
+                            baseline_check='IS 801 gable girt',retrofit_check='IS 801 gable girt')]
         if role in ('rafter flange brace','column flange brace'):
             candidates=[table['conn-peb-flange-brace-'+role.split()[0]]]
         record=dict(id=mid,category='physical '+role,section=existing['profile'])

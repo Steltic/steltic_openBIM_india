@@ -1,0 +1,571 @@
+{
+  "status": "pass",
+  "samples": [
+    {
+      "id": "Classroom-skin-floor deck-NPB700X250X113.46",
+      "chain": [
+        "Classroom-SEC-1-0-0-1",
+        "Classroom-DECK-1-0-0"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            2833.3333,
+            4250.0,
+            4373.0
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Classroom-support-beam-secondary beam-1",
+      "chain": [
+        "Classroom-E37",
+        "Classroom-SEC-1-0-0-1-BEAR-START-PACK",
+        "Classroom-SEC-1-0-0-1"
+      ],
+      "expected_gaps_mm": [
+        0.0,
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            2833.3333,
+            6.0,
+            4026.0
+          ],
+          "measured_gaps_mm": [
+            0.0,
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Classroom-skin-floor deck-RHS120X80X6-EDGE",
+      "chain": [
+        "Classroom-DECK-1-0-0-EDGE-1",
+        "Classroom-DECK-1-0-0"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            8500.0,
+            4250.0,
+            4660.0
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Classroom-support-beam-secondary beam-4",
+      "chain": [
+        "Classroom-E48",
+        "Classroom-DECK-1-0-0-EDGE-1-BEAR-START-LOWER"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            8500.0,
+            418.0,
+            4600.0
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Classroom-cap-secondary beam",
+      "chain": [
+        "Classroom-DECK-1-0-0-EDGE-1-BEAR-START-CAP",
+        "Classroom-DECK-1-0-0-EDGE-1"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            8500.0,
+            418.0,
+            4600.0
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Classroom-skin-roof deck-WPB320X300X74.25",
+      "chain": [
+        "Classroom-SEC-3-0-0-1",
+        "Classroom-DECK-3-0-0"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            2833.3333,
+            4250.0,
+            11274.5
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Classroom-skin-roof deck-RHS120X80X6-EDGE",
+      "chain": [
+        "Classroom-DECK-3-0-0-EDGE-17",
+        "Classroom-DECK-3-0-0"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            8500.0,
+            4250.0,
+            11365.0
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Link-skin-floor deck-NPB700X250X113.46",
+      "chain": [
+        "Link-SEC-1-0-0-1",
+        "Link-DECK-1-0-0"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            31208.3333,
+            12750.0,
+            4458.0
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Link-support-beam-secondary beam-1",
+      "chain": [
+        "Link-E19",
+        "Link-SEC-1-0-0-1-BEAR-START-PACK",
+        "Link-SEC-1-0-0-1"
+      ],
+      "expected_gaps_mm": [
+        0.0,
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            31208.3333,
+            8506.0,
+            4111.0
+          ],
+          "measured_gaps_mm": [
+            0.0,
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Link-skin-floor deck-RHS120X80X6-EDGE",
+      "chain": [
+        "Link-DECK-1-0-0-EDGE-1",
+        "Link-DECK-1-0-0"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            36875.0,
+            12750.0,
+            4745.0
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Link-support-beam-secondary beam-4",
+      "chain": [
+        "Link-E27",
+        "Link-DECK-1-0-0-EDGE-1-BEAR-START-LOWER"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            36875.0,
+            8993.0,
+            4685.0
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Link-cap-secondary beam",
+      "chain": [
+        "Link-DECK-1-0-0-EDGE-1-BEAR-START-CAP",
+        "Link-DECK-1-0-0-EDGE-1"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            36875.0,
+            8993.0,
+            4685.0
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Link-skin-roof deck-WPB320X300X74.25",
+      "chain": [
+        "Link-SEC-2-0-0-1",
+        "Link-DECK-2-0-0"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            31208.3333,
+            12750.0,
+            7779.5
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Link-skin-roof deck-RHS120X80X6-EDGE",
+      "chain": [
+        "Link-DECK-2-0-0-EDGE-7",
+        "Link-DECK-2-0-0"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            36875.0,
+            12750.0,
+            7870.0
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Gym-skin-roof deck-WPB260X260X54.15",
+      "chain": [
+        "Gym-SEC-1-0-0-1",
+        "Gym-DECK-1-0-0"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            50908.3333,
+            21250.0,
+            8633.0
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Gym-support-beam-secondary beam-4",
+      "chain": [
+        "Gym-E9",
+        "Gym-SEC-1-0-0-1-BEAR-START-LOWER"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            50908.3333,
+            17006.0,
+            8511.0
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Gym-cap-secondary beam",
+      "chain": [
+        "Gym-SEC-1-0-0-1-BEAR-START-CAP",
+        "Gym-SEC-1-0-0-1"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            50908.3333,
+            17006.0,
+            8511.0
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Gym-skin-roof deck-RHS120X80X6-EDGE",
+      "chain": [
+        "Gym-DECK-1-0-0-EDGE-1",
+        "Gym-DECK-1-0-0"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            56575.0,
+            21250.0,
+            8695.0
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    }
+  ],
+  "handoff_sha256": "043a9a08b98aed81c6b217c48f896b8f73ba9123625d5547ae7f449b7643695b",
+  "ifc_sha256": "75fce58c4b5fcb9466c46435dcca718053664fab3737fba2d9f35a2a450e2e22"
+}

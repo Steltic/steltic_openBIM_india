@@ -8,7 +8,7 @@
         "ridge_X": 7,
         "secondary_axial_worklines": 60
       },
-      "sha256": "e58ef9a3586105c8cbeafd8374936bf8525728b3df0df87bcf5e41509e621fe1"
+      "sha256": "b68629d8fe28099bd13bf4ec87f585092696d48e5b02204af94e08ad542aeea9"
     },
     "model_static.py": {
       "counts": {
@@ -17,7 +17,7 @@
         "ridge_X": 7,
         "secondary_axial_worklines": 60
       },
-      "sha256": "ad3938250ad6ee8ac3729bf7bc924eafd414a3ecef6fa274ee2e2eb8fa2a2cdc"
+      "sha256": "c184a5235a42ed41a0c1d03dc7523c3438f3632146ee5c5e75c4341d7b1c9c51"
     }
   },
   "finite_link_tangents": [
@@ -33,12 +33,12 @@
     }
   ],
   "periods_s": [
-    0.2507806368870915,
-    0.10440617460584206,
-    0.0900069594522992
+    0.26887452878969176,
+    0.11193910881209826,
+    0.09650098632486268
   ],
-  "effective_mass_fraction_X": 1.0,
-  "effective_mass_fraction_Y": 1.0000000000000002,
-  "calc_sha256": "8454e58a9f533837ebccc0f61ae207ddcd1edf90ef22327d3ad6013e99d262ae",
+  "effective_mass_fraction_X": 1.0000000000000002,
+  "effective_mass_fraction_Y": 0.9999999999999999,
+  "calc_sha256": "c76245d6232bc9732ec6c3c5b5da584b6a5170b5c325d7cf9406f9e022e4819c",
   "governing_design": "Native equivalent-static seismic analysis, 102 combinations; the modal check tests the three roof degrees of freedom."
 }

@@ -103,6 +103,9 @@ def main():
                         result=pipeline.design_units(name,configs,joints=joints)
                     else:
                         result=pipeline.design_and_report(name,configs['Main'])
+                        if number==15:
+                            from pune_ebf import verify_full_imposed
+                            verify_full_imposed(name,configs['Main'],jobdir)
                     summary['native']={key:result[key] for key in ('blocked','error','model_valid','demands_written','design_status','design_status_error','preflight','status') if key in result}
                 except Exception:
                     summary['native']={'blocked':True,'error':traceback.format_exc()}

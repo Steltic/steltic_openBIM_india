@@ -43,19 +43,19 @@
         "soil": "II",
         "R_x": 5.0,
         "R_y": 5.0,
-        "W_kN": 7650.84,
+        "W_kN": 10574.629,
         "Ta_x_s": 0.5064,
         "Ta_y_s": 0.5064,
         "Sa_g_x": 2.5,
         "Sa_g_y": 2.5,
         "Ah_x": 0.09,
         "Ah_y": 0.09,
-        "VB_x_kN": 688.576,
-        "VB_y_kN": 688.576,
+        "VB_x_kN": 951.717,
+        "VB_y_kN": 951.717,
         "W_by_floor_kN": [
-          3143.328,
-          3063.275,
-          1444.236
+          4195.334,
+          4100.092,
+          2279.202
         ]
       },
       "wind": {
@@ -77,17 +77,17 @@
         "rsa_used_in_demands": true,
         "scale_by_axis": {
           "X": {
-            "VB_rsa_kN": 473.5,
-            "VBbar_kN": 688.58,
-            "scale": 1.4542,
-            "VB_scaled_kN": 688.58,
+            "VB_rsa_kN": 710.35,
+            "VBbar_kN": 951.72,
+            "scale": 1.3398,
+            "VB_scaled_kN": 951.72,
             "mass_participation": 1.0
           },
           "Y": {
-            "VB_rsa_kN": 440.44,
-            "VBbar_kN": 688.58,
-            "scale": 1.5634,
-            "VB_scaled_kN": 688.58,
+            "VB_rsa_kN": 700.97,
+            "VBbar_kN": 951.72,
+            "scale": 1.3577,
+            "VB_scaled_kN": 951.72,
             "mass_participation": 1.0
           }
         }
@@ -308,6 +308,31 @@
           "cite": "IS 18168, earthquake-resistant steel design",
           "source_path": "IS_18168_2023/markdown/pages_search/page_003.md",
           "sha256": "5ce06aef2d60ae962e41d2dedc0b7416e9b12f2f38ac66fbcd12dd67d6d96b95",
+          "edition": "IS 18168:2023",
+          "licensed_pdf": {
+            "file": "IS_18168_2023.pdf",
+            "sha256": "e3563ca3bbf2c1f0febb28278f1d081290cea32e4115c3e4dd52aa9f065bd415"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 800 12.11.3.3, column restraint at both beam-flange levels",
+          "source_path": "IS_800_2007/markdown/pages_search/page_096.md",
+          "sha256": "c5965bf0c42cfba0f9fe5f3de4e48fd7644d6f5755c81beeda4965a5367ba3b9",
+          "selected_inputs": {
+            "minimum_fraction_of_beam_flange_strength": 0.02
+          },
+          "edition": "IS 800:2007",
+          "licensed_pdf": {
+            "file": "IS_800_2007.pdf",
+            "sha256": "06711fe3c87a3da0351806a9cdd87f014a7df974e9e07200a2dc0ddbc288617b"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 18168 section 6.2, seismic beam flange restraints",
+          "source_path": "IS_18168_2023/markdown/pages_search/page_009.md",
+          "sha256": "2a2409308eb11b9ea46e72917ff1531516105a4a1890925a7d894cae1405e270",
           "edition": "IS 18168:2023",
           "licensed_pdf": {
             "file": "IS_18168_2023.pdf",
@@ -393,13 +418,9 @@
         }
       ],
       "native_checks": {
-        "status": "partial",
-        "native_findings": 381,
-        "finding_classes": {
-          "irregularity": 1,
-          "gates": 162,
-          "elements": 218
-        },
+        "status": "complete",
+        "native_findings": 0,
+        "finding_classes": {},
         "model_gates": {
           "rsa_X": true,
           "modalmass_X": true,
@@ -419,32 +440,269 @@
         "members": {
           "groups": 8,
           "groups_with_numeric_dc": 8,
-          "groups_above_unity": 1,
-          "governing_group": "lateral_col-WPB320X300X126.66",
-          "governing_dc": 1.3416026158807484,
-          "section": "WPB320X300X126.66",
+          "groups_above_unity": 0,
+          "governing_group": "gravity_col-WPB360X300X91.04",
+          "governing_dc": 0.8737406031581743,
+          "section": "WPB360X300X91.04",
           "limit_state": "IS 800 9.3 interaction / member resistance",
-          "governing_element": 6,
-          "governing_combination": "1.5DL+1.5LL-N_X"
+          "governing_element": 14,
+          "governing_combination": "1.5DL+1.5LL+N_X"
         },
         "connections": {
           "groups": 8,
-          "groups_with_numeric_dc": 6,
-          "groups_above_unity": 3,
-          "governing_group": "conn-lateral_col-BOX800X800X20",
-          "governing_dc": 5.610627464581378,
-          "section": "BOX800X800X20",
-          "limit_state": "column base (base-e1): anchor_combined_biaxial_10_3_6",
+          "groups_with_numeric_dc": 8,
+          "groups_above_unity": 0,
+          "governing_group": "conn-floor-WPB650X300X224.78",
+          "governing_dc": 0.9211683149388583,
+          "section": "WPB650X300X224.78",
+          "limit_state": "IS 800 12.11.2.2 connection_shear (joint e37)",
           "governing_element": null,
           "governing_combination": null
         },
         "governing_drift": {
           "storey": 3,
           "dir": "Y",
-          "value": 0.002655353597216344,
+          "value": 0.0008960082237026828,
           "limit": 0.004,
-          "dc": 0.6638383993040861,
+          "dc": 0.22400205592567068,
           "ok": true
+        },
+        "post_report_status_sha256": "e0eea80640a9be7dc6d871976a4e9bfd5ac28c794e28d1f6911cd63a058ec01f"
+      },
+      "additional_dead_kNm2_by_level": {
+        "1": 1.3,
+        "2": 1.2000000000000002,
+        "3": 0.9500000000000001
+      },
+      "one_way_load_path": {
+        "global_secondary_axis": "Y",
+        "secondary_spacing_mm": 2833.3333333333335,
+        "primary_girder_axis": "X",
+        "reference": "Steltic India one_way_trib_mm, actual adjacent floor bays and H13 secondary-strip load distribution."
+      },
+      "seismic_restraints": {
+        "longest_adopted_spacing_mm": 1600,
+        "count": 576,
+        "governing_local_ratio": 0.8642125039837066,
+        "uncovered_beam_tags": [],
+        "uncovered_column_tags": [],
+        "source_package_sha256": "7c1ba64c6f57ef579d54ac8b1d164481eb942065f5eb816bee629e18732ea989",
+        "references": [
+          "IS 800:2007 12.11.3.3, PDF page 96",
+          "IS 18168:2023 6.2, PDF page 9"
+        ],
+        "load_basis": "Steel weight is apportioned to the two real supporting beams at every cross-frame station."
+      },
+      "fabricated_sections": {
+        "ids": [
+          "BOX650X650X32",
+          "BOX700X700X36",
+          "BOX800X800X20",
+          "BOX800X800X40"
+        ],
+        "basis": "Independent sizing used fabricated members where the selected rolled families did not pass all trial demands. Confirm substitution and procurement where the brief specifies a rolled family."
+      },
+      "installed_bearing": {
+        "installed_surfaces": [
+          {
+            "panel": "Classroom-DECK-1-0-0",
+            "role": "floor deck",
+            "reference_elevation_mm": 3600.0,
+            "installed_soffit_elevation_mm": 4720.0,
+            "normal_offset_mm": 1120.0
+          },
+          {
+            "panel": "Classroom-DECK-1-0-1",
+            "role": "floor deck",
+            "reference_elevation_mm": 3600.0,
+            "installed_soffit_elevation_mm": 4720.0,
+            "normal_offset_mm": 1120.0
+          },
+          {
+            "panel": "Classroom-DECK-1-1-0",
+            "role": "floor deck",
+            "reference_elevation_mm": 3600.0,
+            "installed_soffit_elevation_mm": 4720.0,
+            "normal_offset_mm": 1120.0
+          },
+          {
+            "panel": "Classroom-DECK-1-1-1",
+            "role": "floor deck",
+            "reference_elevation_mm": 3600.0,
+            "installed_soffit_elevation_mm": 4720.0,
+            "normal_offset_mm": 1120.0
+          },
+          {
+            "panel": "Classroom-DECK-1-2-0",
+            "role": "floor deck",
+            "reference_elevation_mm": 3600.0,
+            "installed_soffit_elevation_mm": 4720.0,
+            "normal_offset_mm": 1120.0
+          },
+          {
+            "panel": "Classroom-DECK-1-2-1",
+            "role": "floor deck",
+            "reference_elevation_mm": 3600.0,
+            "installed_soffit_elevation_mm": 4720.0,
+            "normal_offset_mm": 1120.0
+          },
+          {
+            "panel": "Classroom-DECK-2-0-0",
+            "role": "floor deck",
+            "reference_elevation_mm": 7200.0,
+            "installed_soffit_elevation_mm": 8320.0,
+            "normal_offset_mm": 1120.0
+          },
+          {
+            "panel": "Classroom-DECK-2-0-1",
+            "role": "floor deck",
+            "reference_elevation_mm": 7200.0,
+            "installed_soffit_elevation_mm": 8320.0,
+            "normal_offset_mm": 1120.0
+          },
+          {
+            "panel": "Classroom-DECK-2-1-0",
+            "role": "floor deck",
+            "reference_elevation_mm": 7200.0,
+            "installed_soffit_elevation_mm": 8320.0,
+            "normal_offset_mm": 1120.0
+          },
+          {
+            "panel": "Classroom-DECK-2-1-1",
+            "role": "floor deck",
+            "reference_elevation_mm": 7200.0,
+            "installed_soffit_elevation_mm": 8320.0,
+            "normal_offset_mm": 1120.0
+          },
+          {
+            "panel": "Classroom-DECK-2-2-0",
+            "role": "floor deck",
+            "reference_elevation_mm": 7200.0,
+            "installed_soffit_elevation_mm": 8320.0,
+            "normal_offset_mm": 1120.0
+          },
+          {
+            "panel": "Classroom-DECK-2-2-1",
+            "role": "floor deck",
+            "reference_elevation_mm": 7200.0,
+            "installed_soffit_elevation_mm": 8320.0,
+            "normal_offset_mm": 1120.0
+          },
+          {
+            "panel": "Classroom-DECK-3-0-0",
+            "role": "roof deck",
+            "reference_elevation_mm": 10800.0,
+            "installed_soffit_elevation_mm": 11425.0,
+            "normal_offset_mm": 625.0
+          },
+          {
+            "panel": "Classroom-DECK-3-0-1",
+            "role": "roof deck",
+            "reference_elevation_mm": 10800.0,
+            "installed_soffit_elevation_mm": 11425.0,
+            "normal_offset_mm": 625.0
+          },
+          {
+            "panel": "Classroom-DECK-3-1-0",
+            "role": "roof deck",
+            "reference_elevation_mm": 10800.0,
+            "installed_soffit_elevation_mm": 11425.0,
+            "normal_offset_mm": 625.0
+          },
+          {
+            "panel": "Classroom-DECK-3-1-1",
+            "role": "roof deck",
+            "reference_elevation_mm": 10800.0,
+            "installed_soffit_elevation_mm": 11425.0,
+            "normal_offset_mm": 625.0
+          },
+          {
+            "panel": "Classroom-DECK-3-2-0",
+            "role": "roof deck",
+            "reference_elevation_mm": 10800.0,
+            "installed_soffit_elevation_mm": 11425.0,
+            "normal_offset_mm": 625.0
+          },
+          {
+            "panel": "Classroom-DECK-3-2-1",
+            "role": "roof deck",
+            "reference_elevation_mm": 10800.0,
+            "installed_soffit_elevation_mm": 11425.0,
+            "normal_offset_mm": 625.0
+          }
+        ],
+        "seat_steel_mass_kg_by_source_level": {
+          "EL-3600": 2125.99,
+          "EL-7200": 2125.99,
+          "EL-10800": 744.08
+        },
+        "added_boundary_bearer_mass_kg_by_source_level": {
+          "EL-3600": 1204.25,
+          "EL-7200": 1204.25,
+          "EL-10800": 1204.25
+        },
+        "source_workline_to_soffit": [
+          {
+            "roles": [
+              "floor deck"
+            ],
+            "normal": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "datum_mm": 3600.0,
+            "soffit_lift_mm": 1120.0,
+            "installed_secondary_count": 20
+          },
+          {
+            "roles": [
+              "floor deck"
+            ],
+            "normal": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "datum_mm": 7200.0,
+            "soffit_lift_mm": 1120.0,
+            "installed_secondary_count": 20
+          },
+          {
+            "roles": [
+              "roof deck"
+            ],
+            "normal": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "datum_mm": 10800.0,
+            "soffit_lift_mm": 625.0,
+            "installed_secondary_count": 20
+          }
+        ],
+        "physical_receiver_contacts": 312,
+        "open_contacts": []
+      },
+      "auxiliary_dead_load": {
+        "1": {
+          "physical_kg": 48845.1,
+          "plan_m2": 433.5,
+          "actual_kNm2": 1.10535,
+          "applied_kNm2": 1.3
+        },
+        "2": {
+          "physical_kg": 45564.8,
+          "plan_m2": 433.5,
+          "actual_kNm2": 1.03112,
+          "applied_kNm2": 1.2000000000000002
+        },
+        "3": {
+          "physical_kg": 35950.4,
+          "plan_m2": 433.5,
+          "actual_kNm2": 0.81355,
+          "applied_kNm2": 0.9500000000000001
         }
       }
     },
@@ -486,18 +744,18 @@
         "soil": "II",
         "R_x": 5.0,
         "R_y": 5.0,
-        "W_kN": 3044.956,
+        "W_kN": 4815.256,
         "Ta_x_s": 0.3736,
         "Ta_y_s": 0.3736,
         "Sa_g_x": 2.5,
         "Sa_g_y": 2.5,
         "Ah_x": 0.09,
         "Ah_y": 0.09,
-        "VB_x_kN": 274.046,
-        "VB_y_kN": 274.046,
+        "VB_x_kN": 433.373,
+        "VB_y_kN": 433.373,
         "W_by_floor_kN": [
-          2067.848,
-          977.107
+          3111.551,
+          1703.705
         ]
       },
       "wind": {
@@ -519,17 +777,17 @@
         "rsa_used_in_demands": true,
         "scale_by_axis": {
           "X": {
-            "VB_rsa_kN": 196.96,
-            "VBbar_kN": 274.05,
-            "scale": 1.3914,
-            "VB_scaled_kN": 274.05,
+            "VB_rsa_kN": 321.17,
+            "VBbar_kN": 433.37,
+            "scale": 1.3493,
+            "VB_scaled_kN": 433.37,
             "mass_participation": 1.0
           },
           "Y": {
-            "VB_rsa_kN": 207.3,
-            "VBbar_kN": 274.05,
-            "scale": 1.322,
-            "VB_scaled_kN": 274.05,
+            "VB_rsa_kN": 313.45,
+            "VBbar_kN": 433.37,
+            "scale": 1.3826,
+            "VB_scaled_kN": 433.37,
             "mass_participation": 1.0
           }
         }
@@ -750,6 +1008,31 @@
           "cite": "IS 18168, earthquake-resistant steel design",
           "source_path": "IS_18168_2023/markdown/pages_search/page_003.md",
           "sha256": "5ce06aef2d60ae962e41d2dedc0b7416e9b12f2f38ac66fbcd12dd67d6d96b95",
+          "edition": "IS 18168:2023",
+          "licensed_pdf": {
+            "file": "IS_18168_2023.pdf",
+            "sha256": "e3563ca3bbf2c1f0febb28278f1d081290cea32e4115c3e4dd52aa9f065bd415"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 800 12.11.3.3, column restraint at both beam-flange levels",
+          "source_path": "IS_800_2007/markdown/pages_search/page_096.md",
+          "sha256": "c5965bf0c42cfba0f9fe5f3de4e48fd7644d6f5755c81beeda4965a5367ba3b9",
+          "selected_inputs": {
+            "minimum_fraction_of_beam_flange_strength": 0.02
+          },
+          "edition": "IS 800:2007",
+          "licensed_pdf": {
+            "file": "IS_800_2007.pdf",
+            "sha256": "06711fe3c87a3da0351806a9cdd87f014a7df974e9e07200a2dc0ddbc288617b"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 18168 section 6.2, seismic beam flange restraints",
+          "source_path": "IS_18168_2023/markdown/pages_search/page_009.md",
+          "sha256": "2a2409308eb11b9ea46e72917ff1531516105a4a1890925a7d894cae1405e270",
           "edition": "IS 18168:2023",
           "licensed_pdf": {
             "file": "IS_18168_2023.pdf",
@@ -815,13 +1098,9 @@
         }
       ],
       "native_checks": {
-        "status": "partial",
-        "native_findings": 213,
-        "finding_classes": {
-          "irregularity": 1,
-          "gates": 96,
-          "elements": 116
-        },
+        "status": "complete",
+        "native_findings": 0,
+        "finding_classes": {},
         "model_gates": {
           "rsa_X": true,
           "modalmass_X": true,
@@ -839,34 +1118,177 @@
         },
         "combination_count": 166,
         "members": {
-          "groups": 6,
-          "groups_with_numeric_dc": 6,
+          "groups": 8,
+          "groups_with_numeric_dc": 8,
           "groups_above_unity": 0,
-          "governing_group": "lateral_col-WPB300X300X100.85",
-          "governing_dc": 0.9849370349127478,
-          "section": "WPB300X300X100.85",
+          "governing_group": "gravity_col-WPB200X200X34.65",
+          "governing_dc": 0.9740207736482166,
+          "section": "WPB200X200X34.65",
           "limit_state": "IS 800 9.3 interaction / member resistance",
-          "governing_element": 14,
-          "governing_combination": "1.5DL+1.5LL-N_Y"
+          "governing_element": 10,
+          "governing_combination": "1.5DL+1.5LL-N_X"
         },
         "connections": {
-          "groups": 6,
-          "groups_with_numeric_dc": 4,
-          "groups_above_unity": 1,
-          "governing_group": "conn-lateral_col-WPB800X300X171.52",
-          "governing_dc": 1.264239649203195,
-          "section": "WPB800X300X171.52",
-          "limit_state": "column base (base-e5): bearing_biaxial",
+          "groups": 8,
+          "groups_with_numeric_dc": 8,
+          "groups_above_unity": 0,
+          "governing_group": "conn-floor-WPB650X300X224.78",
+          "governing_dc": 0.8647676319894626,
+          "section": "WPB650X300X224.78",
+          "limit_state": "IS 800 12.11.2.2 connection_shear (joint e25)",
           "governing_element": null,
           "governing_combination": null
         },
         "governing_drift": {
           "storey": 2,
           "dir": "Y",
-          "value": 0.0018632814972475238,
+          "value": 0.0002704083011221798,
           "limit": 0.004,
-          "dc": 0.46582037431188095,
+          "dc": 0.06760207528054495,
           "ok": true
+        },
+        "post_report_status_sha256": "5bc671d0c1f7e0f9975cb020bcda3f30b27a9d12f9f864164165cd755ee6fe0a"
+      },
+      "additional_dead_kNm2_by_level": {
+        "1": 1.6,
+        "2": 1.2000000000000002
+      },
+      "one_way_load_path": {
+        "global_secondary_axis": "Y",
+        "secondary_spacing_mm": 2833.3333333333335,
+        "primary_girder_axis": "X",
+        "reference": "Steltic India one_way_trib_mm, actual adjacent floor bays and H13 secondary-strip load distribution."
+      },
+      "seismic_restraints": {
+        "longest_adopted_spacing_mm": 1600,
+        "count": 312,
+        "governing_local_ratio": 0.8642125039837066,
+        "uncovered_beam_tags": [],
+        "uncovered_column_tags": [],
+        "source_package_sha256": "26d02362003936c91fb7855efa621c37dc0b1b66fdc3526076f9b92359123dd0",
+        "references": [
+          "IS 800:2007 12.11.3.3, PDF page 96",
+          "IS 18168:2023 6.2, PDF page 9"
+        ],
+        "load_basis": "Steel weight is apportioned to the two real supporting beams at every cross-frame station."
+      },
+      "fabricated_sections": {
+        "ids": [
+          "BOX650X650X36",
+          "BOX850X850X56"
+        ],
+        "basis": "Independent sizing used fabricated members where the selected rolled families did not pass all trial demands. Confirm substitution and procurement where the brief specifies a rolled family."
+      },
+      "installed_bearing": {
+        "installed_surfaces": [
+          {
+            "panel": "Link-DECK-1-0-0",
+            "role": "floor deck",
+            "reference_elevation_mm": 3600.0,
+            "installed_soffit_elevation_mm": 4805.0,
+            "normal_offset_mm": 1205.0
+          },
+          {
+            "panel": "Link-DECK-1-0-1",
+            "role": "floor deck",
+            "reference_elevation_mm": 3600.0,
+            "installed_soffit_elevation_mm": 4805.0,
+            "normal_offset_mm": 1205.0
+          },
+          {
+            "panel": "Link-DECK-1-1-0",
+            "role": "floor deck",
+            "reference_elevation_mm": 3600.0,
+            "installed_soffit_elevation_mm": 4805.0,
+            "normal_offset_mm": 1205.0
+          },
+          {
+            "panel": "Link-DECK-1-1-1",
+            "role": "floor deck",
+            "reference_elevation_mm": 3600.0,
+            "installed_soffit_elevation_mm": 4805.0,
+            "normal_offset_mm": 1205.0
+          },
+          {
+            "panel": "Link-DECK-2-0-0",
+            "role": "roof deck",
+            "reference_elevation_mm": 7200.0,
+            "installed_soffit_elevation_mm": 7930.0,
+            "normal_offset_mm": 730.0
+          },
+          {
+            "panel": "Link-DECK-2-0-1",
+            "role": "roof deck",
+            "reference_elevation_mm": 7200.0,
+            "installed_soffit_elevation_mm": 7930.0,
+            "normal_offset_mm": 730.0
+          },
+          {
+            "panel": "Link-DECK-2-1-0",
+            "role": "roof deck",
+            "reference_elevation_mm": 7200.0,
+            "installed_soffit_elevation_mm": 7930.0,
+            "normal_offset_mm": 730.0
+          },
+          {
+            "panel": "Link-DECK-2-1-1",
+            "role": "roof deck",
+            "reference_elevation_mm": 7200.0,
+            "installed_soffit_elevation_mm": 7930.0,
+            "normal_offset_mm": 730.0
+          }
+        ],
+        "seat_steel_mass_kg_by_source_level": {
+          "EL-3600": 2056.25,
+          "EL-7200": 794.53
+        },
+        "added_boundary_bearer_mass_kg_by_source_level": {
+          "EL-3600": 903.19,
+          "EL-7200": 903.19
+        },
+        "source_workline_to_soffit": [
+          {
+            "roles": [
+              "floor deck"
+            ],
+            "normal": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "datum_mm": 3600.0,
+            "soffit_lift_mm": 1205.0,
+            "installed_secondary_count": 14
+          },
+          {
+            "roles": [
+              "roof deck"
+            ],
+            "normal": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "datum_mm": 7200.0,
+            "soffit_lift_mm": 730.0,
+            "installed_secondary_count": 14
+          }
+        ],
+        "physical_receiver_contacts": 152,
+        "open_contacts": []
+      },
+      "auxiliary_dead_load": {
+        "1": {
+          "physical_kg": 40489.4,
+          "plan_m2": 289.0,
+          "actual_kNm2": 1.3744,
+          "applied_kNm2": 1.6
+        },
+        "2": {
+          "physical_kg": 30410.5,
+          "plan_m2": 289.0,
+          "actual_kNm2": 1.03227,
+          "applied_kNm2": 1.2000000000000002
         }
       }
     },
@@ -907,17 +1329,17 @@
         "soil": "II",
         "R_x": 5.0,
         "R_y": 5.0,
-        "W_kN": 603.045,
+        "W_kN": 1543.542,
         "Ta_x_s": 0.4043,
         "Ta_y_s": 0.4043,
         "Sa_g_x": 2.5,
         "Sa_g_y": 2.5,
         "Ah_x": 0.09,
         "Ah_y": 0.09,
-        "VB_x_kN": 54.274,
-        "VB_y_kN": 54.274,
+        "VB_x_kN": 138.919,
+        "VB_y_kN": 138.919,
         "W_by_floor_kN": [
-          603.045
+          1543.542
         ]
       },
       "wind": {
@@ -939,17 +1361,17 @@
         "rsa_used_in_demands": true,
         "scale_by_axis": {
           "X": {
-            "VB_rsa_kN": 48.89,
-            "VBbar_kN": 54.27,
-            "scale": 1.1102,
-            "VB_scaled_kN": 54.27,
+            "VB_rsa_kN": 138.92,
+            "VBbar_kN": 138.92,
+            "scale": 1.0,
+            "VB_scaled_kN": 138.92,
             "mass_participation": 1.0
           },
           "Y": {
-            "VB_rsa_kN": 42.76,
-            "VBbar_kN": 54.27,
-            "scale": 1.2693,
-            "VB_scaled_kN": 54.27,
+            "VB_rsa_kN": 138.92,
+            "VBbar_kN": 138.92,
+            "scale": 1.0,
+            "VB_scaled_kN": 138.92,
             "mass_participation": 1.0
           }
         }
@@ -1178,6 +1600,31 @@
         },
         {
           "found": true,
+          "cite": "IS 800 12.11.3.3, column restraint at both beam-flange levels",
+          "source_path": "IS_800_2007/markdown/pages_search/page_096.md",
+          "sha256": "c5965bf0c42cfba0f9fe5f3de4e48fd7644d6f5755c81beeda4965a5367ba3b9",
+          "selected_inputs": {
+            "minimum_fraction_of_beam_flange_strength": 0.02
+          },
+          "edition": "IS 800:2007",
+          "licensed_pdf": {
+            "file": "IS_800_2007.pdf",
+            "sha256": "06711fe3c87a3da0351806a9cdd87f014a7df974e9e07200a2dc0ddbc288617b"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 18168 section 6.2, seismic beam flange restraints",
+          "source_path": "IS_18168_2023/markdown/pages_search/page_009.md",
+          "sha256": "2a2409308eb11b9ea46e72917ff1531516105a4a1890925a7d894cae1405e270",
+          "edition": "IS 18168:2023",
+          "licensed_pdf": {
+            "file": "IS_18168_2023.pdf",
+            "sha256": "e3563ca3bbf2c1f0febb28278f1d081290cea32e4115c3e4dd52aa9f065bd415"
+          }
+        },
+        {
+          "found": true,
           "cite": "IS 875 Part 3, Annex A, Chandigarh",
           "source_path": "IS_875_Part_3_2015/tables/IS_875_Part_3_2015_Table_AnnexA_recovered.csv",
           "sha256": "4d81896bccbae71a3cfa5a5de4c47542db1e537053d6cbaa660286ddd68fdcb6",
@@ -1216,12 +1663,9 @@
         }
       ],
       "native_checks": {
-        "status": "partial",
-        "native_findings": 125,
-        "finding_classes": {
-          "gates": 48,
-          "elements": 77
-        },
+        "status": "complete",
+        "native_findings": 0,
+        "finding_classes": {},
         "model_gates": {
           "rsa_X": true,
           "modalmass_X": true,
@@ -1239,81 +1683,176 @@
         },
         "combination_count": 198,
         "members": {
-          "groups": 3,
-          "groups_with_numeric_dc": 3,
+          "groups": 4,
+          "groups_with_numeric_dc": 4,
           "groups_above_unity": 0,
-          "governing_group": "lateral_col-BOX350X350X10",
-          "governing_dc": 0.7933463110814565,
-          "section": "BOX350X350X10",
-          "limit_state": "IS 800 9.3 interaction / member resistance",
-          "governing_element": 2,
-          "governing_combination": "1.5DL+1.5LL-N_X"
+          "governing_group": "roof-NPB300X200X75.37",
+          "governing_dc": 0.6827309236947791,
+          "section": "NPB300X200X75.37",
+          "limit_state": "IS 800 Table 3 slenderness",
+          "governing_element": 15,
+          "governing_combination": "1.5DL+1.5EQ_Y[ea]+0.3EQ_Z"
         },
         "connections": {
-          "groups": 3,
-          "groups_with_numeric_dc": 1,
+          "groups": 4,
+          "groups_with_numeric_dc": 4,
           "groups_above_unity": 0,
-          "governing_group": "conn-lateral_col-BOX350X350X10",
-          "governing_dc": 0.9871305802815602,
-          "section": "BOX350X350X10",
-          "limit_state": "column base (base-e7): bearing_biaxial",
+          "governing_group": "conn-roof-WPB650X300X224.78",
+          "governing_dc": 0.9198378961186604,
+          "section": "WPB650X300X224.78",
+          "limit_state": "IS 800 12.11.2.2 connection_shear (joint e9)",
           "governing_element": null,
           "governing_combination": null
         },
         "governing_drift": {
           "storey": 1,
           "dir": "Y",
-          "value": 0.0014337689115776471,
+          "value": 0.0003105655388278534,
           "limit": 0.004,
-          "dc": 0.35844222789441177,
+          "dc": 0.07764138470696334,
           "ok": true
+        },
+        "post_report_status_sha256": "8af44f08500fc7fc0b68e495aabe9131dfcd39c772f0195ed2b8e1a8d5f744f0"
+      },
+      "additional_dead_kNm2_by_level": {
+        "1": 1.4000000000000001
+      },
+      "one_way_load_path": {
+        "global_secondary_axis": "Y",
+        "secondary_spacing_mm": 2833.3333333333335,
+        "primary_girder_axis": "X",
+        "reference": "Steltic India one_way_trib_mm, actual adjacent floor bays and H13 secondary-strip load distribution."
+      },
+      "seismic_restraints": {
+        "longest_adopted_spacing_mm": 1100,
+        "count": 204,
+        "governing_local_ratio": 0.8211447219675732,
+        "uncovered_beam_tags": [],
+        "uncovered_column_tags": [],
+        "source_package_sha256": "23eb935f8f7881f8eaf7e8d500b358eaafd281c3c911bfbf9ff7ec4e43c4c3b5",
+        "references": [
+          "IS 800:2007 12.11.3.3, PDF page 96",
+          "IS 18168:2023 6.2, PDF page 9"
+        ],
+        "load_basis": "Steel weight is apportioned to the two real supporting beams at every cross-frame station."
+      },
+      "fabricated_sections": {
+        "ids": [
+          "BOX650X650X36"
+        ],
+        "basis": "Independent sizing used fabricated members where the selected rolled families did not pass all trial demands. Confirm substitution and procurement where the brief specifies a rolled family."
+      },
+      "installed_bearing": {
+        "installed_surfaces": [
+          {
+            "panel": "Gym-DECK-1-0-0",
+            "role": "roof deck",
+            "reference_elevation_mm": 8000.0,
+            "installed_soffit_elevation_mm": 8755.0,
+            "normal_offset_mm": 755.0
+          },
+          {
+            "panel": "Gym-DECK-1-0-1",
+            "role": "roof deck",
+            "reference_elevation_mm": 8000.0,
+            "installed_soffit_elevation_mm": 8755.0,
+            "normal_offset_mm": 755.0
+          },
+          {
+            "panel": "Gym-DECK-1-1-0",
+            "role": "roof deck",
+            "reference_elevation_mm": 8000.0,
+            "installed_soffit_elevation_mm": 8755.0,
+            "normal_offset_mm": 755.0
+          },
+          {
+            "panel": "Gym-DECK-1-1-1",
+            "role": "roof deck",
+            "reference_elevation_mm": 8000.0,
+            "installed_soffit_elevation_mm": 8755.0,
+            "normal_offset_mm": 755.0
+          }
+        ],
+        "seat_steel_mass_kg_by_source_level": {
+          "EL-8000": 932.0
+        },
+        "added_boundary_bearer_mass_kg_by_source_level": {
+          "EL-8000": 903.19
+        },
+        "source_workline_to_soffit": [
+          {
+            "roles": [
+              "roof deck"
+            ],
+            "normal": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "datum_mm": 8000.0,
+            "soffit_lift_mm": 755.0,
+            "installed_secondary_count": 14
+          }
+        ],
+        "physical_receiver_contacts": 76,
+        "open_contacts": []
+      },
+      "auxiliary_dead_load": {
+        "1": {
+          "physical_kg": 35910.4,
+          "plan_m2": 289.0,
+          "actual_kNm2": 1.21897,
+          "applied_kNm2": 1.4000000000000001
         }
       }
     }
   ],
-  "handoff_sha256": "b18d02e87e5cfe43960c32985442d1ea1246b029be1a562d61c54b8afee7abb5",
-  "members": 209,
+  "handoff_sha256": "043a9a08b98aed81c6b217c48f896b8f73ba9123625d5547ae7f449b7643695b",
+  "members": 1343,
   "panels": 30,
-  "connections": 92,
-  "physical_profiles": 12,
+  "connections": 853,
+  "physical_profiles": 23,
   "source_evidence": {
     "producer": "steltic_india.openbim_handoff",
     "files": {
-      "units_summary.json": "487014ec5b3494de9ff04a8528bdcfb6f247533b23ea77b36419bcfadb2c85a9",
-      "units/Classroom/design/calc_package.json": "378b66ffe013bdcbee250a5d42ac0e033595a5d7082c5f373dcc03fb7f8461ff",
-      "units/Classroom/design/cfg_snapshot.json": "b2e40787948a6096b38d705e21d0a6b01c261a3073e78dd26a33f361d9576899",
-      "units/Classroom/design/member_schedule.csv": "1629063a716e279637971ceae13176f1dbc6e1fed1fc883d71a9c9b4a94831a7",
-      "units/Classroom/report.html": "0067fae99ce6e112ae8d2480d1d2be6aaa3a5b549e242e0ceb857a479d7e5861",
-      "units/Classroom/viewer_3d.html": "041445b7dde771747de9034cdf185a1decdae26efe9cb017da8d66ee504e404c",
-      "units/Classroom/STATUS.engine.md": "6a306ad69d22cfcf7881a717e8cbb07d3e9ce467efd9efe46bb46e70c06ee9e2",
-      "units/Gym/design/calc_package.json": "00b15ff31fc141dfe60c05185158dca579db143e9e45f9dcfdd27d788743e51b",
-      "units/Gym/design/cfg_snapshot.json": "caf5b4108978a93dfcbd00711ca901209dfd00f4b2e2c810e80b77a1beb3f417",
-      "units/Gym/design/member_schedule.csv": "087776cf58ea318f0a9ad9c975ba818014bee744daf645a9c31685b336ec868b",
-      "units/Gym/report.html": "41f6fb3ead45f8334eb58da77e788d2068ce9b4a0f034692b541ce64f20b7ac0",
-      "units/Gym/viewer_3d.html": "57df6f6811671a5796f1ed4294b7bb6e0053e843d86df4de7b8e8c58263ddd0f",
-      "units/Gym/STATUS.engine.md": "5a6676649bf0402a5398dbcdd85e525fdf1eabd2fd418c7c7abdcca6d69ac023",
-      "units/Link/design/calc_package.json": "5b3ab9c829555403b72d58682ba95367a54d5d535f0507b4f9b7240b3319c1fe",
-      "units/Link/design/cfg_snapshot.json": "8e899502708006e55e6bd32988f1556927b0a6d996b87026fdaaccfd88510e94",
-      "units/Link/design/member_schedule.csv": "0ce4a02f8a50dad71892200d4fa5751777152151d1341c86d1e30738159fd5b6",
-      "units/Link/report.html": "2fce978aaea9df255a96665e415350c9d059d8b73c12eba3438298ebfde8c19c",
-      "units/Link/viewer_3d.html": "01d64b9b05fc47e2183d0b9573aee5c8a2d8ff0867343e768b9a79f691e6c177",
-      "units/Link/STATUS.engine.md": "9fbc763fb96c3b8c103e1e7f24e17566911111efcafbfd5eaf787e7a9d48e284"
+      "units_summary.json": "5f0b178e7eddd07ce1a575b2d2926bae2e7194a601a89b9c1eaff75285c338a2",
+      "units/Classroom/design/calc_package.json": "808bd7b49745dd193247b8901a04efe9e5c1cc3e9a1e029a677684763f8b4712",
+      "units/Classroom/design/cfg_snapshot.json": "7756329f419ed07e99f7cc3518ab757c689f30a3fefa2bcb11e5d87549035e87",
+      "units/Classroom/design/member_schedule.csv": "721021032d2f7ef3b2c5cc38919dbd548faceff91a16432f4878aba366109ce3",
+      "units/Classroom/report.html": "e0ef6fc96ef8304bdc006e78c87eea5b40b8d5769339255665d327b3f6c03b98",
+      "units/Classroom/viewer_3d.html": "667ddd3dbd0f6992b65db9b52c9bb5826c2bd8cfaa8c4b202fc39acd7162d26d",
+      "units/Classroom/STATUS.engine.md": "e0eea80640a9be7dc6d871976a4e9bfd5ac28c794e28d1f6911cd63a058ec01f",
+      "units/Gym/design/calc_package.json": "9cea080c2a51dbec202a2c7ac98b4fcc15b7af31de6c9a279af833d06de81f5c",
+      "units/Gym/design/cfg_snapshot.json": "64a666763da14e93a851fed303556be0d68ddccf56cf0d11649edc48b0a5b44e",
+      "units/Gym/design/member_schedule.csv": "7081096200d6734e3d3758d7493375168b08018a3cb393ebaa3a5ef77fc4e032",
+      "units/Gym/report.html": "e907e8bb6c9abe265a70c8b240ac9d62d123a2de587c129f6bcfcaa759f297f5",
+      "units/Gym/viewer_3d.html": "2d78ea0235fb6151ecc3dc623a4450b0de0135577294ffec5255d8a740254e82",
+      "units/Gym/STATUS.engine.md": "8af44f08500fc7fc0b68e495aabe9131dfcd39c772f0195ed2b8e1a8d5f744f0",
+      "units/Link/design/calc_package.json": "fe4afcf4cca88c10e4aea4557c979197089e82f2372abbf898d94f6ffcce0d09",
+      "units/Link/design/cfg_snapshot.json": "d81370eab6a150d109b6912f0b74e5b166a72ff26423f3e45ebbd286e125b1ae",
+      "units/Link/design/member_schedule.csv": "1025ce3b6c577402dd2b22d18c577b84768b7323b68d05ccd089e64b95166c2c",
+      "units/Link/report.html": "078784530992ad43b28362dba18f4a574a213422002c8f470a02151d4beeb26d",
+      "units/Link/viewer_3d.html": "0e3d883083f5583ecb2b8c355ec20abb37d496450be411afb69f9c88b1baaddb",
+      "units/Link/STATUS.engine.md": "5bc671d0c1f7e0f9975cb020bcda3f30b27a9d12f9f864164165cd755ee6fe0a"
     },
     "native_status": {
-      "Classroom": "partial",
-      "Gym": "partial",
-      "Link": "partial",
-      "composite": "partial"
+      "Classroom": "complete",
+      "Gym": "complete",
+      "Link": "complete",
+      "composite": "complete"
     },
     "native_elements": 149,
     "bound_elements": 149,
     "open_items": []
   },
-  "checked_design_status": "fail",
+  "checked_design_status": "review",
   "assumptions": [
     "250 mm seismic joints separate all three wings; gym roof DL 1.2 kN/m².",
     "Site soil Type II pending geotechnical confirmation.",
-    "Trial connection details and matched source member checks are recorded where available. Each unverified design item retains review status."
+    "Trial connection details and matched source member checks are recorded where available. Each unverified design item retains review status.",
+    "The transverse restraint brings the two flange levels to adjacent framing lines. Check the local end shoes, supporting web and transfer to the roof or floor diaphragm during fabrication coordination.",
+    "The transverse restraint brings the two flange levels to adjacent framing lines. Check the local end shoes, supporting web and transfer to the roof or floor diaphragm during fabrication coordination.",
+    "The transverse restraint brings the two flange levels to adjacent framing lines. Check the local end shoes, supporting web and transfer to the roof or floor diaphragm during fabrication coordination."
   ],
   "separation_joints": [
     {
@@ -1330,14 +1869,14 @@
         8500.0,
         17000.0
       ],
-      "required_gap_mm": 27.07067166710554,
+      "required_gap_mm": 9.822217066988397,
       "measured_clear_mm": 250.0,
       "limiting_occurrences": [
-        "Classroom-J41-BP",
-        "Link-E1"
+        "Classroom-J41-1-BP",
+        "Link-J1-1-GS3-3"
       ],
-      "native_demand_mm": 27.07067166710554,
-      "axis_gap_mm": 1210.0
+      "native_demand_mm": 9.822217066988397,
+      "axis_gap_mm": 2875.0
     },
     {
       "id": "SJ2",
@@ -1353,14 +1892,14 @@
         17000.0,
         25500.0
       ],
-      "required_gap_mm": 72.30252873034908,
+      "required_gap_mm": 11.488865032511704,
       "measured_clear_mm": 250.0,
       "limiting_occurrences": [
-        "Link-E17",
-        "Gym-J1-BP"
+        "Link-J22-1-GS1-1",
+        "Gym-J1-1-BP"
       ],
-      "native_demand_mm": 72.30252873034908,
-      "axis_gap_mm": 1035.0
+      "native_demand_mm": 11.488865032511704,
+      "axis_gap_mm": 2700.0
     }
   ]
 }

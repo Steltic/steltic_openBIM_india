@@ -1,0 +1,447 @@
+{
+  "status": "pass",
+  "samples": [
+    {
+      "id": "Office-skin-floor deck-NPB550X210X92.08",
+      "chain": [
+        "Office-SEC-1-0-0-1",
+        "Office-DECK-1-0-0"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            2500.0,
+            3750.0,
+            4921.5
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Office-support-beam-secondary beam-1",
+      "chain": [
+        "Office-E81",
+        "Office-SEC-1-0-0-1-BEAR-START-PACK",
+        "Office-SEC-1-0-0-1"
+      ],
+      "expected_gaps_mm": [
+        0.0,
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            2500.0,
+            6.0,
+            4648.0
+          ],
+          "measured_gaps_mm": [
+            0.0,
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Office-skin-floor deck-RHS120X80X6-EDGE",
+      "chain": [
+        "Office-DECK-1-0-0-EDGE-1",
+        "Office-DECK-1-0-0"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            7500.0,
+            3750.0,
+            5135.0
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Office-support-beam-secondary beam-4",
+      "chain": [
+        "Office-E100",
+        "Office-DECK-1-0-0-EDGE-1-BEAR-START-LOWER"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            7500.0,
+            183.0,
+            5075.0
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Office-cap-secondary beam",
+      "chain": [
+        "Office-DECK-1-0-0-EDGE-1-BEAR-START-CAP",
+        "Office-DECK-1-0-0-EDGE-1"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            7500.0,
+            183.0,
+            5075.0
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Office-skin-roof deck-NPB300X200X59.57",
+      "chain": [
+        "Office-SEC-4-0-0-1",
+        "Office-DECK-4-0-0"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            2500.0,
+            3750.0,
+            15478.5
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Office-skin-roof deck-RHS120X80X6-EDGE",
+      "chain": [
+        "Office-DECK-4-0-0-EDGE-46",
+        "Office-DECK-4-0-0"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            7500.0,
+            3750.0,
+            15570.0
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Workshop-skin-floor deck-WPB320X300X97.64",
+      "chain": [
+        "Workshop-SEC-1-0-0-1",
+        "Workshop-DECK-1-0-0"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            33700.0,
+            3750.0,
+            6565.0
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Workshop-support-beam-secondary beam-1",
+      "chain": [
+        "Workshop-E31",
+        "Workshop-SEC-1-0-0-1-BEAR-START-PACK",
+        "Workshop-SEC-1-0-0-1"
+      ],
+      "expected_gaps_mm": [
+        0.0,
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            33700.0,
+            6.0,
+            6410.0
+          ],
+          "measured_gaps_mm": [
+            0.0,
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Workshop-skin-floor deck-RHS120X80X6-EDGE",
+      "chain": [
+        "Workshop-DECK-1-0-0-EDGE-1",
+        "Workshop-DECK-1-0-0"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            38700.0,
+            3750.0,
+            6660.0
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Workshop-support-beam-secondary beam-4",
+      "chain": [
+        "Workshop-E45",
+        "Workshop-DECK-1-0-0-EDGE-1-BEAR-START-LOWER"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            38700.0,
+            123.0,
+            6600.0
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Workshop-cap-secondary beam",
+      "chain": [
+        "Workshop-DECK-1-0-0-EDGE-1-BEAR-START-CAP",
+        "Workshop-DECK-1-0-0-EDGE-1"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            38700.0,
+            123.0,
+            6600.0
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Workshop-skin-roof deck-NPB300X200X59.57",
+      "chain": [
+        "Workshop-SEC-2-0-0-1",
+        "Workshop-DECK-2-0-0"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            33700.0,
+            3750.0,
+            11278.5
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Workshop-skin-roof deck-RHS120X80X6-EDGE",
+      "chain": [
+        "Workshop-DECK-2-0-0-EDGE-11",
+        "Workshop-DECK-2-0-0"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            38700.0,
+            3750.0,
+            11370.0
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    }
+  ],
+  "handoff_sha256": "9f407dc813253445f7f30195e2e331c1eea8815ee1c08b628c06af5a504e88f4",
+  "ifc_sha256": "8bd65ad407dbcdb03456266765c2f330b4b1d49abc6ada436966c092bc12c1e0"
+}

@@ -1,0 +1,86 @@
+{
+  "project": "IN_Ex4",
+  "status": "pass",
+  "counts": {
+    "blocks": 544,
+    "interfaces": 1440
+  },
+  "minimum_common_area_mm2": 594.0,
+  "minimum_pair": [
+    "Main-GABLE-GIRT-1-5-0-0-LEFT-BL",
+    "Main-C0-12-m1"
+  ],
+  "failures": [],
+  "door_clearances": [
+    {
+      "door": "Y0-1",
+      "clear_width_mm": 3000.0,
+      "clear_height_mm": 3500,
+      "envelope_depth_mm": 1326.0,
+      "intrusions": []
+    },
+    {
+      "door": "Y0-2",
+      "clear_width_mm": 3000.0,
+      "clear_height_mm": 3500,
+      "envelope_depth_mm": 1326.0,
+      "intrusions": []
+    },
+    {
+      "door": "Y0-3",
+      "clear_width_mm": 3000.0,
+      "clear_height_mm": 3500,
+      "envelope_depth_mm": 1326.0,
+      "intrusions": []
+    },
+    {
+      "door": "Y0-4",
+      "clear_width_mm": 3000.0,
+      "clear_height_mm": 3500,
+      "envelope_depth_mm": 1326.0,
+      "intrusions": []
+    },
+    {
+      "door": "Y0-5",
+      "clear_width_mm": 3000.0,
+      "clear_height_mm": 3500,
+      "envelope_depth_mm": 1326.0,
+      "intrusions": []
+    },
+    {
+      "door": "Y0-6",
+      "clear_width_mm": 3000.0,
+      "clear_height_mm": 3500,
+      "envelope_depth_mm": 1326.0,
+      "intrusions": []
+    },
+    {
+      "door": "Y0-7",
+      "clear_width_mm": 3000.0,
+      "clear_height_mm": 3500,
+      "envelope_depth_mm": 1326.0,
+      "intrusions": []
+    },
+    {
+      "door": "Y0-8",
+      "clear_width_mm": 3000.0,
+      "clear_height_mm": 3500,
+      "envelope_depth_mm": 1326.0,
+      "intrusions": []
+    },
+    {
+      "door": "Y0-9",
+      "clear_width_mm": 3000.0,
+      "clear_height_mm": 3500,
+      "envelope_depth_mm": 1326.0,
+      "intrusions": []
+    },
+    {
+      "door": "Y0-10",
+      "clear_width_mm": 3000.0,
+      "clear_height_mm": 3500,
+      "envelope_depth_mm": 1326.0,
+      "intrusions": []
+    }
+  ]
+}

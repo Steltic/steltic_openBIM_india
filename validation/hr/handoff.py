@@ -250,7 +250,7 @@ class UnitModel:
                 self.panel('dock canopy',[(support,0,cap_z),(support+6000,0,cap_z-200),(support+6000,length,cap_z-200),(support,length,cap_z)],.5,'SHEET','CANOPY')
                 roof=self.cfg['load_plan']['member_wind']; can_down=max(p['canopy_pressure_kNm2'] for p in roof)
                 can_up=max(-p['canopy_pressure_kNm2'] for p in roof)
-                cn,dim,cdc=select_z(self.cfs,sy,750,max(.2+.75,can_down+.2),can_up)
+                cn,dim,cdc=select_z(self.cfs,sy,750,max(.27+.75,can_down+.27),can_up)
                 self.profile_lookup[cn]=dict(family='Z',dimensions_mm=dim)
                 ck=check(self.data['checks'],self.pre+'Z-CANOPY','IS 801 canopy purlin at 750 mm, with independent positive and negative canopy pressure.',
                     'pass' if cdc<=1 else 'fail',cdc,'IS 801 5.2, 6.3–6.5; attached-canopy pressure assumption')
@@ -259,8 +259,9 @@ class UnitModel:
                         self.member('canopy purlin',cn,(support+750*k,j*sy,cap_z-25*k),(support+750*k,(j+1)*sy,cap_z-25*k),
                                     material=pmat,checks=[ck],mid=f'CAN-PU-{k}-{j}',bind=False)
             if n==9:
-                self.panel('lean-to roof',[(-12000,0,5000),(0,0,5000),(0,4*sy,5000),(-12000,4*sy,5000)],100,'CONC','LEAN-ROOF')
-                check(self.data['checks'],self.pre+'LEAN','Flat lean-to roof drainage, overflow path and ponding depth require site drainage design. Snow drift is included in the native load plan.')
+                self.panel('lean-to structural deck',[(-12000,0,5000),(0,0,5000),(0,4*sy,5000),(-12000,4*sy,5000)],100,'CONC','LEAN-DECK')
+                self.panel('lean-to roof',[(-12000,0,5100),(0,0,5250),(0,4*sy,5250),(-12000,4*sy,5100)],1,'SHEET','LEAN-ROOF')
+                check(self.data['checks'],self.pre+'LEAN','Lower roof gutter and overflow outlet hydraulic capacity awaits site rainfall and drainage design. See native 1:80 membrane ponding check and snow drift loads.')
         else:
             for k,z in enumerate(self.datums[1:],1):
                 for i,j in sorted(floor_cells(u,k)):
@@ -270,14 +271,18 @@ class UnitModel:
                     self.panel('roof deck' if roof_cell else 'floor deck',[(i*sx,j*sy,zl),((i+1)*sx,j*sy,zl),((i+1)*sx,(j+1)*sy,zu),(i*sx,(j+1)*sy,zu)],
                                .75 if n==10 or u.name=='Gym' or n==6 and k==len(u.heights) else 100,
                                'SHEET' if n==10 or u.name=='Gym' or n==6 and k==len(u.heights) else 'CONC', f'DECK-{k}-{i}-{j}')
-                    spacing=case.purlin_spacing if n==6 and k==len(u.heights) else 2.5 if n in (10,11) else 3
-                    count=max(2,math.ceil(u.sy/spacing))
+                    self.data['panels'][-1]['deck_span_direction']='X' if self.cfg.get('deck_span')=='Y' else 'Y'
+                    spacing=case.purlin_spacing if n==6 else 2.5 if n in (10,11) else 3
+                    along_y=self.cfg.get('deck_span')=='Y' and n!=10
+                    count=max(2,math.ceil((u.sx if along_y else u.sy)/spacing))
                     service='roof joist' if roof_cell else 'floor joist'
                     sec=chosen.get(service) or self.cfg['gold']['beam_sec']['roof_X' if roof_cell else 'floor_X']
                     for b in range(1,count):
                         y=(j+b/count)*sy
                         elev=self.roof_y(y) if n==10 else z
-                        self.member('roof joist' if n==10 else 'secondary beam',sec,(i*sx,y,elev),((i+1)*sx,y,elev),
+                        x=(i+b/count)*sx
+                        a1,b1=((x,j*sy,elev),(x,(j+1)*sy,elev)) if along_y else ((i*sx,y,elev),((i+1)*sx,y,elev))
+                        self.member('roof joist' if n==10 else 'secondary beam',sec,a1,b1,
                                     checks=[self.secondary_checks.get(service)],mid=f'SEC-{k}-{i}-{j}-{b}',bind=False)
 
     def joints(self):
@@ -319,6 +324,7 @@ def export(case,configs,hr,jobdir,dest,summary,cfs=None,specs=None):
                      ('SHEET','Profiled sheet','Cladding supplier trial specification'),('CONC','M25','IS 456 (design assumption)')]:
         data['materials'][id]=dict(grade=grade,standard=standard)
     grids={'x':set(),'y':set()}; zs=set()
+    bearing_samples=[]
     for u in case.units:
         offset=[float(u.offset[0]*1000),float(u.offset[1]*1000),0.]
         data['units'].append(dict(id=u.name,name=u.name,origin_mm=offset,levels=[f'EL-{h:g}' for h in _levels(u)]))
@@ -343,9 +349,14 @@ def export(case,configs,hr,jobdir,dest,summary,cfs=None,specs=None):
                             selected['fabrication']=proposed['fabrication']
             for key in ('connections','truss_connections','member_overrides','physical_secondaries','secondary_members',
                         'load_plan','crane','flange_braces','gage_bracing','connected_crossings','purlin_spacing_mm',
-                        'girt_spacing_mm','beam_lateral_bracing','column_lateral_support_both_flanges','seismic_restraint_layout'):
+                        'girt_spacing_mm','beam_lateral_bracing','column_lateral_support_both_flanges','seismic_restraint_layout',
+                        'deck_span','secondary_spacing_mm'):
                 if key in snapshot:cfg[key]=snapshot[key]
                 elif key in cfg:cfg.pop(key)
+            if 'extra_mass_floors' in snapshot:
+                cfg['extra_mass_floors']={int(k):v for k,v in snapshot['extra_mass_floors'].items()}
+            else:
+                cfg.pop('extra_mass_floors',None)
         model=UnitModel(data,case,u,cfg,hr,cfs or hr.parent/'cfs',source,offset)
         from enclosure import envelope
         model.primary();model.secondaries();envelope(model);model.joints()
@@ -356,8 +367,35 @@ def export(case,configs,hr,jobdir,dest,summary,cfs=None,specs=None):
         else:
             from native_joint_parts import detail
         detail(model)
+        if case.number in (15,19):
+            from pune_ebf import draw_links
+            draw_links(model)
+        if 'SMRF' in case.system:
+            from seismic_details import draw as draw_panel_zones
+            draw_panel_zones(model)
+        if case.number<=5:
+            from peb_takeoff import verify
+            verify(model)
         from evidence import unit_evidence
         summary.setdefault('units',[]).append(unit_evidence(cfg,source,u,case,specs))
+        gust=summary['units'][-1]['wind'].get('dynamic',{})
+        if gust.get('frequency_difference_fraction'):
+            mismatch=max(gust['frequency_difference_fraction'].values())
+            check(data['checks'],model.pre+'WIND-MODAL-FREQUENCY',
+                f"Largest difference between the applied gust frequency and the final participating-mode frequency is {100*mismatch:.4f}%.",
+                'pass' if mismatch<=.005 else 'review',reference='IS 875 Part 3:2015 9.1 and 10.2–10.3, final native modal extraction.')
+        if case.number>=6:
+            from bearing import detail as place_envelope
+            record,samples=place_envelope(model)
+            summary['units'][-1]['installed_bearing']=record
+            bearing_samples.extend((u.name,s) for s in samples)
+            from secondary_weight import attest
+            summary['units'][-1]['auxiliary_dead_load']=attest(model)
+            if case.number in (15,19):
+                from pune_ebf import validate_detail_weight
+                validate_detail_weight(model)
+            if case.number==19:
+                data['assumptions'].append(f'{u.name} supplementary steel is included in gravity and earthquake weight as 1.45 kN/m² at levels 1–6, 1.19 kN/m² at levels 7–11 and 0.72 kN/m² at roof. Each floor has its own check against the modeled steel takeoff.')
         if case.number<=5 and specs:
             from peb_details import specification_pages
             summary['units'][-1]['peb_verified_pdf_pages']=specification_pages(specs,case)
@@ -373,6 +411,13 @@ def export(case,configs,hr,jobdir,dest,summary,cfs=None,specs=None):
                  declared_gap_mm=250 if case.number==12 else 400,reference='IS 1893 Part 1, 7.11.3'))
         from setout import place
         place(data,case,jobdir)
+    if bearing_samples:
+        for unit_id,sample in bearing_samples:
+            u=next(u for u in case.units if u.name==unit_id)
+            origin=next(row['origin_mm'] for row in data['units'] if row['id']==unit_id)
+            for p in sample['stations_mm']:
+                for k in (0,1):p[k]=round(p[k]+origin[k]-1000*u.offset[k],4)
+        (dest/'bearing-samples.json').write_text(json.dumps([s for _,s in bearing_samples],indent=2)+'\n',encoding='utf-8')
     if any(r['status']=='fail' for r in data['checks']):data['project']['design_status']='fail'
     # A missing native viewer cannot substantiate a reference. Exporter preserves an explicit review gate.
     if not (jobdir/'viewer_3d.html').exists() and len(configs)==1:
@@ -381,6 +426,10 @@ def export(case,configs,hr,jobdir,dest,summary,cfs=None,specs=None):
     result=export_handoff(jobdir,data)
     shutil.copyfile(result,dest/'handoff.json')
     obj=json.loads(result.read_text(encoding='utf-8'))
+    if case.number<=5:
+        from peb_envelope import samples
+        points=samples(data)
+        (dest/'bearing-samples.json').write_text(json.dumps(points,indent=2)+'\n',encoding='utf-8')
     summary.update(handoff_sha256=hashlib.sha256(result.read_bytes()).hexdigest(),members=len(data['members']),
                    panels=len(data['panels']),connections=len(data['connections']),physical_profiles=len(data['profiles']),
                    source_evidence=obj.get('source_evidence'),checked_design_status=obj['project']['design_status'],

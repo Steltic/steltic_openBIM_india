@@ -41,17 +41,17 @@
         "soil": "II",
         "R_x": 3.0,
         "R_y": 4.0,
-        "W_kN": 2563.401,
+        "W_kN": 2822.151,
         "Ta_x_s": 0.478,
         "Ta_y_s": 0.1039,
         "Sa_g_x": 2.5,
         "Sa_g_y": 2.5,
         "Ah_x": 0.041667,
         "Ah_y": 0.03125,
-        "VB_x_kN": 106.808,
-        "VB_y_kN": 80.106,
+        "VB_x_kN": 117.59,
+        "VB_y_kN": 88.192,
         "W_by_floor_kN": [
-          2563.401
+          2822.151
         ]
       },
       "wind": {
@@ -345,9 +345,9 @@
         "governing_drift": {
           "storey": 1,
           "dir": "X",
-          "value": 0.0005393178183929605,
+          "value": 0.0005943602514576099,
           "limit": 0.004,
-          "dc": 0.1348294545982401,
+          "dc": 0.14859006286440246,
           "ok": true
         },
         "post_report_status_sha256": "4335599db8bac1634be648aee9274edd2d4280d899f06f0e5d965012f80bca91"
@@ -391,19 +391,19 @@
       ]
     }
   ],
-  "handoff_sha256": "5ff7d5dfd8e0567938963ce217821560c09b50dd262759da646dc51cab358935",
-  "members": 618,
-  "panels": 30,
-  "connections": 83,
+  "handoff_sha256": "8d18f22bbc638b6ff76979dc3bbb4e72f37e63d235cf1f16a7a920409a3d61ad",
+  "members": 658,
+  "panels": 56,
+  "connections": 449,
   "physical_profiles": 11,
   "source_evidence": {
     "producer": "steltic_india.openbim_handoff",
     "files": {
-      "design/calc_package.json": "cb03e66c7d01e05d6a1d78abe5f84d06567bd8f941ed443221fa3874f7cd9033",
-      "design/cfg_snapshot.json": "d875965f705bc362ca94ba8a855742e17f6bc150dfe54524e26d136a20ed5c56",
-      "design/member_schedule.csv": "952567cc98df611c5e6c4f28cc28c9ac5bad465913dac0fc5f078f0a807e19f2",
-      "report.html": "22df2d159c346f05869f28c3ad5be55f6afea390670a14bb44d02c8d997dcbb4",
-      "viewer_3d.html": "6e627dfd5261d8a9b4f7f5ee11af72cbac105da7c5e5e10db1349d2e866f7019",
+      "design/calc_package.json": "4a3bddb704d2bb76c75bb34fc4bb34ec8dd51ff9ddcd744e1c813bb8f3fbdb52",
+      "design/cfg_snapshot.json": "169e6e391ffc9c089f3af77555417867b67405f41ef35f0451ebf67a22c6fc01",
+      "design/member_schedule.csv": "11a59c6f5d36d913f71abda8e90c0a887e14be1fa1756627f61160b133b715af",
+      "report.html": "482374c2c870f0894f4e78c3bd678d5399135f1bae6cf8e755a6942880981429",
+      "viewer_3d.html": "2727dfe6f78a52105905e0ce7117b9dfbf888de0ba852985382bf9efaf7f2113",
       "STATUS.engine.md": "4335599db8bac1634be648aee9274edd2d4280d899f06f0e5d965012f80bca91"
     },
     "native_status": {
@@ -419,7 +419,12 @@
     "Array weight is 0.15 kN/m² on 75% of plan. Local clamps, rails, and design wind on PV require supplier details.",
     "Site soil Type II pending geotechnical confirmation.",
     "Trial connection details and matched source member checks are recorded where available. Each unverified design item retains review status.",
-    "Four PV module fields supply 75% coverage, at least 0.6 m clear of eaves and ridge, with 1 m clear across mid-length. Module depth assumed 35 mm; vendor designs rail and clamp fixings."
+    "Rooflight openings and separate translucent sheets occupy 3% of the gross main roof in plan and on the slope. Producer design uses a 1.5 mm polycarbonate envelope allowance; the supplier confirms sheet grade, curb and trimmer details, fall protection, overlaps, fasteners and watertight seals.",
+    "The endwall sheeting is set on outward-facing IS 811 Z rails. Remaining triangular verge infill, local corner closure, lap lengths, gable cleats and cladding fasteners require envelope detailing.",
+    "Continuous ridge ventilation is a specialist envelope package. Opening width, curb, flashing, local trimming and rain exclusion require the ventilator supplier specification.",
+    "The 230 mm masonry dado bears on its own plinth. Its out-of-plane ties, foundation and movement joints require local masonry and foundation detailing.",
+    "Portal eave and ridge values are fixed structural workline elevations. Across the main roof the inner skin is 850.2 mm vertically above that datum. The long façade is 846.0 mm outside the column grid. Roof and long-wall packing varies from 54.1 to 241.0 mm. The gable and door jamb attachments, outer cladding fixings, water seals and thermal movement require envelope-supplier details.",
+    "Four PV module fields supply 75% coverage at 100 mm clear normal to the outer roof sheet, at least 0.6 m clear of eaves and ridge, with 1 m clear across mid-length. Module depth assumed 35 mm. Vendor designs rail and clamp fixings."
   ],
   "separation_joints": []
 }

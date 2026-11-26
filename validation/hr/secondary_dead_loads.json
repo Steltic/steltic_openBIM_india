@@ -1,0 +1,544 @@
+{
+  "10": {
+    "Main": {
+      "1": {
+        "actual_kNm2": 0.68624,
+        "applied_kNm2": 0.8,
+        "physical_kg": 377744.9,
+        "plan_m2": 5400
+      }
+    }
+  },
+  "11": {
+    "Office": {
+      "1": {
+        "actual_kNm2": 0.51342,
+        "applied_kNm2": 0.65,
+        "physical_kg": 35327.3,
+        "plan_m2": 675.0
+      },
+      "2": {
+        "actual_kNm2": 0.37713,
+        "applied_kNm2": 0.5,
+        "physical_kg": 25949.3,
+        "plan_m2": 675.0
+      },
+      "3": {
+        "actual_kNm2": 0.3423,
+        "applied_kNm2": 0.45,
+        "physical_kg": 23552.8,
+        "plan_m2": 675.0
+      },
+      "4": {
+        "actual_kNm2": 0.20686,
+        "applied_kNm2": 0.30000000000000004,
+        "physical_kg": 14233.6,
+        "plan_m2": 675.0
+      }
+    },
+    "Workshop": {
+      "1": {
+        "actual_kNm2": 0.42873,
+        "applied_kNm2": 0.55,
+        "physical_kg": 19666.3,
+        "plan_m2": 450.0
+      },
+      "2": {
+        "actual_kNm2": 0.21181,
+        "applied_kNm2": 0.30000000000000004,
+        "physical_kg": 9715.9,
+        "plan_m2": 450.0
+      }
+    }
+  },
+  "12": {
+    "Classroom": {
+      "1": {
+        "actual_kNm2": 1.10598,
+        "applied_kNm2": 1.3,
+        "physical_kg": 48872.6,
+        "plan_m2": 433.5
+      },
+      "2": {
+        "actual_kNm2": 1.03748,
+        "applied_kNm2": 1.2000000000000002,
+        "physical_kg": 45846.0,
+        "plan_m2": 433.5
+      },
+      "3": {
+        "actual_kNm2": 0.80906,
+        "applied_kNm2": 0.9500000000000001,
+        "physical_kg": 35752.0,
+        "plan_m2": 433.5
+      }
+    },
+    "Gym": {
+      "1": {
+        "actual_kNm2": 1.21137,
+        "applied_kNm2": 1.4000000000000001,
+        "physical_kg": 35686.6,
+        "plan_m2": 289.0
+      }
+    },
+    "Link": {
+      "1": {
+        "actual_kNm2": 1.36236,
+        "applied_kNm2": 1.6,
+        "physical_kg": 40134.8,
+        "plan_m2": 289.0
+      },
+      "2": {
+        "actual_kNm2": 1.02592,
+        "applied_kNm2": 1.2000000000000002,
+        "physical_kg": 30223.3,
+        "plan_m2": 289.0
+      }
+    }
+  },
+  "13": {
+    "Main": {
+      "1": {
+        "actual_kNm2": 0.30694,
+        "applied_kNm2": 0.4,
+        "physical_kg": 22528.1,
+        "plan_m2": 720
+      },
+      "2": {
+        "actual_kNm2": 0.25966,
+        "applied_kNm2": 0.35000000000000003,
+        "physical_kg": 19057.5,
+        "plan_m2": 720
+      },
+      "3": {
+        "actual_kNm2": 0.23175,
+        "applied_kNm2": 0.30000000000000004,
+        "physical_kg": 17009.4,
+        "plan_m2": 720
+      },
+      "4": {
+        "actual_kNm2": 0.20637,
+        "applied_kNm2": 0.30000000000000004,
+        "physical_kg": 15146.6,
+        "plan_m2": 720
+      },
+      "5": {
+        "actual_kNm2": 0.13782,
+        "applied_kNm2": 0.2,
+        "physical_kg": 10115.0,
+        "plan_m2": 720
+      }
+    }
+  },
+  "14": {
+    "Main": {
+      "1": {
+        "actual_kNm2": 0.97688,
+        "applied_kNm2": 1.1500000000000001,
+        "physical_kg": 112027.9,
+        "plan_m2": 1125.0
+      },
+      "2": {
+        "actual_kNm2": 0.59959,
+        "applied_kNm2": 0.75,
+        "physical_kg": 68760.7,
+        "plan_m2": 1125.0
+      },
+      "3": {
+        "actual_kNm2": 0.51687,
+        "applied_kNm2": 0.65,
+        "physical_kg": 59274.2,
+        "plan_m2": 1125.0
+      },
+      "4": {
+        "actual_kNm2": 0.45651,
+        "applied_kNm2": 0.55,
+        "physical_kg": 52352.3,
+        "plan_m2": 1125.0
+      },
+      "5": {
+        "actual_kNm2": 0.40586,
+        "applied_kNm2": 0.5,
+        "physical_kg": 46543.3,
+        "plan_m2": 1125.0
+      },
+      "6": {
+        "actual_kNm2": 0.37893,
+        "applied_kNm2": 0.5,
+        "physical_kg": 43455.0,
+        "plan_m2": 1125.0
+      },
+      "7": {
+        "actual_kNm2": 0.35458,
+        "applied_kNm2": 0.45,
+        "physical_kg": 40662.8,
+        "plan_m2": 1125.0
+      },
+      "8": {
+        "actual_kNm2": 0.22249,
+        "applied_kNm2": 0.30000000000000004,
+        "physical_kg": 25514.6,
+        "plan_m2": 1125.0
+      }
+    }
+  },
+  "16": {
+    "Main": {
+      "1": {
+        "actual_kNm2": 0.88653,
+        "applied_kNm2": 1.05,
+        "physical_kg": 81333.1,
+        "plan_m2": 900.0
+      },
+      "2": {
+        "actual_kNm2": 0.90121,
+        "applied_kNm2": 1.05,
+        "physical_kg": 82679.4,
+        "plan_m2": 900.0
+      },
+      "3": {
+        "actual_kNm2": 0.86528,
+        "applied_kNm2": 1.0,
+        "physical_kg": 79383.3,
+        "plan_m2": 900.0
+      },
+      "4": {
+        "actual_kNm2": 0.86561,
+        "applied_kNm2": 1.0,
+        "physical_kg": 79413.8,
+        "plan_m2": 900.0
+      },
+      "5": {
+        "actual_kNm2": 0.89358,
+        "applied_kNm2": 1.05,
+        "physical_kg": 81980.1,
+        "plan_m2": 900.0
+      },
+      "6": {
+        "actual_kNm2": 0.8924,
+        "applied_kNm2": 1.05,
+        "physical_kg": 81871.4,
+        "plan_m2": 900.0
+      },
+      "7": {
+        "actual_kNm2": 0.8913,
+        "applied_kNm2": 1.05,
+        "physical_kg": 81770.7,
+        "plan_m2": 900.0
+      },
+      "8": {
+        "actual_kNm2": 0.8913,
+        "applied_kNm2": 1.05,
+        "physical_kg": 81770.7,
+        "plan_m2": 900.0
+      },
+      "9": {
+        "actual_kNm2": 0.65466,
+        "applied_kNm2": 0.8,
+        "physical_kg": 60060.2,
+        "plan_m2": 900.0
+      }
+    }
+  },
+  "17": {
+    "Main": {
+      "1": {
+        "actual_kNm2": 0.62577,
+        "applied_kNm2": 0.75,
+        "physical_kg": 110610.0,
+        "plan_m2": 1734.0
+      },
+      "10": {
+        "actual_kNm2": 0.2173,
+        "applied_kNm2": 0.30000000000000004,
+        "physical_kg": 38410.0,
+        "plan_m2": 1734.0
+      },
+      "2": {
+        "actual_kNm2": 0.53194,
+        "applied_kNm2": 0.65,
+        "physical_kg": 94025.1,
+        "plan_m2": 1734.0
+      },
+      "3": {
+        "actual_kNm2": 0.53428,
+        "applied_kNm2": 0.65,
+        "physical_kg": 94438.4,
+        "plan_m2": 1734.0
+      },
+      "4": {
+        "actual_kNm2": 0.6065,
+        "applied_kNm2": 0.75,
+        "physical_kg": 107203.1,
+        "plan_m2": 1734.0
+      },
+      "5": {
+        "actual_kNm2": 0.49602,
+        "applied_kNm2": 0.6000000000000001,
+        "physical_kg": 87676.4,
+        "plan_m2": 1734.0
+      },
+      "6": {
+        "actual_kNm2": 0.45411,
+        "applied_kNm2": 0.55,
+        "physical_kg": 80267.9,
+        "plan_m2": 1734.0
+      },
+      "7": {
+        "actual_kNm2": 0.40932,
+        "applied_kNm2": 0.5,
+        "physical_kg": 72351.4,
+        "plan_m2": 1734.0
+      },
+      "8": {
+        "actual_kNm2": 0.38235,
+        "applied_kNm2": 0.5,
+        "physical_kg": 67583.1,
+        "plan_m2": 1734.0
+      },
+      "9": {
+        "actual_kNm2": 0.3619,
+        "applied_kNm2": 0.45,
+        "physical_kg": 63968.4,
+        "plan_m2": 1734.0
+      }
+    }
+  },
+  "18": {
+    "Main": {
+      "1": {
+        "actual_kNm2": 1.00843,
+        "applied_kNm2": 1.2000000000000002,
+        "physical_kg": 99917.7,
+        "plan_m2": 972
+      },
+      "10": {
+        "actual_kNm2": 0.98914,
+        "applied_kNm2": 1.1500000000000001,
+        "physical_kg": 98006.9,
+        "plan_m2": 972
+      },
+      "11": {
+        "actual_kNm2": 0.8304,
+        "applied_kNm2": 1.0,
+        "physical_kg": 82277.8,
+        "plan_m2": 972
+      },
+      "2": {
+        "actual_kNm2": 1.00467,
+        "applied_kNm2": 1.2000000000000002,
+        "physical_kg": 99545.5,
+        "plan_m2": 972
+      },
+      "3": {
+        "actual_kNm2": 1.00003,
+        "applied_kNm2": 1.2000000000000002,
+        "physical_kg": 99085.1,
+        "plan_m2": 972
+      },
+      "4": {
+        "actual_kNm2": 1.00003,
+        "applied_kNm2": 1.2000000000000002,
+        "physical_kg": 99085.1,
+        "plan_m2": 972
+      },
+      "5": {
+        "actual_kNm2": 1.04102,
+        "applied_kNm2": 1.2000000000000002,
+        "physical_kg": 103146.9,
+        "plan_m2": 972
+      },
+      "6": {
+        "actual_kNm2": 0.98262,
+        "applied_kNm2": 1.1500000000000001,
+        "physical_kg": 97361.0,
+        "plan_m2": 972
+      },
+      "7": {
+        "actual_kNm2": 0.99841,
+        "applied_kNm2": 1.1500000000000001,
+        "physical_kg": 98924.8,
+        "plan_m2": 972
+      },
+      "8": {
+        "actual_kNm2": 0.99855,
+        "applied_kNm2": 1.1500000000000001,
+        "physical_kg": 98938.4,
+        "plan_m2": 972
+      },
+      "9": {
+        "actual_kNm2": 0.9953,
+        "applied_kNm2": 1.1500000000000001,
+        "physical_kg": 98617.0,
+        "plan_m2": 972
+      }
+    }
+  },
+  "20": {
+    "Main": {
+      "1": {
+        "actual_kNm2": 1.8064,
+        "applied_kNm2": 2.1,
+        "physical_kg": 89491.5,
+        "plan_m2": 486
+      },
+      "10": {
+        "actual_kNm2": 1.40024,
+        "applied_kNm2": 1.6,
+        "physical_kg": 69369.5,
+        "plan_m2": 486
+      },
+      "11": {
+        "actual_kNm2": 1.35715,
+        "applied_kNm2": 1.6,
+        "physical_kg": 67235.2,
+        "plan_m2": 486
+      },
+      "12": {
+        "actual_kNm2": 1.34243,
+        "applied_kNm2": 1.55,
+        "physical_kg": 66505.9,
+        "plan_m2": 486
+      },
+      "13": {
+        "actual_kNm2": 1.22922,
+        "applied_kNm2": 1.4500000000000002,
+        "physical_kg": 60897.3,
+        "plan_m2": 486
+      },
+      "14": {
+        "actual_kNm2": 0.94702,
+        "applied_kNm2": 1.1,
+        "physical_kg": 46916.6,
+        "plan_m2": 486
+      },
+      "15": {
+        "actual_kNm2": 0.73308,
+        "applied_kNm2": 0.9,
+        "physical_kg": 36317.5,
+        "plan_m2": 486
+      },
+      "16": {
+        "actual_kNm2": 0.59875,
+        "applied_kNm2": 0.75,
+        "physical_kg": 29662.8,
+        "plan_m2": 486
+      },
+      "17": {
+        "actual_kNm2": 0.47496,
+        "applied_kNm2": 0.6000000000000001,
+        "physical_kg": 23529.9,
+        "plan_m2": 486
+      },
+      "18": {
+        "actual_kNm2": 0.25942,
+        "applied_kNm2": 0.35000000000000003,
+        "physical_kg": 12852.2,
+        "plan_m2": 486
+      },
+      "2": {
+        "actual_kNm2": 1.3199,
+        "applied_kNm2": 1.55,
+        "physical_kg": 65389.6,
+        "plan_m2": 486
+      },
+      "3": {
+        "actual_kNm2": 1.3199,
+        "applied_kNm2": 1.55,
+        "physical_kg": 65389.6,
+        "plan_m2": 486
+      },
+      "4": {
+        "actual_kNm2": 1.3199,
+        "applied_kNm2": 1.55,
+        "physical_kg": 65389.6,
+        "plan_m2": 486
+      },
+      "5": {
+        "actual_kNm2": 1.3199,
+        "applied_kNm2": 1.55,
+        "physical_kg": 65389.6,
+        "plan_m2": 486
+      },
+      "6": {
+        "actual_kNm2": 1.3199,
+        "applied_kNm2": 1.55,
+        "physical_kg": 65389.6,
+        "plan_m2": 486
+      },
+      "7": {
+        "actual_kNm2": 1.3199,
+        "applied_kNm2": 1.55,
+        "physical_kg": 65389.6,
+        "plan_m2": 486
+      },
+      "8": {
+        "actual_kNm2": 1.3199,
+        "applied_kNm2": 1.55,
+        "physical_kg": 65389.6,
+        "plan_m2": 486
+      },
+      "9": {
+        "actual_kNm2": 1.3199,
+        "applied_kNm2": 1.55,
+        "physical_kg": 65389.6,
+        "plan_m2": 486
+      }
+    }
+  },
+  "21": {
+    "Main": {
+      "1": {
+        "actual_kNm2": 0.14556,
+        "applied_kNm2": 0.2,
+        "physical_kg": 9615.3,
+        "plan_m2": 648
+      }
+    }
+  },
+  "6": {
+    "Main": {
+      "1": {
+        "actual_kNm2": 0.87399,
+        "applied_kNm2": 1.05,
+        "physical_kg": 34211.1,
+        "plan_m2": 384
+      },
+      "2": {
+        "actual_kNm2": 0.22227,
+        "applied_kNm2": 0.30000000000000004,
+        "physical_kg": 13050.6,
+        "plan_m2": 576
+      }
+    }
+  },
+  "7": {
+    "Main": {
+      "1": {
+        "actual_kNm2": 0.89072,
+        "applied_kNm2": 1.05,
+        "physical_kg": 137284.9,
+        "plan_m2": 1512
+      }
+    }
+  },
+  "8": {
+    "Main": {
+      "1": {
+        "actual_kNm2": 1.33278,
+        "applied_kNm2": 1.55,
+        "physical_kg": 117382.3,
+        "plan_m2": 864
+      }
+    }
+  },
+  "9": {
+    "Main": {
+      "1": {
+        "actual_kNm2": 1.2301,
+        "applied_kNm2": 1.4500000000000002,
+        "physical_kg": 180564.5,
+        "plan_m2": 1440.0
+      }
+    }
+  }
+}

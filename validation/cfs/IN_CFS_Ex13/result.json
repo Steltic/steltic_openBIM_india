@@ -4823,6 +4823,42 @@
           "native_element": 1845
         }
       ]
+    },
+    "diaphragm_classification": {
+      "computed_by_level": {
+        "1": {
+          "ratio": 0.7027598342483914,
+          "dir": "Y",
+          "classification": "rigid"
+        },
+        "2": {
+          "ratio": 0.832412678362852,
+          "dir": "Y",
+          "classification": "rigid"
+        },
+        "3": {
+          "ratio": 0.8788752344961067,
+          "dir": "Y",
+          "classification": "rigid"
+        },
+        "4": {
+          "ratio": 0.8874586984250468,
+          "dir": "Y",
+          "classification": "rigid"
+        },
+        "5": {
+          "ratio": 0.8770901965722671,
+          "dir": "Y",
+          "classification": "rigid"
+        },
+        "6": {
+          "ratio": 0.8562510965442334,
+          "dir": "Y",
+          "classification": "rigid"
+        }
+      },
+      "computed_classification": "rigid",
+      "computed_ratio": 0.8874586984250468
     }
   },
   "physical_layout": {
@@ -5428,5 +5464,6 @@
       "min_panel_underside_offset_mm": 470.0,
       "max_panel_underside_offset_mm": 470.0
     }
-  }
+  },
+  "native_warnings": []
 }

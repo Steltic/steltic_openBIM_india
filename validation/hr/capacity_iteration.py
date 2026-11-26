@@ -17,9 +17,11 @@ def read():
 
 def revise(case,u,g):
     import hr_autosize as H
-    rules=read().get(str(case.number),{}).get(u.name,{}).get('columns',{})
+    selected=read().get(str(case.number),{}).get(u.name,{})
+    stages=selected.get('stages') or [selected.get('columns',{})]
     for storey,section in g['col_sec']['lateral'].items():
-        current=rules.get(section,section)
+        current=section
+        for rules in stages:current=rules.get(current,current)
         H.register(current)
         g['col_sec']['lateral'][storey]=current
 
@@ -98,6 +100,11 @@ if __name__=='__main__':
             job=args.jobs/f'IN_Ex{n}'
             if len(case.units)>1:job=job/'units'/unit.name
             result=select(job,case)
+            previous=state.get(str(n),{}).get(unit.name)
+            if previous:
+                result['stages']=previous.get('stages',[previous['columns']])+[result['columns']]
+                result['columns']={**previous['columns'],**result['columns']}
+                result['earlier_source_sha256']=list(dict.fromkeys(previous.get('earlier_source_sha256',[])+[previous['source_package_sha256']]))
             state.setdefault(str(n),{})[unit.name]=result
             print(n,unit.name,len(result['columns']),flush=True)
         DATA.write_text(json.dumps(state,indent=2,sort_keys=True)+'\n',encoding='utf-8')

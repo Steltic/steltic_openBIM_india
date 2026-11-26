@@ -91,7 +91,7 @@ def make_config(b, corpus, job):
     roof_pitch=math.degrees(math.atan2({1:1.5,2:1.0,3:1.4,4:1.2,8:1,9:1.25,11:1.6}.get(n,0),{1:9,2:10.5,3:6,4:12,8:7,9:8,11:9.5}.get(n,1)))
     # Project envelopes used uniformly where the native frame accepts a single floor load.
     imposed={3:8.0,4:4.0,6:5.0,9:4.0,11:4.0,13:4.0,15:4.0}.get(n,3.0)
-    roof_dead=(0.60 if n in (1,3,4) else 0.90 if n==2 else 1.35 if n==13 else 1.0)
+    roof_dead=(0.60 if n in (1,3) else 0.70 if n==4 else 1.10 if n==2 else 1.35 if n==13 else 1.0)
     floor_dead=1.65
     s0=1.624*(4-0.5)*(1+(1585/2677)**2) if n==2 else 0.0
     snow=.8*s0
@@ -221,6 +221,10 @@ def make_config(b, corpus, job):
     if n>=4:
         # These are specified performance minima of the benchmark assembly,
         # not source test results. Actual construction requires certification.
+        # The initial membrane run gave a §7.6.4 ratio above 1.2 on all CFS
+        # levels in these four plans. The Noida concrete podium remained rigid.
+        if n in (4,5,8,14):lf["diaphragm"]="flexible"
+        if n==14:lf["diaphragm_by_level"]={"1-2":"rigid","3-7":"flexible"}
         lf["diaphragm_stiffness"]=dict(type="custom",Gd_kN_per_m=3600,source="Preliminary project performance specification, VERIFY by full assembly test",
                                       cite="18 mm board equivalent shear modulus 200 MPa incl. joint slip; IS 1893 Table 5(ii) sensitivity")
         required=24 if n in (11,13,14) else 12
@@ -294,7 +298,7 @@ def make_config(b, corpus, job):
         cfg["eor_inputs"].append(dict(item="Figure 1 snow zone",value=4,source="Brief high-side sensitivity; requires site map confirmation",verify=True))
         aux=beam("CLR250X80X25X5",n_ply=2)
         cfg["lean_to"]=dict(name="Airlock",width_m=4,depth_m=3,roof_z_m=3.6,upper_roof_z_m=8,
-            upper_roof_length_m=21,upper_roof_pitch_deg=roof_pitch,D_roof_kNm2=.9,
+            upper_roof_length_m=21,upper_roof_pitch_deg=roof_pitch,D_roof_kNm2=1.10,
             wall_kNm2=.35,joists=dict(aux,spacing_mm=400),front_wall_height_m=3.5,
             door=dict(width_m=2,height_m=2.4,header=aux,jambs=aux),back_studs=dict(aux,spacing_mm=400))
         cfg["roof_platforms"]=[dict(name="Condenser",frames=[2,3],eave_line=0,span_m=bx,posts_from_column_m=[2,4],

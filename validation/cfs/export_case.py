@@ -38,6 +38,10 @@ def add_lateral_evidence(summary,package,job):
     plan=json.loads((job/"load_plan.json").read_text(encoding="utf-8"))
     wind=plan.get("wind_summary") or {}
     summary["wind"]={k:wind[k] for k in ("Vb_mps","terrain_category","k1","k3","k4","Kd","Ka_X","Ka_Y","Cpe_X","Cpe_Y","VB_x_kN","VB_y_kN") if k in wind}
+    summary["native_warnings"]=package["design_status"].get("warnings",[])
+    stiffness=package["lateral_frame"].get("diaphragm_7_6_4") or {}
+    summary["native_lateral"]["diaphragm_classification"]={k:stiffness[k] for k in
+        ("declared_classification","declared_by_level","computed_by_level","computed_classification","computed_ratio","limit","warning") if k in stiffness}
     collectors=package["lateral_frame"].get("collectors") or {}
     by_line={}
     for row in collectors.get("rows") or []:
@@ -57,10 +61,20 @@ def export(b,engine,job,target):
     cfg=json.loads((job/"independent-input.json").read_text(encoding="utf-8"))
     package=json.loads((job/"design/calc_package_cfs.json").read_text(encoding="utf-8"))
     layout=Layout(b,cfg,package).complete(job)
-    samples=[];bearing={}
-    if b.number in (5,6,7,10,12,13,14,15):
-        from bearings import install_flat
-        samples,bearing=install_flat(layout,package)
+    from bearings import install_flat
+    samples,bearing=install_flat(layout,package)
+    if b.number in (1,2,3,4,8,9,11):
+        from pitched_bearings import installed
+        sloped,conditions=installed(layout,package,b.number)
+        samples.extend(sloped);bearing.update(conditions)
+    if b.number in (4,8,9,11):
+        from ceiling import install
+        hangers,conditions=install(layout,package)
+        samples.extend(hangers);bearing.update(conditions)
+    if b.number==2:
+        from cold_store import install
+        annex,conditions=install(layout,package)
+        samples.extend(annex);bearing.update(conditions)
     handoff=write_handoff(job,layout)
     raw=handoff.read_bytes()
     model=json.loads(raw)
@@ -90,8 +104,8 @@ def export(b,engine,job,target):
         design_status=status["status"],authority=status["authority"],
         reasons=status["reasons"],site={k:cfg["site"][k] for k in ("city","zone","Z","Vb","soil","terrain_category","Kd","cyclone_belt","wind_structure_class")},
         occupancy_basis=cfg["occupancy"],gravity=gov,snow=snow,
-        dead_load_build_up_kNm2={"roof":({"insulated_panels":.32,"services":.38,"secondary_and_miscellaneous":.20} if b.number==2
-            else {"sheets_and_accessories":.17,"services":.25,"secondary_and_miscellaneous":.18} if b.number in (1,3,4)
+        dead_load_build_up_kNm2={"roof":({"insulated_panels":.32,"services":.38,"secondary_and_miscellaneous":.40} if b.number==2
+            else {"sheets_and_accessories":.17,"services":.25,"secondary_and_miscellaneous":round(gov["D_roof"]-.42,3)} if b.number in (1,3,4)
             else {"deck_and_finishes":.55,"services_and_miscellaneous":round(gov["D_roof"]-.55,3)}),
             "floor":{"board_and_finishes":.95,"ceiling_and_services":.45,"secondary_and_miscellaneous":.25},
             **({"podium_L1":{"slab_and_deck":3.55,"services_and_finishes":.95},

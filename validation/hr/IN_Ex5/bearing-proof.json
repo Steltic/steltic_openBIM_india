@@ -1,0 +1,44 @@
+{
+  "project": "IN_Ex5",
+  "status": "pass",
+  "counts": {
+    "blocks": 366,
+    "interfaces": 966
+  },
+  "minimum_common_area_mm2": 330.0,
+  "minimum_pair": [
+    "Main-GABLE-GIRT-0-0-0-0-LEFT-BL",
+    "Main-C0-0-m1"
+  ],
+  "failures": [],
+  "door_clearances": [
+    {
+      "door": "Y0-1",
+      "clear_width_mm": 5000.0,
+      "clear_height_mm": 5000,
+      "envelope_depth_mm": 1351.0,
+      "intrusions": []
+    },
+    {
+      "door": "Y0-2",
+      "clear_width_mm": 5000.0,
+      "clear_height_mm": 5000,
+      "envelope_depth_mm": 1351.0,
+      "intrusions": []
+    },
+    {
+      "door": "Y1-1",
+      "clear_width_mm": 5000.0,
+      "clear_height_mm": 5000,
+      "envelope_depth_mm": 1351.0,
+      "intrusions": []
+    },
+    {
+      "door": "Y1-2",
+      "clear_width_mm": 5000.0,
+      "clear_height_mm": 5000,
+      "envelope_depth_mm": 1351.0,
+      "intrusions": []
+    }
+  ]
+}

@@ -26,9 +26,12 @@ def derive(folder):
     for e in elements.values():
         if e['type']=='beam':
             for node in e['n']:attached.setdefault(node,[]).append(e)
-    beams=[];cols=[];doubler={};seen={}
+    beams=[];cols=[];doubler={};brace_actions={};seen={}
     for row in calc['capacity_design']['section12']['checks']:
         name=row['id'];label=row.get('member','')
+        if name=='brace_conn_bolts' and label.startswith('e') and row.get('value'):
+            sec=elements[int(label[1:])]['sec']
+            brace_actions[sec]=max(brace_actions.get(sec,0.),row['value'])
         if name=='is18168_6_2_beam_bracing' and label.startswith('e'):beams.append(int(label[1:]))
         if name=='12.11.3.3_column_lateral_support' and label.startswith('e'):cols.append(int(label[1:]))
         if name!='12.11.2.3_panel_zone' or not (row.get('detail') or {}).get('found'):continue
@@ -44,7 +47,10 @@ def derive(folder):
                     trial=panel_zone_check(**dict(inputs,doubler_t_mm=value))
                     if not trial.get('web_thickness_ok') or (trial['pass'] and trial['dc']<=.95):break
                     value+=5
-                seen[key]=value
+                # A single plate must fit between the web and the flange tip.
+                # A larger requirement calls for a different column detail.
+                available=max(0,5*math.floor(((inputs['bf_mm']-inputs['tw_mm'])/2-12)/5))
+                seen[key]=min(value,100,available)
             value=seen[key]
         # The native beam-column spec is keyed by beam section. Account for
         # every actual beam sharing this panel's frame direction.
@@ -53,20 +59,37 @@ def derive(folder):
             if abs(a[i]-b[i])>abs(a[1-i]-b[1-i]):
                 doubler[e['sec']]=max(value,doubler.get(e['sec'],0.))
     return {'source_package_sha256':hashlib.sha256(package.read_bytes()).hexdigest(),
-            'doubler_by_beam_mm':doubler,'beam_tags':sorted(set(beams)),'column_tags':sorted(set(cols))}
+            'doubler_by_beam_mm':doubler,'brace_action_N':brace_actions,'beam_tags':sorted(set(beams)),'column_tags':sorted(set(cols))}
 
 
 def revise(case,u,cfg):
+    import india_connections as C
     row=actions().get(str(case.number),{}).get(u.name,{})
+    if row.get('beam_tags'):
+        from flange_restraints import design
+        design(case,u,cfg,row)
     conn=cfg['connections']['beam_column']
     for sec,t in row.get('doubler_by_beam_mm',{}).items():
         if sec in conn and t:
             conn[sec]['doubler_t_mm']=t
             conn[sec]['doubler_grade']='E250'
+    for section,demand in row.get('brace_action_N',{}).items():
+        spec=cfg['connections']['brace_end'].get(section)
+        if not spec or not spec.get('bolts'):continue
+        bolts=spec['bolts'];g=spec['gusset'];t=g['t_mm'];edge=bolts['e_mm'];pitch=bolts['p_mm'];hole=bolts['d0_mm']
+        unit=C.bolt_group_capacity_is800(**dict(bolts,n_bolts=1))
+        if not unit.get('found'):continue
+        rows=max(math.ceil(bolts['n_bolts']/2),math.ceil(1.06*demand/(2*unit['capacity_N'])))
+        bolts['n_bolts']=2*rows;length=(rows-1)*pitch+2*edge
+        width=g.get('plate_width_mm') or g['w_start_mm']
+        g.update(L_conn_mm=length,Avg_mm2=2*(length-edge)*t,Avn_mm2=2*(length-edge-(rows-.5)*hole)*t,
+                 Atg_mm2=(width-2*edge)*t,Atn_mm2=(width-2*edge-hole)*t)
 
 
 def draw(model):
     from native_joint_parts import plate,steel
+    from flange_restraints import draw as draw_restraints
+    draw_restraints(model)
     rows=(model.native.get('capacity_design') or {}).get('section12',{}).get('checks',[])
     beams=model.data['members'];by_tag={}
     for beam in beams:

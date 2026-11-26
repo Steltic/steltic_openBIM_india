@@ -37,6 +37,8 @@ def specialized(case,u,cfg):
                                       note='Gantry, rail and fixtures, delivered at bracket node.')
                                  for i in (0,u.nx) for j in range(u.ny+1)]
     if n==21:
+        from hosur import PURLIN
+        cfg["hosur_roof_purlin"]=dict(PURLIN)
         S.register_double_angle('PAIRISA150','ISA150X150X15',8)
         cfg['gold']['col_sec']['lateral']={'default':'MB600'}
         cfg['_gold']['col_sec']=lambda i,j,k:'MB600'
@@ -69,7 +71,7 @@ def specialized(case,u,cfg):
             trib=sy*(.5 if j in (0,4) else 1)
             for i in range(5):
                 a=max(0,(i-.5)*dx/4);b=min(dx,(i+.5)*dx/4)
-                nd=8100000+j*100+i
+                nd=150000+j*100+i
                 area=trib*(b-a)/1e6
                 def integral(x):
                     t=min(x,l3)
@@ -93,6 +95,9 @@ def ordered_build(cfg,transf='PDelta'):
     previous={k:getattr(ops,k) for k in _COMMANDS}
     def record(key):
         def wrapped(*args):
+            if key=="element" and cfg.get("integration_case")==21 and args[0]=="zeroLength":
+                from hosur import roof_link
+                args=roof_link(args,ops.nodeCoord)
             value=_NATIVE[key](*args)
             entries[key].append(args)
             return value
@@ -193,9 +198,17 @@ def shed_build(cfg,transf='PDelta'):
                     top=node(150000+100*i+j,x,y,z)
                     ops.remove('element',t);el.remove(host)
                     add('beam',sec,a,top,'gable rafter');add('beam',sec,top,b,'gable rafter')
-                base=node(50000+100*i+j,x,y,0)
+                post_below=x-800 if n==3 and i==1 else x
+                base=node(50000+100*i+j,post_below,y,0)
                 ops.fix(base,1,1,1,0,0,0)
-                add('col',cfg.get('gable_post_section','MB450'),base,top,'gable post',strong='Y',release='J')
+                section=cfg.get('gable_post_section','MB450')
+                if post_below!=x:
+                    # Keep the 6 m roof bearing grid. The cranked upper shaft
+                    # returns to it above the 6 m clear rectangular shutter.
+                    turn=node(55000+100*i+j,post_below,y,6800.)
+                    add('col',section,base,turn,'gable post',strong='Y')
+                    add('col',section,turn,top,'gable post',strong='Y',release='J')
+                else:add('col',section,base,top,'gable post',strong='Y',release='J')
     if n==21:
         # Rebuild each X-plane as a 12-panel Pratt truss at its true pitch.
         for row in list(el):
@@ -246,11 +259,8 @@ def shed_build(cfg,transf='PDelta'):
                     for p in range(12):
                         add('truss','ISA200X200X20',tc[j-1,p],tc[j,p+1],'roof brace',group='roof_plan',truss=f'End{j}')
                         add('truss','ISA200X200X20',tc[j-1,p+1],tc[j,p],'roof brace',group='roof_plan',truss=f'End{j}')
-                for p in range(1,12):
-                    if p!=6:
-                        # Lateral support provided by the physical purlins. Constrain only
-                        # the truss top node displacement parallel to the building length.
-                        ops.equalDOF(E.ntag(0,j,1),tc[j,p],2)
+                from hosur import purlin_lines
+                purlin_lines(tc,j,cfg["hosur_roof_purlin"],ops)
         info['truss_roles']=roles
         info['truss_knees']=knees
     if n==9:
@@ -258,21 +268,28 @@ def shed_build(cfg,transf='PDelta'):
         # transverse beam receive the integrated lower-roof gravity/snow loading.
         for j in range(5):
             y=j*sy; web=[]
-            for i in range(5):web.append(node(8100000+j*100+i,-i*3000,y,5000))
+            for i in range(5):web.append(node(150000+j*100+i,-i*3000,y,5000))
             old=next(r for r in el if r[1]=='col' and r[3]==E.ntag(0,j,0))
             t,_,section,a,b=old
             ops.remove('element',t);el.remove(old)
             add('col',section,a,web[0],'column'); add('col',section,web[0],b,'column')
-            foot=node(8120000+j,-12000,y,0)
+            foot=node(70000+j,-12000,y,0)
             ops.fix(foot,1,1,1,1,1,1)
             add('col',cfg['lean_column'],foot,web[-1],'lean-to column')
-            for a,b in zip(web,web[1:]):add('beam',cfg['lean_beam'],a,b,'lean-to roof beam')
+            for i,(a,b) in enumerate(zip(web,web[1:])):
+                release=('I','I') if i==0 else ('J','J') if i==3 else None
+                add('beam',cfg['lean_beam'],a,b,'lean-to roof beam',release=release)
             if j:
-                for i in (1,2,3,4):add('beam',cfg['lean_purlin'],8100000+(j-1)*100+i,web[i],'lean-to purlin')
-                if j==1:
-                    add('brace',cfg['brace'],8120000,web[-1],'lean-to wall brace')
-                    add('brace',cfg['brace'],foot,8100000+4,'lean-to wall brace')
+                for i in (1,2,3,4):add('beam',cfg['lean_purlin'],150000+(j-1)*100+i,web[i],'lean-to purlin',release=('both','both'))
+                if j in (1,4):
+                    add('brace',cfg['brace'],70000+j-1,web[-1],'lean-to wall brace')
+                    add('brace',cfg['brace'],foot,150000+(j-1)*100+4,'lean-to wall brace')
         off_level=[r for r in el if roles.get(r[0]) in ('lean-to roof beam','lean-to purlin')]
+        # Interior load stations are points on one continuous rolled girder.
+        # The purlins at those stations are pin-ended, so none is a moment
+        # joint in the lateral system. Preserve the actual FE stiffness and
+        # tag only the physical moment joints for the native connection gate.
+        E._MOMENT_NODES.difference_update(150000+j*100+i for j in range(5) for i in (1,2,3))
         if not cfg.get('_lean_nodal_steel'):
             for t,_,sec,a,b in off_level:
                 half=S.props(sec)['A']*math.dist(ops.nodeCoord(a),ops.nodeCoord(b))*7.85e-5/2

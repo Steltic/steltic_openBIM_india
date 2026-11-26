@@ -1,0 +1,338 @@
+[
+  {
+    "id": "Main-PU-1-1-PACK-CONTACT",
+    "chain": [
+      "Main-R0-1-lo-m1",
+      "Main-SEAT-2-BL",
+      "Main-PU-1-1"
+    ],
+    "normal": [
+      -0.04993761694389223,
+      0.0,
+      0.9987523388778446
+    ],
+    "stations_mm": [
+      [
+        853.7657,
+        8965.0,
+        13534.3016
+      ]
+    ],
+    "expected_gaps_mm": [
+      0,
+      0
+    ],
+    "tolerance_mm": 1
+  },
+  {
+    "id": "Main-PU-1-1-SKIN-CONTACT",
+    "chain": [
+      "Main-PU-1-1",
+      "Main-SLOPE-1"
+    ],
+    "normal": [
+      -0.04993761694389223,
+      0.0,
+      0.9987523388778446
+    ],
+    "stations_mm": [
+      [
+        766.4885,
+        1350.0,
+        13829.0359
+      ]
+    ],
+    "expected_gaps_mm": [
+      0
+    ],
+    "tolerance_mm": 1
+  },
+  {
+    "id": "Main-PU-58-1-PACK-CONTACT",
+    "chain": [
+      "Main-R0-1-hi-m2",
+      "Main-SEAT-730-BL",
+      "Main-PU-58-1"
+    ],
+    "normal": [
+      0.04993761694389223,
+      -0.0,
+      0.9987523388778446
+    ],
+    "stations_mm": [
+      [
+        48902.8045,
+        8965.0,
+        15846.4731
+      ]
+    ],
+    "expected_gaps_mm": [
+      0,
+      0
+    ],
+    "tolerance_mm": 1
+  },
+  {
+    "id": "Main-PU-58-1-SKIN-CONTACT",
+    "chain": [
+      "Main-PU-58-1",
+      "Main-SLOPE-2"
+    ],
+    "normal": [
+      0.04993761694389223,
+      -0.0,
+      0.9987523388778446
+    ],
+    "stations_mm": [
+      [
+        48845.3625,
+        1350.0,
+        16148.4433
+      ]
+    ],
+    "expected_gaps_mm": [
+      0
+    ],
+    "tolerance_mm": 1
+  },
+  {
+    "id": "Main-GI-0-1-2-0-PACK-CONTACT",
+    "chain": [
+      "Main-C0-1-m1",
+      "Main-SEAT-1484-BL",
+      "Main-GI-0-1-2-0"
+    ],
+    "normal": [
+      -1,
+      0,
+      0
+    ],
+    "stations_mm": [
+      [
+        -491.0,
+        8965.0,
+        5036.225
+      ]
+    ],
+    "expected_gaps_mm": [
+      0,
+      0
+    ],
+    "tolerance_mm": 1
+  },
+  {
+    "id": "Main-GI-0-1-2-0-SKIN-CONTACT",
+    "chain": [
+      "Main-GI-0-1-2-0",
+      "Main-WALL-Y0-1"
+    ],
+    "normal": [
+      -1,
+      0,
+      0
+    ],
+    "stations_mm": [
+      [
+        -789.725,
+        1350.0,
+        4963.775
+      ]
+    ],
+    "expected_gaps_mm": [
+      0
+    ],
+    "tolerance_mm": 1
+  },
+  {
+    "id": "Main-GI-4-1-2-0-PACK-CONTACT",
+    "chain": [
+      "Main-C4-1-m1",
+      "Main-SEAT-1614-BL",
+      "Main-GI-4-1-2-0"
+    ],
+    "normal": [
+      1,
+      0,
+      0
+    ],
+    "stations_mm": [
+      [
+        96491.0,
+        8965.0,
+        4963.775
+      ]
+    ],
+    "expected_gaps_mm": [
+      0,
+      0
+    ],
+    "tolerance_mm": 1
+  },
+  {
+    "id": "Main-GI-4-1-2-0-SKIN-CONTACT",
+    "chain": [
+      "Main-GI-4-1-2-0",
+      "Main-WALL-Y1-1"
+    ],
+    "normal": [
+      1,
+      0,
+      0
+    ],
+    "stations_mm": [
+      [
+        96789.725,
+        1350.0,
+        5036.225
+      ]
+    ],
+    "expected_gaps_mm": [
+      0
+    ],
+    "tolerance_mm": 1
+  },
+  {
+    "id": "Main-CAN-PU-1-0-PACK-CONTACT",
+    "chain": [
+      "Main-DOCK-2",
+      "Main-SEAT-1731-BL",
+      "Main-CAN-PU-1-0"
+    ],
+    "normal": [
+      0.03331483023263848,
+      -0.0,
+      0.9994449069791544
+    ],
+    "stations_mm": [
+      [
+        97178.9381,
+        8965.0,
+        6189.7943
+      ]
+    ],
+    "expected_gaps_mm": [
+      0,
+      0
+    ],
+    "tolerance_mm": 1
+  },
+  {
+    "id": "Main-CAN-PU-1-0-SKIN-CONTACT",
+    "chain": [
+      "Main-CAN-PU-1-0",
+      "Main-CANOPY"
+    ],
+    "normal": [
+      0.03331483023263848,
+      -0.0,
+      0.9994449069791544
+    ],
+    "stations_mm": [
+      [
+        97117.07,
+        1350.0,
+        6490.4473
+      ]
+    ],
+    "expected_gaps_mm": [
+      0
+    ],
+    "tolerance_mm": 1
+  },
+  {
+    "id": "Main-GABLE-GIRT-0-2-0-0-PACK-CONTACT",
+    "chain": [
+      "Main-E738",
+      "Main-GABLE-GIRT-0-2-0-0-RIGHT-BL",
+      "Main-GABLE-GIRT-0-2-0-0"
+    ],
+    "normal": [
+      0,
+      -1,
+      0
+    ],
+    "stations_mm": [
+      [
+        7952.0,
+        -341.0,
+        4963.65
+      ]
+    ],
+    "expected_gaps_mm": [
+      0,
+      0
+    ],
+    "tolerance_mm": 1
+  },
+  {
+    "id": "Main-GABLE-GIRT-0-2-0-0-SKIN-CONTACT",
+    "chain": [
+      "Main-GABLE-GIRT-0-2-0-0",
+      "Main-WALL-X0-1"
+    ],
+    "normal": [
+      0,
+      -1,
+      0
+    ],
+    "stations_mm": [
+      [
+        3600.0,
+        -609.85,
+        5036.35
+      ]
+    ],
+    "expected_gaps_mm": [
+      0
+    ],
+    "tolerance_mm": 1
+  },
+  {
+    "id": "Main-GABLE-GIRT-1-2-0-0-PACK-CONTACT",
+    "chain": [
+      "Main-E762",
+      "Main-GABLE-GIRT-1-2-0-0-RIGHT-BL",
+      "Main-GABLE-GIRT-1-2-0-0"
+    ],
+    "normal": [
+      0,
+      1,
+      0
+    ],
+    "stations_mm": [
+      [
+        7952.0,
+        108341.0,
+        5036.35
+      ]
+    ],
+    "expected_gaps_mm": [
+      0,
+      0
+    ],
+    "tolerance_mm": 1
+  },
+  {
+    "id": "Main-GABLE-GIRT-1-2-0-0-SKIN-CONTACT",
+    "chain": [
+      "Main-GABLE-GIRT-1-2-0-0",
+      "Main-WALL-X1-1"
+    ],
+    "normal": [
+      0,
+      1,
+      0
+    ],
+    "stations_mm": [
+      [
+        3600.0,
+        108609.85,
+        4963.65
+      ]
+    ],
+    "expected_gaps_mm": [
+      0
+    ],
+    "tolerance_mm": 1
+  }
+]

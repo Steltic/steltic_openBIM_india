@@ -1,4 +1,15 @@
 {
+  "10": {
+    "Main": {
+      "beam_tags": [],
+      "brace_action_N": {
+        "WPB800X300X317.36": 19876800.0
+      },
+      "column_tags": [],
+      "doubler_by_beam_mm": {},
+      "source_package_sha256": "04f3be4ee33e8a670bb5374e8c3d2a722f44fe74dabb0cdfea64e3bca64efedf"
+    }
+  },
   "12": {
     "Classroom": {
       "beam_tags": [
@@ -33,6 +44,7 @@
         86,
         87
       ],
+      "brace_action_N": {},
       "column_tags": [
         1,
         2,
@@ -67,9 +79,9 @@
       ],
       "doubler_by_beam_mm": {
         "WPB450X300X139.76": 25.0,
-        "WPB650X300X224.78": 35
+        "WPB650X300X224.78": 35.0
       },
-      "source_package_sha256": "d1da72432759419c1ae80b5dee9e61c33cbea529f5e9a71cd8f447bd91d94eee"
+      "source_package_sha256": "7c1ba64c6f57ef579d54ac8b1d164481eb942065f5eb816bee629e18732ea989"
     },
     "Gym": {
       "beam_tags": [
@@ -84,6 +96,7 @@
         19,
         20
       ],
+      "brace_action_N": {},
       "column_tags": [
         1,
         2,
@@ -96,9 +109,10 @@
       ],
       "doubler_by_beam_mm": {
         "NPB300X200X75.37": 25.0,
-        "WPB650X300X224.78": 25.0
+        "WPB650X300X224.78": 65,
+        "WPB800X300X317.36": 25.0
       },
-      "source_package_sha256": "d4e501eb18414842d8cf246bf1a9ab9b03ab6ab3abd77845db0459f831871986"
+      "source_package_sha256": "23eb935f8f7881f8eaf7e8d500b358eaafd281c3c911bfbf9ff7ec4e43c4c3b5"
     },
     "Link": {
       "beam_tags": [
@@ -119,6 +133,7 @@
         41,
         42
       ],
+      "brace_action_N": {},
       "column_tags": [
         1,
         2,
@@ -139,9 +154,42 @@
       ],
       "doubler_by_beam_mm": {
         "WPB450X300X139.76": 25.0,
-        "WPB650X300X224.78": 25.0
+        "WPB650X300X224.78": 80,
+        "WPB800X300X317.36": 25.0
       },
-      "source_package_sha256": "4fd51ef05329c2c80eadfd488749719cf5f2708fe3f8a1d9927814db7fa4107e"
+      "source_package_sha256": "26d02362003936c91fb7855efa621c37dc0b1b66fdc3526076f9b92359123dd0"
+    }
+  },
+  "13": {
+    "Main": {
+      "beam_tags": [],
+      "brace_action_N": {
+        "WPB200X200X50.92": 3188160.0,
+        "WPB220X220X71.47": 4477200.0,
+        "WPB300X300X100.85": 6297600.0,
+        "WPB340X300X104.78": 6543600.0
+      },
+      "column_tags": [],
+      "doubler_by_beam_mm": {},
+      "source_package_sha256": "0414af93c03926e25e98bd3b8bbdec4fe3352df2fe6e1116438bdddb045320cc"
+    }
+  },
+  "14": {
+    "Main": {
+      "beam_tags": [],
+      "brace_action_N": {
+        "WPB220X220X71.47": 4477200.0,
+        "WPB260X260X92.99": 5805600.0,
+        "WPB360X300X125.81": 6986400.0,
+        "WPB360X370X165.35": 10332000.0,
+        "WPB400X400X191.11": 11955600.0,
+        "WPB400X400X219.67": 13726800.0,
+        "WPB450X300X139.76": 8757600.0,
+        "WPB800X300X317.36": 19876800.0
+      },
+      "column_tags": [],
+      "doubler_by_beam_mm": {},
+      "source_package_sha256": "4c0a0b5c11ee5c44819466a71a5e5401c92ac8855a6b89bb9b5b98a8b521c187"
     }
   },
   "16": {
@@ -292,6 +340,7 @@
         584,
         585
       ],
+      "brace_action_N": {},
       "column_tags": [
         1,
         2,
@@ -442,9 +491,25 @@
         "NPB300X200X75.37": 25.0,
         "NPB450X190X92.37": 25.0,
         "WPB550X300X199.44": 25.0,
-        "WPB700X300X300.68": 35
+        "WPB700X300X300.68": 35.0
       },
-      "source_package_sha256": "a6a99238f6a4015836199f67d750d8c6a4fdddebd5419cd7462750413e81f5e5"
+      "source_package_sha256": "dcbde3e7e330ce77cf102aae80042d8b07216e2b5c23892e113d5f6b2f20446e"
+    }
+  },
+  "17": {
+    "Main": {
+      "beam_tags": [],
+      "brace_action_N": {
+        "WPB250X250X73.15": 4580520.0,
+        "WPB340X300X104.78": 6543600.0,
+        "WPB360X370X182.02": 11365200.0,
+        "WPB400X400X219.67": 13726800.0,
+        "WPB450X300X139.76": 8757600.0,
+        "WPB800X300X317.36": 19876800.0
+      },
+      "column_tags": [],
+      "doubler_by_beam_mm": {},
+      "source_package_sha256": "3b75f1a51a4123719e942b5d92815295de04640665f6467696c87e0f01d5cae1"
     }
   },
   "18": {
@@ -605,6 +670,7 @@
         560,
         561
       ],
+      "brace_action_N": {},
       "column_tags": [
         1,
         2,
@@ -766,7 +832,23 @@
         "WPB650X300X224.78": 25.0,
         "WPB700X300X240.51": 25.0
       },
-      "source_package_sha256": "937b8abc1578d2db14993c3cc88224c6eccf14c488e03562042293ce7ddb5881"
+      "source_package_sha256": "ffa3fb16e0be5811ea8c39a841ecefc7ff8f8894d2e4a65946391e4e509bd5d9"
+    }
+  },
+  "20": {
+    "Main": {
+      "beam_tags": [],
+      "brace_action_N": {
+        "WPB250X250X73.15": 4580520.0,
+        "WPB300X300X117.03": 7330800.0,
+        "WPB360X370X150.87": 9446400.0,
+        "WPB400X400X191.11": 11955600.0,
+        "WPB400X400X239.62": 15006000.0,
+        "WPB800X300X317.36": 19876800.0
+      },
+      "column_tags": [],
+      "doubler_by_beam_mm": {},
+      "source_package_sha256": "5a228e23d4def3bc6b726b9df147515548c75ea177087999039e154ecf6328a6"
     }
   },
   "8": {
@@ -799,6 +881,7 @@
         39,
         40
       ],
+      "brace_action_N": {},
       "column_tags": [
         1,
         2,
@@ -816,9 +899,9 @@
         14
       ],
       "doubler_by_beam_mm": {
-        "WI1000X350X40X25": 50
+        "WI1000X350X40X25": 50.0
       },
-      "source_package_sha256": "f071aa1df6a1b576dbc364bfa9f894fc87f5b81b4f0bf50f10a6d04754301134"
+      "source_package_sha256": "00257da4ce02b48789b0b8c319f9b971ec85fc6a288e2169c7fd2567ac860841"
     }
   },
   "9": {
@@ -841,17 +924,11 @@
         49,
         50,
         51,
-        52,
-        76,
-        79,
-        83,
-        86,
-        90,
-        96,
-        103,
-        107,
-        118
+        52
       ],
+      "brace_action_N": {
+        "WPB800X300X317.36": 19876800.0
+      },
       "column_tags": [
         6,
         7,
@@ -876,14 +953,15 @@
         94,
         104,
         105,
+        106,
         115,
-        116
+        116,
+        117
       ],
       "doubler_by_beam_mm": {
-        "WI700X450X32X20": 35,
-        "WI850X600X22X14": 290
+        "WI700X450X32X20": 35.0
       },
-      "source_package_sha256": "391566d501601ecfd0ddda71291e2ff4d35028ba7a98c02cbf260429c5ef72ea"
+      "source_package_sha256": "8751468a0935bad364b47c8c422a3da840197b2323ea6b06d181321c10e1d018"
     }
   }
 }

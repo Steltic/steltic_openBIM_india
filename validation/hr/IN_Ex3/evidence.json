@@ -41,17 +41,17 @@
         "soil": "II",
         "R_x": 3.0,
         "R_y": 4.0,
-        "W_kN": 1833.136,
+        "W_kN": 2015.323,
         "Ta_x_s": 0.478,
         "Ta_y_s": 0.1162,
         "Sa_g_x": 2.5,
         "Sa_g_y": 2.5,
         "Ah_x": 0.041667,
         "Ah_y": 0.03125,
-        "VB_x_kN": 76.381,
-        "VB_y_kN": 57.285,
+        "VB_x_kN": 83.972,
+        "VB_y_kN": 62.979,
         "W_by_floor_kN": [
-          1833.136
+          2015.323
         ]
       },
       "wind": {
@@ -329,8 +329,8 @@
           "governing_dc": 0.8535284255448864,
           "section": "WPB450X300X139.76",
           "limit_state": "IS 800 Table 3 slenderness",
-          "governing_element": 220,
-          "governing_combination": "1.5DL+1.5LL+N_Y"
+          "governing_element": 221,
+          "governing_combination": "1.5DL+1.5LL+N_X"
         },
         "connections": {
           "groups": 41,
@@ -346,9 +346,9 @@
         "governing_drift": {
           "storey": 1,
           "dir": "X",
-          "value": 0.0001020687879830931,
+          "value": 0.00011519682100138295,
           "limit": 0.004,
-          "dc": 0.025517196995773272,
+          "dc": 0.02879920525034574,
           "ok": true
         },
         "post_report_status_sha256": "2ac33af3f79d9a84be704a947179e662aaf9bc73f8775a13dc7079ec304940ff"
@@ -406,32 +406,35 @@
       ]
     }
   ],
-  "handoff_sha256": "f6b451bafdc775e5c045c10cdbbd99fe351f93c01869001063631542ac4c3ea5",
-  "members": 504,
-  "panels": 12,
-  "connections": 69,
-  "physical_profiles": 13,
+  "handoff_sha256": "e58d3706af4d6810a5c8464485f42065022c9b78245362af19cbdd0ba3ed7c18",
+  "members": 560,
+  "panels": 18,
+  "connections": 383,
+  "physical_profiles": 14,
   "source_evidence": {
     "producer": "steltic_india.openbim_handoff",
     "files": {
-      "design/calc_package.json": "dec287974a2ff2a13c3580c3a80433ae7d1a09734f1b82f305006603c41753f1",
-      "design/cfg_snapshot.json": "2230434312f003836b60fecb8e27ffc3ba6e8741575183db3ba1ba1bbcc98069",
-      "design/member_schedule.csv": "cd7545dbeeecac4208ba6d4c403b3ce179931f87c6b0b160be312a5c8d70ddd7",
-      "report.html": "39b6584ddae2d7e848f505314dba989827e2484035ba2c2868b91bab7a4972c5",
-      "viewer_3d.html": "10869acade8850cd489c2bc687c93c69e9cec6da0182fd40093a3324abfcadd9",
+      "design/calc_package.json": "c59ee656bb26cc432f0be045dad6efb98d76d41f1cf9d62a5b56db7d9171c761",
+      "design/cfg_snapshot.json": "69189da52b2be01852bedd58b6e98b7d39bb7b0b0a6d617d680c6716513ac020",
+      "design/member_schedule.csv": "f568759e3610561db3d3b7e940eff2574e3e11bb25e7fe4c07f94bb46126327f",
+      "report.html": "4d984361b07e0d2b43c8ec86768589ee8d4cb4005b1743d4b25ce6e8e2957262",
+      "viewer_3d.html": "3686bb869fd99830a7223671e661edc27b04308291d45d76f3bc110bc3bb4451",
       "STATUS.engine.md": "2ac33af3f79d9a84be704a947179e662aaf9bc73f8775a13dc7079ec304940ff"
     },
     "native_status": {
       "Main": "complete"
     },
-    "native_elements": 208,
-    "bound_elements": 208,
+    "native_elements": 210,
+    "bound_elements": 210,
     "open_items": []
   },
   "checked_design_status": "review",
   "assumptions": [
     "Site soil Type II pending geotechnical confirmation.",
-    "Trial connection details and matched source member checks are recorded where available. Each unverified design item retains review status."
+    "Trial connection details and matched source member checks are recorded where available. Each unverified design item retains review status.",
+    "The endwall sheeting is set on outward-facing IS 811 Z rails. Remaining triangular verge infill, local corner closure, lap lengths, gable cleats and cladding fasteners require envelope detailing.",
+    "Nagpur retains 6.0 m wind-column centres at the gable roof. Each first interior post shifts 800 mm towards the lower-X column below 6.8 m and returns to the grid in its upper shaft. The shutter has 6.0 m clear between jambs and below its lintel, with at least 52 mm beyond the clear dimensions to the projecting anchor shanks. Detail the full-strength shop directional change before fabrication.",
+    "Portal eave and ridge values are fixed structural workline elevations. Across the main roof the inner skin is 739.7 mm vertically above that datum. The long façade is 766.0 mm outside the column grid. Roof and long-wall packing varies from 16.0 to 166.0 mm. The gable and door jamb attachments, outer cladding fixings, water seals and thermal movement require envelope-supplier details."
   ],
   "separation_joints": []
 }

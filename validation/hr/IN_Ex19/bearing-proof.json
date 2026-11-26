@@ -1,0 +1,447 @@
+{
+  "status": "pass",
+  "samples": [
+    {
+      "id": "Flange-skin-floor deck-WPB500X300X107.46",
+      "chain": [
+        "Flange-SEC-1-0-0-1",
+        "Flange-DECK-1-0-0"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            4250.0,
+            20233.3333,
+            4914.0
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Flange-support-beam-secondary beam-4",
+      "chain": [
+        "Flange-E295",
+        "Flange-SEC-1-0-0-1-BEAR-START-LOWER"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            6.0,
+            20233.3333,
+            4678.0
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Flange-cap-secondary beam",
+      "chain": [
+        "Flange-SEC-1-0-0-1-BEAR-START-CAP",
+        "Flange-SEC-1-0-0-1"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            6.0,
+            20233.3333,
+            4678.0
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Flange-support-beam-secondary beam-1",
+      "chain": [
+        "Flange-E325",
+        "Flange-SEC-1-2-0-1-BEAR-END-PACK",
+        "Flange-SEC-1-2-0-1"
+      ],
+      "expected_gaps_mm": [
+        0.0,
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            25494.0,
+            20233.3333,
+            4678.0
+          ],
+          "measured_gaps_mm": [
+            0.0,
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Flange-skin-floor deck-RHS120X80X6-EDGE",
+      "chain": [
+        "Flange-DECK-1-0-0-EDGE-1",
+        "Flange-DECK-1-0-0"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            4250.0,
+            17400.0,
+            5090.0
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Flange-skin-roof deck-WPB320X300X74.25",
+      "chain": [
+        "Flange-SEC-12-0-0-1",
+        "Flange-DECK-12-0-0"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            4250.0,
+            20233.3333,
+            39979.5
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Flange-skin-roof deck-RHS120X80X6-EDGE",
+      "chain": [
+        "Flange-DECK-12-0-0-EDGE-199",
+        "Flange-DECK-12-0-0"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            4250.0,
+            17400.0,
+            40070.0
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Stem-skin-floor deck-WPB500X300X107.46",
+      "chain": [
+        "Stem-SEC-1-0-0-1",
+        "Stem-DECK-1-0-0"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            21250.0,
+            -91.6667,
+            4839.0
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Stem-support-beam-secondary beam-1",
+      "chain": [
+        "Stem-E131",
+        "Stem-SEC-1-0-0-1-BEAR-START-PACK",
+        "Stem-SEC-1-0-0-1"
+      ],
+      "expected_gaps_mm": [
+        0.0,
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            17006.0,
+            -91.6667,
+            4603.0
+          ],
+          "measured_gaps_mm": [
+            0.0,
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Stem-skin-floor deck-RHS120X80X6-EDGE",
+      "chain": [
+        "Stem-DECK-1-0-0-EDGE-1",
+        "Stem-DECK-1-0-0"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            21250.0,
+            -2925.0,
+            5015.0
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Stem-support-beam-secondary beam-4",
+      "chain": [
+        "Stem-E109",
+        "Stem-DECK-1-0-0-EDGE-1-BEAR-START-LOWER"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            17433.0,
+            -2925.0,
+            4955.0
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Stem-cap-secondary beam",
+      "chain": [
+        "Stem-DECK-1-0-0-EDGE-1-BEAR-START-CAP",
+        "Stem-DECK-1-0-0-EDGE-1"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            17433.0,
+            -2925.0,
+            4955.0
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Stem-skin-roof deck-WPB320X300X74.25",
+      "chain": [
+        "Stem-SEC-12-0-0-1",
+        "Stem-DECK-12-0-0"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            21250.0,
+            -91.6667,
+            39954.5
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Stem-skin-roof deck-RHS120X80X6-EDGE",
+      "chain": [
+        "Stem-DECK-12-0-0-EDGE-67",
+        "Stem-DECK-12-0-0"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            21250.0,
+            -2925.0,
+            40045.0
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    }
+  ],
+  "handoff_sha256": "0d069e274ca59b7c3b3145eed7da3b454771ec6304ce1b225c33e52dc4f2e68a",
+  "ifc_sha256": "57a0cb8dbe1980aa937d0b5c5e804a6874adc8db612843b267bcaea2f6519bca"
+}

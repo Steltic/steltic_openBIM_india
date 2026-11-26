@@ -1,14 +1,19 @@
 """IS 875-3 clauses 10.2–10.4, using this design's modal frequencies and licensed figure readings."""
 import csv
+import hashlib
+import json
 import math
+from pathlib import Path
 
 import india_wind_tables as W
 
 
 def add(case,unit,ground,plan,wind,coeff):
     if case.number not in (16,17,18,20):return
+    source=Path(__file__).with_name('wind_modes.json')
+    modes=json.loads(source.read_bytes()) if source.exists() else {}
     from final_members import decisions
-    trial=decisions().get(str(case.number),{}).get(unit.name,{})
+    trial=modes.get(str(case.number),{}).get(unit.name) or decisions().get(str(case.number),{}).get(unit.name,{})
     freq=trial.get('frequency_hz')
     if not freq:return
     h=sum(unit.heights); b={'X':unit.ny*unit.sy,'Y':unit.nx*unit.sx}
@@ -55,3 +60,16 @@ def add(case,unit,ground,plan,wind,coeff):
     wind['gust_factor']=dict(gust,G=max(gust['X']['G'],gust['Y']['G']),beta=beta,frequency_basis=trial['source_package_sha256'])
     wind['across_wind']=across
     wind['across_wind_basis']='Trial rectangular-plan coefficient envelope including 10% figure-reading allowance. Verify application to actual shape and confirm final normal-mode frequencies.'
+
+
+def record_modes(root,numbers=(16,17,18,20)):
+    dest=Path(__file__).with_name('wind_modes.json')
+    out=json.loads(dest.read_bytes()) if dest.exists() else {}
+    for n in numbers:
+        path=Path(root)/f'IN_Ex{n}'/'design'/'calc_package.json'
+        modes=json.loads(path.read_bytes())['seismic_analysis']['modes']
+        selected={a:max(modes,key=lambda m:m.get('mass_'+a,0)) for a in ('x','y')}
+        out[str(n)]={'Main':{'source_package_sha256':hashlib.sha256(path.read_bytes()).hexdigest(),
+            'frequency_hz':{a:round(1/m['T'],7) for a,m in selected.items()},
+            'participating_mass_fraction':{a:m['mass_'+a] for a,m in selected.items()}}}
+    dest.write_text(json.dumps(out,indent=2,sort_keys=True)+'\n',encoding='utf-8')

@@ -41,17 +41,17 @@
         "soil": "II",
         "R_x": 3.0,
         "R_y": 4.0,
-        "W_kN": 2310.276,
+        "W_kN": 2569.026,
         "Ta_x_s": 0.478,
         "Ta_y_s": 0.1039,
         "Sa_g_x": 2.5,
         "Sa_g_y": 2.5,
         "Ah_x": 0.041667,
         "Ah_y": 0.03125,
-        "VB_x_kN": 96.262,
-        "VB_y_kN": 72.196,
+        "VB_x_kN": 107.043,
+        "VB_y_kN": 80.282,
         "W_by_floor_kN": [
-          2310.276
+          2569.026
         ]
       },
       "wind": {
@@ -345,9 +345,9 @@
         "governing_drift": {
           "storey": 1,
           "dir": "X",
-          "value": 0.00048559855877764715,
+          "value": 0.0005405130001356098,
           "limit": 0.004,
-          "dc": 0.12139963969441178,
+          "dc": 0.13512825003390244,
           "ok": true
         },
         "post_report_status_sha256": "09eacb726cedebad25d0a14e0cfde9f65dbd2d1958fe70317ab325678350fd75"
@@ -391,19 +391,19 @@
       ]
     }
   ],
-  "handoff_sha256": "04849a4800b4f6ff2623817924989e1226b4a28cf2006151284c717e75e809cc",
-  "members": 618,
-  "panels": 26,
-  "connections": 83,
+  "handoff_sha256": "2efd4365024e218c98a7431a41d0e620f3d68075a83aecc5f9147cf3e553cf41",
+  "members": 658,
+  "panels": 52,
+  "connections": 449,
   "physical_profiles": 11,
   "source_evidence": {
     "producer": "steltic_india.openbim_handoff",
     "files": {
-      "design/calc_package.json": "1891102b18860cc9df338327c7d2779e6a096a58b89103c88e2b27625bb4d380",
-      "design/cfg_snapshot.json": "77a94f768b2ba33e4835da024904f5b058346bf25ee5cb39147798a0e78c75ed",
-      "design/member_schedule.csv": "d58d99213666bd0a2bba19c947ad04223956fec2d04a21b4f9f72b69cc8e2431",
-      "report.html": "6b48a970812f12d854c0bb663d95577499d678ba767c5ddbb05147470969ce20",
-      "viewer_3d.html": "b4a420a2b65a764196eaf58e8013548c9cacde24560c0ff19fb8a8f84efc7ffb",
+      "design/calc_package.json": "360280cfcd559fad04ba83134d45232279975452df794483696a540249becbc4",
+      "design/cfg_snapshot.json": "082c2c5c9f7c40436bd80a87d14ee3366c19ae25b0bbe4e02d87f2aa3c10a974",
+      "design/member_schedule.csv": "32bf7ffc8046e9dda43dd4477967514d3c9a24b02ab82d55187949db69c7c1aa",
+      "report.html": "61c51bd93214fe55a80291f3078d553e3799f91d2d78b6b6bc8739f10b3851b1",
+      "viewer_3d.html": "9f527a6cf73f1743b320533828328e580589a5b9139c50beeecafa35bbe65a9c",
       "STATUS.engine.md": "09eacb726cedebad25d0a14e0cfde9f65dbd2d1958fe70317ab325678350fd75"
     },
     "native_status": {
@@ -416,7 +416,12 @@
   "checked_design_status": "review",
   "assumptions": [
     "Site soil Type II pending geotechnical confirmation.",
-    "Trial connection details and matched source member checks are recorded where available. Each unverified design item retains review status."
+    "Trial connection details and matched source member checks are recorded where available. Each unverified design item retains review status.",
+    "Rooflight openings and separate translucent sheets occupy 3% of the gross main roof in plan and on the slope. Producer design uses a 1.5 mm polycarbonate envelope allowance; the supplier confirms sheet grade, curb and trimmer details, fall protection, overlaps, fasteners and watertight seals.",
+    "The endwall sheeting is set on outward-facing IS 811 Z rails. Remaining triangular verge infill, local corner closure, lap lengths, gable cleats and cladding fasteners require envelope detailing.",
+    "Continuous ridge ventilation is a specialist envelope package. Opening width, curb, flashing, local trimming and rain exclusion require the ventilator supplier specification.",
+    "The 230 mm masonry dado bears on its own plinth. Its out-of-plane ties, foundation and movement joints require local masonry and foundation detailing.",
+    "Portal eave and ridge values are fixed structural workline elevations. Across the main roof the inner skin is 850.2 mm vertically above that datum. The long façade is 846.0 mm outside the column grid. Roof and long-wall packing varies from 54.1 to 241.0 mm. The gable and door jamb attachments, outer cladding fixings, water seals and thermal movement require envelope-supplier details."
   ],
   "separation_joints": []
 }

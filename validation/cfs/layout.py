@@ -339,6 +339,15 @@ class Layout:
                         p=top+delta*(1 if top==u else -1)
                         if u<p<v: us.append(p)
                 us=sorted(set(round(value,6) for value in us))
+            if n==2 and k==0:
+                # The four cold-store condenser posts penetrate this slope.
+                # Carry the adjacent sheet on paired lines clear of the posts.
+                for centre in (2.,4.):
+                    us=[t for t in us if abs(t-centre)>.30]+[centre-.30,centre+.30]
+                us=sorted(set(us))
+            # Each side has a separate purlin at a fold. A short sheet
+            # overhang preserves the specified ridge/valley and eave planes.
+            us=[u+.075 if abs(t-u)<1.e-6 else v-.075 if abs(t-v)<1.e-6 else t for t in us]
             for s,e in zip(stations,stations[1:]):
                 fall=math.atan((hi-lo)/(v-u))
                 ref=[0,math.cos(fall),math.sin(fall)] if primary_x else [-math.cos(fall),0,-math.sin(fall)]
@@ -499,6 +508,8 @@ class Layout:
                         za,zb=height(ya),height(yb)
                         theta=math.atan2(zb-za,yb-ya)
                         for t in menu(ya,yb,spacing*math.cos(theta),True):
+                            if plane and any(abs(t-edge)<1.e-6 for edge in (*plane["eave_coords_m"],plane["ridge_coord_m"])):
+                                t+=.075 if abs(t-ya)<1.e-6 else -.075
                             self.cold("purlin",(x,t,height(t)),(X,t,height(t)),direction=[0,math.cos(theta),math.sin(theta)])
                         self.panel("Pitched roof" if plane else "Amenity deck" if b.number==11 else "Roof",
                                     [(x,ya,za),(X,ya,za),(X,yb,zb),(x,yb,zb)],"Deck",.7)

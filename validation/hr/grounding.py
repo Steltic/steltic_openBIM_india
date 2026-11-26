@@ -134,6 +134,12 @@ class Grounding:
         self.page('IS_808_2021',r'SECTIONAL PROPERTIES','IS 808, section 9 and dimensional tables',pages=[6])
         if case.zone != 'II':
             self.page('IS_18168_2023',r'overstrength','IS 18168, earthquake-resistant steel design')
+        if 'SMRF' in case.system:
+            self.page('IS_800_2007',r'12\.11\.3\.3','IS 800 12.11.3.3, column restraint at both beam-flange levels',
+                      pages=[96],inputs={'minimum_fraction_of_beam_flange_strength':.02})
+            self.page('IS_18168_2023',r'6\.2\s+','IS 18168 section 6.2, seismic beam flange restraints',pages=[9])
+        if case.number in (9,10):
+            self.page('IS_875_Part_4_1987',r'4\.4 Ponding Instability','IS 875 Part 4:2021, 4.4, drainage after deflection',pages=[4])
 
     def shimla_snow(self):
         stem = 'IS_875_Part_4_1987'

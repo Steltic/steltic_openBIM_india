@@ -7,7 +7,7 @@
   "upstream": "Steltic/steltic_CFS_india",
   "upstream_design_commit": "6e43e5839a84358a6a23356b2de4d59ab914a38b",
   "producer_sha256": "98d43913ba645055dc1d1174cc5db8dc4eb2a8fd2a7b5eac01f094e359a21ad7",
-  "authored_input_sha256": "18f2d91ce1eff162124f53f287ad8a18a647bd15fb554090200891490ecfc2d6",
+  "authored_input_sha256": "032df5673f161d3b532b2280d1c1d89ed39e93ca65a3e464f4e20d1c00ee8afb",
   "dimensions": {
     "x_m": 76.0,
     "y_m": 21,
@@ -41,7 +41,7 @@
   },
   "gravity": {
     "D_floor": 1.65,
-    "D_roof": 0.9,
+    "D_roof": 1.1,
     "L_floor": 3.0,
     "Lr": 0.75,
     "clad": 0.35,
@@ -60,7 +60,7 @@
     "roof": {
       "insulated_panels": 0.32,
       "services": 0.38,
-      "secondary_and_miscellaneous": 0.2
+      "secondary_and_miscellaneous": 0.4
     },
     "floor": {
       "board_and_finishes": 0.95,
@@ -113,7 +113,9 @@
     "Physical framing uses nominal analytic workpoints and untrimmed member ends. Panels follow structural control planes. Coordinate finish buildups, offsets, coping and weld preparations in fabrication details.",
     "The native design gate and governing member checks travel with this model. Review open primary-frame, concrete, diaphragm and fastening checks before design acceptance.",
     "Any proposed in-plane board stiffness and allowable shear require full assembly test evidence. Concrete pedestal and group breakout design must be verified.",
-    "Dead loads are preliminary assembly allowances. No imposed-load reduction is used. Primary member self-weight is computed separately by the solver."
+    "Dead loads are preliminary assembly allowances. No imposed-load reduction is used. Primary member self-weight is computed separately by the solver.",
+    "Pitched purlins sit on the modeled seats, with 75 mm workpoint setbacks on both sides of roof folds. Roof surfaces retain the architectural ridge and eave plan coordinates. Supplier flashing, ridge and valley closures, roof and gable transition, screw patterns, waterproofing and tolerances require coordination.",
+    "Srinagar airlock outer roof rises from 3500 to 3600 mm. Its native paired joists bear on tapered seats over continuous front/back rims. The level steel condenser grating is at least 600 mm above the insulated roof. Machine-cut shoes fit onto actual pitched rafter flanges. The 5 kN equipment load bears on the main platform beams; verify equipment foot placement and cross-bar point-load distribution."
   ],
   "combined_load_sets": 31,
   "cfs_check_groups": [
@@ -121,9 +123,9 @@
       "group": "cfs_member",
       "member": "purlin-2xCLR200X50X20X3.15",
       "check": "6.1/6.2/6.3 bending (gravity, top flange in compression)",
-      "value": 15527201.69638823,
+      "value": 15927201.696388232,
       "limit": 16050000.000000002,
-      "dc": 0.9674268969712292,
+      "dc": 0.9923490153512916,
       "ok": true,
       "combo": "DL+SL",
       "clause": "IS 801 6.1 / 6.2 / 6.3 / 5.2.1.1 / 6.1.2",
@@ -134,9 +136,9 @@
       "group": "cfs_member",
       "member": "purlin-2xCLR200X50X20X3.15",
       "check": "6.4.1 web shear",
-      "value": 25.462305371854917,
+      "value": 26.151537498342798,
       "limit": 100.00000000000001,
-      "dc": 0.25462305371854915,
+      "dc": 0.2615153749834279,
       "ok": true,
       "combo": "DL+SL",
       "clause": "IS 801 6.4.1(a)",
@@ -147,9 +149,9 @@
       "group": "cfs_member",
       "member": "purlin-2xCLR200X50X20X3.15",
       "check": "6.5 web crippling (support)",
-      "value": 14777.20169638823,
+      "value": 15177.20169638823,
       "limit": 65076.60961351696,
-      "dc": 0.2270739330790042,
+      "dc": 0.23322053479005764,
       "ok": true,
       "combo": "DL+SL",
       "clause": "IS 801 6.5(b)(2)",
@@ -160,9 +162,9 @@
       "group": "cfs_member",
       "member": "purlin-2xCLR200X50X20X3.15",
       "check": "sag rod M20 tension (declared)",
-      "value": 3324.8,
+      "value": 3419.6,
       "limit": 45868.5,
-      "dc": 0.0724855155929578,
+      "dc": 0.07455229461070695,
       "ok": true,
       "combo": "bracing (governing w)",
       "clause": "IS 800:2007 11.2.1 / 6.3.1 (working stress)",
@@ -368,9 +370,9 @@
       "group": "cfs_member",
       "member": "lean-to-roof-joist-2xCLR250X80X25X5",
       "check": "6.1/6.2/6.3 bending (gravity, top flange in compression)",
-      "value": 4523155.704409198,
+      "value": 4613152.838327881,
       "limit": 44160000.0,
-      "dc": 0.10242653316144017,
+      "dc": 0.10446451173749731,
       "ok": true,
       "combo": "DL+SL",
       "clause": "IS 801 6.1 / 6.2 / 6.3 / 5.2.1.1 / 6.1.2",
@@ -381,9 +383,9 @@
       "group": "cfs_member",
       "member": "lean-to-roof-joist-2xCLR250X80X25X5",
       "check": "6.4.1 web shear",
-      "value": 5.441076339322855,
+      "value": 5.547743005989521,
       "limit": 100.00000000000001,
-      "dc": 0.05441076339322854,
+      "dc": 0.05547743005989521,
       "ok": true,
       "combo": "DL+SL",
       "clause": "IS 801 6.4.1(a)",
@@ -394,9 +396,9 @@
       "group": "cfs_member",
       "member": "lean-to-roof-joist-2xCLR250X80X25X5",
       "check": "6.5 web crippling (end reaction)",
-      "value": 6121.21088173821,
+      "value": 6241.21088173821,
       "limit": 86693.14828612207,
-      "dc": 0.07060778161540247,
+      "dc": 0.07199197405012582,
       "ok": true,
       "combo": "DL+SL",
       "clause": "IS 801 6.5(b)(1)",
@@ -407,9 +409,9 @@
       "group": "cfs_member",
       "member": "lean-to-roof-joist-2xCLR250X80X25X5",
       "check": "6.4.3 web bending + shear",
-      "value": 0.03878437578295221,
+      "value": 0.03954470330374376,
       "limit": 1.0,
-      "dc": 0.03878437578295221,
+      "dc": 0.03954470330374376,
       "ok": true,
       "combo": "DL+SL",
       "clause": "IS 801 6.4.3",
@@ -472,9 +474,9 @@
       "group": "cfs_member",
       "member": "door-header-vestibule-2xCLR250X80X25X5",
       "check": "6.1/6.2/6.3 bending (gravity, top flange in compression)",
-      "value": 9411674.07919344,
+      "value": 9593174.079193467,
       "limit": 44160000.0,
-      "dc": 0.21312667751796738,
+      "dc": 0.2172367318657941,
       "ok": true,
       "combo": "DL+SL",
       "clause": "IS 801 6.1 / 6.2 / 6.3 / 5.2.1.1 / 6.1.2",
@@ -485,9 +487,9 @@
       "group": "cfs_member",
       "member": "door-header-vestibule-2xCLR250X80X25X5",
       "check": "6.4.1 web shear",
-      "value": 15.210786390615658,
+      "value": 15.504119723948987,
       "limit": 100.00000000000001,
-      "dc": 0.15210786390615655,
+      "dc": 0.15504119723948984,
       "ok": true,
       "combo": "DL+SL",
       "clause": "IS 801 6.4.1(a)",
@@ -498,9 +500,9 @@
       "group": "cfs_member",
       "member": "door-header-vestibule-2xCLR250X80X25X5",
       "check": "6.5 web crippling (end reaction)",
-      "value": 17112.134689442613,
+      "value": 17442.13468944261,
       "limit": 86693.14828612207,
-      "dc": 0.19738739482577936,
+      "dc": 0.2011939240212685,
       "ok": true,
       "combo": "DL+SL",
       "clause": "IS 801 6.5(b)(1)",
@@ -511,9 +513,9 @@
       "group": "cfs_member",
       "member": "door-header-vestibule-2xCLR250X80X25X5",
       "check": "6.4.3 web bending + shear",
-      "value": 0.10842355786562471,
+      "value": 0.11051445854780256,
       "limit": 1.0,
-      "dc": 0.10842355786562471,
+      "dc": 0.11051445854780256,
       "ok": true,
       "combo": "DL+SL",
       "clause": "IS 801 6.4.3",
@@ -576,9 +578,9 @@
       "group": "cfs_member",
       "member": "door-jamb-vestibule-2xCLR250X80X25X5",
       "check": "interaction",
-      "value": 0.0879863858097408,
+      "value": 0.08883188442179057,
       "limit": 1.0,
-      "dc": 0.0879863858097408,
+      "dc": 0.08883188442179057,
       "ok": true,
       "combo": "DL+SL-1.0W_X",
       "clause": "IS 801 6.7.1 (fa/Fa1 < 0.15: fa/Fa1 + fbx/Fbx + fby/Fby)",
@@ -654,9 +656,9 @@
       "group": "cfs_member",
       "member": "back-wall-stud-vestibule-2xCLR250X80X25X5",
       "check": "interaction",
-      "value": 0.01846630883265357,
+      "value": 0.018800782270476733,
       "limit": 1.0,
-      "dc": 0.01846630883265357,
+      "dc": 0.018800782270476733,
       "ok": true,
       "combo": "DL+SL",
       "clause": "IS 801 6.7.1 (fa/Fa1 < 0.15: fa/Fa1 + fbx/Fbx + fby/Fby)",
@@ -875,9 +877,9 @@
       "group": "cfs_connection",
       "member": "purlin-cleat-2xCLR200X50X20X3.15",
       "check": "bolts in the purlin web: 7.5.3 bearing",
-      "value": 97.7328154523031,
+      "value": 100.37831809780577,
       "limit": 525.0,
-      "dc": 0.18615774371867258,
+      "dc": 0.1911967963767729,
       "ok": true,
       "combo": "DL+SL",
       "clause": "IS 801 7.5.3",
@@ -888,9 +890,9 @@
       "group": "cfs_connection",
       "member": "purlin-cleat-2xCLR200X50X20X3.15",
       "check": "bolts in the purlin web: 7.5.4 bolt shear",
-      "value": 24.498590573397166,
+      "value": 25.161736169613402,
       "limit": 80.41453,
-      "dc": 0.30465378052196745,
+      "dc": 0.31290036974180413,
       "ok": true,
       "combo": "DL+SL",
       "clause": "IS 801 7.5.4",
@@ -901,9 +903,9 @@
       "group": "cfs_connection",
       "member": "purlin-cleat-2xCLR200X50X20X3.15",
       "check": "cleat compression + minor-axis bending (IS 800 11.5.2)",
-      "value": 0.552943233815242,
+      "value": 0.5688583842986003,
       "limit": 1.0,
-      "dc": 0.552943233815242,
+      "dc": 0.5688583842986003,
       "ok": true,
       "combo": "DL+SL",
       "clause": "IS 800:2007 11.5.2 (a), 11.3.1, 7.1.2.1, 11.4.1 (c)",
@@ -914,9 +916,9 @@
       "group": "cfs_connection",
       "member": "purlin-cleat-2xCLR200X50X20X3.15",
       "check": "cleat fillet welds (IS 800 11.6.3.1)",
-      "value": 55.40841640371737,
+      "value": 56.908251556329795,
       "limit": 100.0,
-      "dc": 0.5540841640371736,
+      "dc": 0.5690825155632979,
       "ok": true,
       "combo": "DL+SL",
       "clause": "IS 800:2007 11.6.3.1",
@@ -927,9 +929,9 @@
       "group": "cfs_connection",
       "member": "purlin-cleat-2xCLR200X50X20X3.15",
       "check": "cleat tension + minor-axis bending (IS 800 11.5.3)",
-      "value": 0.014665242857142843,
+      "value": 0.006222385714285705,
       "limit": 1.0,
-      "dc": 0.014665242857142843,
+      "dc": 0.006222385714285705,
       "ok": true,
       "combo": "0.9DL+1.0W_X",
       "clause": "IS 800:2007 11.5.3, 11.2.1 (a), 11.4.1 (c)",
@@ -943,7 +945,7 @@
       "role": "purlin",
       "section": "CLR200X50X20X3.15",
       "n_ply": 2,
-      "DC": 0.9674268969712292,
+      "DC": 0.9923490153512916,
       "ok": true,
       "length_mm": 4000.0,
       "Fy_MPa": 250.0
@@ -973,7 +975,7 @@
       "role": "lean-to roof joist",
       "section": "CLR250X80X25X5",
       "n_ply": 2,
-      "DC": 0.10242653316144017,
+      "DC": 0.10446451173749731,
       "ok": true,
       "length_mm": 3000.0,
       "Fy_MPa": 250.0
@@ -983,7 +985,7 @@
       "role": "door header",
       "section": "CLR250X80X25X5",
       "n_ply": 2,
-      "DC": 0.21312667751796738,
+      "DC": 0.2172367318657941,
       "ok": true,
       "length_mm": 2200.0,
       "Fy_MPa": 250.0
@@ -993,7 +995,7 @@
       "role": "door jamb",
       "section": "CLR250X80X25X5",
       "n_ply": 2,
-      "DC": 0.0879863858097408,
+      "DC": 0.08883188442179057,
       "ok": true,
       "length_mm": 3500.0,
       "Fy_MPa": 250.0
@@ -1003,7 +1005,7 @@
       "role": "back-wall stud",
       "section": "CLR250X80X25X5",
       "n_ply": 2,
-      "DC": 0.01846630883265357,
+      "DC": 0.018800782270476733,
       "ok": true,
       "length_mm": 3600.0,
       "Fy_MPa": 250.0
@@ -1039,20 +1041,20 @@
       {
         "storey": 1,
         "dir": "X",
-        "drift": 0.000632,
+        "drift": 0.000665,
         "limit": 0.004,
-        "value": 0.000631962131168611,
-        "dc": 0.15799053279215275,
+        "value": 0.000665183458030625,
+        "dc": 0.16629586450765624,
         "ok": true,
         "clause": "IS 1893 7.11.1.1 (edges, 7.8.2 eccentricity, gamma 1.0)"
       },
       {
         "storey": 1,
         "dir": "Y",
-        "drift": 0.000347,
+        "drift": 0.000365,
         "limit": 0.004,
-        "value": 0.0003471760847928432,
-        "dc": 0.0867940211982108,
+        "value": 0.00036537894161158945,
+        "dc": 0.09134473540289736,
         "ok": true,
         "clause": "IS 1893 7.11.1.1 (edges, 7.8.2 eccentricity, gamma 1.0)"
       }
@@ -1065,13 +1067,13 @@
       "soil": "medium",
       "R_x": 5.0,
       "R_y": 5.0,
-      "W_kN": 6101.282,
+      "W_kN": 6420.482,
       "Ta_x_s": 0.08258966419340222,
       "Ta_y_s": 0.15711688096991452,
       "Ta_s": 0.0826,
       "Sa_g": 2.5,
       "Ah": 0.135,
-      "VB_kN": 823.673
+      "VB_kN": 866.765
     },
     "members": [
       {
@@ -1085,7 +1087,7 @@
         "limit": 180,
         "governing_check": "IS 800 Table 3 slenderness KL/r (combination 1.5DL+1.5LL+1.5SL) -- governing",
         "governing_clause": "IS 800:2007 3.8 / Table 3",
-        "strength_dc": 0.16938042573740245,
+        "strength_dc": 0.17452065730085825,
         "strength_combo": "1.5DL+1.5LL+1.5SL",
         "slenderness_ratio": 0.5555555555555556,
         "KL_r": 100.0,
@@ -1095,14 +1097,14 @@
         "id": "link-WPB400X400X239.62",
         "role": "link",
         "section": "WPB400X400X239.62",
-        "DC": 0.6550687740192456,
+        "DC": 0.6893096161745181,
         "governing_combo": "1.5DL-1.5EQ_X[ea]+0.3EQ_Z",
         "n": 4,
-        "value": 0.6550687740192456,
+        "value": 0.6893096161745181,
         "limit": 1.0,
         "governing_check": "IS 800 9.3 interaction / member resistance (governing combination 1.5DL+1.5EQ_X[eb]+0.3EQ_Z)",
         "governing_clause": "IS 800:2007 7.1.2, 8.2, 8.4, 9.3; Table 2/3/10",
-        "strength_dc": 0.6550687740192456,
+        "strength_dc": 0.6893096161745181,
         "strength_combo": "1.5DL+1.5EQ_X[eb]+0.3EQ_Z",
         "slenderness_ratio": 0.05,
         "KL_r": 15.0,
@@ -1112,14 +1114,14 @@
         "id": "roof-WPB400X400X239.62",
         "role": "roof",
         "section": "WPB400X400X239.62",
-        "DC": 0.48049043152063997,
+        "DC": 0.505636231556613,
         "governing_combo": "1.5DL-1.5EQ_X[ea]+0.3EQ_Z",
         "n": 8,
-        "value": 0.48049043152063997,
+        "value": 0.505636231556613,
         "limit": 1.0,
         "governing_check": "IS 800 9.3 interaction / member resistance (governing combination 1.2DL+0.25LL+0.25SL-3EQ_X[ea]+0.3EQ_Z[col])",
         "governing_clause": "IS 800:2007 7.1.2, 8.2, 8.4, 9.3; Table 2/3/10",
-        "strength_dc": 0.48049043152063997,
+        "strength_dc": 0.505636231556613,
         "strength_combo": "1.2DL+0.25LL+0.25SL-3EQ_X[ea]+0.3EQ_Z[col]",
         "slenderness_ratio": 0.067,
         "KL_r": 16.75,
@@ -1129,14 +1131,14 @@
         "id": "roof-WPB650X300X293.39",
         "role": "roof",
         "section": "WPB650X300X293.39",
-        "DC": 0.770198642985521,
+        "DC": 0.7894832530575671,
         "governing_combo": "1.5DL+1.5LL+1.5SL",
         "n": 154,
-        "value": 0.770198642985521,
+        "value": 0.7894832530575671,
         "limit": 1.0,
         "governing_check": "IS 800 9.3 interaction / member resistance (governing combination 1.5DL+1.5LL+1.5SL)",
         "governing_clause": "IS 800:2007 7.1.2, 8.2, 8.4, 9.3; Table 2/3/10",
-        "strength_dc": 0.770198642985521,
+        "strength_dc": 0.7894832530575671,
         "strength_combo": "1.5DL+1.5LL+1.5SL",
         "slenderness_ratio": 0.27433186524304237,
         "KL_r": 49.379735743747624,
@@ -1153,7 +1155,7 @@
         "limit": 180,
         "governing_check": "IS 800 Table 3 slenderness KL/r (combination 1.5DL+1.5LL-N_X) -- governing",
         "governing_clause": "IS 800:2007 3.8 / Table 3",
-        "strength_dc": 0.47183959452674595,
+        "strength_dc": 0.49622195597938323,
         "strength_combo": "1.2DL+0.25LL+0.25SL-3EQ_X[ea]+0.3EQ_Z[col]",
         "slenderness_ratio": 0.5676021392353152,
         "KL_r": 102.16838506235675,
@@ -1163,14 +1165,14 @@
         "id": "lateral_col-WPB800X300X317.36",
         "role": "lateral_col",
         "section": "WPB800X300X317.36",
-        "DC": 0.8472190888495242,
+        "DC": 0.8681562761344406,
         "governing_combo": "1.5DL+1.5LL+1.5SL",
         "n": 40,
-        "value": 0.8472190888495242,
+        "value": 0.8681562761344406,
         "limit": 1.0,
         "governing_check": "IS 800 9.3 interaction / member resistance (governing combination 1.5DL+1.5LL+1.5SL)",
         "governing_clause": "IS 800:2007 7.1.2, 8.2, 8.4, 9.3; Table 2/3/10",
-        "strength_dc": 0.8472190888495242,
+        "strength_dc": 0.8681562761344406,
         "strength_combo": "1.5DL+1.5LL+1.5SL",
         "slenderness_ratio": 0.3277613897082924,
         "KL_r": 58.99705014749263,
@@ -1187,7 +1189,7 @@
         "limit": 180,
         "governing_check": "IS 800 Table 3 slenderness KL/r (combination 1.5DL+1.5LL+1.5SL) -- governing",
         "governing_clause": "IS 800:2007 3.8 / Table 3",
-        "strength_dc": 0.10612832503125398,
+        "strength_dc": 0.1094129249801952,
         "strength_combo": "1.5DL+1.5LL+1.5SL",
         "slenderness_ratio": 0.7528293897215371,
         "KL_r": 135.50929014987668,
@@ -1198,7 +1200,7 @@
       {
         "id": "conn-roof-NPB400X180X57.38",
         "type": "beam-to-column",
-        "DC": 0.11327090117163126,
+        "DC": 0.1168772154796195,
         "not_evaluated": [],
         "check_names": [
           "beam-end shear connection: (V + N resultant) bolts_10_3",
@@ -1208,7 +1210,7 @@
           "beam-end bolts slip_service_10_4_3"
         ],
         "all_checks_ok": true,
-        "value": 134436.17897578762,
+        "value": 138716.35253083898,
         "limit": 1186855.3846153845,
         "governing_check": "beam-end shear connection: (V + N resultant) bolts_10_3",
         "governing_clause": "IS 800:2007 10.3.2"
@@ -1241,7 +1243,7 @@
       {
         "id": "conn-roof-WPB400X400X239.62",
         "type": "beam-to-column",
-        "DC": 0.5302573534410723,
+        "DC": 0.5579260964258275,
         "not_evaluated": [],
         "check_names": [
           "beam-end shear connection: (V + N resultant) bolts_10_3",
@@ -1253,7 +1255,7 @@
           "12.4.1 bolt type"
         ],
         "all_checks_ok": true,
-        "value": 629338.7951634397,
+        "value": 662177.5917604356,
         "limit": 1186855.3846153845,
         "governing_check": "beam-end shear connection: (V + N resultant) bolts_10_3",
         "governing_clause": "IS 800:2007 10.3.2"
@@ -1261,7 +1263,7 @@
       {
         "id": "conn-roof-WPB650X300X293.39",
         "type": "beam-to-column",
-        "DC": 0.4905346564209938,
+        "DC": 0.5028200505257727,
         "not_evaluated": [],
         "check_names": [
           "beam-end shear connection: (V + N resultant) bolts_10_3",
@@ -1273,7 +1275,7 @@
           "12.4.1 bolt type"
         ],
         "all_checks_ok": true,
-        "value": 582193.6983137141,
+        "value": 596774.684459093,
         "limit": 1186855.3846153845,
         "governing_check": "beam-end shear connection: (V + N resultant) bolts_10_3",
         "governing_clause": "IS 800:2007 10.3.2"
@@ -1281,7 +1283,7 @@
       {
         "id": "conn-brace-WPB300X300X237.92",
         "type": "brace-to-gusset",
-        "DC": 0.11011859731786834,
+        "DC": 0.11019184877908403,
         "not_evaluated": [],
         "check_names": [
           "brace end: brace_conn_bolts",
@@ -1296,7 +1298,7 @@
           "brace end bolts slip_service_10_4_3"
         ],
         "all_checks_ok": true,
-        "value": 1809045.4401390017,
+        "value": 1810248.826534428,
         "limit": 16428155.499629287,
         "governing_check": "brace end: brace_conn_welds",
         "governing_clause": "IS 800:2007 10.5.7.1.2 at 12.8.3 (as EBF practice; IS 18168 12.3.4.6).1 force"
@@ -1381,24 +1383,24 @@
       {
         "storey": 1,
         "dir": "X",
-        "F_EQ_N": 823673.0983336599,
+        "F_EQ_N": 866765.09833366,
         "F_W_N": 44155.2384,
         "governing": "EQ",
-        "v_unit_kN_per_m": 5.418901962721446,
-        "chord_force_kN": 28.44923530428759,
-        "dc": 0.38150475899675473,
+        "v_unit_kN_per_m": 5.702401962721446,
+        "chord_force_kN": 29.937610304287592,
+        "dc": 0.4014638946149349,
         "ok": true,
         "demand_evaluated": true
       },
       {
         "storey": 1,
         "dir": "Y",
-        "F_EQ_N": 823673.0983336599,
+        "F_EQ_N": 866765.09833366,
         "F_W_N": 211268.87727566404,
         "governing": "EQ",
-        "v_unit_kN_per_m": 2.0643436048462656,
-        "chord_force_kN": 1.032171802423114,
-        "dc": 0.14533514628447802,
+        "v_unit_kN_per_m": 2.1723436048462657,
+        "chord_force_kN": 1.0861718024231137,
+        "dc": 0.15293862651997525,
         "ok": true,
         "demand_evaluated": true
       }
@@ -1413,7 +1415,7 @@
           "line_m": 0.0,
           "role": "collector",
           "action": "EQ",
-          "N_kN": -193.3193,
+          "N_kN": -203.4332,
           "native_element": 43
         },
         {
@@ -1422,7 +1424,7 @@
           "line_m": 21.0,
           "role": "collector",
           "action": "EQ",
-          "N_kN": -193.3193,
+          "N_kN": -203.4332,
           "native_element": 70
         },
         {
@@ -1431,7 +1433,7 @@
           "line_m": null,
           "role": "chord",
           "action": "EQ",
-          "N_kN": 28.4492,
+          "N_kN": 29.9376,
           "native_element": 95
         },
         {
@@ -1462,7 +1464,8 @@
           "native_element": 95
         }
       ]
-    }
+    },
+    "diaphragm_classification": {}
   },
   "physical_layout": {
     "roles": {
@@ -1470,8 +1473,8 @@
       "beam": 185,
       "brace": 8,
       "roof bracing": 48,
-      "purlin": 589,
-      "Rafter fly stay": 620,
+      "purlin": 646,
+      "Rafter fly stay": 680,
       "eave_strut": 38,
       "girt": 190,
       "lean-to roof joist": 11,
@@ -1479,7 +1482,12 @@
       "door jamb": 2,
       "door header": 1,
       "platform post": 4,
-      "platform beam": 2
+      "platform beam": 2,
+      "Airlock continuous rim": 2,
+      "Airlock front stud": 6,
+      "Airlock door cripple": 5,
+      "Machined bearing wedge": 26,
+      "Platform grating transverse tie": 19
     },
     "panel_roles": {
       "Pitched roof": 38,
@@ -1489,9 +1497,9 @@
       "Condenser platform": 1
     },
     "part_counts": {
-      "plate": 3452,
-      "bolt": 7662,
-      "weld": 4872
+      "plate": 4341,
+      "bolt": 8004,
+      "weld": 5328
     },
     "joint_types": {
       "Column base": 40,
@@ -1500,10 +1508,13 @@
       "Brace end": 16,
       "Moment connection": 40,
       "Truss gusset": 96,
-      "Purlin cleat": 1178
+      "Purlin cleat": 1292,
+      "Cold-store thermal clip strip": 646,
+      "Airlock thermal clip strip": 11,
+      "Condenser post headplate": 4
     },
-    "panel_openings": 0,
-    "member_workpoint_top_mm": 9000.0,
+    "panel_openings": 160,
+    "member_workpoint_top_mm": 9647.465971951093,
     "declared_roof_planes": [
       {
         "axis": "Y",
@@ -1952,24 +1963,24 @@
       "value": 4
     }
   ],
-  "physical_member_count": 1749,
+  "physical_member_count": 1924,
   "physical_panel_count": 82,
-  "connection_occurrences": 1700,
-  "profile_count": 10,
-  "handoff_sha256": "7568224645f19bf4155cdc2066375dc04e75ba24445e924acec430dfb6426300",
+  "connection_occurrences": 2475,
+  "profile_count": 16,
+  "handoff_sha256": "69a1dde85134f43465a7b9a9b5b0004196460b9fcdadcb1ba1902c542df76af8",
   "native_files": {
-    "design/calc_package_cfs.json": "e678428cd672eae585c20d3c273cdd28c3aafbfa30de0639cf6e081c57d68d8f",
-    "cfg_snapshot.json": "209de962bcd7dd8b66ef29892676e5cbb047a92615fd973208bcf5363f4c94b9",
-    "load_plan.json": "cb89331988b0f239bd17670869e07108a7545c1b502d0e52cfc120640ccf232b",
+    "design/calc_package_cfs.json": "785cbdd7ab17e1090f2e5c22f736169cbb6684fa63dca01d9bed3bf4f0783b4b",
+    "cfg_snapshot.json": "2c1a8d7e6bd2d2111b539527fb22b98d55fb904930145149c005a69633378393",
+    "load_plan.json": "9858d89caece8b2d03b3e316d84f47fb76712473b4057059a1fe0e8069c9e59b",
     "STATUS.md": "16b72e0b783a5ff684d53590f87b14f1005e6e43ff533890cda8bfe6ffbb92e6",
     "EOR_inputs.json": "d1ffc040a2fc78d2da3f03387207e0b1354cffd41d9af4ddc442aab72d90ebaa",
-    "report.html": "1a8df25ba7fefeeafa4117c559648d413cadb62772badb7ec091a86748f7e246",
-    "viewer_3d.html": "7bcce5c511224ddc64a3fe4192dbe7c7f08f388e0c8bfdfa6bc99b5b0d3d6aec",
-    "lateral/IN_CFS_Ex2_lateral/design/calc_package.json": "ac64cb4d687125145730a9969b93f37acdd9e87e5b58f917bfda4e4383dc44ec",
-    "lateral/IN_CFS_Ex2_lateral/design/member_schedule.csv": "3946311dbdc99d99ae4cf846fe46794f4ec585b8f9af7dedf3f8ff4f5d07bee3",
-    "lateral/IN_CFS_Ex2_lateral/lateral_result.json": "58c9f488aeaf82d161e876b0f3eb0a75bb9ea69115c8b3adb72dd815876bed13",
-    "lateral/IN_CFS_Ex2_lateral/report.html": "8b0396cc50de0ebcebd437018e515c904e728208eb48f634025fa5bd0ca26b13",
-    "lateral/IN_CFS_Ex2_lateral/viewer_3d.html": "7bcce5c511224ddc64a3fe4192dbe7c7f08f388e0c8bfdfa6bc99b5b0d3d6aec"
+    "report.html": "bc4a2dc503458acb8f08d7b9adbc8822d275476f118a079861c54e3ffdf68b0b",
+    "viewer_3d.html": "185d25453fc467cd7f2fc6db86e755d137e353d6d75b03dd020ab08e663d51ca",
+    "lateral/IN_CFS_Ex2_lateral/design/calc_package.json": "61255808638ed7e0983ee28565e3142e4ed40cfb3b3ed6acc14e6da88d9bbf9d",
+    "lateral/IN_CFS_Ex2_lateral/design/member_schedule.csv": "eebae366e9f87a060c875aada687bfe8ec1f31d4f2f93c484944b67a82a842cf",
+    "lateral/IN_CFS_Ex2_lateral/lateral_result.json": "f16adf0fee653f8eb7cc562d6952c48878bca7bd090575bd115af04e12db8d7e",
+    "lateral/IN_CFS_Ex2_lateral/report.html": "e9474bbf8f9b76168adf4972f2fe30b8021d88734bd3c722a8e6a4b1fee175a0",
+    "lateral/IN_CFS_Ex2_lateral/viewer_3d.html": "185d25453fc467cd7f2fc6db86e755d137e353d6d75b03dd020ab08e663d51ca"
   },
   "wind": {
     "Vb_mps": 39.0,
@@ -2002,5 +2013,43 @@
     },
     "VB_x_kN": 44.1552384,
     "VB_y_kN": 211.26887727566404
-  }
+  },
+  "installed_bearings": {
+    "Pitched roof 0.0000/-0.0948/0.9955 / WPB650X300X293.39 / 2xCLR200X50X20X3.15": {
+      "measured_workline_conditions": 684,
+      "min_normal_skin_offset_mm": 566.0,
+      "max_normal_skin_offset_mm": 566.0
+    },
+    "Pitched roof -0.0000/0.0948/0.9955 / WPB650X300X293.39 / 2xCLR200X50X20X3.15": {
+      "measured_workline_conditions": 608,
+      "min_normal_skin_offset_mm": 566.0,
+      "max_normal_skin_offset_mm": 566.0
+    },
+    "Airlock joist / thermal strip / insulated roof": {
+      "structural_datum": "Native top of airlock, 3500 to 3600 mm",
+      "normal_skin_underside_offset_mm": -100
+    },
+    "Airlock front rim / bevel seat / joist": {
+      "minimum_seat_mm": 7,
+      "seat_length_mm": 130
+    },
+    "Airlock back rim / bevel seat / joist": {
+      "minimum_seat_mm": 7,
+      "seat_length_mm": 130
+    },
+    "Condenser level beam / load-bearing grating bar": {
+      "minimum_clearance_to_roof_top_mm": 600
+    },
+    "Rafter / machined condenser shoe": {
+      "structural_datum": "Actual sloping rafter flange",
+      "minimum_wedge_edge_mm": 12
+    },
+    "Condenser post cap / platform beam": {
+      "plate_thickness_mm": 12
+    },
+    "Condenser bearing stack": {
+      "minimum_cap_plate_mm": 12
+    }
+  },
+  "native_warnings": []
 }

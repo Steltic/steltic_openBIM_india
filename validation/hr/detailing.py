@@ -16,6 +16,8 @@ def connection_trials(case,u,cfg,refinement):
     g=cfg['gold']
     beam_sections=set(s for s in g['beam_sec'].values() if isinstance(s,str))
     columns={s for m in g['col_sec'].values() for s in m.values()}
+    if case.number==9:
+        beam_sections.update([cfg['lean_beam'],cfg['lean_purlin']]);columns.add(cfg['lean_column'])
     for plane in g.get('roof_planes',[]):
         beam_sections.update([plane['rafter_sec'],plane['ridge_sec']])
     out={k:{} for k in ('beam_shear','beam_column','column_base','brace_end','column_splice')}

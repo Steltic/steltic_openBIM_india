@@ -7,7 +7,7 @@
   "upstream": "Steltic/steltic_CFS_india",
   "upstream_design_commit": "6e43e5839a84358a6a23356b2de4d59ab914a38b",
   "producer_sha256": "98d43913ba645055dc1d1174cc5db8dc4eb2a8fd2a7b5eac01f094e359a21ad7",
-  "authored_input_sha256": "62ef9767df52b7f8387b0334a3b40203024cddb4e6cd9d664f21c273f3467731",
+  "authored_input_sha256": "d31065967952757b69731bdb3a309413df63b2efd6fcd9a53f681eca5b8e1f1c",
   "dimensions": {
     "x_m": 43.0,
     "y_m": 40.0,
@@ -111,7 +111,10 @@
     "Physical framing uses nominal analytic workpoints and untrimmed member ends. Panels follow structural control planes. Coordinate finish buildups, offsets, coping and weld preparations in fabrication details.",
     "The native design gate and governing member checks travel with this model. Review open primary-frame, concrete, diaphragm and fastening checks before design acceptance.",
     "Any proposed in-plane board stiffness and allowable shear require full assembly test evidence. Concrete pedestal and group breakout design must be verified.",
-    "Dead loads are preliminary assembly allowances. No imposed-load reduction is used. Primary member self-weight is computed separately by the solver."
+    "Dead loads are preliminary assembly allowances. No imposed-load reduction is used. Primary member self-weight is computed separately by the solver.",
+    "Native levels are analytic structural worklines. Floor joists bear on girder flanges; roof purlins bear through their detailed seats. The issued board or roof skin starts on the upper flange. Supplier floor retention, deck fasteners and the podium deck/slab specification remain project inputs.",
+    "Pitched purlins sit on the modeled seats, with 75 mm workpoint setbacks on both sides of roof folds. Roof surfaces retain the architectural ridge and eave plan coordinates. Supplier flashing, ridge and valley closures, roof and gable transition, screw patterns, waterproofing and tolerances require coordination.",
+    "The nonwalkable horizontal ceiling diaphragm is attached to dedicated unbraced ceiling joists below the primary roof tie beams. Two shop-welded M10 studs per end transfer gravity. Ceiling/services and secondary steel draw on the declared roof allowances. Verify stud working load and tested in-plane diaphragm screw schedule before issue."
   ],
   "combined_load_sets": 26,
   "cfs_check_groups": [
@@ -1303,10 +1306,10 @@
         "dir": "X",
         "F_EQ_N": 39908.600553815355,
         "F_W_N": 84681.49746583801,
-        "governing": "EQ",
-        "v_unit_kN_per_m": 0.8610890278746457,
-        "chord_force_kN": 9.452399999999999,
-        "dc": 0.0717574189895538,
+        "governing": "W",
+        "v_unit_kN_per_m": 1.9658214285714286,
+        "chord_force_kN": 8.209461057484214,
+        "dc": 0.16381845238095238,
         "ok": true,
         "demand_evaluated": true
       },
@@ -1316,9 +1319,9 @@
         "F_EQ_N": 39908.600553815355,
         "F_W_N": 91726.03972350001,
         "governing": "W",
-        "v_unit_kN_per_m": 1.2593857142857146,
+        "v_unit_kN_per_m": 1.1046740664375,
         "chord_force_kN": 2.9835484102128857,
-        "dc": 0.10494880952380954,
+        "dc": 0.09205617220312501,
         "ok": true,
         "demand_evaluated": true
       },
@@ -1328,9 +1331,9 @@
         "F_EQ_N": 156757.14888677382,
         "F_W_N": 83969.888243436,
         "governing": "EQ",
-        "v_unit_kN_per_m": 3.5181071812620437,
+        "v_unit_kN_per_m": 3.639007142857143,
         "chord_force_kN": 19.9182491170589,
-        "dc": 0.29317559843850366,
+        "dc": 0.3032505952380952,
         "ok": true,
         "demand_evaluated": true
       },
@@ -1352,9 +1355,9 @@
         "F_EQ_N": 350730.42195667967,
         "F_W_N": 83969.888243436,
         "governing": "EQ",
-        "v_unit_kN_per_m": 6.313595969980298,
+        "v_unit_kN_per_m": 8.141957142857143,
         "chord_force_kN": 51.43614043333393,
-        "dc": 0.5261329974983582,
+        "dc": 0.6784964285714286,
         "ok": true,
         "demand_evaluated": true
       },
@@ -1376,9 +1379,9 @@
         "F_EQ_N": 360717.85117515473,
         "F_W_N": 43552.756401347215,
         "governing": "EQ",
-        "v_unit_kN_per_m": 6.388265735444711,
+        "v_unit_kN_per_m": 8.373807142857142,
         "chord_force_kN": 61.358251113030455,
-        "dc": 0.532355477953726,
+        "dc": 0.6978172619047619,
         "ok": true,
         "demand_evaluated": true
       },
@@ -1395,6 +1398,34 @@
         "demand_evaluated": true
       }
     ],
+    "diaphragm_classification": {
+      "declared_classification": "flexible",
+      "computed_by_level": {
+        "1": {
+          "ratio": 1.2058720087099215,
+          "dir": "X",
+          "classification": "flexible"
+        },
+        "2": {
+          "ratio": 1.2809436696437613,
+          "dir": "X",
+          "classification": "flexible"
+        },
+        "3": {
+          "ratio": 1.3027793786941795,
+          "dir": "X",
+          "classification": "flexible"
+        },
+        "4": {
+          "ratio": 1.3447011950189731,
+          "dir": "X",
+          "classification": "flexible"
+        }
+      },
+      "computed_classification": "flexible",
+      "computed_ratio": 1.3447011950189731,
+      "limit": 1.2
+    },
     "collector_envelopes": {
       "applied_to_member_checks": true,
       "force_basis": "Largest absolute axial force per collector line and direction for unit wind or earthquake. Chords are enveloped per level and direction. Positive is compression. Native IS 800 beam checks combine axial force with flexure.",
@@ -1407,6 +1438,321 @@
           "action": "EQ",
           "N_kN": -4.4223,
           "native_element": 241
+        },
+        {
+          "level": 1,
+          "direction": "X",
+          "line_m": 26.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -11.407,
+          "native_element": 262
+        },
+        {
+          "level": 1,
+          "direction": "X",
+          "line_m": 40.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -13.7398,
+          "native_element": 290
+        },
+        {
+          "level": 1,
+          "direction": "X",
+          "line_m": null,
+          "role": "chord",
+          "action": "EQ",
+          "N_kN": 6.4305,
+          "native_element": 293
+        },
+        {
+          "level": 2,
+          "direction": "X",
+          "line_m": 0.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -12.8821,
+          "native_element": 374
+        },
+        {
+          "level": 2,
+          "direction": "X",
+          "line_m": 26.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -15.4203,
+          "native_element": 392
+        },
+        {
+          "level": 2,
+          "direction": "X",
+          "line_m": 40.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": 18.6534,
+          "native_element": 423
+        },
+        {
+          "level": 2,
+          "direction": "X",
+          "line_m": null,
+          "role": "chord",
+          "action": "EQ",
+          "N_kN": 11.8005,
+          "native_element": 427
+        },
+        {
+          "level": 3,
+          "direction": "X",
+          "line_m": 0.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -28.4968,
+          "native_element": 507
+        },
+        {
+          "level": 3,
+          "direction": "X",
+          "line_m": 26.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -28.5478,
+          "native_element": 525
+        },
+        {
+          "level": 3,
+          "direction": "X",
+          "line_m": 40.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": 32.4721,
+          "native_element": 556
+        },
+        {
+          "level": 3,
+          "direction": "X",
+          "line_m": null,
+          "role": "chord",
+          "action": "EQ",
+          "N_kN": 35.1231,
+          "native_element": 560
+        },
+        {
+          "level": 4,
+          "direction": "X",
+          "line_m": 0.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -29.3083,
+          "native_element": 640
+        },
+        {
+          "level": 4,
+          "direction": "X",
+          "line_m": 26.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -30.797,
+          "native_element": 658
+        },
+        {
+          "level": 4,
+          "direction": "X",
+          "line_m": 40.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": 45.2282,
+          "native_element": 689
+        },
+        {
+          "level": 4,
+          "direction": "X",
+          "line_m": null,
+          "role": "chord",
+          "action": "EQ",
+          "N_kN": 44.5807,
+          "native_element": 693
+        },
+        {
+          "level": 1,
+          "direction": "Y",
+          "line_m": 0.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -3.3906,
+          "native_element": 292
+        },
+        {
+          "level": 1,
+          "direction": "Y",
+          "line_m": 14.5,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": 6.6642,
+          "native_element": 305
+        },
+        {
+          "level": 1,
+          "direction": "Y",
+          "line_m": 28.5,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": 6.6642,
+          "native_element": 329
+        },
+        {
+          "level": 1,
+          "direction": "Y",
+          "line_m": 43.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -3.3906,
+          "native_element": 339
+        },
+        {
+          "level": 1,
+          "direction": "Y",
+          "line_m": null,
+          "role": "chord",
+          "action": "EQ",
+          "N_kN": 1.7176,
+          "native_element": 241
+        },
+        {
+          "level": 2,
+          "direction": "Y",
+          "line_m": 0.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -13.9608,
+          "native_element": 425
+        },
+        {
+          "level": 2,
+          "direction": "Y",
+          "line_m": 14.5,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -18.182,
+          "native_element": 439
+        },
+        {
+          "level": 2,
+          "direction": "Y",
+          "line_m": 28.5,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -18.182,
+          "native_element": 463
+        },
+        {
+          "level": 2,
+          "direction": "Y",
+          "line_m": 43.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -13.9608,
+          "native_element": 472
+        },
+        {
+          "level": 2,
+          "direction": "Y",
+          "line_m": null,
+          "role": "chord",
+          "action": "EQ",
+          "N_kN": -8.1127,
+          "native_element": 374
+        },
+        {
+          "level": 3,
+          "direction": "Y",
+          "line_m": 0.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -22.956,
+          "native_element": 558
+        },
+        {
+          "level": 3,
+          "direction": "Y",
+          "line_m": 14.5,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -40.6807,
+          "native_element": 572
+        },
+        {
+          "level": 3,
+          "direction": "Y",
+          "line_m": 28.5,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -40.6807,
+          "native_element": 596
+        },
+        {
+          "level": 3,
+          "direction": "Y",
+          "line_m": 43.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -22.956,
+          "native_element": 605
+        },
+        {
+          "level": 3,
+          "direction": "Y",
+          "line_m": null,
+          "role": "chord",
+          "action": "EQ",
+          "N_kN": -14.8472,
+          "native_element": 507
+        },
+        {
+          "level": 4,
+          "direction": "Y",
+          "line_m": 0.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -19.9891,
+          "native_element": 691
+        },
+        {
+          "level": 4,
+          "direction": "Y",
+          "line_m": 14.5,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -41.8391,
+          "native_element": 705
+        },
+        {
+          "level": 4,
+          "direction": "Y",
+          "line_m": 28.5,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -41.8391,
+          "native_element": 729
+        },
+        {
+          "level": 4,
+          "direction": "Y",
+          "line_m": 43.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -19.9891,
+          "native_element": 738
+        },
+        {
+          "level": 4,
+          "direction": "Y",
+          "line_m": null,
+          "role": "chord",
+          "action": "EQ",
+          "N_kN": -11.7422,
+          "native_element": 640
         },
         {
           "level": 1,
@@ -1456,47 +1802,11 @@
         {
           "level": 1,
           "direction": "X",
-          "line_m": 26.0,
-          "role": "collector",
-          "action": "EQ",
-          "N_kN": -11.407,
-          "native_element": 262
-        },
-        {
-          "level": 1,
-          "direction": "X",
-          "line_m": 40.0,
-          "role": "collector",
-          "action": "EQ",
-          "N_kN": -13.7398,
-          "native_element": 290
-        },
-        {
-          "level": 1,
-          "direction": "X",
           "line_m": 10.4,
           "role": "collector",
           "action": "EQ",
           "N_kN": -2.8433,
           "native_element": 247
-        },
-        {
-          "level": 1,
-          "direction": "X",
-          "line_m": null,
-          "role": "chord",
-          "action": "EQ",
-          "N_kN": 6.4305,
-          "native_element": 293
-        },
-        {
-          "level": 2,
-          "direction": "X",
-          "line_m": 0.0,
-          "role": "collector",
-          "action": "EQ",
-          "N_kN": -12.8821,
-          "native_element": 374
         },
         {
           "level": 2,
@@ -1546,47 +1856,11 @@
         {
           "level": 2,
           "direction": "X",
-          "line_m": 26.0,
-          "role": "collector",
-          "action": "EQ",
-          "N_kN": -15.4203,
-          "native_element": 392
-        },
-        {
-          "level": 2,
-          "direction": "X",
-          "line_m": 40.0,
-          "role": "collector",
-          "action": "EQ",
-          "N_kN": 18.6534,
-          "native_element": 423
-        },
-        {
-          "level": 2,
-          "direction": "X",
           "line_m": 10.4,
           "role": "collector",
           "action": "EQ",
           "N_kN": 0.5904,
           "native_element": 380
-        },
-        {
-          "level": 2,
-          "direction": "X",
-          "line_m": null,
-          "role": "chord",
-          "action": "EQ",
-          "N_kN": 11.8005,
-          "native_element": 427
-        },
-        {
-          "level": 3,
-          "direction": "X",
-          "line_m": 0.0,
-          "role": "collector",
-          "action": "EQ",
-          "N_kN": -18.9547,
-          "native_element": 507
         },
         {
           "level": 3,
@@ -1636,47 +1910,11 @@
         {
           "level": 3,
           "direction": "X",
-          "line_m": 26.0,
-          "role": "collector",
-          "action": "EQ",
-          "N_kN": -25.4529,
-          "native_element": 525
-        },
-        {
-          "level": 3,
-          "direction": "X",
-          "line_m": 40.0,
-          "role": "collector",
-          "action": "EQ",
-          "N_kN": 32.4721,
-          "native_element": 556
-        },
-        {
-          "level": 3,
-          "direction": "X",
           "line_m": 10.4,
           "role": "collector",
           "action": "EQ",
           "N_kN": -0.8242,
           "native_element": 513
-        },
-        {
-          "level": 3,
-          "direction": "X",
-          "line_m": null,
-          "role": "chord",
-          "action": "EQ",
-          "N_kN": 35.1231,
-          "native_element": 560
-        },
-        {
-          "level": 4,
-          "direction": "X",
-          "line_m": 0.0,
-          "role": "collector",
-          "action": "EQ",
-          "N_kN": -18.1262,
-          "native_element": 640
         },
         {
           "level": 4,
@@ -1726,38 +1964,11 @@
         {
           "level": 4,
           "direction": "X",
-          "line_m": 26.0,
-          "role": "collector",
-          "action": "EQ",
-          "N_kN": -30.797,
-          "native_element": 658
-        },
-        {
-          "level": 4,
-          "direction": "X",
-          "line_m": 40.0,
-          "role": "collector",
-          "action": "EQ",
-          "N_kN": 45.2282,
-          "native_element": 689
-        },
-        {
-          "level": 4,
-          "direction": "X",
           "line_m": 10.4,
           "role": "collector",
           "action": "EQ",
           "N_kN": -0.338,
           "native_element": 648
-        },
-        {
-          "level": 4,
-          "direction": "X",
-          "line_m": null,
-          "role": "chord",
-          "action": "EQ",
-          "N_kN": 44.5807,
-          "native_element": 693
         },
         {
           "level": 1,
@@ -1771,38 +1982,11 @@
         {
           "level": 1,
           "direction": "Y",
-          "line_m": 14.5,
-          "role": "collector",
-          "action": "EQ",
-          "N_kN": 6.6642,
-          "native_element": 305
-        },
-        {
-          "level": 1,
-          "direction": "Y",
           "line_m": 23.833299999999998,
           "role": "collector",
           "action": "EQ",
           "N_kN": -1.3848,
           "native_element": 317
-        },
-        {
-          "level": 1,
-          "direction": "Y",
-          "line_m": 43.0,
-          "role": "collector",
-          "action": "EQ",
-          "N_kN": -3.3906,
-          "native_element": 339
-        },
-        {
-          "level": 1,
-          "direction": "Y",
-          "line_m": 0.0,
-          "role": "collector",
-          "action": "EQ",
-          "N_kN": -3.3906,
-          "native_element": 292
         },
         {
           "level": 1,
@@ -1834,29 +2018,11 @@
         {
           "level": 1,
           "direction": "Y",
-          "line_m": 28.5,
-          "role": "collector",
-          "action": "EQ",
-          "N_kN": 6.6642,
-          "native_element": 329
-        },
-        {
-          "level": 1,
-          "direction": "Y",
           "line_m": 33.3333,
           "role": "collector",
           "action": "EQ",
           "N_kN": 1.363,
           "native_element": 335
-        },
-        {
-          "level": 1,
-          "direction": "Y",
-          "line_m": null,
-          "role": "chord",
-          "action": "EQ",
-          "N_kN": 1.7176,
-          "native_element": 241
         },
         {
           "level": 2,
@@ -1870,38 +2036,11 @@
         {
           "level": 2,
           "direction": "Y",
-          "line_m": 14.5,
-          "role": "collector",
-          "action": "EQ",
-          "N_kN": -15.3124,
-          "native_element": 435
-        },
-        {
-          "level": 2,
-          "direction": "Y",
           "line_m": 23.833299999999998,
           "role": "collector",
           "action": "EQ",
           "N_kN": 0.4159,
           "native_element": 454
-        },
-        {
-          "level": 2,
-          "direction": "Y",
-          "line_m": 43.0,
-          "role": "collector",
-          "action": "EQ",
-          "N_kN": -13.9608,
-          "native_element": 472
-        },
-        {
-          "level": 2,
-          "direction": "Y",
-          "line_m": 0.0,
-          "role": "collector",
-          "action": "EQ",
-          "N_kN": -13.9608,
-          "native_element": 425
         },
         {
           "level": 2,
@@ -1933,56 +2072,11 @@
         {
           "level": 2,
           "direction": "Y",
-          "line_m": 28.5,
-          "role": "collector",
-          "action": "EQ",
-          "N_kN": -15.3124,
-          "native_element": 459
-        },
-        {
-          "level": 2,
-          "direction": "Y",
           "line_m": 33.3333,
           "role": "collector",
           "action": "EQ",
           "N_kN": -0.2936,
           "native_element": 466
-        },
-        {
-          "level": 2,
-          "direction": "Y",
-          "line_m": null,
-          "role": "chord",
-          "action": "EQ",
-          "N_kN": -8.1127,
-          "native_element": 374
-        },
-        {
-          "level": 3,
-          "direction": "Y",
-          "line_m": 14.5,
-          "role": "collector",
-          "action": "EQ",
-          "N_kN": -32.9903,
-          "native_element": 568
-        },
-        {
-          "level": 3,
-          "direction": "Y",
-          "line_m": 43.0,
-          "role": "collector",
-          "action": "EQ",
-          "N_kN": -22.956,
-          "native_element": 605
-        },
-        {
-          "level": 3,
-          "direction": "Y",
-          "line_m": 0.0,
-          "role": "collector",
-          "action": "EQ",
-          "N_kN": -22.956,
-          "native_element": 558
         },
         {
           "level": 3,
@@ -1996,29 +2090,11 @@
         {
           "level": 3,
           "direction": "Y",
-          "line_m": 28.5,
-          "role": "collector",
-          "action": "EQ",
-          "N_kN": -32.9903,
-          "native_element": 592
-        },
-        {
-          "level": 3,
-          "direction": "Y",
           "line_m": 33.3333,
           "role": "collector",
           "action": "EQ",
           "N_kN": 1.0803,
           "native_element": 599
-        },
-        {
-          "level": 3,
-          "direction": "Y",
-          "line_m": null,
-          "role": "chord",
-          "action": "EQ",
-          "N_kN": -14.8472,
-          "native_element": 507
         },
         {
           "level": 4,
@@ -2032,38 +2108,11 @@
         {
           "level": 4,
           "direction": "Y",
-          "line_m": 14.5,
-          "role": "collector",
-          "action": "EQ",
-          "N_kN": -34.8762,
-          "native_element": 701
-        },
-        {
-          "level": 4,
-          "direction": "Y",
           "line_m": 23.833299999999998,
           "role": "collector",
           "action": "EQ",
           "N_kN": 1.0895,
           "native_element": 720
-        },
-        {
-          "level": 4,
-          "direction": "Y",
-          "line_m": 43.0,
-          "role": "collector",
-          "action": "EQ",
-          "N_kN": -19.9891,
-          "native_element": 738
-        },
-        {
-          "level": 4,
-          "direction": "Y",
-          "line_m": 0.0,
-          "role": "collector",
-          "action": "EQ",
-          "N_kN": -19.9891,
-          "native_element": 691
         },
         {
           "level": 4,
@@ -2095,15 +2144,6 @@
         {
           "level": 4,
           "direction": "Y",
-          "line_m": 28.5,
-          "role": "collector",
-          "action": "EQ",
-          "N_kN": -34.8762,
-          "native_element": 725
-        },
-        {
-          "level": 4,
-          "direction": "Y",
           "line_m": 33.3333,
           "role": "collector",
           "action": "EQ",
@@ -2111,76 +2151,22 @@
           "native_element": 732
         },
         {
-          "level": 4,
-          "direction": "Y",
-          "line_m": null,
-          "role": "chord",
-          "action": "EQ",
-          "N_kN": -11.7422,
-          "native_element": 640
-        },
-        {
           "level": 1,
           "direction": "X",
           "line_m": 0.0,
           "role": "collector",
           "action": "W",
-          "N_kN": -3.4037,
+          "N_kN": -6.8804,
           "native_element": 241
         },
         {
           "level": 1,
           "direction": "X",
-          "line_m": 20.8,
-          "role": "collector",
-          "action": "W",
-          "N_kN": 0.6154,
-          "native_element": 253
-        },
-        {
-          "level": 1,
-          "direction": "X",
-          "line_m": 15.6,
-          "role": "collector",
-          "action": "W",
-          "N_kN": -1.1225,
-          "native_element": 250
-        },
-        {
-          "level": 1,
-          "direction": "X",
-          "line_m": 5.2,
-          "role": "collector",
-          "action": "W",
-          "N_kN": 0.5777,
-          "native_element": 244
-        },
-        {
-          "level": 1,
-          "direction": "X",
-          "line_m": 35.3333,
-          "role": "collector",
-          "action": "W",
-          "N_kN": 0.724,
-          "native_element": 274
-        },
-        {
-          "level": 1,
-          "direction": "X",
-          "line_m": 30.666700000000002,
-          "role": "collector",
-          "action": "W",
-          "N_kN": 0.7115,
-          "native_element": 265
-        },
-        {
-          "level": 1,
-          "direction": "X",
           "line_m": 26.0,
           "role": "collector",
           "action": "W",
-          "N_kN": -3.1905,
-          "native_element": 256
+          "N_kN": -6.8927,
+          "native_element": 259
         },
         {
           "level": 1,
@@ -2188,17 +2174,8 @@
           "line_m": 40.0,
           "role": "collector",
           "action": "W",
-          "N_kN": -3.7422,
-          "native_element": 283
-        },
-        {
-          "level": 1,
-          "direction": "X",
-          "line_m": 10.4,
-          "role": "collector",
-          "action": "W",
-          "N_kN": -1.0991,
-          "native_element": 247
+          "N_kN": -5.7439,
+          "native_element": 284
         },
         {
           "level": 1,
@@ -2206,8 +2183,8 @@
           "line_m": null,
           "role": "chord",
           "action": "W",
-          "N_kN": 9.4524,
-          "native_element": 294
+          "N_kN": 4.1602,
+          "native_element": 292
         },
         {
           "level": 2,
@@ -2215,62 +2192,17 @@
           "line_m": 0.0,
           "role": "collector",
           "action": "W",
-          "N_kN": -5.5138,
+          "N_kN": -6.8226,
           "native_element": 374
         },
         {
           "level": 2,
           "direction": "X",
-          "line_m": 20.8,
-          "role": "collector",
-          "action": "W",
-          "N_kN": 0.0881,
-          "native_element": 388
-        },
-        {
-          "level": 2,
-          "direction": "X",
-          "line_m": 15.6,
-          "role": "collector",
-          "action": "W",
-          "N_kN": 0.1635,
-          "native_element": 383
-        },
-        {
-          "level": 2,
-          "direction": "X",
-          "line_m": 5.2,
-          "role": "collector",
-          "action": "W",
-          "N_kN": -0.0874,
-          "native_element": 377
-        },
-        {
-          "level": 2,
-          "direction": "X",
-          "line_m": 35.3333,
-          "role": "collector",
-          "action": "W",
-          "N_kN": -0.0987,
-          "native_element": 407
-        },
-        {
-          "level": 2,
-          "direction": "X",
-          "line_m": 30.666700000000002,
-          "role": "collector",
-          "action": "W",
-          "N_kN": -0.0984,
-          "native_element": 398
-        },
-        {
-          "level": 2,
-          "direction": "X",
           "line_m": 26.0,
           "role": "collector",
           "action": "W",
-          "N_kN": 7.5973,
-          "native_element": 394
+          "N_kN": -6.8348,
+          "native_element": 392
         },
         {
           "level": 2,
@@ -2278,17 +2210,8 @@
           "line_m": 40.0,
           "role": "collector",
           "action": "W",
-          "N_kN": 9.5773,
+          "N_kN": 5.6956,
           "native_element": 423
-        },
-        {
-          "level": 2,
-          "direction": "X",
-          "line_m": 10.4,
-          "role": "collector",
-          "action": "W",
-          "N_kN": 0.1631,
-          "native_element": 380
         },
         {
           "level": 2,
@@ -2296,8 +2219,8 @@
           "line_m": null,
           "role": "chord",
           "action": "W",
-          "N_kN": 7.4572,
-          "native_element": 427
+          "N_kN": 4.1253,
+          "native_element": 425
         },
         {
           "level": 3,
@@ -2305,53 +2228,8 @@
           "line_m": 0.0,
           "role": "collector",
           "action": "W",
-          "N_kN": -4.546,
+          "N_kN": -6.8226,
           "native_element": 507
-        },
-        {
-          "level": 3,
-          "direction": "X",
-          "line_m": 20.8,
-          "role": "collector",
-          "action": "W",
-          "N_kN": 0.0829,
-          "native_element": 519
-        },
-        {
-          "level": 3,
-          "direction": "X",
-          "line_m": 15.6,
-          "role": "collector",
-          "action": "W",
-          "N_kN": -0.1512,
-          "native_element": 516
-        },
-        {
-          "level": 3,
-          "direction": "X",
-          "line_m": 5.2,
-          "role": "collector",
-          "action": "W",
-          "N_kN": -0.0778,
-          "native_element": 512
-        },
-        {
-          "level": 3,
-          "direction": "X",
-          "line_m": 35.3333,
-          "role": "collector",
-          "action": "W",
-          "N_kN": -0.0977,
-          "native_element": 548
-        },
-        {
-          "level": 3,
-          "direction": "X",
-          "line_m": 30.666700000000002,
-          "role": "collector",
-          "action": "W",
-          "N_kN": -0.0959,
-          "native_element": 539
         },
         {
           "level": 3,
@@ -2359,7 +2237,7 @@
           "line_m": 26.0,
           "role": "collector",
           "action": "W",
-          "N_kN": -6.305,
+          "N_kN": -6.8348,
           "native_element": 525
         },
         {
@@ -2368,17 +2246,8 @@
           "line_m": 40.0,
           "role": "collector",
           "action": "W",
-          "N_kN": 8.1182,
+          "N_kN": 5.6956,
           "native_element": 556
-        },
-        {
-          "level": 3,
-          "direction": "X",
-          "line_m": 10.4,
-          "role": "collector",
-          "action": "W",
-          "N_kN": -0.148,
-          "native_element": 513
         },
         {
           "level": 3,
@@ -2386,8 +2255,8 @@
           "line_m": null,
           "role": "chord",
           "action": "W",
-          "N_kN": 8.4281,
-          "native_element": 560
+          "N_kN": 4.1253,
+          "native_element": 558
         },
         {
           "level": 4,
@@ -2395,53 +2264,8 @@
           "line_m": 0.0,
           "role": "collector",
           "action": "W",
-          "N_kN": -2.111,
+          "N_kN": -3.5387,
           "native_element": 640
-        },
-        {
-          "level": 4,
-          "direction": "X",
-          "line_m": 20.8,
-          "role": "collector",
-          "action": "W",
-          "N_kN": -0.0478,
-          "native_element": 652
-        },
-        {
-          "level": 4,
-          "direction": "X",
-          "line_m": 15.6,
-          "role": "collector",
-          "action": "W",
-          "N_kN": 0.0869,
-          "native_element": 649
-        },
-        {
-          "level": 4,
-          "direction": "X",
-          "line_m": 5.2,
-          "role": "collector",
-          "action": "W",
-          "N_kN": -0.0443,
-          "native_element": 643
-        },
-        {
-          "level": 4,
-          "direction": "X",
-          "line_m": 35.3333,
-          "role": "collector",
-          "action": "W",
-          "N_kN": -0.0569,
-          "native_element": 673
-        },
-        {
-          "level": 4,
-          "direction": "X",
-          "line_m": 30.666700000000002,
-          "role": "collector",
-          "action": "W",
-          "N_kN": -0.0557,
-          "native_element": 664
         },
         {
           "level": 4,
@@ -2449,7 +2273,7 @@
           "line_m": 26.0,
           "role": "collector",
           "action": "W",
-          "N_kN": -3.8737,
+          "N_kN": -3.545,
           "native_element": 658
         },
         {
@@ -2458,62 +2282,17 @@
           "line_m": 40.0,
           "role": "collector",
           "action": "W",
-          "N_kN": -6.0769,
+          "N_kN": -2.9542,
           "native_element": 683
         },
         {
           "level": 4,
           "direction": "X",
-          "line_m": 10.4,
-          "role": "collector",
-          "action": "W",
-          "N_kN": 0.0847,
-          "native_element": 646
-        },
-        {
-          "level": 4,
-          "direction": "X",
           "line_m": null,
           "role": "chord",
           "action": "W",
-          "N_kN": 6.0521,
-          "native_element": 693
-        },
-        {
-          "level": 1,
-          "direction": "Y",
-          "line_m": 19.166700000000002,
-          "role": "collector",
-          "action": "W",
-          "N_kN": -0.5895,
-          "native_element": 309
-        },
-        {
-          "level": 1,
-          "direction": "Y",
-          "line_m": 14.5,
-          "role": "collector",
-          "action": "W",
-          "N_kN": -5.2155,
-          "native_element": 302
-        },
-        {
-          "level": 1,
-          "direction": "Y",
-          "line_m": 23.833299999999998,
-          "role": "collector",
-          "action": "W",
-          "N_kN": -0.5895,
-          "native_element": 317
-        },
-        {
-          "level": 1,
-          "direction": "Y",
-          "line_m": 43.0,
-          "role": "collector",
-          "action": "W",
-          "N_kN": -4.9328,
-          "native_element": 339
+          "N_kN": 2.1397,
+          "native_element": 691
         },
         {
           "level": 1,
@@ -2521,35 +2300,17 @@
           "line_m": 0.0,
           "role": "collector",
           "action": "W",
-          "N_kN": -4.9328,
+          "N_kN": -3.8664,
           "native_element": 292
         },
         {
           "level": 1,
           "direction": "Y",
-          "line_m": 38.1667,
+          "line_m": 14.5,
           "role": "collector",
           "action": "W",
-          "N_kN": -0.5889,
-          "native_element": 336
-        },
-        {
-          "level": 1,
-          "direction": "Y",
-          "line_m": 4.8333,
-          "role": "collector",
-          "action": "W",
-          "N_kN": -0.5889,
-          "native_element": 295
-        },
-        {
-          "level": 1,
-          "direction": "Y",
-          "line_m": 9.6667,
-          "role": "collector",
-          "action": "W",
-          "N_kN": 0.5848,
-          "native_element": 300
+          "N_kN": -10.6392,
+          "native_element": 306
         },
         {
           "level": 1,
@@ -2557,17 +2318,17 @@
           "line_m": 28.5,
           "role": "collector",
           "action": "W",
-          "N_kN": -5.2155,
-          "native_element": 326
+          "N_kN": -10.6392,
+          "native_element": 330
         },
         {
           "level": 1,
           "direction": "Y",
-          "line_m": 33.3333,
+          "line_m": 43.0,
           "role": "collector",
           "action": "W",
-          "N_kN": 0.5848,
-          "native_element": 335
+          "N_kN": -3.8664,
+          "native_element": 339
         },
         {
           "level": 1,
@@ -2575,17 +2336,17 @@
           "line_m": null,
           "role": "chord",
           "action": "W",
-          "N_kN": -2.1825,
+          "N_kN": 1.4016,
           "native_element": 241
         },
         {
           "level": 2,
           "direction": "Y",
-          "line_m": 19.166700000000002,
+          "line_m": 0.0,
           "role": "collector",
           "action": "W",
-          "N_kN": 0.0946,
-          "native_element": 446
+          "N_kN": 3.8339,
+          "native_element": 427
         },
         {
           "level": 2,
@@ -2593,62 +2354,8 @@
           "line_m": 14.5,
           "role": "collector",
           "action": "W",
-          "N_kN": -8.8034,
-          "native_element": 435
-        },
-        {
-          "level": 2,
-          "direction": "Y",
-          "line_m": 23.833299999999998,
-          "role": "collector",
-          "action": "W",
-          "N_kN": 0.0946,
-          "native_element": 454
-        },
-        {
-          "level": 2,
-          "direction": "Y",
-          "line_m": 43.0,
-          "role": "collector",
-          "action": "W",
-          "N_kN": -6.7047,
-          "native_element": 472
-        },
-        {
-          "level": 2,
-          "direction": "Y",
-          "line_m": 0.0,
-          "role": "collector",
-          "action": "W",
-          "N_kN": -6.7047,
-          "native_element": 425
-        },
-        {
-          "level": 2,
-          "direction": "Y",
-          "line_m": 38.1667,
-          "role": "collector",
-          "action": "W",
-          "N_kN": -0.0765,
-          "native_element": 471
-        },
-        {
-          "level": 2,
-          "direction": "Y",
-          "line_m": 4.8333,
-          "role": "collector",
-          "action": "W",
-          "N_kN": -0.0765,
-          "native_element": 430
-        },
-        {
-          "level": 2,
-          "direction": "Y",
-          "line_m": 9.6667,
-          "role": "collector",
-          "action": "W",
-          "N_kN": -0.0731,
-          "native_element": 431
+          "N_kN": -10.5497,
+          "native_element": 439
         },
         {
           "level": 2,
@@ -2656,17 +2363,17 @@
           "line_m": 28.5,
           "role": "collector",
           "action": "W",
-          "N_kN": -8.8034,
-          "native_element": 459
+          "N_kN": -10.5497,
+          "native_element": 463
         },
         {
           "level": 2,
           "direction": "Y",
-          "line_m": 33.3333,
+          "line_m": 43.0,
           "role": "collector",
           "action": "W",
-          "N_kN": -0.0731,
-          "native_element": 466
+          "N_kN": 3.8339,
+          "native_element": 474
         },
         {
           "level": 2,
@@ -2674,44 +2381,26 @@
           "line_m": null,
           "role": "chord",
           "action": "W",
-          "N_kN": -4.2923,
+          "N_kN": 1.3898,
           "native_element": 374
         },
         {
           "level": 3,
           "direction": "Y",
-          "line_m": 14.5,
-          "role": "collector",
-          "action": "W",
-          "N_kN": -8.5375,
-          "native_element": 568
-        },
-        {
-          "level": 3,
-          "direction": "Y",
-          "line_m": 43.0,
-          "role": "collector",
-          "action": "W",
-          "N_kN": -5.8515,
-          "native_element": 605
-        },
-        {
-          "level": 3,
-          "direction": "Y",
           "line_m": 0.0,
           "role": "collector",
           "action": "W",
-          "N_kN": -5.8515,
-          "native_element": 558
+          "N_kN": 3.8339,
+          "native_element": 560
         },
         {
           "level": 3,
           "direction": "Y",
-          "line_m": 9.6667,
+          "line_m": 14.5,
           "role": "collector",
           "action": "W",
-          "N_kN": 0.2027,
-          "native_element": 564
+          "N_kN": -10.5497,
+          "native_element": 572
         },
         {
           "level": 3,
@@ -2719,17 +2408,17 @@
           "line_m": 28.5,
           "role": "collector",
           "action": "W",
-          "N_kN": -8.5375,
-          "native_element": 592
+          "N_kN": -10.5497,
+          "native_element": 596
         },
         {
           "level": 3,
           "direction": "Y",
-          "line_m": 33.3333,
+          "line_m": 43.0,
           "role": "collector",
           "action": "W",
-          "N_kN": 0.2027,
-          "native_element": 599
+          "N_kN": 3.8339,
+          "native_element": 607
         },
         {
           "level": 3,
@@ -2737,17 +2426,17 @@
           "line_m": null,
           "role": "chord",
           "action": "W",
-          "N_kN": -3.7749,
+          "N_kN": 1.3898,
           "native_element": 507
         },
         {
           "level": 4,
           "direction": "Y",
-          "line_m": 19.166700000000002,
+          "line_m": 0.0,
           "role": "collector",
           "action": "W",
-          "N_kN": 0.1948,
-          "native_element": 712
+          "N_kN": -1.9885,
+          "native_element": 691
         },
         {
           "level": 4,
@@ -2755,62 +2444,8 @@
           "line_m": 14.5,
           "role": "collector",
           "action": "W",
-          "N_kN": -4.7701,
-          "native_element": 701
-        },
-        {
-          "level": 4,
-          "direction": "Y",
-          "line_m": 23.833299999999998,
-          "role": "collector",
-          "action": "W",
-          "N_kN": 0.1948,
-          "native_element": 720
-        },
-        {
-          "level": 4,
-          "direction": "Y",
-          "line_m": 43.0,
-          "role": "collector",
-          "action": "W",
-          "N_kN": -2.4474,
-          "native_element": 738
-        },
-        {
-          "level": 4,
-          "direction": "Y",
-          "line_m": 0.0,
-          "role": "collector",
-          "action": "W",
-          "N_kN": -2.4474,
-          "native_element": 691
-        },
-        {
-          "level": 4,
-          "direction": "Y",
-          "line_m": 38.1667,
-          "role": "collector",
-          "action": "W",
-          "N_kN": 0.0954,
-          "native_element": 737
-        },
-        {
-          "level": 4,
-          "direction": "Y",
-          "line_m": 4.8333,
-          "role": "collector",
-          "action": "W",
-          "N_kN": 0.0954,
-          "native_element": 696
-        },
-        {
-          "level": 4,
-          "direction": "Y",
-          "line_m": 9.6667,
-          "role": "collector",
-          "action": "W",
-          "N_kN": -0.184,
-          "native_element": 697
+          "N_kN": -5.4719,
+          "native_element": 705
         },
         {
           "level": 4,
@@ -2818,17 +2453,17 @@
           "line_m": 28.5,
           "role": "collector",
           "action": "W",
-          "N_kN": -4.7701,
-          "native_element": 725
+          "N_kN": -5.4719,
+          "native_element": 729
         },
         {
           "level": 4,
           "direction": "Y",
-          "line_m": 33.3333,
+          "line_m": 43.0,
           "role": "collector",
           "action": "W",
-          "N_kN": -0.184,
-          "native_element": 732
+          "N_kN": -1.9885,
+          "native_element": 738
         },
         {
           "level": 4,
@@ -2836,7 +2471,7 @@
           "line_m": null,
           "role": "chord",
           "action": "W",
-          "N_kN": -1.3164,
+          "N_kN": 0.7208,
           "native_element": 640
         }
       ]
@@ -2851,7 +2486,8 @@
       "truss diagonal": 36,
       "joist": 1590,
       "stud": 1720,
-      "purlin": 177
+      "purlin": 192,
+      "Ceiling joist": 267
     },
     "panel_roles": {
       "Floor": 126,
@@ -2860,9 +2496,9 @@
       "Pitched roof": 54
     },
     "part_counts": {
-      "plate": 4252,
-      "bolt": 20806,
-      "weld": 1416
+      "plate": 5380,
+      "bolt": 21964,
+      "weld": 1536
     },
     "joint_types": {
       "Column base": 60,
@@ -2870,10 +2506,11 @@
       "Brace end": 256,
       "Beam end": 184,
       "Truss gusset": 144,
-      "Purlin cleat": 354
+      "Purlin cleat": 384,
+      "Ceiling joist suspension": 534
     },
     "panel_openings": 0,
-    "member_workpoint_top_mm": 13350.0,
+    "member_workpoint_top_mm": 13635.39505,
     "declared_roof_planes": [
       {
         "axis": "Y",
@@ -3360,23 +2997,23 @@
       "value": 0
     }
   ],
-  "physical_member_count": 4437,
+  "physical_member_count": 4719,
   "physical_panel_count": 358,
-  "connection_occurrences": 1834,
-  "profile_count": 6,
-  "handoff_sha256": "7aed2dd9f2048024a8781cd1891014042a3ff8009e612ddd537e8ff393ac1e33",
+  "connection_occurrences": 2398,
+  "profile_count": 7,
+  "handoff_sha256": "8e2c8c3059d86cd2728d26dd6b7492020bfb9db7233305f3e8bf5b8d80fe0fc9",
   "native_files": {
-    "design/calc_package_cfs.json": "e65a5cfdb245389383857ed428bae91bacb9db7886ef040551a670eda33feef4",
-    "cfg_snapshot.json": "d771b6ff93209894580e880ce7d1ca9514e26ee62e0f31458c06d9c6c3928b31",
+    "design/calc_package_cfs.json": "32f3e01e08285885803e1375fd93258b5c9c383a147878dffda2b54c96bc8345",
+    "cfg_snapshot.json": "bdb2eed70ce6c5a09314d9d856418e39a8717ab4a6158d8e73986abc54f6a289",
     "load_plan.json": "c6260f851cfef8d651adb873adfe1728bbb0e4b3460f46bc6903f6e34345adab",
     "STATUS.md": "800e966764fb41f4baa390036a7a748e10d29997e3129f1805d56fefe76d6a68",
     "EOR_inputs.json": "9fdc9165d646450410522d99fb46eadcae0710ac7c29c2e6ffa345d82828f71c",
-    "report.html": "5b3b366f84b001dcb549640461eb565f3dc9f03512ba6766d4855e3e0de06a73",
+    "report.html": "ab5ebc22dc9313da967a29f75443c6d31ccf2d85aee10f4d4ddaeb28e30b06e2",
     "viewer_3d.html": "87eb88ec776dec30a4a5552f57328a24c56b7186f9a0d01a7cf62e81515d15ce",
-    "lateral/IN_CFS_Ex8_lateral/design/calc_package.json": "132c8ce8453d243b1d7a340263ea707a538b5543d7e2aa0fd72b8913f7d3c214",
-    "lateral/IN_CFS_Ex8_lateral/design/member_schedule.csv": "0835c0cade3b41f0e065392e3f624fc22903504f6656fbca390d2046df6113f5",
-    "lateral/IN_CFS_Ex8_lateral/lateral_result.json": "e32e5d7d5a5f7a5375e26a7df8754243585422e77c09785844035e3479467b97",
-    "lateral/IN_CFS_Ex8_lateral/report.html": "e6f0f9fee4244d14fbd3caefa3f90119b08d30e22c0abddca83ca51ac74756bc",
+    "lateral/IN_CFS_Ex8_lateral/design/calc_package.json": "74c12577e9dd7d98b861054bb9b1037088cdcd714ba1f6c9fd4f45198f19a8c3",
+    "lateral/IN_CFS_Ex8_lateral/design/member_schedule.csv": "6ac58a273b81a6c0e74d1010b52c2117e15050cf5c0a61886a84ed0285bae1b2",
+    "lateral/IN_CFS_Ex8_lateral/lateral_result.json": "7eed5be2cbc9326bcedb14f349451a36e06e5dd4b0df16e8a9ca8cb91c9b3e6c",
+    "lateral/IN_CFS_Ex8_lateral/report.html": "ee23b9e0d7edd1c21e7141217e9c63f1591c649619331cefe4b49607fc9cacba",
     "lateral/IN_CFS_Ex8_lateral/viewer_3d.html": "87eb88ec776dec30a4a5552f57328a24c56b7186f9a0d01a7cf62e81515d15ce"
   },
   "wind": {
@@ -3410,5 +3047,37 @@
     },
     "VB_x_kN": 296.1740303540572,
     "VB_y_kN": 320.8123579095297
+  },
+  "native_warnings": [],
+  "installed_bearings": {
+    "Floor / WPB360X300X163 / CLR200X50X20X3.15": {
+      "samples": 3174,
+      "min_panel_underside_offset_mm": 380.0,
+      "max_panel_underside_offset_mm": 380.0
+    },
+    "Pitched roof 0.0000/-0.1414/0.9899 / WPB360X300X163 / CLR200X50X20X3.15": {
+      "measured_workline_conditions": 126,
+      "min_normal_skin_offset_mm": 396.0,
+      "max_normal_skin_offset_mm": 396.0
+    },
+    "Pitched roof -0.0000/0.1414/0.9899 / WPB360X300X163 / CLR200X50X20X3.15": {
+      "measured_workline_conditions": 126,
+      "min_normal_skin_offset_mm": 396.0,
+      "max_normal_skin_offset_mm": 396.0
+    },
+    "Pitched roof 0.0000/-0.1146/0.9934 / WPB360X300X163 / CLR200X50X20X3.15": {
+      "measured_workline_conditions": 66,
+      "min_normal_skin_offset_mm": 396.0,
+      "max_normal_skin_offset_mm": 396.0
+    },
+    "Pitched roof -0.0000/0.1146/0.9934 / WPB360X300X163 / CLR200X50X20X3.15": {
+      "measured_workline_conditions": 66,
+      "min_normal_skin_offset_mm": 396.0,
+      "max_normal_skin_offset_mm": 396.0
+    },
+    "Ceiling diaphragm / WPB360X300X163 / Ceiling-CLR180X80X25X4": {
+      "joist_ends": 534,
+      "ceiling_top_below_datum_mm": 360.0
+    }
   }
 }

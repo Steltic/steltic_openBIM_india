@@ -150,7 +150,7 @@ def revise(case,u,cfg):
     cfg["LLT_hog_mm"]=u.sy*1000
     cfg["plate_grade"]="E250";cfg["steel_grade"]="E350B0"
     cfg["fly_brace_grade"]="E250"
-    cfg["purlin_spacing_mm"]=900 if n==2 else case.purlin_spacing*1000
+    cfg["purlin_spacing_mm"]=850 if n==2 else case.purlin_spacing*1000
     cfg["girt_spacing_mm"]={2:1000,4:1200}.get(n,case.girt_spacing*1000)
     half=u.nx*u.sx*500
     count=math.ceil(half/cfg["purlin_spacing_mm"])
@@ -165,12 +165,14 @@ def revise(case,u,cfg):
     cfg["flange_braces"]["members"]={"default":dict(section="ISA100X100X10",grade="E250",L_mm=1500,
         angle_deg=45,n_bolts=2,fixity="hinged",bolt=dict(d_mm=20,d0_mm=22,grade="8.8",t_mm=8,fu_plate_MPa=410,e_mm=40,p_mm=65))}
     if n==2:
+        # 50 mm mineral/glass wool and lapped nine-metre CFS runs, on measured area.
+        cfg['D_roof']=.25
         cfg["canopy_axis_height_mm"]=5850
         cfg["roof_pitch_deg"]=math.degrees(math.atan2(case.rise,u.nx*u.sx/2))
         cfg["flange_braces"]["canopy"]={"purlins_mm":[750*i for i in range(1,8)],"fly_braces_mm":[750*i for i in range(1,8)]}
         g["interior_peb_col"]="WI600X450X32X20";PB.ensure(g["interior_peb_col"])
         g["sfrs_base"]={"default":"fixed",**{f"{i},{j}":"pinned" for i in range(1,u.nx) for j in range(u.ny+1)}}
-        cfg["nodal_dead_loads"]=[dict(node=node,level=1,Fz_N=-.2*area*1000,note="Roofing and purlins on canopy") for node,area in canopy_nodes(u)]
+        cfg["nodal_dead_loads"]=[dict(node=node,level=1,Fz_N=-.27*area*1000,note="Canopy cladding, purlins and packing") for node,area in canopy_nodes(u)]
         cfg["nodal_imposed_loads"]=[dict(node=node,level=1,kind="roof",Fz_N=-.75*area*1000,note="Canopy maintenance imposed load") for node,area in canopy_nodes(u)]
         # Put the 8 tapered beam pieces' steel on these same stations precisely
         # once. Off-diaphragm members with nodal dead load require this in O2.
@@ -239,3 +241,5 @@ def revise(case,u,cfg):
             j=row["node"]%100
             row["node"]=station+row["node"]%100000
             row["Fz_N"]=-dead*(.5 if j in (1,u.ny-1) else 1)
+    from peb_takeoff import load_schedule
+    cfg.setdefault('nodal_dead_loads',[]).extend(load_schedule(n))

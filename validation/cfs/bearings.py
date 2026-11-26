@@ -41,7 +41,7 @@ class Sections:
         return label,self.shapes[label]
 
     def limits(self,m,normal):
-        name,shapes=self.profile(m)
+        _,shapes=self.profile(m)
         w,d,_=frame(m["start"],m["end"],m.get("ref_direction"))
         wx,wy=dot(w,normal),dot(d,normal)
         vals=[x*wx+y*wy for p in shapes for x,y in p.exterior.coords]
@@ -56,16 +56,16 @@ PODIUM={"Podium floor"}
 def install_flat(model,pkg):
     """Standing joists bear on the beam flange. Roof purlins bear through their selected seat."""
     shapes=Sections(model,pkg); up=(0.,0.,1.)
-    faces=[]; levels=defaultdict(list)
+    faces=[]
     for panel in model["panels"]:
         if panel["role"] not in ROOF|FLOOR|PODIUM:continue
         z=panel["outline"][0][2]
         if max(abs(p[2]-z) for p in panel["outline"])>.1:continue
         if plane(panel["outline"])[3][2]<0:panel["outline"].reverse()
-        index=len(faces);faces.append(panel)
-        levels[round(z,1)].append(index)
+        faces.append(panel)
     footprints=[Polygon([(p[0],p[1]) for p in f["outline"]]) for f in faces]
     tree=STRtree(footprints)
+    has_walkway=any(f["role"]=="Exterior walkway" for f in faces)
     beams=defaultdict(list); cleats=defaultdict(list)
     for joint in model["connections"]:
         if joint["type"]=="Purlin cleat":cleats[joint["members"][0]].append(joint)
@@ -99,7 +99,7 @@ def install_flat(model,pkg):
         plane_roles=ROOF if role=="purlin" else FLOOR
         midpoint=[(x+y)/2 for x,y in zip(a,b)]
         panel_ids=covers(midpoint,z,plane_roles)
-        if role=="joist" and any(f["role"]=="Exterior walkway" for f in faces):
+        if role=="joist" and has_walkway:
             run=LineString([a[:2],b[:2]])
             panel_ids=[int(i) for i in tree.query(run) if faces[int(i)]["role"] in plane_roles
                        and abs(faces[int(i)]["outline"][0][2]-z)<.1 and
@@ -108,6 +108,11 @@ def install_flat(model,pkg):
         supports=[]
         for end,other in ((a,b),(b,a)):
             peers=receiver(z,1-along,end)
+            if not peers and faces[panel_ids[0]]["role"]=="Mezzanine floor":
+                # Separate mezzanine: actual girders are set 700 mm in
+                # from the free edges, leaving two checked cantilevers.
+                end=list(end);end[along]+=700*(1 if other[along]>end[along] else -1)
+                peers=receiver(z,1-along,end)
             if not peers:raise ValueError(f'{m["id"]} has no steel bearing at {end}')
             supports.append((end,other,peers))
         lowers,upper=shapes.limits(m,up)

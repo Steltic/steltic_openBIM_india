@@ -3,12 +3,18 @@
     "Main": {
       "WPB340X300X134.16": {
         "anchor_d_mm": 36.0,
-        "anchor_dc": 0.3184202699545954,
+        "anchor_dc": 0.19129583826699056,
         "anchor_n_per_row": 4.0,
-        "anchor_tension_N": 142816.21781756508,
+        "anchor_tension_N": 83742.46796101396,
         "base_B_mm": 750.0,
-        "base_L_mm": 750.0,
+        "base_L_mm": 800.0,
         "base_combinations": [
+          {
+            "My_Nmm": 0.0,
+            "Mz_Nmm": 361200000.0,
+            "P_N": 470461.4,
+            "V_N": 616736.0548259799
+          },
           {
             "My_Nmm": 0.0,
             "Mz_Nmm": 361200000.0,
@@ -17,16 +23,23 @@
           }
         ],
         "base_t_plate_mm": 63.0,
-        "bearing_dc": 0.48484131550661314,
-        "plate_dc": 0.7305193302636441
+        "bearing_dc": 0.4479706731089305,
+        "plate_dc": 0.9693320184781765
       },
       "WPB360X370X136.21": {
         "anchor_d_mm": 36.0,
         "anchor_dc": 0.0,
         "anchor_n_per_row": 4.0,
-        "base_B_mm": 750.0,
+        "anchor_tension_N": 0.0,
+        "base_B_mm": 800.0,
         "base_L_mm": 750.0,
         "base_combinations": [
+          {
+            "My_Nmm": 0.0,
+            "Mz_Nmm": 0.0,
+            "P_N": 921248.8,
+            "V_N": 0.0
+          },
           {
             "My_Nmm": 0.0,
             "Mz_Nmm": 0.0,
@@ -35,20 +48,18 @@
           }
         ],
         "base_t_plate_mm": 63.0,
-        "bearing_dc": 0.06375604938271605,
-        "plate_dc": 0.1348021146119674
+        "bearing_dc": 0.08530081481481483,
+        "plate_dc": 0.2358368162207131
       },
       "WPB500X300X187.34": {
-        "axial_fraction": 0.9930748498816434,
-        "collector_N": 285957.7
+        "axial_fraction": 0.9971473460792466,
+        "collector_N": 445094.3
       },
       "WPB800X300X317.36": {
+        "axial_fraction": 0.9529873963438854,
         "brace_force_N": 19876800.0,
-        "brace_moment_Nmm": 555840000.0
-      },
-      "WPB900X300X291.46": {
-        "axial_fraction": 0.9472577507541654,
-        "collector_N": 383072.4
+        "brace_moment_Nmm": 555840000.0,
+        "collector_N": 590884.1
       }
     }
   },
@@ -201,207 +212,293 @@
   "12": {
     "Classroom": {
       "BOX650X650X32": {
-        "division_moment_per_mm": 104997.2863314738,
-        "division_shear_per_mm": 1399.9638177529841
+        "division_moment_per_mm": 137249.79866551035,
+        "division_shear_per_mm": 1829.997315540138
       },
       "BOX700X700X36": {
         "division_moment_per_mm": 0.0,
-        "division_shear_per_mm": 879.0167484147336
+        "division_shear_per_mm": 1190.2671750655961
       },
       "BOX800X800X20": {
         "anchor_d_mm": 36.0,
         "anchor_dc": 0.0,
         "anchor_n_per_row": 7.0,
+        "anchor_tension_N": 0.0,
         "base_B_mm": 1150.0,
         "base_L_mm": 1150.0,
         "base_combinations": [
           {
             "My_Nmm": 0.0,
             "Mz_Nmm": 0.0,
-            "P_N": 2272555.4,
+            "P_N": 2808283.5,
+            "V_N": 0.0
+          },
+          {
+            "My_Nmm": 0.0,
+            "Mz_Nmm": 0.0,
+            "P_N": 2434389.7,
             "V_N": 0.0
           }
         ],
         "base_t_plate_mm": 63.0,
-        "bearing_dc": 0.09546546523839529,
-        "plate_dc": 0.27755503996162995
+        "bearing_dc": 0.11797032136105862,
+        "plate_dc": 0.34298536311417815
       },
       "BOX800X800X40": {
-        "anchor_d_mm": 36.0,
-        "anchor_dc": 2.4390640507820605,
-        "anchor_n_per_row": 12.0,
-        "anchor_tension_N": 1095717.7643819377,
-        "base_B_mm": 1150.0,
-        "base_L_mm": 1150.0,
+        "anchor_d_mm": 48.0,
+        "anchor_dc": 0.3798386026850078,
+        "anchor_n_per_row": 19.0,
+        "anchor_tension_N": 296512.8543550144,
+        "base_B_mm": 2550.0,
+        "base_L_mm": 2550.0,
         "base_combinations": [
           {
+            "My_Nmm": 133779611.1,
+            "Mz_Nmm": 12820684800.0,
+            "P_N": 1344912.9,
+            "V_N": 8706861.950484421
+          },
+          {
+            "My_Nmm": 114688121.4,
+            "Mz_Nmm": 12820684800.0,
+            "P_N": 1183418.2,
+            "V_N": 8706861.950484421
+          },
+          {
             "My_Nmm": 12820684800.0,
-            "Mz_Nmm": 35755394.5,
-            "P_N": 33539.4,
+            "Mz_Nmm": 38668077.7,
+            "P_N": 46653.5,
             "V_N": 9674291.0560938
           }
         ],
-        "base_t_plate_mm": 63.0,
-        "bearing_dc": 4.107265244877517,
-        "plate_dc": 8.586170560217079
+        "base_t_plate_mm": 220.0,
+        "bearing_dc": 0.4572785889810062,
+        "gusset_column_weld_dc": 0.6332632405157081,
+        "gusset_h_mm": 1025.0,
+        "gusset_loaded_h_mm": 1025.0,
+        "gusset_loaded_t_mm": 80.0,
+        "gusset_n_per_side": 6.0,
+        "gusset_n_per_side_y": 6.0,
+        "gusset_plate_weld_dc": 0.4996333059229402,
+        "gusset_t_mm": 80.0,
+        "plate_dc": 0.9062912162166927
       },
       "WPB220X220X40.4": {
-        "division_moment_per_mm": 32875.11864361474,
-        "division_shear_per_mm": 490.6734125912648
+        "division_moment_per_mm": 44979.37918387269,
+        "division_shear_per_mm": 671.3340176697417
       },
       "WPB360X300X91.04": {
-        "division_moment_per_mm": 286385.845133595,
-        "division_shear_per_mm": 1145.54338053438
+        "division_moment_per_mm": 358737.42594529566,
+        "division_shear_per_mm": 1434.9497037811827
       },
       "WPB450X300X139.76": {
         "axial_fraction": 0.0,
-        "collector_N": 201104.2,
+        "collector_N": 171301.0,
         "joint_moment_Nmm": 924480000.0,
-        "joint_shear_N": 316090.42297615384
+        "joint_shear_N": 307330.11047615384
       },
       "WPB650X300X224.78": {
         "axial_fraction": 0.0,
-        "collector_N": 447540.6,
+        "collector_N": 350003.1,
         "joint_moment_Nmm": 2105280000.0,
-        "joint_shear_N": 677419.6838359741
+        "joint_shear_N": 659477.6005026407
       }
     },
     "Gym": {
-      "BOX550X550X28": {
+      "BOX650X650X36": {
         "anchor_d_mm": 36.0,
-        "anchor_dc": 2.1912611958644326,
-        "anchor_n_per_row": 6.0,
-        "anchor_tension_N": 968793.1598062717,
-        "base_B_mm": 900.0,
-        "base_L_mm": 900.0,
+        "anchor_dc": 0.4363359585849001,
+        "anchor_n_per_row": 23.0,
+        "anchor_tension_N": 165603.4673407038,
+        "base_B_mm": 2200.0,
+        "base_L_mm": 2200.0,
         "base_combinations": [
           {
-            "My_Nmm": 4233880358.4,
-            "Mz_Nmm": 183552689.9,
-            "P_N": 57561.3,
-            "V_N": 4655752.570745142
+            "My_Nmm": 7532858995.2,
+            "Mz_Nmm": 0.0,
+            "P_N": 490966.9,
+            "V_N": 7074325.334768592
+          },
+          {
+            "My_Nmm": 473929003.4,
+            "Mz_Nmm": 7532858995.2,
+            "P_N": 273330.4,
+            "V_N": 7074325.334768592
+          },
+          {
+            "My_Nmm": 9757164.0,
+            "Mz_Nmm": 3522911.4,
+            "P_N": 91410.2,
+            "V_N": 7074325.334768592
           }
         ],
-        "base_t_plate_mm": 63.0,
-        "bearing_dc": 3.2760019520677557,
-        "plate_dc": 4.437064446865379
+        "base_t_plate_mm": 190.0,
+        "bearing_dc": 0.42669757002393127,
+        "gusset_column_weld_dc": 0.27201927594196074,
+        "gusset_h_mm": 1250.0,
+        "gusset_loaded_h_mm": 1250.0,
+        "gusset_loaded_t_mm": 95.0,
+        "gusset_n_per_side": 3.0,
+        "gusset_n_per_side_y": 3.0,
+        "gusset_plate_weld_dc": 0.4033089875049874,
+        "gusset_t_mm": 95.0,
+        "plate_dc": 0.8484394050260591
       },
       "NPB300X200X75.37": {
         "axial_fraction": 0.0,
-        "collector_N": 71417.3,
+        "collector_N": 65222.3,
         "joint_moment_Nmm": 345600000.0,
-        "joint_shear_N": 133697.1698864151
+        "joint_shear_N": 123064.10407401275
       },
       "WPB650X300X224.78": {
         "axial_fraction": 0.0,
-        "collector_N": 244523.4,
+        "collector_N": 94235.5,
         "joint_moment_Nmm": 2105280000.0,
-        "joint_shear_N": 606429.5234892453
+        "joint_shear_N": 599895.1548736943
+      },
+      "WPB800X300X317.36": {
+        "axial_fraction": 0.0,
+        "collector_N": 395581.3,
+        "joint_moment_Nmm": 3571200000.0,
+        "joint_shear_N": 1009897.953951465
       }
     },
     "Link": {
-      "BOX500X500X28": {
-        "division_moment_per_mm": 145576.73548800245,
-        "division_shear_per_mm": 970.5115699200163
+      "BOX650X650X36": {
+        "division_moment_per_mm": 87906.16898819437,
+        "division_shear_per_mm": 879.0616898819437
       },
-      "BOX800X800X40": {
-        "anchor_d_mm": 36.0,
-        "anchor_dc": 2.4372024786972566,
-        "anchor_n_per_row": 12.0,
-        "anchor_tension_N": 1095084.838578946,
-        "base_B_mm": 1150.0,
-        "base_L_mm": 1150.0,
+      "BOX850X850X56": {
+        "anchor_d_mm": 64.0,
+        "anchor_dc": 0.54308574145651,
+        "anchor_n_per_row": 11.0,
+        "anchor_tension_N": 736294.3484789841,
+        "base_B_mm": 2700.0,
+        "base_L_mm": 2700.0,
         "base_combinations": [
           {
-            "My_Nmm": 12820684800.0,
-            "Mz_Nmm": 48980359.2,
-            "P_N": 98428.8,
-            "V_N": 9674291.0560938
+            "My_Nmm": 799373627.2,
+            "Mz_Nmm": 18788337814.4,
+            "P_N": 173864.7,
+            "V_N": 13790903.448192049
+          },
+          {
+            "My_Nmm": 655596375.1,
+            "Mz_Nmm": 18788337814.4,
+            "P_N": 140093.3,
+            "V_N": 13790903.448192049
+          },
+          {
+            "My_Nmm": 10579932.0,
+            "Mz_Nmm": 28419806.2,
+            "P_N": 317270.4,
+            "V_N": 13790903.448192049
           }
         ],
-        "base_t_plate_mm": 63.0,
-        "bearing_dc": 4.11233245008292,
-        "plate_dc": 8.56752811681454
+        "base_t_plate_mm": 350.0,
+        "bearing_dc": 0.5944057204988517,
+        "gusset_column_weld_dc": 0.5861581827416633,
+        "gusset_h_mm": 1250.0,
+        "gusset_loaded_h_mm": 1250.0,
+        "gusset_loaded_t_mm": 100.0,
+        "gusset_n_per_side": 4.0,
+        "gusset_n_per_side_y": 4.0,
+        "gusset_plate_weld_dc": 0.5760257510255439,
+        "gusset_t_mm": 100.0,
+        "plate_dc": 0.4748000516099355
       },
       "WPB200X200X34.65": {
-        "division_moment_per_mm": 26203.610380390393,
-        "division_shear_per_mm": 524.0722076078079
+        "division_moment_per_mm": 39401.106055082564,
+        "division_shear_per_mm": 788.0221211016512
       },
       "WPB300X300X69.8": {
         "anchor_d_mm": 36.0,
         "anchor_dc": 0.0,
         "anchor_n_per_row": 4.0,
-        "base_B_mm": 700.0,
-        "base_L_mm": 700.0,
+        "anchor_tension_N": 0.0,
+        "base_B_mm": 850.0,
+        "base_L_mm": 800.0,
         "base_combinations": [
           {
             "My_Nmm": 0.0,
             "Mz_Nmm": 0.0,
-            "P_N": 1344681.6,
+            "P_N": 1818967.4,
+            "V_N": 0.0
+          },
+          {
+            "My_Nmm": 0.0,
+            "Mz_Nmm": 0.0,
+            "P_N": 1515517.4,
             "V_N": 0.0
           }
         ],
         "base_t_plate_mm": 63.0,
-        "bearing_dc": 0.152458231292517,
-        "plate_dc": 0.3220670621036701
+        "bearing_dc": 0.1486084477124183,
+        "plate_dc": 0.5791126993846596
       },
       "WPB450X300X139.76": {
         "axial_fraction": 0.0,
-        "collector_N": 201104.2,
+        "collector_N": 94535.4,
         "joint_moment_Nmm": 924480000.0,
-        "joint_shear_N": 310164.26913000003
+        "joint_shear_N": 278274.94986248406
       },
       "WPB650X300X224.78": {
         "axial_fraction": 0.0,
-        "collector_N": 447540.6,
+        "collector_N": 187440.6,
         "joint_moment_Nmm": 2105280000.0,
-        "joint_shear_N": 677419.6838359741
+        "joint_shear_N": 619099.5431433334
+      },
+      "WPB800X300X317.36": {
+        "axial_fraction": 0.0,
+        "collector_N": 366633.5,
+        "joint_moment_Nmm": 3571200000.0,
+        "joint_shear_N": 1055268.056830196
       }
     }
   },
   "13": {
     "Main": {
-      "NPB300X150X49.32": {
-        "axial_fraction": 0.9994350763022817,
-        "collector_N": 252777.5
+      "NPB300X200X59.57": {
+        "axial_fraction": 0.9893951893261076,
+        "collector_N": 268378.2
       },
       "NPB350X170X66.05": {
-        "axial_fraction": 0.9701395266700825,
-        "collector_N": 166484.3
-      },
-      "WPB150X150X36.97": {
-        "axial_fraction": 0.999685223010679,
-        "collector_N": 187116.6
+        "axial_fraction": 0.990406794206595,
+        "collector_N": 175019.7
       },
       "WPB160X160X22.75": {
-        "division_moment_per_mm": 9386.345913313198,
-        "division_shear_per_mm": 312.87819711043994
+        "division_moment_per_mm": 9932.707616624291,
+        "division_shear_per_mm": 331.09025388747636
       },
       "WPB200X200X50.92": {
         "brace_force_N": 3188160.0,
         "brace_moment_Nmm": 74700000.0
       },
       "WPB200X200X61.3": {
-        "division_moment_per_mm": 6209.46075752201,
-        "division_shear_per_mm": 620.946075752201
+        "division_moment_per_mm": 6658.891304229768,
+        "division_shear_per_mm": 665.8891304229768
       },
       "WPB220X220X40.4": {
-        "division_moment_per_mm": 22794.01167908014,
-        "division_shear_per_mm": 759.8003893026713
+        "division_moment_per_mm": 23803.019891758046,
+        "division_shear_per_mm": 793.4339963919349
       },
       "WPB220X220X71.47": {
         "brace_force_N": 4477200.0,
         "brace_moment_Nmm": 117900000.0,
-        "division_moment_per_mm": 26705.008987748624,
-        "division_shear_per_mm": 1112.7087078228594
+        "division_moment_per_mm": 28755.087315577694,
+        "division_shear_per_mm": 1198.1286381490706
+      },
+      "WPB240X240X47.4": {
+        "axial_fraction": 0.9932087621274757,
+        "collector_N": 202010.3
       },
       "WPB260X260X114.4": {
-        "division_moment_per_mm": 174812.90309491585,
-        "division_shear_per_mm": 1574.8910188731156
+        "division_moment_per_mm": 190641.92793763365,
+        "division_shear_per_mm": 1717.494846284988
       },
       "WPB280X280X61.26": {
-        "division_moment_per_mm": 127576.68478916203,
-        "division_shear_per_mm": 988.966548753194
+        "division_moment_per_mm": 132884.58922936826,
+        "division_shear_per_mm": 1030.1130948013042
       },
       "WPB300X300X100.85": {
         "brace_force_N": 6297600.0,
@@ -412,16 +509,23 @@
         "brace_moment_Nmm": 217440000.0
       },
       "WPB450X300X139.76": {
-        "axial_fraction": 0.9625653991519028,
-        "collector_N": 253367.2
+        "axial_fraction": 0.9869454857781885,
+        "collector_N": 260216.5
       },
       "WPB500X300X107.46": {
         "anchor_d_mm": 36.0,
         "anchor_dc": 0.0,
         "anchor_n_per_row": 4.0,
-        "base_B_mm": 700.0,
-        "base_L_mm": 850.0,
+        "anchor_tension_N": 0.0,
+        "base_B_mm": 750.0,
+        "base_L_mm": 900.0,
         "base_combinations": [
+          {
+            "My_Nmm": 0.0,
+            "Mz_Nmm": 0.0,
+            "P_N": 2096672.8,
+            "V_N": 0.0
+          },
           {
             "My_Nmm": 0.0,
             "Mz_Nmm": 0.0,
@@ -430,17 +534,23 @@
           }
         ],
         "base_t_plate_mm": 63.0,
-        "bearing_dc": 0.18753007469654528,
-        "plate_dc": 0.4149233598717265
+        "bearing_dc": 0.17256566255144035,
+        "plate_dc": 0.46533215427236063
       },
       "WPB500X300X155.08": {
         "anchor_d_mm": 36.0,
-        "anchor_dc": 0.7154893197643482,
+        "anchor_dc": 0.7288425908887288,
         "anchor_n_per_row": 5.0,
-        "anchor_tension_N": 325377.2431578947,
-        "base_B_mm": 700.0,
-        "base_L_mm": 900.0,
+        "anchor_tension_N": 331875.7144444444,
+        "base_B_mm": 750.0,
+        "base_L_mm": 950.0,
         "base_combinations": [
+          {
+            "My_Nmm": 0.0,
+            "Mz_Nmm": 594720000.0,
+            "P_N": -1850312.7,
+            "V_N": 888825.490778618
+          },
           {
             "My_Nmm": 0.0,
             "Mz_Nmm": 594720000.0,
@@ -449,63 +559,59 @@
           }
         ],
         "base_t_plate_mm": 100.0,
-        "plate_dc": 0.8142009741443282
+        "plate_dc": 0.907367442462963
       },
       "WPB550X300X119.99": {
         "division_moment_per_mm": 0.0,
-        "division_shear_per_mm": 1177.165168355263
+        "division_shear_per_mm": 1226.5028557430837
       }
     }
   },
   "14": {
     "Main": {
-      "NPB350X170X66.05": {
-        "axial_fraction": 0.9996481968757293,
-        "collector_N": 262646.9
-      },
       "NPB450X190X92.37": {
-        "axial_fraction": 0.9450153971128189,
-        "collector_N": 185391.9
+        "axial_fraction": 0.9903652422334539,
+        "collector_N": 197140.4
       },
       "NPB600X220X154.47": {
-        "axial_fraction": 0.9865678463949135,
-        "collector_N": 616297.3
+        "axial_fraction": 0.9972542532983205,
+        "collector_N": 674570.6
       },
       "WPB180X180X28.68": {
-        "division_moment_per_mm": 13684.62407864766,
-        "division_shear_per_mm": 434.43251043325904
+        "division_moment_per_mm": 14836.777798423065,
+        "division_shear_per_mm": 471.0088189975576
       },
       "WPB200X200X61.3": {
-        "division_moment_per_mm": 2030.5107594300598,
-        "division_shear_per_mm": 203.05107594300597
+        "division_moment_per_mm": 2210.6821024867118,
+        "division_shear_per_mm": 221.0682102486712
       },
       "WPB220X220X71.47": {
         "brace_force_N": 4477200.0,
         "brace_moment_Nmm": 117900000.0,
-        "division_moment_per_mm": 11320.37930070695,
-        "division_shear_per_mm": 566.0189650353475
+        "division_moment_per_mm": 12550.981340705934,
+        "division_shear_per_mm": 627.5490670352967
       },
       "WPB240X240X60.32": {
-        "division_moment_per_mm": 74048.90857308469,
-        "division_shear_per_mm": 1000.6609266633066
+        "division_moment_per_mm": 79305.19483366937,
+        "division_shear_per_mm": 1071.691822076613
       },
       "WPB260X260X92.99": {
         "brace_force_N": 5805600.0,
         "brace_moment_Nmm": 173376000.0,
-        "division_moment_per_mm": 36249.78659029048,
-        "division_shear_per_mm": 906.2446647572621
+        "division_moment_per_mm": 40473.21513207212,
+        "division_shear_per_mm": 1011.830378301803
       },
       "WPB300X300X237.92": {
-        "division_moment_per_mm": 292880.6605100347,
-        "division_shear_per_mm": 3183.4854403264644
-      },
-      "WPB320X300X126.66": {
-        "axial_fraction": 0.9998760332718871,
-        "collector_N": 868781.5
+        "division_moment_per_mm": 315980.02498320385,
+        "division_shear_per_mm": 3434.565488947868
       },
       "WPB340X300X134.16": {
-        "division_moment_per_mm": 61133.91922622425,
-        "division_shear_per_mm": 1222.678384524485
+        "division_moment_per_mm": 68458.4388139146,
+        "division_shear_per_mm": 1369.1687762782922
+      },
+      "WPB340X300X78.9": {
+        "axial_fraction": 0.9879152895289589,
+        "collector_N": 296175.9
       },
       "WPB360X300X125.81": {
         "brace_force_N": 6986400.0,
@@ -514,26 +620,26 @@
       "WPB360X370X165.35": {
         "brace_force_N": 10332000.0,
         "brace_moment_Nmm": 437760000.0,
-        "division_moment_per_mm": 19999.321518520832,
-        "division_shear_per_mm": 1999.9321518520833
+        "division_moment_per_mm": 21441.570289312498,
+        "division_shear_per_mm": 2144.15702893125
       },
       "WPB360X370X197.66": {
-        "division_moment_per_mm": 245461.15162943618,
-        "division_shear_per_mm": 2153.16799674944
+        "division_moment_per_mm": 274733.4383394125,
+        "division_shear_per_mm": 2409.942441573794
       },
       "WPB400X300X124.81": {
-        "division_moment_per_mm": 60418.58059866025,
-        "division_shear_per_mm": 1701.9318478495845
+        "division_moment_per_mm": 64699.79811174915,
+        "division_shear_per_mm": 1822.529524274624
       },
       "WPB400X300X92.4": {
-        "division_moment_per_mm": 8446.204460494506,
-        "division_shear_per_mm": 1407.700743415751
+        "division_moment_per_mm": 9045.301517399268,
+        "division_shear_per_mm": 1507.550252899878
       },
       "WPB400X400X191.11": {
         "brace_force_N": 11955600.0,
         "brace_moment_Nmm": 538560000.0,
         "division_moment_per_mm": 0.0,
-        "division_shear_per_mm": 2390.3962009366833
+        "division_shear_per_mm": 2569.7936011584416
       },
       "WPB400X400X219.67": {
         "brace_force_N": 13726800.0,
@@ -541,12 +647,24 @@
       },
       "WPB400X400X239.62": {
         "anchor_d_mm": 42.0,
-        "anchor_dc": 0.7301145467187408,
+        "anchor_dc": 0.7336382928593598,
         "anchor_n_per_row": 5.0,
-        "anchor_tension_N": 458981.77260869567,
-        "base_B_mm": 900.0,
-        "base_L_mm": 850.0,
+        "anchor_tension_N": 461314.2949367088,
+        "base_B_mm": 950.0,
+        "base_L_mm": 950.0,
         "base_combinations": [
+          {
+            "My_Nmm": 0.0,
+            "Mz_Nmm": 703920000.0,
+            "P_N": -2831067.0,
+            "V_N": 1085636.8494510262
+          },
+          {
+            "My_Nmm": 0.0,
+            "Mz_Nmm": 703920000.0,
+            "P_N": -2728112.0,
+            "V_N": 1085636.8494510262
+          },
           {
             "My_Nmm": 0.0,
             "Mz_Nmm": 703920000.0,
@@ -554,22 +672,35 @@
             "V_N": 1085636.8494510262
           }
         ],
-        "base_t_plate_mm": 100.0,
-        "plate_dc": 1.037199027449433
+        "base_t_plate_mm": 120.0,
+        "plate_dc": 0.9719507444577293
       },
       "WPB450X300X139.76": {
         "brace_force_N": 8757600.0,
         "brace_moment_Nmm": 277920000.0,
-        "division_moment_per_mm": 58247.73538969218,
-        "division_shear_per_mm": 1574.2631186403291
+        "division_moment_per_mm": 65204.51976518859,
+        "division_shear_per_mm": 1762.28431797807
       },
       "WPB500X300X270.28": {
         "anchor_d_mm": 36.0,
         "anchor_dc": 0.0,
         "anchor_n_per_row": 4.0,
-        "base_B_mm": 700.0,
-        "base_L_mm": 900.0,
+        "anchor_tension_N": 0.0,
+        "base_B_mm": 750.0,
+        "base_L_mm": 950.0,
         "base_combinations": [
+          {
+            "My_Nmm": 0.0,
+            "Mz_Nmm": 0.0,
+            "P_N": 5773033.8,
+            "V_N": 0.0
+          },
+          {
+            "My_Nmm": 0.0,
+            "Mz_Nmm": 0.0,
+            "P_N": 5717847.6,
+            "V_N": 0.0
+          },
           {
             "My_Nmm": 0.0,
             "Mz_Nmm": 0.0,
@@ -577,13 +708,17 @@
             "V_N": 0.0
           }
         ],
-        "base_t_plate_mm": 63.0,
-        "bearing_dc": 0.4679046296296296,
-        "plate_dc": 1.006489399684872
+        "base_t_plate_mm": 70.0,
+        "bearing_dc": 0.4501390877192983,
+        "plate_dc": 0.9583068360293915
+      },
+      "WPB550X300X199.44": {
+        "axial_fraction": 0.9959268705738622,
+        "collector_N": 965203.8
       },
       "WPB600X300X211.92": {
-        "division_moment_per_mm": 114094.21186406058,
-        "division_shear_per_mm": 2401.9834076644333
+        "division_moment_per_mm": 127807.04564164685,
+        "division_shear_per_mm": 2690.674645087302
       },
       "WPB800X300X317.36": {
         "brace_force_N": 19876800.0,
@@ -699,135 +834,170 @@
   },
   "16": {
     "Main": {
-      "BOX600X600X32": {
-        "division_moment_per_mm": 36553.264124511916,
-        "division_shear_per_mm": 487.3768549934922
+      "BOX650X650X32": {
+        "division_moment_per_mm": 41781.98685957155,
+        "division_shear_per_mm": 557.0931581276207
       },
-      "BOX750X750X40": {
-        "division_moment_per_mm": 88858.68413204308,
-        "division_shear_per_mm": 1777.1736826408617
+      "BOX700X700X16": {
+        "division_moment_per_mm": 138524.94182380888,
+        "division_shear_per_mm": 2430.262137259805
       },
-      "BOX800X800X40": {
-        "division_moment_per_mm": 0.0,
-        "division_shear_per_mm": 1370.434669517139
+      "BOX800X800X45": {
+        "division_moment_per_mm": 50676.27524855227,
+        "division_shear_per_mm": 2027.051009942091
       },
       "BOX850X850X56": {
-        "anchor_d_mm": 48.0,
-        "anchor_dc": 2.626051258504698,
-        "anchor_n_per_row": 9.0,
-        "anchor_tension_N": 2124372.6797572114,
-        "base_B_mm": 1200.0,
-        "base_L_mm": 1200.0,
+        "anchor_d_mm": 64.0,
+        "anchor_dc": 0.6169998139238195,
+        "anchor_n_per_row": 11.0,
+        "anchor_tension_N": 796340.1163065671,
+        "base_B_mm": 2700.0,
+        "base_L_mm": 2700.0,
         "base_combinations": [
           {
             "My_Nmm": 18788337814.4,
-            "Mz_Nmm": 94373584.5,
-            "P_N": -222835.7,
+            "Mz_Nmm": 2288504194.4,
+            "P_N": 82151.7,
             "V_N": 13790903.448192049
+          },
+          {
+            "My_Nmm": 18788337814.4,
+            "Mz_Nmm": 2262664567.2,
+            "P_N": 76188.2,
+            "V_N": 13790903.448192049
+          },
+          {
+            "My_Nmm": 763122440.4,
+            "Mz_Nmm": 18788337814.4,
+            "P_N": 3252954.4,
+            "V_N": 11973749.111489097
           }
         ],
-        "base_t_plate_mm": 63.0,
-        "bearing_dc": 4.992702891070073,
-        "plate_dc": 10.787178514588785
+        "base_t_plate_mm": 350.0,
+        "bearing_dc": 0.6392296469472041,
+        "gusset_column_weld_dc": 0.5892688446154264,
+        "gusset_h_mm": 1250.0,
+        "gusset_loaded_h_mm": 1250.0,
+        "gusset_loaded_t_mm": 100.0,
+        "gusset_n_per_side": 6.0,
+        "gusset_n_per_side_y": 6.0,
+        "gusset_plate_weld_dc": 0.575294225595155,
+        "gusset_t_mm": 100.0,
+        "plate_dc": 0.4723860827012491
       },
       "NPB300X200X75.37": {
         "axial_fraction": 0.0,
-        "collector_N": 15857.6,
+        "collector_N": 126502.2,
         "joint_moment_Nmm": 345600000.0,
-        "joint_shear_N": 107438.18024347826
+        "joint_shear_N": 152185.0016890511
       },
       "NPB450X190X92.37": {
         "axial_fraction": 0.0,
-        "collector_N": 154833.7,
+        "collector_N": 66240.0,
         "joint_moment_Nmm": 587520000.0,
-        "joint_shear_N": 230811.08719891304
+        "joint_shear_N": 201538.49615638686
       },
       "WPB180X180X28.68": {
-        "division_moment_per_mm": 31188.688447647877,
-        "division_shear_per_mm": 436.20543283423603
+        "division_moment_per_mm": 41383.22755827746,
+        "division_shear_per_mm": 578.7863994164679
       },
       "WPB300X300X237.92": {
-        "division_moment_per_mm": 227029.70022747378,
-        "division_shear_per_mm": 3290.285510543098
-      },
-      "WPB300X300X88.34": {
-        "division_moment_per_mm": 67926.71933100415,
-        "division_shear_per_mm": 1358.5343866200828
+        "division_moment_per_mm": 762182.618240861,
+        "division_shear_per_mm": 3908.628811491595
       },
       "WPB320X300X97.64": {
-        "division_moment_per_mm": 0.0,
-        "division_shear_per_mm": 764.3390280791009
+        "division_moment_per_mm": 32288.419705796176,
+        "division_shear_per_mm": 935.8962233564109
+      },
+      "WPB360X370X136.21": {
+        "division_moment_per_mm": 8383.772679126425,
+        "division_shear_per_mm": 1397.295446521071
       },
       "WPB360X370X165.35": {
-        "division_moment_per_mm": 20666.001826854168,
-        "division_shear_per_mm": 2066.6001826854167
+        "division_moment_per_mm": 24674.12932821875,
+        "division_shear_per_mm": 2467.412932821875
       },
-      "WPB400X300X124.81": {
-        "division_moment_per_mm": 62432.05661138969,
-        "division_shear_per_mm": 1758.6494820109772
+      "WPB360X370X182.02": {
+        "division_moment_per_mm": 0.0,
+        "division_shear_per_mm": 1964.913384110224
       },
       "WPB400X400X191.11": {
         "division_moment_per_mm": 0.0,
-        "division_shear_per_mm": 2469.2894261686765
-      },
-      "WPB450X300X263.33": {
-        "division_moment_per_mm": 586858.7501669548,
-        "division_shear_per_mm": 3493.206846231874
+        "division_shear_per_mm": 2936.629580379564
       },
       "WPB550X300X199.44": {
         "axial_fraction": 0.0,
-        "collector_N": 93923.6,
+        "collector_N": 265533.8,
         "joint_moment_Nmm": 1609920000.0,
-        "joint_shear_N": 500863.53771541355
+        "joint_shear_N": 569863.5377154136
       },
       "WPB700X300X300.68": {
         "axial_fraction": 0.0,
-        "collector_N": 354090.5,
+        "collector_N": 168786.6,
         "joint_moment_Nmm": 3024000000.0,
-        "joint_shear_N": 1016402.3491855263
+        "joint_shear_N": 965121.0991855263
       },
       "WPB800X300X317.36": {
         "anchor_d_mm": 36.0,
         "anchor_dc": 0.0,
         "anchor_n_per_row": 4.0,
-        "base_B_mm": 700.0,
-        "base_L_mm": 1200.0,
+        "anchor_tension_N": 0.0,
+        "base_B_mm": 800.0,
+        "base_L_mm": 1350.0,
         "base_combinations": [
           {
             "My_Nmm": 0.0,
             "Mz_Nmm": 0.0,
-            "P_N": 6220987.6,
+            "P_N": 7369456.5,
+            "V_N": 0.0
+          },
+          {
+            "My_Nmm": 0.0,
+            "Mz_Nmm": 0.0,
+            "P_N": 7359884.4,
+            "V_N": 0.0
+          },
+          {
+            "My_Nmm": 0.0,
+            "Mz_Nmm": 0.0,
+            "P_N": 6592071.9,
             "V_N": 0.0
           }
         ],
-        "base_t_plate_mm": 63.0,
-        "bearing_dc": 0.4114409788359788,
-        "plate_dc": 0.8632709677578871
+        "base_t_plate_mm": 80.0,
+        "bearing_dc": 0.3790872685185185,
+        "plate_dc": 0.7626635998154042
       }
     }
   },
   "17": {
     "Main": {
       "BOX500X500X25": {
-        "division_moment_per_mm": 184492.5080738007,
-        "division_shear_per_mm": 3689.8501614760144
+        "division_moment_per_mm": 197198.68390095164,
+        "division_shear_per_mm": 3943.973678019033
       },
       "BOX600X600X32": {
-        "division_moment_per_mm": 97012.87351244956,
-        "division_shear_per_mm": 3880.514940497982
+        "division_moment_per_mm": 103586.22190500655,
+        "division_shear_per_mm": 4143.448876200262
       },
       "BOX650X650X32": {
-        "division_moment_per_mm": 105310.48072363148,
-        "division_shear_per_mm": 4212.419228945259
+        "division_moment_per_mm": 112473.22916010201,
+        "division_shear_per_mm": 4498.92916640408
       },
       "BOX700X700X36": {
         "anchor_d_mm": 64.0,
-        "anchor_dc": 0.5515690713535246,
+        "anchor_dc": 0.5652646513430646,
         "anchor_n_per_row": 11.0,
-        "anchor_tension_N": 812434.5639261815,
+        "anchor_tension_N": 833299.5296854223,
         "base_B_mm": 2050.0,
         "base_L_mm": 2050.0,
         "base_combinations": [
+          {
+            "My_Nmm": 14153649.1,
+            "Mz_Nmm": 8808200755.2,
+            "P_N": -8277768.6,
+            "V_N": 6834886.631130271
+          },
           {
             "My_Nmm": 13114659.6,
             "Mz_Nmm": 8808200755.2,
@@ -835,17 +1005,32 @@
             "V_N": 6834886.631130271
           }
         ],
-        "base_t_plate_mm": 210.0,
-        "bearing_dc": 0.25205679139920223,
-        "plate_dc": 1.4609265011749173
+        "base_t_plate_mm": 220.0,
+        "bearing_dc": 0.21949674759234294,
+        "gusset_column_weld_dc": 0.2889268006263736,
+        "gusset_h_mm": 1700.0,
+        "gusset_loaded_h_mm": 1700.0,
+        "gusset_loaded_t_mm": 120.0,
+        "gusset_n_per_side": 3.0,
+        "gusset_n_per_side_y": 3.0,
+        "gusset_plate_weld_dc": 0.5465197918845989,
+        "gusset_t_mm": 120.0,
+        "plate_dc": 0.4046986112909385
       },
       "BOX750X750X25": {
         "anchor_d_mm": 36.0,
         "anchor_dc": 0.0,
         "anchor_n_per_row": 4.0,
+        "anchor_tension_N": 0.0,
         "base_B_mm": 1150.0,
         "base_L_mm": 1150.0,
         "base_combinations": [
+          {
+            "My_Nmm": 0.0,
+            "Mz_Nmm": 0.0,
+            "P_N": 9450838.9,
+            "V_N": 0.0
+          },
           {
             "My_Nmm": 0.0,
             "Mz_Nmm": 0.0,
@@ -854,78 +1039,78 @@
           }
         ],
         "base_t_plate_mm": 100.0,
-        "bearing_dc": 0.37106076034446545,
-        "plate_dc": 0.4892906883273533
+        "bearing_dc": 0.39701066582650707,
+        "plate_dc": 0.523508930923393
       },
       "WPB180X180X28.68": {
-        "division_moment_per_mm": 34530.84610863333,
-        "division_shear_per_mm": 575.5141018105554
+        "division_moment_per_mm": 37204.64812679197,
+        "division_shear_per_mm": 620.0774687798662
       },
       "WPB200X200X61.3": {
-        "division_moment_per_mm": 3556.8323545744893,
-        "division_shear_per_mm": 355.6832354574489
+        "division_moment_per_mm": 3872.275753948686,
+        "division_shear_per_mm": 387.2275753948686
       },
       "WPB220X220X71.47": {
-        "division_moment_per_mm": 24639.292360548945,
-        "division_shear_per_mm": 1026.6371816895394
+        "division_moment_per_mm": 26726.731735103378,
+        "division_shear_per_mm": 1113.6138222959742
       },
       "WPB250X250X73.15": {
         "brace_force_N": 4580520.0,
         "brace_moment_Nmm": 130200000.0
       },
       "WPB260X260X114.4": {
-        "division_moment_per_mm": 94983.38277679012,
-        "division_shear_per_mm": 1696.1318352998237
+        "division_moment_per_mm": 102645.51043522428,
+        "division_shear_per_mm": 1832.955543486148
       },
       "WPB300X300X69.8": {
-        "division_moment_per_mm": 135222.7996712121,
-        "division_shear_per_mm": 1131.5715453657915
+        "division_moment_per_mm": 143418.3441987438,
+        "division_shear_per_mm": 1200.1535079392788
       },
       "WPB340X300X104.78": {
         "brace_force_N": 6543600.0,
         "brace_moment_Nmm": 217440000.0
       },
       "WPB340X300X290.64": {
-        "division_moment_per_mm": 743956.7783269109,
-        "division_shear_per_mm": 3373.9536432059454
+        "division_moment_per_mm": 790250.9797115924,
+        "division_shear_per_mm": 3583.904669893843
       },
       "WPB360X370X165.35": {
-        "division_moment_per_mm": 238654.18685646876,
-        "division_shear_per_mm": 2022.493108953125
+        "division_moment_per_mm": 252838.87634727298,
+        "division_shear_per_mm": 2142.702341926042
       },
       "WPB360X370X182.02": {
         "brace_force_N": 11365200.0,
         "brace_moment_Nmm": 483840000.0
       },
       "WPB360X370X197.66": {
-        "division_moment_per_mm": 20335.683863897626,
-        "division_shear_per_mm": 2033.5683863897625
+        "division_moment_per_mm": 21893.116578141893,
+        "division_shear_per_mm": 2189.3116578141894
       },
       "WPB400X400X219.67": {
         "brace_force_N": 13726800.0,
         "brace_moment_Nmm": 627840000.0,
-        "division_moment_per_mm": 6723.340884655067,
-        "division_shear_per_mm": 2689.336353862027
+        "division_moment_per_mm": 7210.522779359328,
+        "division_shear_per_mm": 2884.2091117437312
       },
       "WPB400X400X239.62": {
-        "division_moment_per_mm": 207292.55900486783,
-        "division_shear_per_mm": 3454.875983414464
+        "division_moment_per_mm": 221752.20608035647,
+        "division_shear_per_mm": 3695.8701013392742
       },
       "WPB450X300X139.76": {
-        "axial_fraction": 0.9803164602648767,
+        "axial_fraction": 0.9964774431157166,
         "brace_force_N": 8757600.0,
         "brace_moment_Nmm": 277920000.0,
-        "collector_N": 400359.9
+        "collector_N": 432100.9
       },
       "WPB550X300X119.99": {
-        "division_moment_per_mm": 60849.06310175973,
-        "division_shear_per_mm": 1714.0581155425277
+        "division_moment_per_mm": 64489.29698804102,
+        "division_shear_per_mm": 1816.599915156085
       },
       "WPB600X300X211.92": {
-        "axial_fraction": 0.9811402131948733,
-        "collector_N": 672155.0,
-        "division_moment_per_mm": 10698.289914895684,
-        "division_shear_per_mm": 2377.3977588657076
+        "axial_fraction": 0.996451421869411,
+        "collector_N": 709551.8,
+        "division_moment_per_mm": 11345.65002742222,
+        "division_shear_per_mm": 2521.2555616493823
       },
       "WPB800X300X317.36": {
         "brace_force_N": 19876800.0,
@@ -935,100 +1120,125 @@
   },
   "18": {
     "Main": {
+      "BOX550X550X22": {
+        "division_moment_per_mm": 246011.1572284997,
+        "division_shear_per_mm": 3280.1487630466627
+      },
+      "BOX600X600X16": {
+        "division_moment_per_mm": 0.0,
+        "division_shear_per_mm": 2428.9739091011593
+      },
       "BOX650X650X36": {
-        "division_moment_per_mm": 18714.554246942134,
-        "division_shear_per_mm": 748.5821698776854
+        "division_moment_per_mm": 24999.451537338035,
+        "division_shear_per_mm": 999.9780614935214
       },
       "BOX700X700X36": {
-        "division_moment_per_mm": 51985.72140786435,
-        "division_shear_per_mm": 2079.428856314574
-      },
-      "BOX750X750X40": {
-        "division_moment_per_mm": 59908.34701936933,
-        "division_shear_per_mm": 2396.333880774773
-      },
-      "BOX800X800X20": {
         "anchor_d_mm": 36.0,
         "anchor_dc": 0.0,
         "anchor_n_per_row": 4.0,
+        "anchor_tension_N": 0.0,
         "base_B_mm": 1150.0,
         "base_L_mm": 1150.0,
         "base_combinations": [
           {
             "My_Nmm": 0.0,
             "Mz_Nmm": 0.0,
-            "P_N": 10946725.9,
+            "P_N": 13223604.0,
             "V_N": 0.0
           }
         ],
-        "base_t_plate_mm": 80.0,
-        "bearing_dc": 0.4598498592732619,
-        "plate_dc": 0.8291249942693029
+        "base_t_plate_mm": 100.0,
+        "bearing_dc": 0.5554969124133585,
+        "division_moment_per_mm": 116037.39323378378,
+        "division_shear_per_mm": 4641.495729351351,
+        "plate_dc": 0.8294932737821566
+      },
+      "BOX750X750X40": {
+        "division_moment_per_mm": 75823.52523562174,
+        "division_shear_per_mm": 3032.9410094248697
       },
       "BOX800X800X40": {
-        "division_moment_per_mm": 63105.5711187852,
-        "division_shear_per_mm": 2524.222844751408
+        "division_moment_per_mm": 79460.36293015028,
+        "division_shear_per_mm": 3178.414517206011
       },
       "BOX850X850X63": {
-        "anchor_d_mm": 56.0,
-        "anchor_dc": 2.4273455320454524,
-        "anchor_n_per_row": 8.0,
-        "anchor_tension_N": 2704693.323400227,
-        "base_B_mm": 1200.0,
-        "base_L_mm": 1200.0,
+        "anchor_d_mm": 64.0,
+        "anchor_dc": 0.6608162087717279,
+        "anchor_n_per_row": 11.0,
+        "anchor_tension_N": 912969.283234218,
+        "base_B_mm": 2700.0,
+        "base_L_mm": 2700.0,
         "base_combinations": [
           {
-            "My_Nmm": 20775740554.8,
-            "Mz_Nmm": 168357377.5,
-            "P_N": -71966.4,
+            "My_Nmm": 3391824369.4,
+            "Mz_Nmm": 20775740554.8,
+            "P_N": 97710.5,
             "V_N": 15514766.379216056
+          },
+          {
+            "My_Nmm": 1026085064.3,
+            "Mz_Nmm": 20775740554.8,
+            "P_N": 5939099.2,
+            "V_N": 13214930.421826381
+          },
+          {
+            "My_Nmm": 1021106001.5,
+            "Mz_Nmm": 20775740554.8,
+            "P_N": 5938995.9,
+            "V_N": 13214930.421826381
+          },
+          {
+            "My_Nmm": 1076324593.0,
+            "Mz_Nmm": 20775740554.8,
+            "P_N": 5331761.2,
+            "V_N": 13214930.421826381
           }
         ],
-        "base_t_plate_mm": 70.0,
-        "bearing_dc": 5.302947222882484,
-        "plate_dc": 8.859586121419877
+        "base_t_plate_mm": 350.0,
+        "bearing_dc": 0.7330042868058839,
+        "gusset_column_weld_dc": 0.6513677257661776,
+        "gusset_h_mm": 1250.0,
+        "gusset_loaded_h_mm": 1250.0,
+        "gusset_loaded_t_mm": 100.0,
+        "gusset_n_per_side": 6.0,
+        "gusset_n_per_side_y": 6.0,
+        "gusset_plate_weld_dc": 0.6362032505693636,
+        "gusset_t_mm": 100.0,
+        "plate_dc": 0.522535416105288
       },
       "NPB600X220X154.47": {
         "axial_fraction": 0.0,
-        "collector_N": 225850.7,
+        "collector_N": 194463.2,
         "joint_moment_Nmm": 1287360000.0,
-        "joint_shear_N": 396589.0302388024
+        "joint_shear_N": 387577.7802388024
       },
       "WPB200X200X34.65": {
-        "division_moment_per_mm": 33930.72664986791,
-        "division_shear_per_mm": 590.0995939107462
+        "division_moment_per_mm": 137241.6322828262,
+        "division_shear_per_mm": 816.9144778739654
       },
-      "WPB320X300X74.25": {
-        "division_moment_per_mm": 56955.7137454534,
-        "division_shear_per_mm": 1279.9036796731102
+      "WPB400X400X191.11": {
+        "division_moment_per_mm": 151438.04723451965,
+        "division_shear_per_mm": 1941.5134260835853
       },
-      "WPB400X300X124.81": {
-        "division_moment_per_mm": 178108.21266612204,
-        "division_shear_per_mm": 1781.0821266612204
+      "WPB500X300X270.28": {
+        "division_moment_per_mm": 394953.50391215243,
+        "division_shear_per_mm": 2686.7585300146425
       },
-      "WPB400X400X219.67": {
-        "division_moment_per_mm": 283644.8809078643,
-        "division_shear_per_mm": 2879.6434609935463
-      },
-      "WPB550X300X278.19": {
-        "division_moment_per_mm": 835350.7458283786,
-        "division_shear_per_mm": 3381.9868252161077
-      },
-      "WPB600X300X177.78": {
-        "division_moment_per_mm": 97273.92493305118,
-        "division_shear_per_mm": 2069.657977298961
+      "WPB550X300X119.99": {
+        "division_moment_per_mm": 65411.69400429348,
+        "division_shear_per_mm": 1437.6196484460106
       },
       "WPB650X300X224.78": {
         "axial_fraction": 0.0,
-        "collector_N": 123875.4,
+        "collector_N": 387466.5,
         "joint_moment_Nmm": 2105280000.0,
-        "joint_shear_N": 546346.3215743558
+        "joint_shear_N": 648136.3215743559
       },
       "WPB700X300X240.51": {
         "axial_fraction": 0.0,
-        "collector_N": 501906.1,
+        "collector_N": 202206.1,
         "joint_moment_Nmm": 2396160000.0,
-        "joint_shear_N": 742084.6084663804
+        "joint_shear_N": 669454.6084663804
       }
     }
   },
@@ -1252,39 +1462,53 @@
   "20": {
     "Main": {
       "BOX350X350X18": {
-        "division_moment_per_mm": 22375.552069624253,
-        "division_shear_per_mm": 1864.6293391353545
+        "division_moment_per_mm": 23942.174088839856,
+        "division_shear_per_mm": 1995.1811740699882
       },
       "BOX650X650X32": {
-        "anchor_d_mm": 36.0,
-        "anchor_dc": 2.488082572411734,
-        "anchor_n_per_row": 8.0,
-        "anchor_tension_N": 1117308.7479020532,
-        "base_B_mm": 1000.0,
-        "base_L_mm": 1000.0,
+        "anchor_d_mm": 42.0,
+        "anchor_dc": 0.4418399801286315,
+        "anchor_n_per_row": 17.0,
+        "anchor_tension_N": 264439.096515223,
+        "base_B_mm": 2050.0,
+        "base_L_mm": 2050.0,
         "base_combinations": [
           {
+            "My_Nmm": 920110.4,
+            "Mz_Nmm": 6781692825.6,
+            "P_N": -1532684.8,
+            "V_N": 5669134.5588709675
+          },
+          {
             "My_Nmm": 6781692825.6,
-            "Mz_Nmm": 177623944.7,
-            "P_N": -1418658.5,
+            "Mz_Nmm": 362835.4,
+            "P_N": 3303073.9,
             "V_N": 6288289.186460971
           }
         ],
-        "base_t_plate_mm": 80.0,
-        "bearing_dc": 3.419985976395549,
-        "plate_dc": 3.918216445443734
+        "base_t_plate_mm": 190.0,
+        "bearing_dc": 0.4168369153321902,
+        "gusset_column_weld_dc": 0.8094778586493746,
+        "gusset_h_mm": 850.0,
+        "gusset_loaded_h_mm": 850.0,
+        "gusset_loaded_t_mm": 63.0,
+        "gusset_n_per_side": 6.0,
+        "gusset_n_per_side_y": 6.0,
+        "gusset_plate_weld_dc": 0.4667706875331199,
+        "gusset_t_mm": 63.0,
+        "plate_dc": 0.6046419196247146
       },
       "NPB600X220X154.47": {
         "axial_fraction": 0.0,
-        "collector_N": 225850.7
+        "collector_N": 168138.2
       },
       "WPB180X180X51.22": {
-        "division_moment_per_mm": 9227.171583651136,
-        "division_shear_per_mm": 461.35857918255675
+        "division_moment_per_mm": 9983.306940882363,
+        "division_shear_per_mm": 499.16534704411816
       },
       "WPB220X220X71.47": {
-        "division_moment_per_mm": 68836.95748889804,
-        "division_shear_per_mm": 1147.2826248149674
+        "division_moment_per_mm": 73132.86747502556,
+        "division_shear_per_mm": 1218.8811245837594
       },
       "WPB250X250X73.15": {
         "brace_force_N": 4580520.0,
@@ -1295,16 +1519,16 @@
         "brace_moment_Nmm": 250560000.0
       },
       "WPB340X300X134.16": {
-        "division_moment_per_mm": 31948.024605882358,
-        "division_shear_per_mm": 1277.9209842352943
+        "division_moment_per_mm": 34014.46250588235,
+        "division_shear_per_mm": 1360.578500235294
       },
       "WPB360X370X150.87": {
         "brace_force_N": 9446400.0,
         "brace_moment_Nmm": 394560000.0
       },
       "WPB360X370X197.66": {
-        "division_moment_per_mm": 229243.87236939857,
-        "division_shear_per_mm": 2010.9111611350752
+        "division_moment_per_mm": 247144.25928940106,
+        "division_shear_per_mm": 2167.932099029834
       },
       "WPB400X400X191.11": {
         "brace_force_N": 11955600.0,
@@ -1313,24 +1537,24 @@
       "WPB400X400X239.62": {
         "brace_force_N": 15006000.0,
         "brace_moment_Nmm": 688320000.0,
-        "division_moment_per_mm": 310344.8893422896,
-        "division_shear_per_mm": 2586.2074111857464
+        "division_moment_per_mm": 342334.44707330735,
+        "division_shear_per_mm": 2852.7870589442277
       },
       "WPB600X300X211.92": {
-        "division_moment_per_mm": 98590.48632650435,
-        "division_shear_per_mm": 2075.5891858211444
+        "division_moment_per_mm": 107638.81892853328,
+        "division_shear_per_mm": 2266.0803984954373
       },
       "WPB600X300X285.48": {
-        "division_moment_per_mm": 480183.75292981166,
-        "division_shear_per_mm": 2783.6739300278937
+        "division_moment_per_mm": 534255.2750060064,
+        "division_shear_per_mm": 3097.1320290203266
       },
       "WPB650X300X224.78": {
-        "axial_fraction": 0.9969544032862682,
-        "collector_N": 350768.7
+        "axial_fraction": 0.8417220355981507,
+        "collector_N": 469035.6
       },
       "WPB700X300X240.51": {
         "axial_fraction": 0.0,
-        "collector_N": 501906.1
+        "collector_N": 220431.1
       },
       "WPB800X300X317.36": {
         "brace_force_N": 19876800.0,
@@ -1373,30 +1597,36 @@
     "Main": {
       "NPB300X165X53.46": {
         "axial_fraction": 0.0,
-        "collector_N": 54559.5,
+        "collector_N": 55977.9,
         "joint_moment_Nmm": 257100000.0,
-        "joint_shear_N": 94049.86085189106
+        "joint_shear_N": 97109.86085189105
       },
       "NPB350X170X66.05": {
         "axial_fraction": 0.0,
-        "collector_N": 29053.7,
+        "collector_N": 78592.9,
         "joint_moment_Nmm": 354000000.0,
-        "joint_shear_N": 130536.45708119165
+        "joint_shear_N": 160116.45708119165
       },
       "WPB180X180X28.68": {
         "axial_fraction": 0.0,
-        "collector_N": 7935.8,
+        "collector_N": 11844.5,
         "joint_moment_Nmm": 77400000.0,
-        "joint_shear_N": 30552.22443956217
+        "joint_shear_N": 33702.22443956217
       },
       "WPB260X260X92.99": {
         "anchor_d_mm": 36.0,
-        "anchor_dc": 0.5417726601821605,
+        "anchor_dc": 0.45732525588969186,
         "anchor_n_per_row": 4.0,
-        "anchor_tension_N": 218220.52150881363,
-        "base_B_mm": 600.0,
-        "base_L_mm": 600.0,
+        "anchor_tension_N": 173239.41945507305,
+        "base_B_mm": 650.0,
+        "base_L_mm": 650.0,
         "base_combinations": [
+          {
+            "My_Nmm": 1199164.0,
+            "Mz_Nmm": 361977644.64813566,
+            "P_N": 326758.7,
+            "V_N": 1375563.2595383371
+          },
           {
             "My_Nmm": 53928708.9,
             "Mz_Nmm": 368640000.0,
@@ -1405,17 +1635,23 @@
           }
         ],
         "base_t_plate_mm": 70.0,
-        "bearing_dc": 0.9798629811394852,
-        "plate_dc": 0.7742815569784591
+        "bearing_dc": 0.715803779755474,
+        "plate_dc": 0.8640664100562484
       },
       "WPB300X300X88.34": {
         "anchor_d_mm": 36.0,
-        "anchor_dc": 0.5108428963641871,
+        "anchor_dc": 0.47065106966648185,
         "anchor_n_per_row": 4.0,
-        "anchor_tension_N": 205106.90230700187,
+        "anchor_tension_N": 181150.59867115735,
         "base_B_mm": 700.0,
-        "base_L_mm": 650.0,
+        "base_L_mm": 700.0,
         "base_combinations": [
+          {
+            "My_Nmm": 1570114.8,
+            "Mz_Nmm": 414000000.0,
+            "P_N": 64652.1,
+            "V_N": 1322656.9803253245
+          },
           {
             "My_Nmm": 19493025.4,
             "Mz_Nmm": 414000000.0,
@@ -1424,33 +1660,45 @@
           }
         ],
         "base_t_plate_mm": 70.0,
-        "bearing_dc": 0.7806849527012405,
+        "bearing_dc": 0.6614731879050345,
         "division_moment_per_mm": 0.0,
-        "division_shear_per_mm": 910.3632003897976,
-        "plate_dc": 0.7260244517011875
+        "division_shear_per_mm": 884.7445576255357,
+        "plate_dc": 0.8012799741691264
       },
       "WPB650X300X137.98": {
         "axial_fraction": 0.0,
-        "collector_N": 454160.5,
+        "collector_N": 416943.8,
         "joint_moment_Nmm": 1245000000.0,
-        "joint_shear_N": 504574.1403565891
+        "joint_shear_N": 500374.1403565891
       }
     }
   },
   "7": {
     "Main": {
       "NPB550X210X92.08": {
-        "axial_fraction": 0.9836294395601715,
-        "collector_N": 98365.6
+        "axial_fraction": 0.9836394957086452,
+        "collector_N": 98395.5
+      },
+      "WI1200X550X32X20": {
+        "axial_fraction": 0.0,
+        "collector_N": 402649.3,
+        "joint_moment_Nmm": 7778672640.0,
+        "joint_shear_N": 1700399.887598472
       },
       "WI600X550X36X22": {
         "anchor_d_mm": 36.0,
-        "anchor_dc": 1.223168445652196,
-        "anchor_n_per_row": 8.0,
-        "anchor_tension_N": 575613.2851763583,
-        "base_B_mm": 900.0,
-        "base_L_mm": 950.0,
+        "anchor_dc": 0.5153403716209788,
+        "anchor_n_per_row": 11.0,
+        "anchor_tension_N": 242056.07398490628,
+        "base_B_mm": 1500.0,
+        "base_L_mm": 1550.0,
         "base_combinations": [
+          {
+            "My_Nmm": 159060.7,
+            "Mz_Nmm": 3657747456.0,
+            "P_N": 702388.0,
+            "V_N": 1755883.8266810249
+          },
           {
             "My_Nmm": 443367.6,
             "Mz_Nmm": 3657747456.0,
@@ -1458,22 +1706,16 @@
             "V_N": 1755883.8266810249
           }
         ],
-        "base_t_plate_mm": 63.0,
-        "bearing_dc": 2.220041920548698,
-        "plate_dc": 3.7463503361173727
-      },
-      "WI850X600X22X14": {
-        "axial_fraction": 0.0,
-        "collector_N": 237347.2,
-        "joint_moment_Nmm": 3802557888.0,
-        "joint_shear_N": 831672.6479141222
+        "base_t_plate_mm": 150.0,
+        "bearing_dc": 0.6327444311008139,
+        "plate_dc": 0.8783534925009229
       },
       "WPB360X370X136.21": {
-        "axial_fraction": 0.006060336487673609,
+        "axial_fraction": 0.006216014856164308,
         "collector_N": 8992.9
       },
       "WPB360X370X197.66": {
-        "brace_force_N": 111817.7,
+        "brace_force_N": 177208.0,
         "brace_moment_Nmm": 527040000.0
       }
     }
@@ -1482,31 +1724,40 @@
     "Main": {
       "WI1000X350X40X25": {
         "axial_fraction": 0.0,
-        "collector_N": 204125.4,
+        "collector_N": 245267.7,
         "joint_moment_Nmm": 5394240000.0,
         "joint_shear_N": 1015567.0122788396
       },
       "WI700X700X63X36": {
-        "anchor_d_mm": 36.0,
-        "anchor_dc": 3.520319444084358,
-        "anchor_n_per_row": 4.0,
-        "base_B_mm": 1050.0,
-        "base_L_mm": 1050.0,
+        "anchor_d_mm": 56.0,
+        "anchor_dc": 0.4195155993383476,
+        "anchor_n_per_row": 14.0,
+        "anchor_tension_N": 380969.9185981251,
+        "base_B_mm": 2350.0,
+        "base_L_mm": 2350.0,
         "base_combinations": [
           {
-            "My_Nmm": 2922280.0,
-            "Mz_Nmm": 1286362.7,
-            "P_N": 53534.8,
+            "My_Nmm": 2568657.8,
+            "Mz_Nmm": 11000383732.800001,
+            "P_N": 274805.8,
             "V_N": 12776866.429942634
           }
         ],
-        "base_t_plate_mm": 60.0,
-        "bearing_dc": 0.0039095080300903425,
-        "plate_dc": 0.007840248049421059
+        "base_t_plate_mm": 150.0,
+        "bearing_dc": 0.46350938699715427,
+        "gusset_column_weld_dc": 1.1032582516683425,
+        "gusset_h_mm": 850.0,
+        "gusset_loaded_h_mm": 850.0,
+        "gusset_loaded_t_mm": 63.0,
+        "gusset_n_per_side": 6.0,
+        "gusset_n_per_side_y": 6.0,
+        "gusset_plate_weld_dc": 0.6039386021662818,
+        "gusset_t_mm": 63.0,
+        "plate_dc": 1.7514929870635387
       },
       "WPB500X300X187.34": {
         "axial_fraction": 0.0,
-        "collector_N": 36662.0,
+        "collector_N": 36567.9,
         "joint_moment_Nmm": 1385280000.0,
         "joint_shear_N": 533665.2580913207
       }
@@ -1515,52 +1766,98 @@
   "9": {
     "Main": {
       "MC400": {
-        "axial_fraction": 0.0,
-        "collector_N": 8514.4,
-        "joint_moment_Nmm": 269400000.0,
-        "joint_shear_N": 75504.48430493273
+        "axial_fraction": 0.9911111811880271,
+        "collector_N": 50737.9
       },
       "NPB450X190X92.37": {
-        "axial_fraction": 0.9904498060888661,
-        "collector_N": 70857.2
+        "axial_fraction": 0.9986723638672069,
+        "collector_N": 189660.4
       },
       "WI700X450X32X20": {
         "axial_fraction": 0.0,
-        "collector_N": 221573.8,
+        "collector_N": 387603.2,
         "joint_moment_Nmm": 3352803840.0,
-        "joint_shear_N": 640852.0756004305
+        "joint_shear_N": 721561.8682218962
       },
       "WI850X500X36X22": {
         "anchor_d_mm": 36.0,
-        "anchor_dc": 1.4982399795054229,
-        "anchor_n_per_row": 4.0,
-        "base_B_mm": 850.0,
-        "base_L_mm": 1200.0,
+        "anchor_dc": 0.43583658195166486,
+        "anchor_n_per_row": 16.0,
+        "anchor_tension_N": 203625.36175604432,
+        "base_B_mm": 1900.0,
+        "base_L_mm": 2250.0,
         "base_combinations": [
           {
-            "My_Nmm": 413757.4,
-            "Mz_Nmm": 2456265.1,
-            "P_N": 31636.1,
-            "V_N": 5441788.719052764
+            "My_Nmm": 129825.6,
+            "Mz_Nmm": 6645800515.2,
+            "P_N": 988786.5,
+            "V_N": 2658320.20608
+          },
+          {
+            "My_Nmm": 76479.1,
+            "Mz_Nmm": 6645800515.2,
+            "P_N": 706714.4,
+            "V_N": 2658320.20608
           }
         ],
-        "base_t_plate_mm": 60.0,
-        "bearing_dc": 0.00255109291778803,
-        "plate_dc": 0.005507549249315334
-      },
-      "WI850X600X22X14": {
-        "axial_fraction": 0.0,
-        "collector_N": 444043.7,
-        "joint_moment_Nmm": 3802557888.0,
-        "joint_shear_N": 3537263.151627907
+        "base_t_plate_mm": 180.0,
+        "bearing_dc": 0.4634457806651839,
+        "gusset_column_weld_dc": 0.70313907057897,
+        "gusset_h_mm": 750.0,
+        "gusset_loaded_h_mm": 750.0,
+        "gusset_loaded_t_mm": 63.0,
+        "gusset_n_per_side": 6.0,
+        "gusset_n_per_side_y": 6.0,
+        "gusset_plate_weld_dc": 0.5037197671990662,
+        "gusset_t_mm": 63.0,
+        "plate_dc": 0.889327568538055
       },
       "WPB400X400X191.11": {
         "axial_fraction": 0.0,
         "collector_N": 10993.9
       },
+      "WPB400X400X239.62": {
+        "anchor_d_mm": 36.0,
+        "anchor_dc": 0.6861025690547513,
+        "anchor_n_per_row": 6.0,
+        "anchor_tension_N": 183811.7324226566,
+        "base_B_mm": 950.0,
+        "base_L_mm": 950.0,
+        "base_combinations": [
+          {
+            "My_Nmm": 35737.6,
+            "Mz_Nmm": 122384999.1,
+            "P_N": 561514.3,
+            "V_N": 24477.00108857292
+          },
+          {
+            "My_Nmm": 883344000.0,
+            "Mz_Nmm": 100897043.7,
+            "P_N": 439428.5,
+            "V_N": 3606394.3127544676
+          },
+          {
+            "My_Nmm": 12504.7,
+            "Mz_Nmm": 79732236.2,
+            "P_N": 350890.0,
+            "V_N": 15946.400211960065
+          },
+          {
+            "My_Nmm": 883344000.0,
+            "Mz_Nmm": 58948413.5,
+            "P_N": 345114.4,
+            "V_N": 3606394.3127544676
+          }
+        ],
+        "base_t_plate_mm": 90.0,
+        "bearing_dc": 0.6367629518074578,
+        "plate_dc": 0.831243747740545
+      },
       "WPB800X300X317.36": {
+        "axial_fraction": 0.047293719379929613,
         "brace_force_N": 19876800.0,
-        "brace_moment_Nmm": 555840000.0
+        "brace_moment_Nmm": 555840000.0,
+        "collector_N": 503652.5
       }
     }
   }

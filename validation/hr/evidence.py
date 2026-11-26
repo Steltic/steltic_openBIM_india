@@ -84,6 +84,30 @@ def unit_evidence(cfg,job,unit,case,specs):
         'analysis':{'method':analysis.get('method'),'rsa_used_in_demands':analysis.get('rsa_used_in_demands'),
                     'scale_by_axis':analysis.get('scale')},
         'grounding':source_table(actual,specs),'native_checks':short_checks(package)}
+    if case.number in (11,13,15,16,17,20) and unit.name!='Workshop':
+        out['office_load_basis']={'edition':'IS 875 Part 2:1987','locator':'Table 1(v)(b), printed page 9, PDF page 11',
+            'rooms_without_separate_storage_kNm2':4.0,'adopted_floor_live_kNm2':snapshot['L_floor'],
+            'partition_allowance_kNm2':snapshot['partition_load_kNm2'],
+            'floor_live_seismic_participation':.50 if snapshot['L_floor']>3 else .25,'seismic_locator':'IS 1893 Part 1:2016, Table 10'}
+    if snapshot.get('drainage_basis'):out['drainage_basis']=snapshot['drainage_basis']
+    if snapshot.get('extra_mass_floors'):out['additional_dead_kNm2_by_level']=snapshot['extra_mass_floors']
+    if snapshot.get('secondary_spacing_mm'):
+        out['one_way_load_path']={'global_secondary_axis':snapshot['deck_span'],'secondary_spacing_mm':snapshot['secondary_spacing_mm'],
+              'primary_girder_axis':'Y' if snapshot['deck_span']=='X' else 'X','reference':'Steltic India one_way_trib_mm, actual adjacent floor bays and H13 secondary-strip load distribution.'}
+    if case.number==15:
+        out['full_imposed_check']=read(job/'pune_full_imposed.json')
+        out['additional_dead_kNm2_by_level']=snapshot.get('extra_mass_floors',{})
+    if snapshot.get('seismic_restraint_layout'):
+        layout=snapshot['seismic_restraint_layout'];parts=layout['members']
+        out['seismic_restraints']={'longest_adopted_spacing_mm':layout['spacing_mm'],'count':len(parts),
+            'governing_local_ratio':max((r['force_N']/r['capacity_N'] for r in parts),default=None),
+            'uncovered_beam_tags':layout['unsupported_beam_tags'],'uncovered_column_tags':layout['unsupported_column_tags'],
+            'source_package_sha256':layout['previous_native_package_sha256'],
+            'references':['IS 800:2007 12.11.3.3, PDF page 96','IS 18168:2023 6.2, PDF page 9'],
+            'load_basis':'Steel weight is apportioned to the two real supporting beams at every cross-frame station.'}
+    fabricated=sorted({m['inputs']['section'] for m in package.get('members',[]) if m['inputs']['section'].startswith(('WI','BOX'))})
+    if 6<=case.number<=20 and fabricated:
+        out['fabricated_sections']={'ids':fabricated,'basis':'Independent sizing used fabricated members where the selected rolled families did not pass all trial demands. Confirm substitution and procurement where the brief specifies a rolled family.'}
     status_file=job/'STATUS.engine.md'
     if status_file.is_file():
         matched=re.search(r'(?im)^# .*?design status:\s*(\w+)\s*$',status_file.read_text(encoding='utf-8-sig'))
@@ -105,4 +129,10 @@ def unit_evidence(cfg,job,unit,case,specs):
           'fa_y_hz':gust['Y']['fa_hz'],'gust_base_shear_X_kN':gust['VB_x_kN'],'gust_base_shear_Y_kN':gust['VB_y_kN'],
           'Cfs_X':wind['across_wind']['X']['Cfs']['value'],'Cfs_Y':wind['across_wind']['Y']['Cfs']['value'],
           'assumption':wind['across_wind_basis']}
+        modes=analysis.get('modes') or []
+        if modes:
+            out['wind']['dynamic']['final_frequency_hz']={a:round(1/max(modes,key=lambda m:m.get('mass_'+a,0))['T'],7) for a in ('x','y')}
+            out['wind']['dynamic']['frequency_difference_fraction']={
+                a:round(abs(gust[a.upper()]['fa_hz']/out['wind']['dynamic']['final_frequency_hz'][a]-1),8) for a in ('x','y')}
+        out['wind']['dynamic']['source_package_sha256']=gust.get('frequency_basis')
     return out

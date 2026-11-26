@@ -1,0 +1,250 @@
+[
+  {
+    "id": "Pitched roof 0.0000/-0.0948/0.9955 / WPB650X300X293.39 / 2xCLR200X50X20X3.15",
+    "chain": [
+      "M00095",
+      "J00531-7",
+      "M00286",
+      "TB-M00286-1",
+      "P0001"
+    ],
+    "normal": [
+      0.0,
+      -0.09480909262799544,
+      0.9954954725939522
+    ],
+    "stations_mm": [
+      [
+        40.0,
+        1678.00429,
+        8519.43009
+      ]
+    ],
+    "expected_gaps_mm": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "tolerance_mm": 1.0,
+    "structural_datum": "Original sloping primary workplane",
+    "panel_underside_normal_offset_mm": 566.0,
+    "vertical_plane_offset_mm": 568.561
+  },
+  {
+    "id": "Pitched roof -0.0000/0.0948/0.9955 / WPB650X300X293.39 / 2xCLR200X50X20X3.15",
+    "chain": [
+      "M00098",
+      "J01215-7",
+      "M00988",
+      "TB-M00988-1",
+      "P0020"
+    ],
+    "normal": [
+      -0.0,
+      0.09480909262799544,
+      0.9954954725939522
+    ],
+    "stations_mm": [
+      [
+        40.0,
+        12454.97861,
+        9173.43167
+      ]
+    ],
+    "expected_gaps_mm": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "tolerance_mm": 1.0,
+    "structural_datum": "Original sloping primary workplane",
+    "panel_underside_normal_offset_mm": 566.0,
+    "vertical_plane_offset_mm": 568.561
+  },
+  {
+    "id": "Airlock joist / thermal strip / insulated roof",
+    "chain": [
+      "M01838",
+      "AIR-THERM-M01838-1",
+      "P0081"
+    ],
+    "normal": [
+      -0.03331483023263848,
+      0.0,
+      0.9994449069791543
+    ],
+    "stations_mm": [
+      [
+        -2404.49741,
+        6412.0,
+        3411.7901
+      ]
+    ],
+    "expected_gaps_mm": [
+      0.0,
+      0.0
+    ],
+    "tolerance_mm": 1.0,
+    "structural_datum": "Native top of airlock, 3500 to 3600 mm",
+    "normal_skin_underside_offset_mm": -100
+  },
+  {
+    "id": "Airlock front rim / bevel seat / joist",
+    "chain": [
+      "AIR-FRONT-RIM",
+      "AIR-FRONT-WEDGE-M01838",
+      "M01838"
+    ],
+    "normal": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "stations_mm": [
+      [
+        -2915,
+        6430.0,
+        3134.3011663273533
+      ]
+    ],
+    "expected_gaps_mm": [
+      0.0,
+      0.0
+    ],
+    "tolerance_mm": 1.0,
+    "minimum_seat_mm": 7,
+    "seat_length_mm": 130
+  },
+  {
+    "id": "Airlock back rim / bevel seat / joist",
+    "chain": [
+      "AIR-BACK-RIM",
+      "AIR-BACK-WEDGE-M01838",
+      "M01838"
+    ],
+    "normal": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "stations_mm": [
+      [
+        -15,
+        6430.0,
+        3230.9678329940202
+      ]
+    ],
+    "expected_gaps_mm": [
+      0.0,
+      0.0
+    ],
+    "tolerance_mm": 1.0,
+    "minimum_seat_mm": 7,
+    "seat_length_mm": 130
+  },
+  {
+    "id": "Condenser level beam / load-bearing grating bar",
+    "chain": [
+      "M01863",
+      "P0082"
+    ],
+    "normal": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "stations_mm": [
+      [
+        8050.0,
+        2012,
+        9599.965971951093
+      ]
+    ],
+    "expected_gaps_mm": [
+      0.0
+    ],
+    "tolerance_mm": 1.0,
+    "minimum_clearance_to_roof_top_mm": 600
+  },
+  {
+    "id": "Rafter / machined condenser shoe",
+    "chain": [
+      "M00107",
+      "PLATFORM-BASE-M01861"
+    ],
+    "normal": [
+      0.0,
+      -0.09480909262799543,
+      0.9954954725939521
+    ],
+    "stations_mm": [
+      [
+        8025.0,
+        2025,
+        8528.349177063603
+      ]
+    ],
+    "expected_gaps_mm": [
+      0.0
+    ],
+    "tolerance_mm": 1.0,
+    "structural_datum": "Actual sloping rafter flange",
+    "minimum_wedge_edge_mm": 12
+  },
+  {
+    "id": "Condenser post cap / platform beam",
+    "chain": [
+      "PLATFORM-CAP-M01861-1",
+      "M01863"
+    ],
+    "normal": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "stations_mm": [
+      [
+        8030.0,
+        2012,
+        9337.965971951093
+      ]
+    ],
+    "expected_gaps_mm": [
+      0.0
+    ],
+    "tolerance_mm": 1.0,
+    "plate_thickness_mm": 12
+  },
+  {
+    "id": "Condenser bearing stack",
+    "chain": [
+      "PLATFORM-BASE-M01861",
+      "M01861",
+      "PLATFORM-CAP-M01861-1",
+      "M01863",
+      "P0082"
+    ],
+    "normal": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "stations_mm": [
+      [
+        8123.8,
+        2030,
+        8547.967462777888
+      ]
+    ],
+    "expected_gaps_mm": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "tolerance_mm": 1.0,
+    "minimum_cap_plate_mm": 12
+  }
+]

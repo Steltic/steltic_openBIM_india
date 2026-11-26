@@ -1,0 +1,89 @@
+[
+  {
+    "id": "Mezzanine floor / 2xCLR250X80X25X5 / CLR200X80X25X4",
+    "chain": [
+      "M00081",
+      "M00103",
+      "P0001"
+    ],
+    "normal": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "stations_mm": [
+      [
+        740,
+        712.0,
+        3625.0
+      ]
+    ],
+    "expected_gaps_mm": [
+      0.0,
+      0.0
+    ],
+    "tolerance_mm": 1.0,
+    "structural_datum_mm": 3500.0,
+    "panel_underside_above_datum_mm": 325.0
+  },
+  {
+    "id": "Pitched roof -0.2272/0.0000/0.9738 / 2xCLR250X80X25X5 / CLR180X80X20X3.15",
+    "chain": [
+      "M00004",
+      "J00134-7",
+      "M00198",
+      "P0002"
+    ],
+    "normal": [
+      -0.2272296156064185,
+      0.0,
+      0.9738412097417932
+    ],
+    "stations_mm": [
+      [
+        2956.27453,
+        40.0,
+        7834.58485
+      ]
+    ],
+    "expected_gaps_mm": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "tolerance_mm": 1.0,
+    "structural_datum": "Original sloping primary workplane",
+    "panel_underside_normal_offset_mm": 321.0,
+    "vertical_plane_offset_mm": 329.623
+  },
+  {
+    "id": "Pitched roof 0.2272/-0.0000/0.9738 / 2xCLR250X80X25X5 / CLR180X80X20X3.15",
+    "chain": [
+      "M00005",
+      "J00218-7",
+      "M00240",
+      "P0008"
+    ],
+    "normal": [
+      0.2272296156064185,
+      -0.0,
+      0.9738412097417932
+    ],
+    "stations_mm": [
+      [
+        9020.35329,
+        40.0,
+        7840.03837
+      ]
+    ],
+    "expected_gaps_mm": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "tolerance_mm": 1.0,
+    "structural_datum": "Original sloping primary workplane",
+    "panel_underside_normal_offset_mm": 321.0,
+    "vertical_plane_offset_mm": 329.623
+  }
+]

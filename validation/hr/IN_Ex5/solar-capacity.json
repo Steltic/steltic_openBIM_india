@@ -51,7 +51,7 @@
           "model_consistent": true,
           "model_complete": true
         },
-        "sha256": "5a933668829f2cb9f77d65a5dedac0c457ff83e05c6244f6e9439d71a9cac36f"
+        "sha256": "76ce00a53063774e03e48b14a819005f14a9e3578efba8ceb30c161d8ee3ac30"
       }
     },
     {
@@ -76,7 +76,7 @@
           "model_consistent": true,
           "model_complete": true
         },
-        "sha256": "0678d3edb04f844a1ba908222c6b6665e2b449dd99361fb8e50cad32147ba5ab"
+        "sha256": "f623d8e4e239009ae752588b22613d08b26a07b2b67650067961393b8711bfa4"
       }
     },
     {
@@ -116,16 +116,16 @@
     ]
   ],
   "proposed_failure_count": 160,
+  "physical_member_count": 658,
+  "unquantified_physical_roles": [
+    "door jamb",
+    "door lintel",
+    "roof brace"
+  ],
   "assessment": "Every purlin whose tributary strip intersects an array is conservatively checked at full covered load over the bay.",
   "strengthening_options": [
     "Lighter array and rail system",
     "Supplemental purlins",
     "Engineered reinforcement of existing Z sections and laps"
-  ],
-  "physical_member_count": 618,
-  "unquantified_physical_roles": [
-    "door jamb",
-    "door lintel",
-    "roof brace"
   ]
 }

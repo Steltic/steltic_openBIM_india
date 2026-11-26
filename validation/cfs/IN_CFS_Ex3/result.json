@@ -114,7 +114,9 @@
     "Any proposed in-plane board stiffness and allowable shear require full assembly test evidence. Concrete pedestal and group breakout design must be verified.",
     "Dead loads are preliminary assembly allowances. No imposed-load reduction is used. Primary member self-weight is computed separately by the solver.",
     "Mezzanine posts begin 0.7 m inside the portal lines. A 12 m floor plate spans four 2.65 m bays and two 0.7 m end cantilevers. The native design envelopes 3 m joist spans. The independent foundations retain 50 mm clear between adjacent 650 mm plates.",
-    "Hyderabad paired-channel flanges have positive restraint at maximum 1200 mm along the analytical member. Interior posts have longitudinal rails and end-bay X-bracing. Apply project restraint reactions to the final cladding support and foundations."
+    "Hyderabad paired-channel flanges have positive restraint at maximum 1200 mm along the analytical member. Interior posts have longitudinal rails and end-bay X-bracing. Apply project restraint reactions to the final cladding support and foundations.",
+    "Native levels are analytic structural worklines. Floor joists bear on girder flanges; roof purlins bear through their detailed seats. The issued board or roof skin starts on the upper flange. Supplier floor retention, deck fasteners and the podium deck/slab specification remain project inputs.",
+    "Pitched purlins sit on the modeled seats, with 75 mm workpoint setbacks on both sides of roof folds. Roof surfaces retain the architectural ridge and eave plan coordinates. Supplier flashing, ridge and valley closures, roof and gable transition, screw patterns, waterproofing and tolerances require coordination."
   ],
   "combined_load_sets": 14,
   "cfs_check_groups": [
@@ -1328,7 +1330,8 @@
     },
     "irregularity": null,
     "flexible_diaphragm_run": null,
-    "diaphragm": []
+    "diaphragm": [],
+    "diaphragm_classification": {}
   },
   "physical_layout": {
     "roles": {
@@ -1339,14 +1342,14 @@
       "mezzanine beam": 10,
       "joist": 84,
       "mezzanine-bracing": 8,
-      "purlin": 150,
+      "purlin": 168,
       "eave_strut": 12,
       "girt": 60,
       "roof-bracing": 16,
       "longitudinal-bracing": 8,
       "Centre column restraint rail": 30,
       "Centre column restraint X brace": 24,
-      "Flange fly stay": 280
+      "Flange fly stay": 301
     },
     "panel_roles": {
       "Mezzanine floor": 1,
@@ -1355,9 +1358,9 @@
       "Gable end wall": 8
     },
     "part_counts": {
-      "plate": 818,
-      "bolt": 14063,
-      "weld": 1200
+      "plate": 890,
+      "bolt": 14255,
+      "weld": 1344
     },
     "joint_types": {
       "Column base": 21,
@@ -1365,12 +1368,12 @@
       "Apex gusset": 14,
       "Knee brace terminal": 56,
       "Mezzanine post base": 15,
-      "Purlin cleat": 300,
-      "Fly-stay attachment": 560,
+      "Purlin cleat": 336,
+      "Fly-stay attachment": 602,
       "Back-to-back web stitches": 168
     },
     "panel_openings": 0,
-    "member_workpoint_top_mm": 8400.0,
+    "member_workpoint_top_mm": 8607.45732,
     "declared_roof_planes": [],
     "floor_footprints_m": [
       {
@@ -1730,11 +1733,11 @@
       "source_sha256": "995ffbdc58278286fc00e40caf339d9df00490748407a3ddd12ad1f715a7df7f"
     }
   ],
-  "physical_member_count": 774,
+  "physical_member_count": 813,
   "physical_panel_count": 45,
-  "connection_occurrences": 1155,
+  "connection_occurrences": 1233,
   "profile_count": 6,
-  "handoff_sha256": "f93af017dfdab5cfe6d717100f4eb51088ed7ddba23cccafe95a5b640e6ce99b",
+  "handoff_sha256": "35ef6390ac08ef995f132f2085d2893b9747c58849af3960a2f94197a3f77611",
   "native_files": {
     "design/calc_package_cfs.json": "694637997ce0c86f88e824b0573b4ff2855e497650136609deac6f2f8171769c",
     "cfg_snapshot.json": "ccac325b636e3021c6fad47de43be9a06fadc8b29ce73adcdda74e1bbddeb674",
@@ -1751,5 +1754,23 @@
     "k3": 1,
     "k4": 1.0,
     "Kd": 0.9
-  }
+  },
+  "installed_bearings": {
+    "Mezzanine floor / 2xCLR250X80X25X5 / CLR200X80X25X4": {
+      "samples": 168,
+      "min_panel_underside_offset_mm": 325.0,
+      "max_panel_underside_offset_mm": 325.0
+    },
+    "Pitched roof -0.2272/0.0000/0.9738 / 2xCLR250X80X25X5 / CLR180X80X20X3.15": {
+      "measured_workline_conditions": 168,
+      "min_normal_skin_offset_mm": 321.0,
+      "max_normal_skin_offset_mm": 321.0
+    },
+    "Pitched roof 0.2272/-0.0000/0.9738 / 2xCLR250X80X25X5 / CLR180X80X20X3.15": {
+      "measured_workline_conditions": 168,
+      "min_normal_skin_offset_mm": 321.0,
+      "max_normal_skin_offset_mm": 321.0
+    }
+  },
+  "native_warnings": []
 }

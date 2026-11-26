@@ -17,11 +17,18 @@ def doors(case,u,axis,side):
     if n in (7,8):return intervals(span,2 if axis=='Y' else 1,5500,5000)
     if axis=='Y':
         if n in (1,5):return intervals(span,2,5000,5000)
-        if n==2 and side==1:return intervals(span,20,3000,3500)
-        if n==4 and side==0:return intervals(span,10,3000,3500)
+        if (n==2 and side==1) or (n==4 and side==0):
+            # Lay out dock doors in the actual bays. Uniform spacing over the whole
+            # elevation can put a 3 m door directly through a portal-frame column.
+            bay_width=u.sy*1000
+            # One central opening fits between the Bhiwandi X braces at its
+            # 3.5 m head. Farrukhnagar's shorter braced bays remain solid.
+            allocation=[1,2,2,2,2,1,1,2,2,2,2,1] if n==2 else [0]+[1]*(u.ny-2)+[0]
+            centres=[(bay+(door+.5)/number)*bay_width for bay,number in enumerate(allocation) for door in range(number)]
+            return [(y-1500,y+1500,3500) for y in centres]
     else:
-        if n==2:return intervals(span,2,6000,6000)
-        if n==3:return intervals(span,1,6000,6000)
+        if n==2:return [(17000,23000,6000),(73000,79000,6000)]
+        if n==3:return [(5600,11600,6000)]
         if n==21:return intervals(span,1,4000,4500)
     return []
 
