@@ -23,6 +23,7 @@ def audit(handoff, delivery):
     raw = gzip.decompress(handoff.read_bytes()) if handoff.suffix.lower()==".gz" else handoff.read_bytes()
     source = json.loads(raw)
     hashes = {"handoff.json": hashlib.sha256(raw).hexdigest()}
+    del raw
     counts, findings = Counter(), []
     def expect(passed, check, subject):
         if not passed:
@@ -50,6 +51,7 @@ def audit(handoff, delivery):
             details["declared_design_status"]=register.get("design_status")
             details["separation_joints"]=register.get("separation_joints",[])
             details["interunit_plate_clashes"]=register.get("interunit_plate_clashes",[])
+            details["bolt_plate_fit"]=register.get("bolt_plate_fit",{})
             return audit_pdf(source,paths["drawings.pdf"],register,expect)
         examine("pdf",pdf)
     checks = Counter(r.get("status","review") for r in source.get("checks", []))
@@ -57,12 +59,14 @@ def audit(handoff, delivery):
     ifc=details.get("ifc",{})
     gap_states={x.get("status","review") for x in ifc.get("separation_joints",[])}
     states=set(checks) | gap_states | {source["project"].get("design_status","pass")}
+    states.add(ifc.get("bolt_plate_fit",{}).get("status","review"))
     design = "fail" if "fail" in states or ifc.get("interunit_horizontal_plate_overlaps") else "review" if (
         not checks or "review" in states or not source.get("connections") or unresolved_joints) else "pass"
     if "pdf" in details and ifc:
         expect(details["declared_design_status"]==ifc.get("declared_design_status")==design, "drawing/IFC engineering status",source["project"]["id"])
         expect(details.get("separation_joints")==ifc.get("separation_joints"),"drawing/IFC separation schedule",source["project"]["id"])
         expect(details.get("interunit_plate_clashes")==ifc.get("declared_plate_clashes"),"drawing/IFC clash schedule",source["project"]["id"])
+        expect(details.get("bolt_plate_fit")==ifc.get("bolt_plate_fit"),"drawing/IFC bolt fit schedule",source["project"]["id"])
     return {"certificate_version":"1.0", "project":source["project"]["id"], "artifact_status":"fail" if counts else "pass",
             "design_status":design, "source_check_counts":dict(checks), "located_joints_without_parts":unresolved_joints,
             "scope":"Source-to-output agreement. Design status summarizes supplied checks and outstanding connection geometry. "

@@ -34,7 +34,8 @@ def test_metric_delivery_with_native_taper_and_opening(tmp_path):
     rs=m.by_type("IfcExtrudedAreaSolidTapered")
     assert len(rs)==1
     assert (rs[0].SweptArea.OverallDepth,rs[0].EndSweptArea.OverallDepth)==(450.,300.)
-    assert len(m.by_type("IfcRelVoidsElement"))==1
+    assert len(m.by_type("IfcRelVoidsElement"))==2
+    assert result["readback"]["ifc"]["bolt_plate_fit"]["clear_pairs"]==1
     assert len(m.by_type("IfcRelConnectsElements"))==3
     register=json.loads((output/"drawing_register.json").read_text(encoding="utf8"))
     assert register["design_status"]=="review"
@@ -60,6 +61,20 @@ def test_invalid_handoffs_preserve_output(tmp_path):
     bad["panels"][0]["openings"][0][0][1]=20
     with pytest.raises(ValueError,match="plane"):
         validate(bad)
+
+
+def test_undrilled_anchor_fails_on_paper_and_in_reopened_ifc(tmp_path):
+    data=fixture()
+    data["connections"][0]["parts"][0].pop("openings")
+    handoff=tmp_path/"undrilled.json"
+    handoff.write_text(json.dumps(data),encoding="utf-8")
+    folder=tmp_path/"drawing-set"
+    cert=deliver(handoff,folder)
+    assert cert["artifact_status"]=="pass" and cert["design_status"]=="fail"
+    fit=cert["readback"]["ifc"]["bolt_plate_fit"]
+    assert fit["interferences"][0]["plate"]=="P1" and fit["interferences"][0]["bolt"]=="A1"
+    sheets=json.loads((folder/"drawing_register.json").read_bytes())["sheets"]
+    assert any(s["kind"]=="bolt_fit" for s in sheets)
 
 
 def test_fingerprint_verification(tmp_path):

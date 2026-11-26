@@ -1,12 +1,10 @@
 """Generate and independently audit the numbered India HR/CFS acceptance cases."""
 import argparse
 from concurrent.futures import ProcessPoolExecutor, as_completed
-import gzip
 import hashlib
 import json
 from pathlib import Path
 import re
-from tempfile import TemporaryDirectory
 from brief_controls import run as check_brief
 
 
@@ -20,15 +18,18 @@ def case_id(family, number):
 
 def pipeline_fingerprint():
     digest = hashlib.sha256()
-    for p in sorted((ROOT/"src/steltic_openbim_india").glob("*.py")):
+    package = ROOT/"src/steltic_openbim_india"
+    components = {"delivery","drawings","ifc","model","profiles","composite","geometry","bolt_fit"}
+    for p in sorted(p for p in package.glob("*.py") if p.stem in components or p.stem.startswith("audit")):
         digest.update(p.name.encode())
-        digest.update(p.read_bytes())
+        digest.update(p.read_bytes().replace(b"\r\n",b"\n"))
     return digest.hexdigest()
 
 
 def run_case(family, number, output, pipeline, resume):
     from steltic_openbim_india.delivery import deliver
     from steltic_openbim_india.audit import digest
+    from steltic_openbim_india.model import handoff_digest
     import ifcopenshell
     import pymupdf
     import reportlab
@@ -38,8 +39,7 @@ def run_case(family, number, output, pipeline, resume):
     row = {"id":sid, "module":family.upper(), "number":number, "artifact_status":"fail", "design_status":"unknown"}
     if candidate is None:
         return {**row,"reason":"No frozen design handoff"}
-    raw = gzip.decompress(candidate.read_bytes()) if candidate.suffix==".gz" else candidate.read_bytes()
-    sha = hashlib.sha256(raw).hexdigest()
+    sha = handoff_digest(candidate)
     directory = output/family/sid
     directory.mkdir(parents=True,exist_ok=True)
     version_key = f"{pipeline}/{ifcopenshell.version}/{pymupdf.VersionBind}/{reportlab.Version}"
@@ -54,10 +54,7 @@ def run_case(family, number, output, pipeline, resume):
             ):
                 raise ValueError("A prior revision has changed on disk")
         else:
-            with TemporaryDirectory(dir=directory) as tmp:
-                handoff = Path(tmp)/"handoff.json"
-                handoff.write_bytes(raw)
-                cert = deliver(handoff,delivery)
+            cert = deliver(candidate,delivery)
         row.update(artifact_status=cert["artifact_status"],design_status=cert["design_status"],
                    sheets=cert["readback"].get("pdf",{}).get("sheets",0),
                    members=cert["readback"].get("ifc",{}).get("members",0),

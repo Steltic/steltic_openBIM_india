@@ -1,14 +1,16 @@
 """Create a complete, source-bound delivery in a fresh or empty directory."""
 
 import hashlib
+import gc
 import json
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
 from .drawings import write_drawings
 from .composite import clearances, plate_clashes
+from .bolt_fit import from_source as check_bolts
 from .ifc import write_ifc
-from .model import handoff_bytes, load, verify_source_files
+from .model import handoff_digest, load, verify_source_files
 
 
 def file_digest(file):
@@ -33,31 +35,33 @@ def deliver(handoff, output, *, candidate_only=False, source_root=None):
         raise ValueError(f"Delivery directory must be new or empty: {output}")
     output.parent.mkdir(parents=True, exist_ok=True)
     with TemporaryDirectory(prefix=".steltic-india-", dir=output.parent) as temporary:
-        audit_input=handoff
-        if handoff.suffix.lower()==".gz":
-            audit_input=Path(temporary)/"handoff.json"
-            audit_input.write_bytes(handoff_bytes(handoff))
         stage = Path(temporary) / "delivery"
         stage.mkdir()
         clashes = plate_clashes(data)
         gaps = clearances(data,clashes)
-        register = write_drawings(data, digest, stage / "drawings.pdf",gaps,clashes)
-        write_ifc(data, digest, stage / "model.ifc",gaps,clashes)
+        bolt_fit = check_bolts(data)
+        register = write_drawings(data, digest, stage / "drawings.pdf",gaps,clashes,bolt_fit)
+        write_ifc(data, digest, stage / "model.ifc",gaps,clashes,bolt_fit)
         register["drawings_pdf_sha256"] = file_digest(stage / "drawings.pdf")
         register["model_ifc_sha256"] = file_digest(stage / "model.ifc")
         write_json(stage / "drawing_register.json", register)
+        identity=data["project"]["id"]
+        sheet_count=len(register["sheets"])
+        evidence={"source_evidence":data.get("source_evidence")}
+        del data,register,gaps,clashes,bolt_fit
+        gc.collect()
         if candidate_only:
-            result = {"project_id": data["project"]["id"], "artifact_status": "candidate", "sheets":len(register["sheets"])}
+            result = {"project_id":identity, "artifact_status":"candidate","sheets":sheet_count}
         else:
             from .audit import audit
-            result = audit(audit_input, stage)
+            result = audit(handoff, stage)
             write_json(stage / "certificate.json", result)
         # Fail on input replacement even if the caller only asked for rendering.
-        current=file_digest(handoff) if handoff.suffix.lower()!=".gz" else hashlib.sha256(handoff_bytes(handoff)).hexdigest()
+        current=handoff_digest(handoff)
         if current != digest:
             raise ValueError("Source handoff changed during delivery")
         if source_root is not None:
-            verify_source_files(data,source_root)
+            verify_source_files(evidence,source_root)
         if output.exists():
             output.rmdir()
         stage.rename(output)

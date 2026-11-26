@@ -7,10 +7,12 @@ adapt the exchange conventions of Steltic/steltic_openBIM (c3796b8).
 import json
 import math
 import uuid
+from hashlib import sha256
 from collections import defaultdict
 
 import ifcopenshell
 import ifcopenshell.api.context
+from shapely import set_precision, to_wkb
 
 from .geometry import frame, project, sub
 from .model import at_level, design_status, panel_shape, unit_levels
@@ -32,17 +34,19 @@ def member_class(role):
 
 
 class Exchange:
-    def __init__(self, data, digest, gaps, clashes):
+    def __init__(self, data, digest, gaps, clashes, bolt_fit):
         self.m = ifcopenshell.file(schema="IFC4")
         self.data = data
         self.job = data["project"]
         self.digest = digest
         self.gaps = gaps
         self.clashes = clashes
+        self.bolt_fit = bolt_fit
         self.unit_origins = {u["id"]:u["origin_mm"] for u in data.get("units",[])} or {None:ORIGIN}
         self.levels = {u["id"]:unit_levels(data,u) for u in data.get("units",[])} or {None:data["levels"]}
         self.pts, self.directions, self.properties = {}, {}, {}
         self.profiles, self.bodies, self.axes = {}, {}, {}
+        self.shapes, self.panel_bodies, self.fastener_bodies = {}, {}, {}
         self.used_reps = set()
         self.contained, self.materials = defaultdict(list), defaultdict(list)
         self.storeys, self.elements = {}, {}
@@ -198,14 +202,12 @@ class Exchange:
                                                       RepresentationIdentifier="Axis", RepresentationType="Curve3D", Items=[curve])
         return self.axes[length]
 
-    def product(self, kind, row, role, origin, x=X, z=Z, representations=(), parent=None, container=None, **extra):
-        key = row["id"]
-        uid = row.get("unit") if self.data.get("units") else None
-        group = (uid,at_level(self.data,row,origin[2],self.levels[uid])) if container is None else container
-        storey, base = self.storeys[group]
-        # The assembly can be placed at an arbitrary joint. Its members' coordinates
-        # are supplied in world space, so each part is placed relative to its storey.
-        place = self.placement(sub(origin,base), x, z, storey.ObjectPlacement)
+    def product_shape(self,representations):
+        if not representations:
+            return None
+        token=tuple(r.id() for r in representations)
+        if token in self.shapes:
+            return self.shapes[token]
         assigned = []
         for rep in representations:
             # IFC4 IfcShapeModel.WR11 gives each representation a single owner.
@@ -216,14 +218,24 @@ class Exchange:
                                          RepresentationType=rep.RepresentationType, Items=rep.Items)
             self.used_reps.add(rep.id())
             assigned.append(rep)
-        shape = self.m.create_entity("IfcProductDefinitionShape", Representations=assigned) if assigned else None
+        self.shapes[token] = self.m.create_entity("IfcProductDefinitionShape", Representations=assigned)
+        return self.shapes[token]
+
+    def product(self, kind, row, role, origin, x=X, z=Z, representations=(), parent=None, container=None, **extra):
+        key = row["id"]
+        uid = row.get("unit") if self.data.get("units") else None
+        group = (uid,at_level(self.data,row,origin[2],self.levels[uid])) if container is None else container
+        storey, base = self.storeys[group]
+        place = self.placement(sub(origin,base), x, z, storey.ObjectPlacement)
+        shape = self.product_shape(representations)
         obj = self.root(kind, "product:" + key, Name=key, Tag=key, ObjectType=role, ObjectPlacement=place,
                         Representation=shape, **extra)
         if parent is None:
             self.contained[group].append(obj)
         if "material" in row:
             self.materials[row["material"]].append(obj)
-        self.elements[key] = obj
+        if parent is None:
+            self.elements[key] = obj
         return obj
 
     def source_props(self, row, role, **other):
@@ -242,21 +254,27 @@ class Exchange:
         obj = self.product(member_class(row["role"]), row, row["role"], a, x, z, [self.axis_rep(length), body], container=(uid,level))
         self.props(obj, row["id"], self.source_props(row, row["role"], WorklineLengthMm=length))
 
+    def panel_body(self, shape, depth):
+        signature=sha256(to_wkb(set_precision(shape,1e-7,mode="pointwise"))).digest()
+        key=(signature,float(depth))
+        if key not in self.panel_bodies:
+            label="SECTION-"+signature.hex()[:16]
+            self.panel_bodies[key]=self.sweep(label,[self.area(label,shape)],depth)
+        return self.panel_bodies[key]
+
     def plate(self, row, kind, role, parent=None, level=None):
         basis, shape = panel_shape(row)
         origin, x, _, z = basis
         depth = row["thickness_mm"]
-        area = self.area(row["id"], shape)
-        rep = self.sweep(row["id"], [area], depth)
+        rep = self.panel_body(shape,depth)
         obj = self.product(kind, row, role, origin, x, z, [rep], parent, level)
         self.props(obj, row["id"], self.source_props(row, role, ThicknessMm=depth))
         for i, hole in enumerate(row.get("openings", []), 1):
             oid = f"{row['id']}/opening/{i}"
-            area = self.area(oid, polygon(project(hole, basis)))
-            rep = self.sweep(oid, [area], depth)
+            rep = self.panel_body(polygon(project(hole,basis)),depth)
             opening = self.root("IfcOpeningElement", "opening:" + oid, Name=oid, Tag=oid,
                                 PredefinedType="OPENING", ObjectPlacement=obj.ObjectPlacement,
-                                Representation=self.m.create_entity("IfcProductDefinitionShape", Representations=[rep]))
+                                Representation=self.product_shape([rep]))
             self.root("IfcRelVoidsElement", "void:" + oid, RelatingBuildingElement=obj, RelatedOpeningElement=opening)
         return obj
 
@@ -283,13 +301,19 @@ class Exchange:
                 x, _, z = frame(a, b, part.get("ref_direction"))
                 if kind == "bolt":
                     diameter = float(part["diameter_mm"])
-                    area = self.m.create_entity("IfcCircleProfileDef", ProfileType="AREA", ProfileName=part["id"], Radius=diameter/2)
                     cls, subtype = "IfcMechanicalFastener", "BOLT"
                 else:
                     leg = float(part["leg_mm"])
-                    area = self.area(part["id"], polygon([(0., 0.), (leg, 0.), (0., leg)]))
                     cls, subtype = "IfcFastener", "WELD"
-                rep = self.sweep(part["id"], [area], math.dist(a, b))
+                size=diameter if kind=="bolt" else leg
+                length=math.dist(a,b)
+                shape_key=(kind,size,round(length,7))
+                if shape_key not in self.fastener_bodies:
+                    label=f"{subtype}-{size:g}"
+                    area=(self.m.create_entity("IfcCircleProfileDef",ProfileType="AREA",ProfileName=label,Radius=size/2)
+                          if kind=="bolt" else self.area(label,polygon([(0.,0.),(size,0.),(0.,size)])))
+                    self.fastener_bodies[shape_key]=self.sweep(label,[area],length)
+                rep=self.fastener_bodies[shape_key]
                 p = self.product(cls, part, kind, a, x, z, [rep], obj, level, PredefinedType=subtype)
                 self.props(p, part["id"], self.source_props(part, kind, NominalDiameterMm=part.get("diameter_mm"),
                                                             FilletLegMm=part.get("leg_mm")))
@@ -349,7 +373,8 @@ class Exchange:
         self.grids(site if self.data.get("units") else buildings[0])
         self.props(project, "project", dict(ProjectId=self.job["id"], Module=self.job["module"], Units="mm", SourceSHA256=self.digest,
                                             DesignBasis=self.job.get("design_basis", []), Checks=self.data.get("checks", []),
-                                            Assumptions=self.data.get("assumptions", []), DesignStatus=design_status(self.data,[*self.gaps,*self.clashes]),
+                                            Assumptions=self.data.get("assumptions", []), DesignStatus=design_status(self.data,[*self.gaps,*self.clashes,self.bolt_fit]),
+                                            BoltPlateFit=self.bolt_fit,
                                             UnitsSetout=self.data.get("units",[]), SeparationJoints=self.gaps, InterunitPlateClashes=self.clashes,
                                             SourceEvidence=self.data.get("source_evidence")))
         for row in self.data["members"]:
@@ -373,5 +398,6 @@ class Exchange:
         self.m.write(str(target))
 
 
-def write_ifc(data, digest, target, gaps=(),clashes=()):
-    Exchange(data, digest, gaps,clashes).write(target)
+def write_ifc(data, digest, target, gaps=(),clashes=(),bolt_fit=None):
+    from .bolt_fit import from_source
+    Exchange(data, digest, gaps,clashes,bolt_fit or from_source(data)).write(target)

@@ -86,7 +86,7 @@ def mark_groups(members):
 
 
 class Sheets:
-    def __init__(self, data, digest, target, gaps, clashes):
+    def __init__(self, data, digest, target, gaps, clashes, bolt_fit):
         self.data, self.job, self.digest = data, data["project"], digest
         self.c = Canvas(str(target), pagesize=(W, H), pageCompression=1, invariant=1)
         self.c.setTitle(self.job["name"] + " | Structural drawings")
@@ -97,7 +97,8 @@ class Sheets:
         self.current = ""
         self.gaps = gaps
         self.clashes = clashes
-        self.design_status = design_status(data,[*gaps,*clashes])
+        self.bolt_fit = bolt_fit
+        self.design_status = design_status(data,[*gaps,*clashes,bolt_fit])
         self.shapes = {k:section_polygons(p) for k,p in data["profiles"].items()}
         self.silhouettes = {}
         self.plan_number = self.elevation_number = 0
@@ -213,6 +214,11 @@ class Sheets:
         basis += [(k,f"{v['grade']} / {v['standard']}" + (f" / fy {printed(v['fy_mpa'])} MPa" if "fy_mpa" in v else "")) for k,v in data["materials"].items()]
         basis += [("Assumption",v) for v in data.get("assumptions",[])]
         self.table("G-001","General notes, design basis and materials","basis",[("Item",.20),("Declared basis",.80)],basis)
+        if self.bolt_fit["interferences"]:
+            rows=[(r["connection"],r["bolt"],r["plate"],r["material_penetration_mm"],r["cross_section_overlap_mm2"])
+                  for r in self.bolt_fit["interferences"]]
+            self.table("G-006","Bolt shafts intersecting plate material","bolt_fit",
+                       [("Connection",.22),("Bolt",.22),("Plate",.22),("Radial shortfall (mm)",.17),("Overlap area (mm²)",.17)],rows)
 
     def composite(self):
         units=self.data.get("units",[])
@@ -546,8 +552,10 @@ class Sheets:
         return dict(schema_version="1.0",project_id=self.job["id"],source_sha256=self.digest,
                     sheets=self.sheets,views=self.views,dimensions=self.dimensions,marks=self.marks,
                     member_schedule=self.member_rows,connection_details=self.detail_register,design_status=self.design_status,
-                    units=self.data.get("units",[]),separation_joints=self.gaps,interunit_plate_clashes=self.clashes)
+                    units=self.data.get("units",[]),separation_joints=self.gaps,interunit_plate_clashes=self.clashes,
+                    bolt_plate_fit=self.bolt_fit)
 
 
-def write_drawings(data,digest,target,gaps=(),clashes=()):
-    return Sheets(data,digest,target,gaps,clashes).generate()
+def write_drawings(data,digest,target,gaps=(),clashes=(),bolt_fit=None):
+    from .bolt_fit import from_source
+    return Sheets(data,digest,target,gaps,clashes,bolt_fit or from_source(data)).generate()

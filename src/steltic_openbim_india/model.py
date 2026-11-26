@@ -229,6 +229,15 @@ def handoff_bytes(path):
     return path.read_bytes()
 
 
+def handoff_digest(path):
+    path=Path(path)
+    hashed=hashlib.sha256()
+    with (gzip.open(path,"rb") if path.suffix.lower()==".gz" else path.open("rb")) as source:
+        for block in iter(lambda:source.read(1024*1024),b""):
+            hashed.update(block)
+    return hashed.hexdigest()
+
+
 def load(path):
     raw = handoff_bytes(path)
     try:

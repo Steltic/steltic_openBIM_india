@@ -1,5 +1,7 @@
 """Local Hub interface with immutable, project-scoped revisions."""
 from contextlib import contextmanager
+from contextlib import nullcontext
+import gzip
 from datetime import datetime, timezone
 from hashlib import sha256
 from pathlib import Path
@@ -137,9 +139,17 @@ def download(project: str, key: str, name: str):
 
 def issue_design(project, source, label, job_directory=None):
     with revision(project) as (key, folder):
-        digest = save_upload(source, folder / "handoff.json", 256 * 1024 * 1024)
+        compressed=source.read(2)==b"\x1f\x8b"
+        source.seek(0)
+        stream=gzip.GzipFile(fileobj=source) if compressed else nullcontext(source)
+        try:
+            with stream as raw:
+                digest = save_upload(raw, folder / "handoff.json", 1024**3)
+        except (gzip.BadGzipFile,EOFError) as error:
+            raise HTTPException(422,"The compressed design handoff is incomplete or unreadable.") from error
         verification = ["--source-root", job_directory] if job_directory is not None else []
-        worker("", "deliver", folder / "handoff.json", "--output", folder / "delivery", *verification)
+        worker("", "deliver", folder / "handoff.json", "--output", folder / "delivery", *verification,
+               timeout=int(os.getenv("OPENBIM_DELIVERY_TIMEOUT","7200")))
         # The user can request a candidate even when the engineer left an explicit review item.
         for name in DOWNLOADS["design"] - {"handoff.json"}:
             (folder / "delivery" / name).rename(folder / name)

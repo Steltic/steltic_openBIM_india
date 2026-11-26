@@ -28,7 +28,9 @@ jobs:
           - {module: hr, first: 15, last: 21}
           - {module: cfs, first: 1, last: 5}
           - {module: cfs, first: 6, last: 10}
-          - {module: cfs, first: 11, last: 15}
+          - {module: cfs, first: 11, last: 13}
+          - {module: cfs, first: 14, last: 14}
+          - {module: cfs, first: 15, last: 15}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

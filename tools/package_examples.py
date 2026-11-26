@@ -5,14 +5,23 @@ import gzip
 import hashlib
 import json
 from pathlib import Path
+from shutil import copyfileobj
 from zipfile import ZIP_DEFLATED, ZipFile, ZipInfo
 
 ROOT = Path(__file__).resolve().parents[1]
 FILES = ("drawings.pdf","model.ifc","drawing_register.json","certificate.json")
 
 
-def sha(raw):
-    return hashlib.sha256(raw).hexdigest()
+def hash_stream(stream):
+    hasher=hashlib.sha256()
+    for block in iter(lambda:stream.read(1024*1024),b""):
+        hasher.update(block)
+    return hasher.hexdigest()
+
+
+def file_sha(path):
+    with path.open("rb") as stream:
+        return hash_stream(stream)
 
 
 def record(path):
@@ -21,12 +30,14 @@ def record(path):
 
 def archive(path, entries):
     path.parent.mkdir(parents=True,exist_ok=True)
-    with ZipFile(path,"w") as z:
-        for name,raw in entries:
+    with ZipFile(path,"w",compression=ZIP_DEFLATED,compresslevel=6) as z:
+        for name,source in entries:
             info=ZipInfo(name, date_time=(2000,1,1,0,0,0))
             info.compress_type=ZIP_DEFLATED
             info.external_attr=0o100644 << 16
-            z.writestr(info,raw,compress_type=ZIP_DEFLATED,compresslevel=6)
+            info.file_size=source.stat().st_size
+            with source.open("rb") as src, z.open(info,"w") as dst:
+                copyfileobj(src,dst,length=1024*1024)
     with ZipFile(path) as z:
         if bad:=z.testzip():
             raise ValueError(f"{path.name}: unreadable entry {bad}")
@@ -46,40 +57,50 @@ def package(args):
         family=row["module"].lower()
         base=dest/family/case
         handoff=next(base.glob("handoff.json*"))
-        raw=handoff.read_bytes()
-        raw=gzip.decompress(raw) if handoff.suffix==".gz" else raw
-        if sha(raw)!=row.get("handoff_sha256") or row["artifact_status"]!="pass":
+        source_open=gzip.open if handoff.suffix==".gz" else open
+        with source_open(handoff,"rb") as stream:
+            fingerprint=hash_stream(stream)
+        if fingerprint!=row.get("handoff_sha256") or row["artifact_status"]!="pass" or row.get("brief_geometry",{}).get("status")!="pass":
             raise ValueError(f"{case}: regenerate the changed or failing delivery")
-        source=json.loads(raw)
+        with source_open(handoff,"rt",encoding="utf-8-sig") as stream:
+            source=json.load(stream)
+        name=source["project"]["name"]
+        open_checks=[{"id":r["id"],"status":r["status"],"description":r["description"],"utilization":r.get("utilization")}
+                     for r in source.get("checks",[]) if r["status"]!="pass"]
+        del source
         details=build/row["delivery"]
         cert=record(details/"certificate.json")
-        parts={name:(details/name).read_bytes() for name in FILES}
-        if any(sha(parts[name])!=cert["sha256"][name] for name in FILES if name!="certificate.json"):
+        parts={part:details/part for part in FILES}
+        checksums={part:file_sha(path) for part,path in parts.items()}
+        if any(checksums[part]!=cert["sha256"][part] for part in FILES if part!="certificate.json"):
             raise ValueError(f"{case}: changed artifact bytes")
         comp=[r for r in comparison if r["id"]==case]
-        if not comp or any(r["handoff_sha256"]!=sha(raw) for r in comp):
+        if not comp or any(r["handoff_sha256"]!=fingerprint for r in comp):
             raise ValueError(f"{case}: stale design comparison")
         bundle=dest/"deliveries"/f"{case}.zip"
         archive(bundle,parts.items())
         with ZipFile(bundle) as z:
-            if any(sha(z.read(k))!=sha(v) for k,v in parts.items()):
-                raise ValueError(f"{case}: failed archive readback")
+            for part in FILES:
+                with z.open(part) as stream:
+                    if hash_stream(stream)!=checksums[part]:
+                        raise ValueError(f"{case}: failed archive readback for {part}")
         evidence=base/("evidence.json" if family=="hr" else "result.json")
         ev=record(evidence)
-        if ev["handoff_sha256"]!=sha(raw):
+        if ev["handoff_sha256"]!=fingerprint:
             raise ValueError(f"{case}: stale design evidence")
         native={u["unit"]:u["fresh"]["native_status"] for u in comp}
-        open_checks=[{"id":r["id"],"status":r["status"],"description":r["description"],"utilization":r.get("utilization")}
-                     for r in source.get("checks",[]) if r["status"]!="pass"]
-        cases.append(dict(id=case,module=row["module"],number=row["number"],name=source["project"]["name"],
+        supplements=[p.relative_to(dest).as_posix() for p in sorted(base.glob("*")) if p.is_file() and
+                     p!=evidence and not p.name.startswith("handoff.json")]
+        cases.append(dict(id=case,module=row["module"],number=row["number"],name=name,supplements=supplements,
                           handoff=handoff.relative_to(dest).as_posix(),native_evidence=evidence.relative_to(dest).as_posix(),
                           native=native,coordination=cert["design_status"],artifact=cert["artifact_status"],
                           sheets=row["sheets"],members=row["members"],parts=row["parts"],
                           geometry_controls=row["brief_geometry"],design_check_counts=cert["source_check_counts"],
                           located_joints_without_parts=cert["located_joints_without_parts"],outstanding_checks=open_checks,
                           measured_joints=cert["readback"]["ifc"]["independently_measured_gaps"],
+                          bolt_plate_fit=cert["readback"]["ifc"]["bolt_plate_fit"],
                           pdf_readback=cert["readback"]["pdf"],sha256=cert["sha256"],archive=bundle.relative_to(dest).as_posix(),
-                          archive_sha256=sha(bundle.read_bytes())))
+                          archive_sha256=file_sha(bundle)))
     summary={"cases":cases,"totals":{"cases":len(cases),"sheets":sum(r["sheets"] for r in cases),
              "members":sum(r["members"] for r in cases),"connection_parts":sum(r["parts"] for r in cases),
              "native_units":dict(Counter(s for r in cases for s in r["native"].values())),
@@ -94,7 +115,8 @@ def package(args):
            "| Building | Native decision | Coordination | Brief | Sheets | Members | Files |","| --- | --- | --- | --- | ---: | ---: | --- |"]
     for r in cases:
         states=", ".join((k+" " if len(r["native"])>1 else "")+str(v) for k,v in r["native"].items())
-        lines.append(f"| {r['id']} · {r['name']} | {states} | {r['coordination']} | {r['geometry_controls']['status']} | {r['sheets']} | {r['members']:,} | [PDF and IFC]({r['archive']}) · [Design evidence]({r['native_evidence']}) |")
+        more="".join(f" · [{Path(link).stem}]({link})" for link in r["supplements"])
+        lines.append(f"| {r['id']} · {r['name']} | {states} | {r['coordination']} | {r['geometry_controls']['status']} | {r['sheets']} | {r['members']:,} | [PDF and IFC]({r['archive']}) · [Design evidence]({r['native_evidence']}){more} |")
     lines+=["","## Reproduce the native designs","",
             "Use the India HR and CFS repositories with their documented native solver environments. Install the India openBIM package in each design environment. Supply the local unpacked corpus and licensed PDF directory. A private output directory contains the full native calculations, source report, retrieval excerpts and the bound handoff. The published case evidence contains calculated values, input decisions, clause locators and fingerprints.","",
             "Run from the root of the openBIM checkout. Substitute the indicated directories for your local paths. HR uses the CFS design module for its cold-formed secondary checks. HR 5 uses the fresh HR 1 frame as its existing building. Keep the saved section and connection sizing decisions in the validation directory when reproducing the frozen design.","",
@@ -106,8 +128,11 @@ def package(args):
             "```shell","python tools/check_local_corpus.py --archive CORPUS_ZIP --corpus CORPUS --pdf-dir BIS_PDFS --output corpus-verification.json","```",""]
     (dest/"README.md").write_text("\n".join(lines),encoding="utf-8")
     if args.output:
-        archive(args.output, [(r[key],(dest/r[key]).read_bytes()) for r in cases for key in ("archive","native_evidence","handoff")]+
-                [(name,(dest/name).read_bytes()) for name in ("README.md","acceptance.json","revision-checklist.md","comparison.json","corpus-verification.json")])
+        names=[r[key] for r in cases for key in ("archive","native_evidence","handoff")]
+        names.extend(s for r in cases for s in r["supplements"])
+        names.extend(n for n in ("README.md","acceptance.json","revision-checklist.md","comparison.json","corpus-verification.json",
+                                 "visual-review.json","cfs/engineering-review.md","hr/engineering-review.md") if (dest/n).is_file())
+        archive(args.output,((n,dest/n) for n in names))
     print(json.dumps(summary["totals"]))
 
 

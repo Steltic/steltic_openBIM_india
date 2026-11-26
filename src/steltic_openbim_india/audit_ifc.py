@@ -1,5 +1,6 @@
 """Read the saved STEP file independently of the writer. All distances below are mm."""
 from functools import lru_cache
+from collections import Counter
 import json
 import math
 
@@ -15,6 +16,7 @@ from shapely.ops import unary_union
 from shapely.strtree import STRtree
 
 from .audit_gaps import measure
+from .bolt_fit import assembly as measure_bolts
 
 
 MM_TOL = 0.02
@@ -110,13 +112,14 @@ def audit_ifc(source, path, source_hash, expect):
         expect(json.loads(project_data.get(prop,"null")) == value, "IFC " + prop, "project")
     ids = [o.GlobalId for o in model.by_type("IfcRoot")]
     expect(len(set(ids)) == len(ids), "unique IFC GlobalIds", "project")
+    del ids
     schema_log = ifcopenshell.validate.json_logger()
     ifcopenshell.validate.validate(model, schema_log)
     errors = [x for x in schema_log.statements if x.get("level") == "error"]
     for error in errors:
         expect(False, "IFC schema", str(error.get("attribute") or error.get("type") or "") + " " + str(error.get("message"))[:150])
 
-    @lru_cache(maxsize=None)
+    @lru_cache(maxsize=8192)
     def matrix(place):
         if not place:
             return np.identity(4)
@@ -311,22 +314,25 @@ def audit_ifc(source, path, source_hash, expect):
                 z = [p[2] for p in ring]
                 footprints.setdefault(unit,[]).append((role,projection, min(z), max(z)))
         expect(actual.symmetric_difference(required).area < max(.01,required.length*1e-6) and near(solid.Depth,row["thickness_mm"]), "plate outline, thickness and voids", key)
-        relations = list(getattr(obj,"HasOpenings",()))
-        expect(len(relations)==len(row.get("openings",[])), "hosted opening count",key)
+        relations = tuple(getattr(obj,"HasOpenings",()))
+        openings = {e.Name:e for e in (r.RelatedOpeningElement for r in relations)}
+        expect(len(relations)==len(openings)==len(row.get("openings",[])), "hosted opening count",key)
         for index, opening in enumerate(row.get("openings",[]),1):
-            matches = [rel.RelatedOpeningElement for rel in relations if rel.RelatedOpeningElement.Name==f"{key}/opening/{index}"]
-            if not matches:
+            occurrence = openings.get(f"{key}/opening/{index}")
+            if occurrence is None:
                 expect(False, "opening identity", key)
                 continue
-            occurrence = matches[0]
             item = occurrence.Representation.Representations[0].Items[0]
             hole_matrix = matrix(occurrence.ObjectPlacement) @ placement.get_axis2placement(item.Position)
             boundary = [world(inv,world(hole_matrix,pt.Coordinates))[:2] for pt in item.SweptArea.OuterCurve.Points]
             expect(Polygon(boundary).symmetric_difference(Polygon(local(opening))).area < max(.01,required.length*1e-6) and near(item.Depth,row["thickness_mm"]), "opening body and location",key)
+        return mat[:3,3],mat[:3,:3].T,actual,solid.Depth
 
     for panel in source.get("panels",[]):
         check_panel(panel, building_surface=True)
     horizontal_plates=[]
+    fit_counts=Counter()
+    fit_issues=[]
     for c in source.get("connections",[]):
         key = c["id"]
         read = read_product(c)
@@ -336,9 +342,12 @@ def audit_ifc(source, path, source_hash, expect):
         expect(obj.is_a("IfcElementAssembly") and near(matrix(obj.ObjectPlacement)[:3,3],c["at"]), "connection workpoint",key)
         expect({r.RelatingElement.Tag for r in obj.ConnectedFrom} == set(c["members"]), "connection receiver identities",key)
         expect({p.Tag for p in element.get_parts(obj)} == {p["id"] for p in c.get("parts",[])}, "connection part ownership",key)
+        plates,bolts=[],[]
         for part in c.get("parts",[]):
             if part["kind"] == "plate":
-                check_panel(part)
+                frame=check_panel(part)
+                if frame is not None:
+                    plates.append((part["id"],frame))
                 if len(declared_units)>1 and part["id"] in products:
                     plate=products[part["id"]]
                     solid=plate.Representation.Representations[0].Items[0]
@@ -358,12 +367,17 @@ def audit_ifc(source, path, source_hash, expect):
                 continue
             product, _, body = part_read
             solid = body.Items[0]
-            sweep(solid,product,part,part["id"])
+            trans=sweep(solid,product,part,part["id"])
             if part["kind"] == "bolt":
                 expect(near(solid.SweptArea.Radius*2,part["diameter_mm"]), "bolt diameter",part["id"])
+                tip=world(trans,np.array(solid.ExtrudedDirection.DirectionRatios)*solid.Depth)
+                bolts.append((product.Tag,trans[:3,3],tip,solid.SweptArea.Radius*2))
             else:
                 expected = Polygon([(0,0),(part["leg_mm"],0),(0,part["leg_mm"])])
                 expect(areas(solid.SweptArea).symmetric_difference(expected).area < .01, "fillet weld size",part["id"])
+        hits,errors_fit=measure_bolts(plates,bolts)
+        fit_counts.update(hits)
+        fit_issues.extend(dict(connection=key,**issue) for issue in errors_fit)
     overlaps=[]
     if horizontal_plates:
         tree=STRtree([p[2] for p in horizontal_plates])
@@ -380,6 +394,10 @@ def audit_ifc(source, path, source_hash, expect):
                         overlaps.append({"units":[unit,other],"plates":[key,tag],"volume_mm3":round(volume,3),
                                          "xy_bounds_mm":list(overlap.bounds),"overlap_depth_mm":round(thickness,4)})
     declared_clashes = json.loads(project_data.get("InterunitPlateClashes","[]"))
+    measured_fit={"status":"fail" if fit_issues else "pass","shaft_plate_pairs":fit_counts["shaft_plate_pairs"],
+                  "clear_pairs":fit_counts["clear_pairs"],"interferences":fit_issues}
+    declared_fit=json.loads(project_data.get("BoltPlateFit","{}"))
+    expect(measured_fit==declared_fit,"bolt and plate interference readback","project")
     declared_volumes = {tuple(sorted(r["occurrences"])):r["overlap_volume_mm3"] for r in declared_clashes}
     horizontal_ids = {r[1] for r in horizontal_plates}
     measured_volumes = {tuple(sorted(r["plates"])):r["volume_mm3"] for r in overlaps}
@@ -408,4 +426,4 @@ def audit_ifc(source, path, source_hash, expect):
                 tessellated_representations=len(cached_shapes), occurrence_placements=len(entities), schema_errors=len(errors),
                 interunit_horizontal_plate_overlaps=overlaps, declared_design_status=project_data.get("DesignStatus"),
                 separation_joints=gaps, independently_measured_gaps=measure(gaps,unit_solids,expect), declared_plate_clashes=declared_clashes,
-                building_geometry=dimensions)
+                building_geometry=dimensions,bolt_plate_fit=measured_fit)
