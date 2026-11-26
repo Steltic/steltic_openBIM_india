@@ -107,7 +107,8 @@
     "Physical framing uses nominal analytic workpoints and untrimmed member ends. Panels follow structural control planes. Coordinate finish buildups, offsets, coping and weld preparations in fabrication details.",
     "The native design gate and governing member checks travel with this model. Review open primary-frame, concrete, diaphragm and fastening checks before design acceptance.",
     "Any proposed in-plane board stiffness and allowable shear require full assembly test evidence. Concrete pedestal and group breakout design must be verified.",
-    "Dead loads are preliminary assembly allowances. No imposed-load reduction is used. Primary member self-weight is computed separately by the solver."
+    "Dead loads are preliminary assembly allowances. No imposed-load reduction is used. Primary member self-weight is computed separately by the solver.",
+    "Native levels are analytic structural worklines. Floor joists bear on girder flanges; roof purlins bear through their detailed seats. The issued board or roof skin starts on the upper flange. Supplier floor retention, deck fasteners and the podium deck/slab specification remain project inputs."
   ],
   "combined_load_sets": 26,
   "cfs_check_groups": [
@@ -2433,7 +2434,7 @@
       "Purlin cleat": 88
     },
     "panel_openings": 0,
-    "member_workpoint_top_mm": 15000.0,
+    "member_workpoint_top_mm": 15345.0,
     "declared_roof_planes": [],
     "floor_footprints_m": [
       {
@@ -2868,7 +2869,7 @@
   "physical_panel_count": 130,
   "connection_occurrences": 658,
   "profile_count": 6,
-  "handoff_sha256": "b3c4703227e78b95769042ade13abbed778b5b400cbf758ebb668b0bf7b6a240",
+  "handoff_sha256": "b4cb606ba80e4d0828861cec67e36ce3b8cecb9b79297f287f57fad39c417e8e",
   "native_files": {
     "design/calc_package_cfs.json": "26f5733b3e6a96d6944bafae8f8846e7048cba09745127be49a7a68fced62097",
     "cfg_snapshot.json": "2bd023344e7129bf66964f791b2d4ceb757c08aa17e0b4d71a7928f8a96bd55d",
@@ -2914,5 +2915,17 @@
     },
     "VB_x_kN": 133.64024707866793,
     "VB_y_kN": 327.1881935072299
+  },
+  "installed_bearings": {
+    "Floor / WPB400X300X155.26 / CLR200X50X20X3.15": {
+      "samples": 1464,
+      "min_panel_underside_offset_mm": 400.0,
+      "max_panel_underside_offset_mm": 400.0
+    },
+    "Roof / WPB400X300X155.26 / CLR250X80X25X4": {
+      "samples": 88,
+      "min_panel_underside_offset_mm": 470.0,
+      "max_panel_underside_offset_mm": 470.0
+    }
   }
 }

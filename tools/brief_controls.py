@@ -25,34 +25,80 @@ CFS = {
 }
 
 
-def portal_measurements(path):
-    """Measure primary steel separately from the outer roof on five portal briefs."""
-    import ifcopenshell
+def installed_measurements(model, *, floor_areas=False):
+    """Measure structural worklines, soffits and actual cover panels on each reopened building."""
     import ifcopenshell.geom
     import ifcopenshell.util.placement as placement
     import numpy as np
-    model=ifcopenshell.open(str(path))
+    from shapely.geometry import Polygon
+    from shapely.ops import unary_union
     settings=ifcopenshell.geom.settings()
     meshes={}
-    peak=[]
-    undersides={"rafter":[],"canopy":[]}
-    for obj in model.by_type("IfcBuildingElement"):
-        role=(obj.ObjectType or "").lower()
-        if role not in ("rafter","gable rafter","canopy"):
-            continue
-        reps={r.RepresentationIdentifier:r for r in obj.Representation.Representations}
-        mat=placement.get_local_placement(obj.ObjectPlacement)
-        if role!="canopy" and "Axis" in reps:
-            peak.extend(float((mat@[*p.Coordinates,1.])[2]) for p in reps["Axis"].Items[0].Points)
-        body=reps["Body"]
-        if body.id() not in meshes:
-            geometry=ifcopenshell.geom.create_shape(settings,body)
-            meshes[body.id()]=np.asarray(geometry.verts).reshape(-1,3)*1000.
-        z=meshes[body.id()]@mat[2,:3]+mat[2,3]
-        undersides["canopy" if role=="canopy" else "rafter"].append(float(z.min()))
-    return {"primary_rafter_axis_apex_mm":max(peak) if peak else None,
-            "minimum_rafter_soffit_mm":min(undersides["rafter"]) if undersides["rafter"] else None,
-            "minimum_canopy_beam_soffit_mm":min(undersides["canopy"]) if undersides["canopy"] else None}
+    buildings=model.by_type("IfcBuilding")
+    measured={}
+    member_roles={"column","beam","truss top chord","rafter","gable rafter","canopy"}
+    cover_roles={"roof sheeting", "rooflight", "pv array"}
+    for building in buildings:
+        key=building.Name if len(buildings)>1 else "Main"
+        tops=[]
+        ridge=[]
+        undersides={"rafter":[],"canopy":[]}
+        surfaces={k:[] for k in cover_roles}
+        elevations=[]
+        floors={}
+        floor_heights={}
+        storeys=[s for r in building.IsDecomposedBy for s in r.RelatedObjects if s.is_a("IfcBuildingStorey")]
+        for storey in storeys:
+            for obj in (o for r in storey.ContainsElements for o in r.RelatedElements):
+                role=(obj.ObjectType or "").lower()
+                roof_panel=obj.is_a("IfcRoof") or (obj.is_a("IfcSlab") and ("roof" in role or role=="amenity deck"))
+                floor_panel=floor_areas and obj.is_a("IfcSlab") and "floor" in role
+                if (role not in member_roles|cover_roles and not roof_panel and not floor_panel) or not obj.Representation:
+                    continue
+                reps={r.RepresentationIdentifier:r for r in obj.Representation.Representations}
+                mat=placement.get_local_placement(obj.ObjectPlacement)
+                if "Axis" in reps and role!="canopy":
+                    z=[float((mat@[*p.Coordinates,1.])[2]) for p in reps["Axis"].Items[0].Points]
+                    tops.extend(z)
+                    if role in ("rafter","gable rafter"):
+                        ridge.extend(z)
+                if role in cover_roles or roof_panel or floor_panel:
+                    for item in reps["Body"].Items:
+                        transform=mat@placement.get_axis2placement(item.Position)
+                        def ring(curve):
+                            return np.asarray([(transform@[*p.Coordinates,0.,1.])[:3] for p in curve.Points])
+                        area=item.SweptArea
+                        exterior=ring(area.OuterCurve)
+                        holes=[ring(r)[:,:2] for r in getattr(area,"InnerCurves",())]
+                        footprint=Polygon(exterior[:,:2],holes)
+                        dz=float(transform[2,:3]@item.ExtrudedDirection.DirectionRatios)*item.Depth
+                        limits=[float(exterior[:,2].min()+min(0,dz)),float(exterior[:,2].max()+max(0,dz))]
+                        if role in surfaces:
+                            surfaces[role].append(footprint)
+                        if roof_panel:
+                            elevations.extend(limits)
+                        if floor_panel:
+                            datum=str(round(storey.Elevation))
+                            floors.setdefault(datum,[]).append(footprint)
+                            floor_heights.setdefault(datum,[]).extend(limits)
+                if role not in ("rafter","gable rafter","canopy"):
+                    continue
+                body=reps["Body"]
+                if body.id() not in meshes:
+                    geometry=ifcopenshell.geom.create_shape(settings,body)
+                    meshes[body.id()]=np.asarray(geometry.verts).reshape(-1,3)*1000.
+                z=meshes[body.id()]@mat[2,:3]+mat[2,3]
+                undersides["canopy" if role=="canopy" else "rafter"].append(float(z.min()))
+        areas={k:unary_union(shapes) for k,shapes in surfaces.items()}
+        measured[key]={"primary_axis_top_mm":max(tops,default=None),"primary_rafter_axis_apex_mm":max(ridge,default=None),
+            "minimum_rafter_soffit_mm":min(undersides["rafter"],default=None),
+            "minimum_canopy_beam_soffit_mm":min(undersides["canopy"],default=None),
+            "outer_roof_z_range_mm":[min(elevations),max(elevations)] if elevations else None,
+            "rooflight_plan_m2":areas["rooflight"].area/1e6, "solar_plan_m2":areas["pv array"].area/1e6,
+            "solar_over_rooflight_m2":areas["pv array"].intersection(areas["rooflight"]).area/1e6,
+            "floor_net_plan_m2_by_storey_datum_mm":{k:unary_union(polys).area/1e6 for k,polys in floors.items()},
+            "floor_panel_z_ranges_by_storey_datum_mm":{k:[min(z),max(z)] for k,z in floor_heights.items()}}
+    return measured
 
 
 def run(family, number, measurements):
@@ -69,17 +115,22 @@ def run(family, number, measurements):
         spans = model.get("column_spans_mm",[])
         for axis,name,target in [(0,"column span X (m)",width),(1,"column span Y (m)",length)]:
             check(unit,name,spans[axis]/1000 if spans else None,target)
-        portal=family=="hr" and number<=5
-        maximum=model.get("primary_rafter_axis_apex_mm" if portal else "maximum_steel_workline_z_mm")
-        check(unit,"primary rafter ridge workline (m)" if portal else "upper steel datum (m)",maximum/1000 if maximum is not None else None,top)
+        portal=family=="hr" and number in (1,2,3,4,5,7,8,9)
+        datum="primary_rafter_axis_apex_mm" if portal else "primary_axis_top_mm"
+        maximum=model.get(datum)
+        check(unit,"primary rafter ridge workline (m)" if portal else "upper structural workline (m)",maximum/1000 if maximum is not None else None,top)
         if family=="hr" and number==2:
             check(unit,"minimum clear height under main rafters (mm)",model.get("minimum_rafter_soffit_mm"),(12000,13000),.1)
             check(unit,"minimum clear height under dock canopy steel (mm)",model.get("minimum_canopy_beam_soffit_mm"),(5500,6000),.1)
         check(unit,"union of roof projections (m²)",model.get("roof_plan_union_m2"),area,.1)
+        if family=="hr" and number in (1,2,4,5):
+            check(unit,"daylight sheets, 3% of plan (m²)",model.get("rooflight_plan_m2"),.03*area,.1)
+        if family=="hr" and number==5:
+            check(unit,"PV fields, 75% of plan (m²)",model.get("solar_plan_m2"),.75*area,.1)
         if (family=="hr" and number in (1,2,3,4,5,7,8,9,10,21)) or (family=="cfs" and number in (1,2,3,8,9,11)):
             check(unit,"pitched roof faces",model.get("pitched_roof_panels"),(1,10**6),0)
         if family=="cfs" and number==6:
-            check(unit,"south walkout diaphragm at +3.0 m (m²)",model.get("floor_net_plan_m2_by_elevation_mm",{}).get("3000"),388.5,.1)
+            check(unit,"south walkout diaphragm, +3.0 m structural level (m²)",model.get("floor_net_plan_m2_by_storey_datum_mm",{}).get("3000"),388.5,.1)
         if family=="cfs" and number==11:
             check(unit,"accessible west amenity deck (m²)",model.get("flat_roof_plan_union_m2"),513,.1)
             check(unit,"north gabled wing (m²)",model.get("pitched_roof_plan_union_m2"),1045,.1)
@@ -88,11 +139,12 @@ def run(family, number, measurements):
             for station,target in (("0.125",46),("0.5",8),("0.875",46)):
                 check(unit,f"wing or connecting corridor width at y/H={station} (m)",sections.get(station,{}).get("total_m"),target)
         if family=="cfs" and number==14:
-            floors=model.get("floor_net_plan_m2_by_elevation_mm",{})
+            floors=model.get("floor_net_plan_m2_by_storey_datum_mm",{})
             check(unit,"full podium floor at +4.0 m (m²)",floors.get("4000"),2560,.1)
             upper=floors.get("11000")
             check(unit,"upper U floor and north courtyard at +11.0 m (m²)",upper,(900,2500),.1)
             sections=model.get("roof_transverse_sections_by_y_fraction",{})
             check(unit,"continuous south bar",sections.get("0.125",{}).get("segments"),1,0)
             check(unit,"two wings enclosing the north courtyard",sections.get("0.875",{}).get("segments"),2,0)
-    return {"status":"pass" if all(r["pass"] for r in records) else "fail","controls":records}
+    observations={u:{k:v for k,v in r.items() if k in ("outer_roof_z_range_mm","minimum_rafter_soffit_mm","solar_over_rooflight_m2","floor_panel_z_ranges_by_storey_datum_mm") and v is not None and v!={}} for u,r in measurements.items()}
+    return {"status":"pass" if all(r["pass"] for r in records) else "fail","controls":records,"observations":observations}

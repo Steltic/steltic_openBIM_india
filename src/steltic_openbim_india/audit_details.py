@@ -28,12 +28,32 @@ def ends(part):
     yield a+offsets, b+offsets
 
 
-def check_detail(connection, detail, strokes, expect):
+def check_detail(connection, detail, strokes, expect, members):
     parts = connection.get("parts",[])
     expect(detail["part_ids"] == [p["id"] for p in parts], "drawn part inventory",connection["id"])
     projections = detail.get("projections",[])
     expect({tuple(p["axes"]) for p in projections} == {(0,1),(0,2),(1,2)}, "orthogonal detail projections",detail["sheet"])
     traced = 0
+    if parts:
+        for view in projections:
+            axes=view['axes'];scale=view['points_per_mm'];origin=np.array(view['origin_pt'])
+            limits=view.get('receiver_clip_pt',[])
+            expect(len(limits)==4,"receiver projection bounds",detail['sheet'])
+            if len(limits)!=4:continue
+            for key in connection['members']:
+                row=members[key]
+                a,b=[np.asarray(p)[axes]*scale+origin for p in (row['start'],row['end'])]
+                v=b-a;lo,hi=0.,1.
+                # Clip the independently projected workline to the printed viewport.
+                for i in (0,1):
+                    if abs(v[i])<1e-10:
+                        if not limits[i]-.001<=a[i]<=limits[i+2]+.001:hi=-1.
+                    else:
+                        t,u=sorted(((limits[i]-a[i])/v[i],(limits[i+2]-a[i])/v[i]))
+                        lo=max(lo,t);hi=min(hi,u)
+                if hi>lo and np.linalg.norm(v)*(hi-lo)>.025:
+                    traced+=1
+                    expect(strokes.has(a+lo*v,a+hi*v),"printed connected member workline",f"{detail['sheet']} / {key}")
     for part in parts:
         for a,b in ends(part):
             for view in projections:

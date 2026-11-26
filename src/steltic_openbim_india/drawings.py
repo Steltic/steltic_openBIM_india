@@ -13,6 +13,7 @@ from reportlab.lib.pagesizes import A1, landscape
 from reportlab.pdfbase.pdfmetrics import stringWidth
 from reportlab.pdfgen.canvas import Canvas
 from shapely.geometry import MultiPoint
+from shapely.geometry import LineString, box
 
 from .geometry import dot, frame, member_body_ends, plane, sub
 from .model import design_status, unit_levels
@@ -198,7 +199,7 @@ class Sheets:
         data = self.data
         checks = Counter(c["status"] for c in data.get("checks",[]))
         open_joints = sum(not c.get("parts") for c in data.get("connections",[]))
-        basis = [("Drawing scope", "Located member worklines, sections, storeys, grids and fabrication details explicitly supplied by the design producer. Member lengths in the schedules are workline lengths."),
+        basis = [("Drawing scope", "Dimensioned member worklines, sections, storeys, grids and connection details. The member schedule gives workline lengths. The stock preparation schedule gives end cutbacks and physical cut lengths when specified."),
                  ("Geometry",f"{len(data['members'])} members / {len(data.get('panels',[]))} panels / {len(data.get('connections',[]))} located connections. {open_joints} connection specifications await physical part geometry."),
                  ("Reported design checks",f"{checks['pass']} pass / {checks['review']} review / {checks['fail']} fail. See K-series for the calculation records and G-series assumptions."),
                  ("Drawing series","S - framing plans and frame elevations. M - member and section schedules. P - cross sections. A - panels and openings. C and D - connection schedules and details. K - reported design checks."),
@@ -280,7 +281,7 @@ class Sheets:
             label=joint['id']+(f"  /  {printed(round(clear,2))} mm clear" if clear is not None else '')
             leader(point,label,123,INK)
 
-    def physical_outline(self,m,axes,tr,scale):
+    def physical_outline(self,m,axes,tr,scale,color=MUTED):
         """Projected outside envelope; end-on sections retain their open folds and bores."""
         a,b=member_body_ends(m)
         x,y,z=frame(a,b,m.get("ref_direction"))
@@ -302,7 +303,7 @@ class Sheets:
         origin=tr(a)
         for ring in self.silhouettes[key]:
             paper=[(origin[0]+u*scale,origin[1]+v*scale) for u,v in ring]
-            self.polyline(paper,MUTED,.45)
+            self.polyline(paper,color,.45)
 
     def view(self, number, title, kind, axes, members, panels, datums, **identity):
         pts = [tuple(p[i] for i in axes) for m in members for p in (m["start"],m["end"])]
@@ -561,7 +562,7 @@ class Sheets:
         texts=[selected,'Connected members  /  '+', '.join(c['members'])]
         if parameters:texts.append('Selected dimensions and properties  /  '+'   ·   '.join(parameters))
         if parts:texts.append('Drawn parts  /  '+', '.join(f'{n} {kind}'+('s' if n!=1 else '') for kind,n in sorted(printed_parts.items()))+
-                              f'.  See {number}-P for the part schedule. The red cross shows the design workpoint.')
+                              f'.  See {number}-P for the part schedule. Pale outlines show this occurrence\'s receiving steel. The red cross marks its workpoint.')
         for txt in texts:
             for line in wrap(txt,W-145,14):
                 self.text(73,y,line,14); y-=20
@@ -603,9 +604,27 @@ class Sheets:
             envelope=bounds(pts) if pts else None
             pts.append((c["at"][k],c["at"][l]))
             ranges=bounds(pts); x=83+j*(W-135)/3
-            den,s,off=fit(ranges,(x+40,395,(W-300)/3,740))
-            detail["projections"].append(dict(axes=axes,origin_pt=off,points_per_mm=s))
+            viewport=(x+40,395,(W-300)/3,740)
+            den,s,off=fit(ranges,viewport)
+            projection=dict(axes=axes,origin_pt=off,points_per_mm=s)
+            detail["projections"].append(projection)
             def tr(p): return [off[0]+p[k]*s,off[1]+p[l]*s]
+            if parts:
+                left,bottom,width,height=viewport
+                limits=(left,bottom,left+width,bottom+height)
+                projection["receiver_clip_pt"]=limits
+                boundary=box(*limits)
+                self.c.saveState()
+                path=self.c.beginPath();path.rect(*viewport);self.c.clipPath(path,stroke=0,fill=0)
+                for key in c["members"]:
+                    member=self.members[key]
+                    self.physical_outline(member,axes,tr,s,LIGHT)
+                    a,b=tr(member["start"]),tr(member["end"])
+                    if math.dist(a,b)>.02:
+                        axis=LineString([a,b]).intersection(boundary)
+                        if axis.geom_type=="LineString" and axis.length>.02:
+                            self.line(axis.coords[0],axis.coords[-1],LIGHT,.45,dash=(5,3))
+                self.c.restoreState()
             for ring,closed in outlines:
                 xy=[tr(p) for p in ring]
                 if closed:self.polyline(xy,INK,.8)

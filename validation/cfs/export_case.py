@@ -57,6 +57,10 @@ def export(b,engine,job,target):
     cfg=json.loads((job/"independent-input.json").read_text(encoding="utf-8"))
     package=json.loads((job/"design/calc_package_cfs.json").read_text(encoding="utf-8"))
     layout=Layout(b,cfg,package).complete(job)
+    samples=[];bearing={}
+    if b.number in (5,6,7,10,12,13,14,15):
+        from bearings import install_flat
+        samples,bearing=install_flat(layout,package)
     handoff=write_handoff(job,layout)
     raw=handoff.read_bytes()
     model=json.loads(raw)
@@ -115,6 +119,9 @@ def export(b,engine,job,target):
         extra=cfg["lateral_frame"]["hr_cfg_extra"]
         summary["gravity_by_level_kNm2"]={k:{"permanent":extra["D_by_level"][k],"imposed":extra["L_by_level"][k]} for k in extra["D_by_level"]}
     add_lateral_evidence(summary,package,job)
+    if samples:
+        dump(target/"bearing-samples.json",samples)
+        summary["installed_bearings"]=bearing
     dump(target/"result.json",summary)
     print(cfg["name"],status["status"],len(model["members"]),"members",summary["handoff_sha256"][:12],flush=True)
 

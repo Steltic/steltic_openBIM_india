@@ -1,0 +1,83 @@
+[
+  {
+    "id": "Floor / WPB600X300X285.48 / CLR200X50X20X3.15",
+    "chain": [
+      "M01070",
+      "M02340",
+      "P0129"
+    ],
+    "normal": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "stations_mm": [
+      [
+        12.0,
+        40.0,
+        11310.0
+      ]
+    ],
+    "expected_gaps_mm": [
+      0.0,
+      0.0
+    ],
+    "tolerance_mm": 1.0,
+    "structural_datum_mm": 11000,
+    "panel_underside_above_datum_mm": 510.0
+  },
+  {
+    "id": "Roof / WPB600X300X285.48 / 2xCLR250X80X25X4",
+    "chain": [
+      "M02134",
+      "J03806-7",
+      "M08332",
+      "P0465"
+    ],
+    "normal": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "stations_mm": [
+      [
+        40.0,
+        12.0,
+        23310.0
+      ]
+    ],
+    "expected_gaps_mm": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "tolerance_mm": 1.0,
+    "structural_datum_mm": 23000,
+    "panel_underside_above_datum_mm": 580.0
+  },
+  {
+    "id": "Podium floor / WPB600X300X285.48",
+    "chain": [
+      "M00478",
+      "P0001"
+    ],
+    "normal": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "stations_mm": [
+      [
+        4000.0,
+        10.0,
+        4310.0
+      ]
+    ],
+    "expected_gaps_mm": [
+      0.0
+    ],
+    "tolerance_mm": 1.0,
+    "structural_datum_mm": 4000,
+    "panel_underside_above_datum_mm": 310.0
+  }
+]

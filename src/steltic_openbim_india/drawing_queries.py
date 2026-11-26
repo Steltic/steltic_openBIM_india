@@ -7,6 +7,8 @@ def register(data, answers):
                 for row in data.get("checks", []) if row["status"] != "pass"]
     requests.extend({"id": "connection/" + row["id"], "description": row["type"], "status": "detail pending"}
                     for row in data.get("connections", []) if not row.get("parts"))
+    requests.extend({"id": f"assumption/{n}", "description": text, "status": "declared assumption"}
+                    for n,text in enumerate(data.get("assumptions", []),1))
     return {"requests": requests, "panels": [p["id"] for p in data.get("panels", [])], "answers": answers}
 
 

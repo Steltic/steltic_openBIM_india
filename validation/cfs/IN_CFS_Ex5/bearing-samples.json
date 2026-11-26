@@ -1,0 +1,85 @@
+[
+  {
+    "id": "Exterior walkway / WPB360X300X163 / CLR200X50X20X3.15",
+    "chain": [
+      "M00127",
+      "M00412",
+      "P0001"
+    ],
+    "normal": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "stations_mm": [
+      [
+        12.0,
+        40.0,
+        3180.0
+      ]
+    ],
+    "expected_gaps_mm": [
+      0.0,
+      0.0
+    ],
+    "tolerance_mm": 1.0,
+    "structural_datum_mm": 3000,
+    "panel_underside_above_datum_mm": 380.0
+  },
+  {
+    "id": "Floor / WPB360X300X163 / CLR200X50X20X3.15",
+    "chain": [
+      "M00136",
+      "M00412",
+      "P0002"
+    ],
+    "normal": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "stations_mm": [
+      [
+        12.0,
+        4960.0,
+        3180.0
+      ]
+    ],
+    "expected_gaps_mm": [
+      0.0,
+      0.0
+    ],
+    "tolerance_mm": 1.0,
+    "structural_datum_mm": 3000,
+    "panel_underside_above_datum_mm": 380.0
+  },
+  {
+    "id": "Roof / WPB360X300X163 / CLR250X80X25X4",
+    "chain": [
+      "M00352",
+      "J00613-7",
+      "M02298",
+      "P0135"
+    ],
+    "normal": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "stations_mm": [
+      [
+        40.0,
+        12.0,
+        8880.0
+      ]
+    ],
+    "expected_gaps_mm": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "tolerance_mm": 1.0,
+    "structural_datum_mm": 8700.0,
+    "panel_underside_above_datum_mm": 450.0
+  }
+]

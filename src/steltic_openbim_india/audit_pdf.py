@@ -143,7 +143,7 @@ def audit_pdf(source, path, register, expect):
             expect(strokes.total > 0, "vector sheet content",sheet)
             if sheet in details:
                 detail = details[sheet]
-                detail_edges += check_detail(joints[detail["representative"]],detail,strokes,expect)
+                detail_edges += check_detail(joints[detail["representative"]],detail,strokes,expect,members)
             for view in by_sheet[sheet]:
                 axes,origin,k = view["axes"],view["origin_pt"],view["points_per_mm"]
                 expect(k>0,"positive drawing scale",sheet)

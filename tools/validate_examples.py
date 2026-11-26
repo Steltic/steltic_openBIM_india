@@ -5,7 +5,9 @@ import hashlib
 import json
 from pathlib import Path
 import re
-from brief_controls import run as check_brief, portal_measurements
+import subprocess
+import sys
+from brief_controls import run as check_brief, installed_measurements
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -61,13 +63,32 @@ def run_case(family, number, output, pipeline, resume):
                    parts=cert["readback"].get("ifc",{}).get("parts",0),
                    checks=cert["source_check_counts"],finding_counts=cert["finding_counts"])
         geometry=cert["readback"].get("ifc",{}).get("building_geometry",{})
-        if family=="hr" and number<=5 and "Main" in geometry:
-            geometry["Main"].update(portal_measurements(delivery/"model.ifc"))
+        model=ifcopenshell.open(str(delivery/"model.ifc"))
+        for unit,values in installed_measurements(model,floor_areas=family=="cfs" and number in (6,14)).items():
+            geometry.setdefault(unit,{}).update(values)
         row["brief_geometry"] = check_brief(family,number,geometry)
+        samples=base/"bearing-samples.json"
+        if samples.is_file():
+            from bearing_controls import measure as check_bearings
+            bearings=check_bearings(model,sid,json.loads(samples.read_bytes()))
+            row["brief_geometry"]["bearing_interfaces"]=bearings
+            if bearings["status"]!="pass":
+                row["brief_geometry"]["status"]="fail"
+        del model
+        if family=="hr" and number<=5:
+            probe=subprocess.run([sys.executable,str(ROOT/"validation/hr/verify_peb_bearings.py"),str(candidate),str(delivery/"model.ifc")],
+                                 capture_output=True,text=True,encoding="utf-8",errors="replace")
+            if not probe.stdout.strip():
+                raise ValueError(f"Portal bearing measurement failed: {probe.stderr[-350:]}")
+            contact=json.loads(probe.stdout)
+            row["brief_geometry"]["portal_contact_area"]=contact
+            if probe.returncode or contact["status"]!="pass":
+                row["brief_geometry"]["status"]="fail"
         if cert["findings"]:
             row["first_finding"]=cert["findings"][0]
     except Exception as error:
         row["reason"]=f"{type(error).__name__}: {error}"
+        row.setdefault("brief_geometry",{"controls":[]})["status"]="fail"
     return row
 
 
@@ -95,7 +116,7 @@ def main():
     pipeline=pipeline_fingerprint()
     def report(row):
         rows.append(row)
-        print(f"{row['id']}: artifacts {row['artifact_status']}, design {row['design_status']}; "
+        print(f"{row['id']}: artifacts {row['artifact_status']}, brief {row.get('brief_geometry',{}).get('status','unknown')}, design {row['design_status']}; "
               f"{row.get('sheets',0)} sheets, {row.get('members',0)} members. "
               f"{row.get('reason', row.get('first_finding',''))}",flush=True)
     if args.workers==1:
