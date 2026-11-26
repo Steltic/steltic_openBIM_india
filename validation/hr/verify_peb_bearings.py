@@ -1,5 +1,6 @@
 """Reopen the delivered IFC and measure each PEB seat's common material contact area."""
 import argparse
+import hashlib
 import json
 from collections import Counter
 from pathlib import Path
@@ -83,7 +84,13 @@ def door_clearances(data,mesh):
 
 
 def verify(handoff,ifc):
-    data=json.loads(handoff.read_text(encoding='utf-8'));f=ifcopenshell.open(str(ifc))
+    handoff_bytes=handoff.read_bytes()
+    signature=hashlib.sha256(handoff_bytes).hexdigest()
+    data=json.loads(handoff_bytes);f=ifcopenshell.open(str(ifc))
+    bindings=[p.NominalValue.wrappedValue for p in f.by_type('IfcPropertySingleValue')
+              if p.Name=='SourceSHA256' and p.NominalValue]
+    if bindings!=[signature]:
+        raise ValueError('The IFC source fingerprint differs from the supplied handoff.')
     products={p.Tag:p for p in f.by_type('IfcElement') if getattr(p,'Tag',None)}
     settings=geom.settings();settings.set('use-world-coords',True);cache={}
     def mesh(key):
@@ -100,7 +107,8 @@ def verify(handoff,ifc):
             if area<min_area:min_area,min_pair=area,[block,m]
             if area<100:failed.append(dict(block=block,member=m,common_contact_mm2=round(area,2)))
     doors=door_clearances(data,mesh)
-    return dict(project=data['project']['id'],status='pass' if count['blocks'] and not failed and not any(d['intrusions'] for d in doors) else 'fail',counts=dict(count),
+    return dict(project=data['project']['id'],handoff_sha256=signature,ifc_sha256=hashlib.sha256(ifc.read_bytes()).hexdigest(),
+                status='pass' if count['blocks'] and not failed and not any(d['intrusions'] for d in doors) else 'fail',counts=dict(count),
                 minimum_common_area_mm2=round(min_area,2) if min_pair else None,minimum_pair=min_pair,failures=failed,door_clearances=doors)
 
 

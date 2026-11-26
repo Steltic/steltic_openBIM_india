@@ -15,6 +15,22 @@ def dump(path,obj):
     path.write_text(json.dumps(obj,indent=2,ensure_ascii=False,allow_nan=False)+'\n',encoding='utf-8')
 
 
+def require_finished_reports(job, unit_names):
+    """Freeze only after every native unit has written its report and final authority."""
+    roots=[job] if len(unit_names)==1 else [job/'units'/name for name in unit_names]
+    for folder in roots:
+        for relative in ('design/calc_package.json','report.html','STATUS.engine.md'):
+            path=folder/relative
+            if not path.is_file() or not path.stat().st_size:
+                raise ValueError(f'{job.name}: native output is unfinished at {path.relative_to(job)}')
+        with (folder/'report.html').open('rb') as report:
+            report.seek(max(0,(folder/'report.html').stat().st_size-1024))
+            if b'</html>' not in report.read().lower():
+                raise ValueError(f'{job.name}: native HTML report is unfinished at {folder.relative_to(job)}')
+    if len(roots)>1 and not (job/'STATUS.engine.md').is_file():
+        raise ValueError(f'{job.name}: the site design status is unfinished')
+
+
 def private_retrievals(cfg,corpus,unit_dir):
     """Write local supporting excerpts for the native package, outside the publication tree."""
     rag=unit_dir/'rag'
@@ -115,6 +131,7 @@ def main():
                 unsuccessful.append(name)
         if args.phase in ('all','audit'):
             from handoff import export
+            require_finished_reports(jobdir,configs)
             portable={k:summary[k] for k in ('case','brief_file','brief_sha256','input_failures')}
             export(case,configs,args.hr,jobdir,dest,portable,args.cfs,args.specs)
     if unsuccessful:raise SystemExit('Native production error: '+', '.join(unsuccessful))

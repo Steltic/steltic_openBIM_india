@@ -81,18 +81,19 @@ def run_case(family, number, output, pipeline, resume):
         if bearings["status"]!="pass":
             row["brief_geometry"]["status"]="fail"
         del model
-        if family=="hr" and number<=5:
+        if family=="hr" and (number<=10 or number==21):
+            probe_script,field=("verify_peb_bearings.py","portal_contact_area") if number<=5 else ("verify_eave_edges.py","eave_weld_faces")
             # CAD-kernel diagnostics can share stdout with the Python process on Windows.
             with TemporaryDirectory() as temp:
-                result=Path(temp)/"portal-contact.json"
-                command=[sys.executable,str(ROOT/"validation/hr/verify_peb_bearings.py"),str(candidate),
+                result=Path(temp)/"installed-contact.json"
+                command=[sys.executable,str(ROOT/"validation/hr"/probe_script),str(candidate),
                          str(delivery/"model.ifc"),"--output",str(result)]
                 probe=subprocess.run(command,stdout=subprocess.DEVNULL,stderr=subprocess.PIPE,
                                      text=True,encoding="utf-8",errors="replace")
                 if not result.is_file():
-                    raise ValueError(f"Portal bearing measurement failed: {probe.stderr[-350:]}")
+                    raise ValueError(f"{probe_script} could not measure the installed assembly: {probe.stderr[-350:]}")
                 contact=json.loads(result.read_bytes())
-            row["brief_geometry"]["portal_contact_area"]=contact
+            row["brief_geometry"][field]=contact
             if probe.returncode or contact["status"]!="pass":
                 row["brief_geometry"]["status"]="fail"
         if cert["findings"]:

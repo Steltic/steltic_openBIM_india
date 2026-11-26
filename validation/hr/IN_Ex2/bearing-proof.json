@@ -1,5 +1,7 @@
 {
   "project": "IN_Ex2",
+  "handoff_sha256": "393de1fa97b0fa8794c45a0d13a23dd6c5281a6f92e1f98c9547d1d0062d9a92",
+  "ifc_sha256": "f99cdafbc98986cdaafada03e469c2923f9d64e5bd520be2f65d919caae3ca88",
   "status": "pass",
   "counts": {
     "blocks": 2393,

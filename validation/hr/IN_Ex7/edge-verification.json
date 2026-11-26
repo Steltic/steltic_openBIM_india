@@ -1,0 +1,156 @@
+{
+  "project": "IN_Ex7",
+  "handoff_sha256": "180cad02d26148e578f54fd96004f363e34fce5313d48edd9e3fcbddd6dd64e1",
+  "ifc_sha256": "2a729b7af50e2adf4517d69b30037db028c33a270979ddee2b6e228f5e29490b",
+  "status": "pass",
+  "brackets": 18,
+  "fillet_parent_faces": 416,
+  "minimum_fraction_of_specified_fillet_face": 0.999997,
+  "failed_weld_interfaces": [],
+  "fascia_spans": [
+    {
+      "fascia": "Main-EAVE-RAIL-0-0",
+      "panel": "Main-SLOPE-1",
+      "horizontal_axis": "x",
+      "edge_sign": -1,
+      "skin_soffit_edge_mm": -644.0,
+      "free_sheet_strip_mm": 25.0,
+      "pass": true
+    },
+    {
+      "fascia": "Main-EAVE-RAIL-0-1",
+      "panel": "Main-SLOPE-1",
+      "horizontal_axis": "x",
+      "edge_sign": -1,
+      "skin_soffit_edge_mm": -644.0,
+      "free_sheet_strip_mm": 25.0,
+      "pass": true
+    },
+    {
+      "fascia": "Main-EAVE-RAIL-0-2",
+      "panel": "Main-SLOPE-1",
+      "horizontal_axis": "x",
+      "edge_sign": -1,
+      "skin_soffit_edge_mm": -644.0,
+      "free_sheet_strip_mm": 25.0,
+      "pass": true
+    },
+    {
+      "fascia": "Main-EAVE-RAIL-0-3",
+      "panel": "Main-SLOPE-1",
+      "horizontal_axis": "x",
+      "edge_sign": -1,
+      "skin_soffit_edge_mm": -644.0,
+      "free_sheet_strip_mm": 25.0,
+      "pass": true
+    },
+    {
+      "fascia": "Main-EAVE-RAIL-0-4",
+      "panel": "Main-SLOPE-1",
+      "horizontal_axis": "x",
+      "edge_sign": -1,
+      "skin_soffit_edge_mm": -644.0,
+      "free_sheet_strip_mm": 25.0,
+      "pass": true
+    },
+    {
+      "fascia": "Main-EAVE-RAIL-0-5",
+      "panel": "Main-SLOPE-1",
+      "horizontal_axis": "x",
+      "edge_sign": -1,
+      "skin_soffit_edge_mm": -644.0,
+      "free_sheet_strip_mm": 25.0,
+      "pass": true
+    },
+    {
+      "fascia": "Main-EAVE-RAIL-0-6",
+      "panel": "Main-SLOPE-1",
+      "horizontal_axis": "x",
+      "edge_sign": -1,
+      "skin_soffit_edge_mm": -644.0,
+      "free_sheet_strip_mm": 25.0,
+      "pass": true
+    },
+    {
+      "fascia": "Main-EAVE-RAIL-0-7",
+      "panel": "Main-SLOPE-1",
+      "horizontal_axis": "x",
+      "edge_sign": -1,
+      "skin_soffit_edge_mm": -644.0,
+      "free_sheet_strip_mm": 25.0,
+      "pass": true
+    },
+    {
+      "fascia": "Main-EAVE-RAIL-1-0",
+      "panel": "Main-SLOPE-2",
+      "horizontal_axis": "x",
+      "edge_sign": 1,
+      "skin_soffit_edge_mm": 21644.0,
+      "free_sheet_strip_mm": 25.0,
+      "pass": true
+    },
+    {
+      "fascia": "Main-EAVE-RAIL-1-1",
+      "panel": "Main-SLOPE-2",
+      "horizontal_axis": "x",
+      "edge_sign": 1,
+      "skin_soffit_edge_mm": 21644.0,
+      "free_sheet_strip_mm": 25.0,
+      "pass": true
+    },
+    {
+      "fascia": "Main-EAVE-RAIL-1-2",
+      "panel": "Main-SLOPE-2",
+      "horizontal_axis": "x",
+      "edge_sign": 1,
+      "skin_soffit_edge_mm": 21644.0,
+      "free_sheet_strip_mm": 25.0,
+      "pass": true
+    },
+    {
+      "fascia": "Main-EAVE-RAIL-1-3",
+      "panel": "Main-SLOPE-2",
+      "horizontal_axis": "x",
+      "edge_sign": 1,
+      "skin_soffit_edge_mm": 21644.0,
+      "free_sheet_strip_mm": 25.0,
+      "pass": true
+    },
+    {
+      "fascia": "Main-EAVE-RAIL-1-4",
+      "panel": "Main-SLOPE-2",
+      "horizontal_axis": "x",
+      "edge_sign": 1,
+      "skin_soffit_edge_mm": 21644.0,
+      "free_sheet_strip_mm": 25.0,
+      "pass": true
+    },
+    {
+      "fascia": "Main-EAVE-RAIL-1-5",
+      "panel": "Main-SLOPE-2",
+      "horizontal_axis": "x",
+      "edge_sign": 1,
+      "skin_soffit_edge_mm": 21644.0,
+      "free_sheet_strip_mm": 25.0,
+      "pass": true
+    },
+    {
+      "fascia": "Main-EAVE-RAIL-1-6",
+      "panel": "Main-SLOPE-2",
+      "horizontal_axis": "x",
+      "edge_sign": 1,
+      "skin_soffit_edge_mm": 21644.0,
+      "free_sheet_strip_mm": 25.0,
+      "pass": true
+    },
+    {
+      "fascia": "Main-EAVE-RAIL-1-7",
+      "panel": "Main-SLOPE-2",
+      "horizontal_axis": "x",
+      "edge_sign": 1,
+      "skin_soffit_edge_mm": 21644.0,
+      "free_sheet_strip_mm": 25.0,
+      "pass": true
+    }
+  ]
+}

@@ -2,7 +2,7 @@
   "status": "pass",
   "samples": [
     {
-      "id": "Main-skin-floor deck-NPB550X210X92.08",
+      "id": "Main-skin-floor deck-WPB400X300X92.4",
       "chain": [
         "Main-SEC-1-0-0-1",
         "Main-DECK-1-0-0"
@@ -21,7 +21,7 @@
           "station_mm": [
             2500.0,
             3750.0,
-            4151.5
+            4066.0
           ],
           "measured_gaps_mm": [
             0.0
@@ -54,7 +54,7 @@
           "station_mm": [
             2500.0,
             6.0,
-            3878.0
+            3877.0
           ],
           "measured_gaps_mm": [
             0.0,
@@ -86,7 +86,7 @@
           "station_mm": [
             7500.0,
             3750.0,
-            4365.0
+            4195.0
           ],
           "measured_gaps_mm": [
             0.0
@@ -117,7 +117,7 @@
           "station_mm": [
             7500.0,
             458.0,
-            4305.0
+            4135.0
           ],
           "measured_gaps_mm": [
             0.0
@@ -148,7 +148,7 @@
           "station_mm": [
             7500.0,
             458.0,
-            4305.0
+            4135.0
           ],
           "measured_gaps_mm": [
             0.0
@@ -222,6 +222,6 @@
       "pass": true
     }
   ],
-  "handoff_sha256": "edf328d531b74e37635d83660bd4040d351dccf3bbeea8ef7297de2d26504708",
-  "ifc_sha256": "0ec2da7b66294ace89561907e6a2a4d9d3882b186b22d16fcaae2c677017e1e6"
+  "handoff_sha256": "263c01c03410a896818baae93a55a759240c1735986d0cc98634ae7f37e10067",
+  "ifc_sha256": "f85538509c2764f4fc88bbaddf7e037edf45cfe500987cbdaddc2e72642a88ed"
 }

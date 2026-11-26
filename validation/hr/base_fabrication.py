@@ -1,4 +1,4 @@
-"""Place native gusseted foundations and the two equal-strength welded blanks."""
+"""Place stiffened steel bases and verify the conditional edge-laid welded blanks."""
 import math
 import inspect
 from native_joint_parts import location,plate

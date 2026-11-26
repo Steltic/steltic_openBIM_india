@@ -22,6 +22,15 @@ def same(first,other):
     return type(first)==type(other) and first==other
 
 
+def digest(path,compressed=False):
+    reader=gzip.open if compressed else open
+    h=hashlib.sha256()
+    with reader(path,"rb") as stream:
+        for block in iter(lambda:stream.read(1024*1024),b""):
+            h.update(block)
+    return h.hexdigest()
+
+
 def verify(baseline,replay,job):
     current=load(replay/"result.json");original=load(baseline/"result.json")
     source=load(replay/"handoff.json.gz");previous=load(baseline/"handoff.json.gz")
@@ -32,9 +41,9 @@ def verify(baseline,replay,job):
     evidence={k:same(current.get(k),original.get(k)) for k in engineering}
     samples=same(load(replay/"bearing-samples.json"),load(baseline/"bearing-samples.json"))
     source_files=source["source_evidence"]["files"]
-    digests={name:hashlib.sha256((job/name).read_bytes()).hexdigest()==expected for name,expected in source_files.items()}
-    with gzip.open(replay/"handoff.json.gz","rb") as stream:actual=hashlib.file_digest(stream,"sha256").hexdigest()
-    sidecar=hashlib.sha256((job/"design/openbim_handoff.json").read_bytes()).hexdigest()
+    digests={name:digest(job/name)==expected for name,expected in source_files.items()}
+    actual=digest(replay/"handoff.json.gz",compressed=True)
+    sidecar=digest(job/"design/openbim_handoff.json")
     matched=(actual==sidecar==current["handoff_sha256"])
     clean=current["design_status"]=="complete" and current["reasons"]==[] and all(c["status"]!="fail" for c in source["checks"])
     return dict(case=current["case"],passed=clean and samples and matched and all((*fields.values(),*evidence.values(),*digests.values())),

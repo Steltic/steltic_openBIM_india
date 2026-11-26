@@ -138,6 +138,13 @@ def compare(args):
                 new_path=native_dir if len(units)==1 else native_dir/"units"/unit
                 published=reference(ref,ref_path)
                 fresh=fresh_from_job(new_path,family)
+                relative=new_path.relative_to(native_dir)
+                authorities={fresh["authority_file"]:fresh["authority_sha256"],"report.html":fresh["report_sha256"],
+                             ("design/calc_package.json" if family=="hr" else "design/calc_package_cfs.json"):fresh["calc_sha256"]}
+                for file,expected in authorities.items():
+                    key=(relative/file).as_posix()
+                    if bindings.get(key)!=expected:
+                        raise ValueError(f"{ident}/{unit}: final handoff does not bind the issued native {key}")
                 rows.append(dict(id=ident,module=family.upper(),number=n,unit=unit,handoff_sha256=sha,
                                  report_url=f"https://stelticai.com/solutions_india/{family}/"+ref["report"],
                                  reference_report_sha256=digest(ref_path),published=published,fresh=fresh))

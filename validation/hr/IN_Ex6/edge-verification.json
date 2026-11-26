@@ -1,0 +1,66 @@
+{
+  "project": "IN_Ex6",
+  "handoff_sha256": "59cf70df765eab3a50cf4172d13516eb65b27d3831f1f883a1bccdeadf1474d0",
+  "ifc_sha256": "94453ac37760441e2be6e81be6e74206856dc0d66d323efd83cb335ba88719c4",
+  "status": "pass",
+  "brackets": 8,
+  "fillet_parent_faces": 176,
+  "minimum_fraction_of_specified_fillet_face": 1.0,
+  "failed_weld_interfaces": [],
+  "fascia_spans": [
+    {
+      "fascia": "Main-EAVE-RAIL-0-0",
+      "panel": "Main-DECK-2-0-0",
+      "horizontal_axis": "y",
+      "edge_sign": -1,
+      "skin_soffit_edge_mm": -450.0,
+      "free_sheet_strip_mm": 25.0,
+      "pass": true
+    },
+    {
+      "fascia": "Main-EAVE-RAIL-0-1",
+      "panel": "Main-DECK-2-1-0",
+      "horizontal_axis": "y",
+      "edge_sign": -1,
+      "skin_soffit_edge_mm": -450.0,
+      "free_sheet_strip_mm": 25.0,
+      "pass": true
+    },
+    {
+      "fascia": "Main-EAVE-RAIL-0-2",
+      "panel": "Main-DECK-2-2-0",
+      "horizontal_axis": "y",
+      "edge_sign": -1,
+      "skin_soffit_edge_mm": -450.0,
+      "free_sheet_strip_mm": 25.0,
+      "pass": true
+    },
+    {
+      "fascia": "Main-EAVE-RAIL-1-0",
+      "panel": "Main-DECK-2-0-3",
+      "horizontal_axis": "y",
+      "edge_sign": 1,
+      "skin_soffit_edge_mm": 32450.0,
+      "free_sheet_strip_mm": 25.0,
+      "pass": true
+    },
+    {
+      "fascia": "Main-EAVE-RAIL-1-1",
+      "panel": "Main-DECK-2-1-3",
+      "horizontal_axis": "y",
+      "edge_sign": 1,
+      "skin_soffit_edge_mm": 32450.0,
+      "free_sheet_strip_mm": 25.0,
+      "pass": true
+    },
+    {
+      "fascia": "Main-EAVE-RAIL-1-2",
+      "panel": "Main-DECK-2-2-3",
+      "horizontal_axis": "y",
+      "edge_sign": 1,
+      "skin_soffit_edge_mm": 32450.0,
+      "free_sheet_strip_mm": 25.0,
+      "pass": true
+    }
+  ]
+}

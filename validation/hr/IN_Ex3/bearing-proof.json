@@ -26,5 +26,7 @@
       "envelope_depth_mm": 1001.0,
       "intrusions": []
     }
-  ]
+  ],
+  "handoff_sha256": "e58d3706af4d6810a5c8464485f42065022c9b78245362af19cbdd0ba3ed7c18",
+  "ifc_sha256": "af3da454152944d2bbd1461772b2d43d36c9cda52af0cdd55d471a5baa578b0b"
 }

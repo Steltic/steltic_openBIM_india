@@ -20,7 +20,14 @@ python -m steltic_openbim_india deliver-job ../hr-jobs/IN_Ex7 --output ../publis
 
 Pass any subset of the integers 1 through 21. `--phase preflight` runs the producer input checks. `--phase native` regenerates the local job with `pipeline.design_and_report` or `pipeline.design_units`. `--phase audit` rebuilds the physical declaration, binds the element geometry and material to the saved native model, and writes the portable files. The normal producer output is `design/openbim_handoff.json`. The composite cases retain each unit and its independent report and displacements under the parent job.
 
-The versioned section selections, connection actions and supplementary dead-load schedules are inputs to this command. It also regenerates Pune’s companion with the full imposed floor loads. Each case includes global-coordinate contact samples that the acceptance runner checks against independently reopened IFC solids.
+The audit requires a completed native calculation package, HTML report and final status for each independent unit. The versioned section selections, connection actions and supplementary dead-load schedules are inputs to this command. It also regenerates Pune’s companion with the full imposed floor loads. Each case includes global-coordinate contact samples that the acceptance runner checks against independently reopened IFC solids.
+
+Examples 1–5 include an IFC survey of every purlin and girt bearing block and each required vehicle opening. Examples 6–10 and 21 include a survey of every fascia weld face and the strip of roof sheet beyond each rail. To repeat either survey on a generated model, run the matching command in the drawing environment.
+
+```powershell
+python validation/hr/verify_peb_bearings.py validation/hr/IN_Ex2/handoff.json ../published-sets/IN_Ex2/model.ifc --output ../published-sets/IN_Ex2/bearing-proof.json
+python validation/hr/verify_eave_edges.py validation/hr/IN_Ex7/handoff.json ../published-sets/IN_Ex7/model.ifc --output ../published-sets/IN_Ex7/edge-verification.json
+```
 
 ## Evidence and assumptions
 

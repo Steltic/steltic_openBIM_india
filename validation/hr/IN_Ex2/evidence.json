@@ -407,7 +407,8 @@
           "limit": 0.004,
           "dc": 0.1648987179729829,
           "ok": true
-        }
+        },
+        "post_report_status_sha256": "450a9c55cfb4587ecb8c5f8dde2937c5e0cdac7819548a27dac8fe158c3342d7"
       },
       "peb_verified_pdf_pages": [
         {
@@ -483,7 +484,7 @@
       ]
     }
   ],
-  "handoff_sha256": "a922160159c19bb23373bfc71facce499711735d39f8bf7332e521c16c064179",
+  "handoff_sha256": "393de1fa97b0fa8794c45a0d13a23dd6c5281a6f92e1f98c9547d1d0062d9a92",
   "members": 3680,
   "panels": 189,
   "connections": 2616,
@@ -494,17 +495,16 @@
       "design/calc_package.json": "7f14b87b849307193c10cea8a0d0701f987e8ee19fd4cc04ec7cde399db05b0f",
       "design/cfg_snapshot.json": "82d2eaab689da27734066e9963b5f59d5f3d61c8eccd90405c8e47a26a9a5af5",
       "design/member_schedule.csv": "ef976128b57e4c010363fc9e32e15eb0ba8fce8331b695bfe04fd2d040bfbcdb",
-      "report.html": "9d106a6337944ef768bfe8b8d480addd4ed8a94a6effa9ab9ade4b8515e0e8ef",
-      "viewer_3d.html": "d2cc830fc1aa012f32bcfe93991ec6add9de4c1b77bfb7154b4799928cb8fba2"
+      "report.html": "0cb54ade76b4fe059c4383b8a088c2badf4c48b7cf1abae8a7033b096ce45ef3",
+      "viewer_3d.html": "d2cc830fc1aa012f32bcfe93991ec6add9de4c1b77bfb7154b4799928cb8fba2",
+      "STATUS.engine.md": "450a9c55cfb4587ecb8c5f8dde2937c5e0cdac7819548a27dac8fe158c3342d7"
     },
     "native_status": {
       "Main": "complete"
     },
     "native_elements": 702,
     "bound_elements": 702,
-    "open_items": [
-      "STATUS.engine.md"
-    ]
+    "open_items": []
   },
   "checked_design_status": "review",
   "assumptions": [

@@ -10,7 +10,9 @@ from steltic_openbim_india.geometry import cross,dot,frame,plane,sub,unit
 def rev(v):return tuple(-p for p in v)
 
 
-def make_weld(key,a,b,leg,normal):
+def make_weld(key,a,b,leg,normal,second):
+    # The two fillet legs must grow into the declared external corner.
+    if dot(cross(sub(b,a),normal),second)<0:a,b=b,a
     return dict(id=key,kind='weld',start=a,end=b,leg_mm=leg,ref_direction=list(normal),material='WELD410')
 
 
@@ -18,8 +20,6 @@ def gable_overhangs(f,cross_i,lo,hi,axis0,length,nspans,fascia_axes):
     """Check each actual projecting secondary between its outside bearing and the gable line."""
     import sections
     import india_is800 as hr
-    from is811_sections import props as z_props
-    from is801_members import bending_allowable,web_shear_64
     import india_wind_tables as wind
     along_i=1-cross_i
     model=f.model
@@ -44,6 +44,9 @@ def gable_overhangs(f,cross_i,lo,hi,axis0,length,nspans,fascia_axes):
             slope=abs(frame(*endpoints(r),r.get('ref_direction'))[0][2])
             cosine=math.sqrt(1.-slope*slope)
             if typ=='Z':
+                # select_z loaded the installed India CFS catalogue for this member.
+                from is811_sections import props as z_props
+                from is801_members import bending_allowable,web_shear_64
                 prop=z_props(name);weight=prop['A']*7.85e-5
                 down=(gravity*trib+weight)*cosine
                 up=suction*trib/cosine
@@ -53,7 +56,8 @@ def gable_overhangs(f,cross_i,lo,hi,axis0,length,nspans,fascia_axes):
                 shear=max(web_shear_64(prop,240,v*arm,wind_eq=reverse)['dc'] for v,reverse in ((up,True),(down,False)))
                 defl=max(up,down)*arm**4/(8*200000*prop['Ix'])/(arm/180)
             else:
-                prop=sections.props(name);weight=prop['A']*7.85e-5;fy=f.data['materials'][r['material']]['fy_mpa']
+                prop=sections.props(name);weight=prop['A']*7.85e-5
+                fy=hr.fy_is2062(r['material'],max(dims['tf'],dims['tw']))
                 down=gravity*trib+weight;up=suction*trib/cosine
                 w=max(down*cosine,up);weak=down*slope
                 mx=hr.ltb_moment_capacity(prop,2*arm,fy,support='cantilever',welded=typ=='RHS')['Md_Nmm']
@@ -108,9 +112,15 @@ def rail_size(span,overhang,trib,normal,model):
         lm=max(span**2/8,overhang**2/2)
         bend=1.1*(vertical*lm*h/(2*Ix)+horizontal*lm*b/(2*Iy))/250
         shear=math.hypot(vertical,horizontal)*(span/2+overhang)/(2*t*(h-2*t)*250/(math.sqrt(3)*1.1))
-        deflection=5*vertical/1.5*span**4/(384*2.e5*Ix)/(span/240)
-        if max(bend,shear,deflection)<=.90:
+        disp_factor=5*span**4/(384*1.5*2.e5)
+        dv=vertical*disp_factor/Ix;dh=horizontal*disp_factor/Iy
+        deflection=math.hypot(dv,dh)/(span/240)
+        # Include the support slope of the backspan in cantilever tip displacement.
+        tip_factor=overhang*(span**3/24+overhang**3/8)/(1.5*2.e5)
+        end_deflection=math.hypot(vertical/Ix,horizontal/Iy)*tip_factor/(overhang/120)
+        if max(bend,shear,dv/(span/240))<=.90 and max(deflection,end_deflection)<=.98:
             return h,b,t,dict(bending_dc=bend,shear_dc=shear,deflection_dc=deflection,
+                 overhang_displacement_dc=end_deflection,vertical_displacement_mm=dv,horizontal_displacement_mm=dh,
                  vertical_design_N_mm=vertical,horizontal_design_N_mm=horizontal,
                  local_suction_kNm2=suction,design_screw_load_kN=1.5*suction*trib*.15)
     raise ValueError('No eave box rail satisfies the actual span and roof edge actions')
@@ -119,7 +129,9 @@ def rail_size(span,overhang,trib,normal,model):
 def bracket(f,host,rails,mid,along,out,n,roof,dimensions,loads,Rv,Rh,domain,mark):
     m=f.model;z_top=max(p[2] for p in endpoints(host));h,b,tw=dimensions
     level=rails[0]['level'];steel='E250B0';key=m.pre+'EAVE-SEAT-'+mark
-    tcap=16.;wcap=b+25.;lcap=180.
+    # Each web has a fillet on both sides. Leave room beyond the outer web
+    # toes even on the 30 mm web / 16 mm weld schedule.
+    wcap=b+25.;lcap=240.
     local_x,local_y,_=frame(*endpoints(host),host.get('ref_direction'))
     hp=f.data['profiles'][host['profile']]['dimensions_mm'];cold=hp['d'];colb=hp['b'];coltf=hp['tf']
     weak=f.data['profiles'][host['profile']]['family'] in ('I','TAPERED_I') and abs(dot(local_x,out))>.75
@@ -130,14 +142,27 @@ def bracket(f,host,rails,mid,along,out,n,roof,dimensions,loads,Rv,Rh,domain,mark
     cap_x=along if dot(cross(along,out),UP)>0 else rev(along)
     rise=unit(cross(n,cap_x))
     if dot(rise,out)<0:raise ValueError('Reversed eave cap frame')
-    underside=lambda xy:(roof-dot(n,(xy[0],xy[1],0))-h-tcap)/n[2]
-    capmid=list(mid);capmid[2]=underside(capmid)
-    capbase=location(capmid,(cap_x,-lcap/2),(rise,-wcap/2))
     root_axis=host['end'];outer_face=dot(out,root_axis)+f.extremity(host,out)[1]
     root_origin=location(root_axis,(out,outer_face-dot(root_axis,out)))
     # Choose a welded box haunch termination. Full-height welds at the column
     # and twin webs carry the vertical force, axial face force and overturning.
-    width=max(180,2*seam_spacing+24);Wroot=max(85,min(150,width-30));lever=dot(sub(capmid,root_origin),out)
+    width=max(180,2*seam_spacing+24);Wroot=max(85,min(150,width-30))
+    for tcap in (16.,20.,25.,30.,35.,40.,50.,60.):
+        # Concentrate each closed-box wall's tributary force at midspan of the
+        # cap, spanning between the two webs. The strip spreads through the cap.
+        strip=min(wcap/2,2*tcap+tw)
+        sig=(6*math.hypot(Rv,Rh)*Wroot/(8*strip*tcap**2)+Rh/(2*strip*tcap))
+        cap_plate=math.hypot(sig,math.sqrt(3)*.75*math.hypot(Rv,Rh)/(strip*tcap))/(230/1.1)
+        if cap_plate<=.90:break
+    else:raise ValueError(f'{key}: fascia cap cannot bridge its two bracket webs')
+    underside=lambda xy:(roof-dot(n,(xy[0],xy[1],0))-h-tcap)/n[2]
+    rail_centre=list(mid)
+    rail_centre[2]=(roof-dot(n,(mid[0],mid[1],0))-h/2)/n[2]
+    # Follow the installed depth axis from the rail centre to the cap underside.
+    # A vertical offset would place both hold-down fillets inside the sloping box.
+    capmid=location(rail_centre,(n,-h/2-tcap))
+    capbase=location(capmid,(cap_x,-lcap/2),(rise,-wcap/2))
+    lever=dot(sub(capmid,root_origin),out)
     if lever<=wcap/2:raise ValueError(f'{key}: insufficient outward bracket reach {lever:.1f}')
     for tall,t,back,weld in ((260,12,18,8),(320,16,20,10),(380,16,25,10),(440,20,30,12),(500,25,35,14),(600,30,40,16)):
         rootz=z_top-tall/2-55;dz=abs(capmid[2]-rootz);moment=Rv*lever+Rh*dz
@@ -155,7 +180,9 @@ def bracket(f,host,rails,mid,along,out,n,roof,dimensions,loads,Rv,Rh,domain,mark
         # of every bay joint; check an entire half-span plus end overhang.
         railw=max(4,min(8,math.floor(tw-1)))
         capweld=math.hypot(Rv,Rh)/len(rails)/(2*.7*railw*75*410/(math.sqrt(3)*1.5))
-        if max(plate_dc,root_weld,parent,backing,capweld)<=.93:break
+        webcapleg=min(weld,t-2,tcap-2)
+        web_cap=math.hypot(Rv,Rh)/(4*.7*webcapleg*(wcap-2*webcapleg)*410/(math.sqrt(3)*1.5))
+        if max(plate_dc,root_weld,parent,backing,capweld,web_cap)<=.93:break
     else:raise ValueError(f'{key}: haunch/weld/parent cannot develop the factored eave reactions')
     parts=[]
     def append(p):
@@ -173,12 +200,30 @@ def bracket(f,host,rails,mid,along,out,n,roof,dimensions,loads,Rv,Rh,domain,mark
     def top(dx):return underside(pt(dx,0))
     tip_depth=max(120,tall*.48)
     for i,g in enumerate((-Wroot/2,Wroot/2),1):
-        outline=[pt(d0,rootz-tall/2,g-t/2),pt(d2,top(d2)-tip_depth,g-t/2),pt(d2,top(d2),g-t/2),
-                 pt(d1,top(d1),g-t/2),pt(d0,rootz+tall/2,g-t/2)]
+        land=d0+weld+5.
+        outline=[pt(d0,rootz-tall/2,g-t/2),pt(land,rootz-tall/2,g-t/2),
+                 pt(d2,top(d2)-tip_depth,g-t/2),pt(d2,top(d2),g-t/2),
+                 pt(d1,top(d1),g-t/2)]
+        if land<d1:
+            outline.append(pt(land,rootz+tall/2,g-t/2))
+        elif top(d1)<rootz+tall/2:
+            raise ValueError(f'{key}: upper root weld land interferes with the cap')
+        outline.append(pt(d0,rootz+tall/2,g-t/2))
         web=append(dict(id=key+f'-WEB{i}',kind='plate',material=steel,outline=outline,thickness_mm=t))
         for hand in (-1,1):
             v=g+hand*t/2
-            parts.append(make_weld(key+f'-WR{i}-{hand}',pt(d0,rootz-tall/2+weld,v),pt(d0,rootz+tall/2-weld,v),weld,out))
+            exterior=tuple(hand*a for a in side_axis)
+            rear=make_weld(key+f'-WR{i}-{hand}',pt(d0,rootz-tall/2+weld,v),pt(d0,rootz+tall/2-weld,v),weld,out,exterior)
+            parts.append(rear)
+            f.sample(m.pre+'eave-back-weld-'+domain,[bp['id'],rear['id']],out,location(pt(d0,rootz,v),(exterior,weld/3)))
+            f.sample(m.pre+'eave-web-root-weld-'+domain,[web['id'],rear['id']],exterior,location(pt(d0,rootz,v),(out,weld/3)))
+            start=location(pt(d1,top(d1),v),(rise,webcapleg))
+            end=location(pt(d2,top(d2),v),(rise,-webcapleg))
+            top_seam=make_weld(key+f'-WC{i}-{hand}',start,end,webcapleg,rev(n),exterior)
+            parts.append(top_seam)
+            root=pt(dc,top(dc),v)
+            f.sample(m.pre+'eave-cap-weld-'+domain,[top_seam['id'],cap['id']],n,location(root,(exterior,webcapleg/3)))
+            f.sample(m.pre+'eave-web-cap-weld-'+domain,[web['id'],top_seam['id']],exterior,location(root,(n,-webcapleg/3)))
         pweb=pt(dc,top(dc),g)
         f.sample(m.pre+'eave-web-cap-'+domain,[web['id'],cap['id']],n,pweb)
     # Root seam design uses a genuine full-penetration butt/T detail over the
@@ -195,16 +240,21 @@ def bracket(f,host,rails,mid,along,out,n,roof,dimensions,loads,Rv,Rh,domain,mark
         v=1 if dot(sub(centre(rail),mid),along)>0 else -1
         for k,dx in enumerate((-b/2,b/2),1):
             edge=location(capmid,(n,tcap),(rise,dx))
-            parts.append(make_weld(key+'-HOLD-'+rail['id']+str(k),location(edge,(along,v*7.5)),
-                                   location(edge,(along,v*82.5)),railw,rev(rise) if dx<0 else rise))
+            outward=rev(rise) if dx<0 else rise
+            seam=make_weld(key+'-HOLD-'+rail['id']+str(k),location(edge,(along,v*7.5)),
+                           location(edge,(along,v*82.5)),railw,outward,n)
+            parts.append(seam)
+            root=location(edge,(along,v*40))
+            f.sample(m.pre+'eave-rail-hold-'+domain,[rail['id'],seam['id']],outward,location(root,(n,railw/3)))
+            f.sample(m.pre+'eave-cap-hold-'+domain,[cap['id'],seam['id']],n,location(root,(outward,railw/3)))
         bearing=location(capmid,(n,tcap),(along,v*38))
         f.sample(m.pre+'eave-cap-rail-'+domain,[cap['id'],rail['id']],n,bearing)
     for piece in parts:
         if piece['kind']=='weld':
             a=piece.get('throat_mm',0)*piece.get('width_mm',0) if piece.get('weld_type') else .5*piece['leg_mm']**2
             f.mass[level]+=a*math.dist(*endpoints(piece))*7.85e-6
-    ratios=dict(twin_web_dc=plate_dc,web_weld_dc=root_weld,column_CJP_dc=parent,
-                backplate_bending_dc=backing,rail_hold_down_dc=capweld)
+    ratios=dict(twin_web_dc=plate_dc,web_weld_dc=root_weld,column_CJP_dc=parent,cap_bending_dc=cap_plate,
+                web_to_cap_weld_dc=web_cap,backplate_bending_dc=backing,rail_hold_down_dc=capweld)
     ck=key+'-CHECK'
     f.data['checks'].append(dict(id=ck,status='pass',utilization=max(ratios.values()),
         description=f'Column haunch and fascia hold-down for {Rv/1000:.1f} kN vertical, {Rh/1000:.1f} kN horizontal and {moment/1e6:.1f} kN m at the column face.',
@@ -213,7 +263,8 @@ def bracket(f,host,rails,mid,along,out,n,roof,dimensions,loads,Rv,Rh,domain,mark
         members=[host['id']]+[r['id'] for r in rails],parts=parts,checks=[ck],
         parameters={**ratios,'column_face_reach_mm':lever,'root_moment_kNm':moment/1e6,'factored_vertical_kN':Rv/1000,
                     'factored_horizontal_kN':Rh/1000,'column_CJP_length_each_mm':tall,'web_weld_leg_mm':weld,
-                    'rail_hold_down_leg_mm':railw,'rafter_workline_unchanged':True},
+                    'rail_hold_down_leg_mm':railw,'web_to_cap_weld_leg_mm':webcapleg,'cap_thickness_mm':tcap,
+                    'rafter_workline_unchanged':True},
         description='Twin welded web bracket, CJP backplate seams on actual column flange positions and two rail hold-down welds per span. Detail the approved shop WPS, HAZ/UT access and local force transfer into the supporting column.'))
     f.verified+=1
 
@@ -221,6 +272,7 @@ def bracket(f,host,rails,mid,along,out,n,roof,dimensions,loads,Rv,Rh,domain,mark
 def fit(f):
     model=f.model;number=model.case.number
     if number not in (6,7,8,9,10,21):return
+    f.data['materials'].setdefault('WELD410',dict(grade='410 MPa matching consumable',standard='IS 814 / IS 800 section 10'))
     walls=next((r['exterior_planes_global_mm'] for r in reversed(f.scope) if 'exterior_planes_global_mm' in r),None)
     if not walls:raise ValueError('Eave design needs installed wall planes')
     cover=[p for p in f.panels if p['role'] in ('roof deck','roof sheeting')]
@@ -243,7 +295,8 @@ def fit(f):
         trib=max(.20,nearest/2000+.10)
         overhang=max(abs(lo-axis0),abs(hi-axis0-counts[along_i]*length))
         h,b,t,loads=rail_size(length,overhang,trib,n,model)
-        width_axis=unit(cross(n,along));offset=(b/2)*abs(width_axis[cross_i])+25
+        width_axis=unit(cross(n,along))
+        offset=(b/2)*abs(width_axis[cross_i])+(h/2)*dot(n,out)+25
         station=outside-sg*offset
         # Independent IFC samples distinguish the lower edge of the roof from
         # the outer wall and the original structural grid.
@@ -278,7 +331,8 @@ def fit(f):
         records.append(dict(side=side,outer_sheet_mm=outside,outer_workline_mm=grid,
                      rail_axis_mm=station,free_sheet_edge_mm=25.,longitudinal_rail_overhang_mm=round(overhang,2),
                      maximum_column_spacing_mm=length,roof_tributary_width_m=round(trib,4),section=label,
-                     factored_screw_reaction_kN=round(loads['design_screw_load_kN'],4),fastener_spacing_mm=150))
+                     factored_screw_reaction_kN=round(loads['design_screw_load_kN'],4),fastener_spacing_mm=150,
+                     rail_checks={k:round(v,5) for k,v in loads.items() if k.endswith(('_dc','displacement_mm'))}))
     mass=round(sum(f.mass.values())+sum(f.extra_mass.values())-mass0,2)
     ends=gable_overhangs(f,cross_i,lo,hi,axis0,length,counts[along_i],{round(r['rail_axis_mm'],2) for r in records})
     f.scope.append(dict(roles=['fascia rail','welded eave bracket'],eaves=records,gable_cantilevers=ends,added_eave_steel_kg=mass))

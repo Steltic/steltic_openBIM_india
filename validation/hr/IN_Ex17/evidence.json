@@ -86,12 +86,12 @@
         "pz_kNm2": 1.0658369383739998,
         "pd_kNm2": 0.8561651761059851,
         "dynamic": {
-          "G_X": 2.9270662928868036,
-          "G_Y": 2.8443121523418995,
-          "fa_x_hz": 0.9129252,
-          "fa_y_hz": 0.9124837,
-          "gust_base_shear_X_kN": 959.5344927106429,
-          "gust_base_shear_Y_kN": 1398.6097401554375,
+          "G_X": 2.929947904206729,
+          "G_Y": 2.8464961887485867,
+          "fa_x_hz": 0.8803127,
+          "fa_y_hz": 0.8798867,
+          "gust_base_shear_X_kN": 960.4791264084764,
+          "gust_base_shear_Y_kN": 1399.683678045388,
           "Cfs_X": 0.0022,
           "Cfs_Y": 0.0022,
           "assumption": "Trial rectangular-plan coefficient envelope including 10% figure-reading allowance. Verify application to actual shape and confirm final normal-mode frequencies.",
@@ -99,7 +99,11 @@
             "x": 0.8803127,
             "y": 0.8798867
           },
-          "source_package_sha256": "3b75f1a51a4123719e942b5d92815295de04640665f6467696c87e0f01d5cae1"
+          "frequency_difference_fraction": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "source_package_sha256": "4bf793c7ae0e06b4ab0eb908a55330a66294a4da3d46ee65e93d7b2100638f82"
         }
       },
       "analysis": {
@@ -568,7 +572,7 @@
             2
           ],
           "selected_inputs": {
-            "reduced_velocity": 0.83309,
+            "reduced_velocity": 0.86396,
             "tabulated_bracket": [
               2.0,
               2.0
@@ -591,7 +595,7 @@
             2
           ],
           "selected_inputs": {
-            "reduced_velocity": 0.83309,
+            "reduced_velocity": 0.86396,
             "tabulated_bracket": [
               2.0,
               2.0
@@ -614,7 +618,7 @@
             2
           ],
           "selected_inputs": {
-            "reduced_velocity": 0.55513,
+            "reduced_velocity": 0.57569,
             "tabulated_bracket": [
               2.0,
               2.0
@@ -637,7 +641,7 @@
             2
           ],
           "selected_inputs": {
-            "reduced_velocity": 0.55513,
+            "reduced_velocity": 0.57569,
             "tabulated_bracket": [
               2.0,
               2.0
@@ -2648,7 +2652,7 @@
       }
     }
   ],
-  "handoff_sha256": "62047d598da936dd92eb88720b60c9e8c497e4a14fb87af2d12208ba8184ce9d",
+  "handoff_sha256": "5c0bba87ec28736702ebc7b1e0cf7a9cd5a86c5d023a625f46cbb5dcdd918967",
   "members": 1870,
   "panels": 240,
   "connections": 5790,
@@ -2656,11 +2660,11 @@
   "source_evidence": {
     "producer": "steltic_india.openbim_handoff",
     "files": {
-      "design/calc_package.json": "4bf793c7ae0e06b4ab0eb908a55330a66294a4da3d46ee65e93d7b2100638f82",
-      "design/cfg_snapshot.json": "12655e8533b51138789476a5472a10bf948ab89ef599c41aebfbbf568471041d",
-      "design/member_schedule.csv": "fcecea4d8236871ecd29944ba74c71cb8f55d877087e9874996ff8b076d24f5d",
-      "report.html": "bef4c6712fe34f7b1fcc51268bc32790488748ecb69a1b54b25623a9c76d100b",
-      "viewer_3d.html": "44cf1936d6dc6fbaa7fd4c8db949741b8933b634454edcd62aec3f76c64da111",
+      "design/calc_package.json": "1d441bb302a863f3b90c7d21c92e3479fa7e937f68b5cf6238194b78224da6ba",
+      "design/cfg_snapshot.json": "6d61176d402d78d4bd7183193cc8a8935e95f7fe5871f6b2023cde9cdb1cdeae",
+      "design/member_schedule.csv": "53796476751f07a4a1f85a0fa247e1132c3c19b321faaf0afa4515b9bd235b8c",
+      "report.html": "ca5e863e659c686848b5e5b021d2f565d74fb27225474eb8d73fbf40eeeeb361",
+      "viewer_3d.html": "2dead5aefb718a9f87c88dc8acf1f12b5d5d93ed5e1b6d49d2c138639e741e13",
       "STATUS.engine.md": "906af31a00e5b42ea56b95b9c473b3f8c0630c3aadf14e3a879994ef4f88f70a"
     },
     "native_status": {

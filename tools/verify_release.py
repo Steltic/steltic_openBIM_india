@@ -12,11 +12,14 @@ def verify(directory):
     accepted=record(directory/"acceptance.json")
     references=record(directory/"comparison.json")
     reviews={r["id"]:r for r in record(directory/"visual-review.json")}
+    cfs_replays={r["case"]:r for r in record(directory/"cfs/replay-results.json")["cases"]}
     expected={f"IN_{prefix}Ex{n}" for prefix,count in (("",21),("CFS_",15)) for n in range(1,count+1)}
     if {r["id"] for r in accepted["cases"]}!=expected or len(accepted["cases"])!=36 or reviews.keys()!=expected:
         raise ValueError("Incomplete issued building or visual review inventory")
     if len(references)!=40 or len({(r["id"],r["unit"]) for r in references})!=40:
         raise ValueError("Incomplete or repeated independent unit comparison")
+    if set(cfs_replays)!={f"IN_CFS_Ex{n}" for n in range(1,16)}:
+        raise ValueError("Incomplete independent CFS design replay inventory")
     if record(directory/"roof-link-verification.json")["status"]!="pass" or record(directory/"workflow-verification.json")["status"]!="pass":
         raise ValueError("Incomplete native roof or installed workflow tests")
     sheets=0
@@ -31,6 +34,10 @@ def verify(directory):
         with (gzip.open if handoff.suffix==".gz" else open)(handoff,"rb") as stream:
             source=hash_stream(stream)
         comparison=[r for r in references if r["id"]==key]
+        if case["module"]=="CFS":
+            repeated=cfs_replays[key]
+            if not repeated["passed"] or repeated["issued_handoff_sha256"]!=source or repeated["native_source_files_rehashed"]<1:
+                raise ValueError(f"{key}: independent native replay no longer identifies the issued job")
         if (source!=case["sha256"]["handoff.json"] or source!=evidence["handoff_sha256"] or
             set(case["native"])!={r["unit"] for r in comparison} or any(source!=r["handoff_sha256"] for r in comparison)):
             raise ValueError(f"{key}: stale handoff, unit comparison or native evidence")
@@ -39,6 +46,10 @@ def verify(directory):
             raise ValueError(f"{key}: incomplete bearing verification")
         if case["module"]=="HR" and case["number"]<=5 and geometry["portal_contact_area"]["status"]!="pass":
             raise ValueError(f"{key}: incomplete portal contact areas")
+        if case["module"]=="HR" and case["number"] in (6,7,8,9,10,21):
+            eaves=geometry["eave_weld_faces"]
+            if eaves["status"]!="pass" or eaves["ifc_sha256"]!=case["sha256"]["model.ifc"] or eaves["handoff_sha256"]!=source:
+                raise ValueError(f"{key}: incomplete eave weld and sheet-edge verification")
         if any(not (directory/p).is_file() for p in case["supplements"]):
             raise ValueError(f"{key}: missing supplement")
         with ZipFile(bundle) as archive:

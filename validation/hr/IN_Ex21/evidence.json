@@ -41,17 +41,17 @@
         "soil": "II",
         "R_x": 3.0,
         "R_y": 4.0,
-        "W_kN": 866.854,
+        "W_kN": 996.454,
         "Ta_x_s": 0.346,
         "Ta_y_s": 0.0975,
         "Sa_g_x": 2.5,
         "Sa_g_y": 2.5,
         "Ah_x": 0.041667,
         "Ah_y": 0.03125,
-        "VB_x_kN": 36.119,
-        "VB_y_kN": 27.089,
+        "VB_x_kN": 41.519,
+        "VB_y_kN": 31.139,
         "W_by_floor_kN": [
-          866.854
+          996.454
         ]
       },
       "wind": {
@@ -348,28 +348,185 @@
         "governing_drift": {
           "storey": 1,
           "dir": "X",
-          "value": 0.00010270154191886421,
+          "value": 0.0001220370930533678,
           "limit": 0.004,
-          "dc": 0.025675385479716054,
+          "dc": 0.03050927326334195,
           "ok": true
         },
         "post_report_status_sha256": "a710cc66f0c245f14963a296b5b273ee95debb8d032208cc1d60153f75f5bb50"
+      },
+      "additional_dead_kNm2_by_level": {
+        "1": 0.2
+      },
+      "installed_bearing": {
+        "installed_surfaces": [
+          {
+            "panel": "Main-SLOPE-1",
+            "role": "roof sheeting",
+            "reference_elevation_mm": 6500.0,
+            "installed_soffit_elevation_mm": 6953.542,
+            "normal_offset_mm": 440.0
+          },
+          {
+            "panel": "Main-SLOPE-2",
+            "role": "roof sheeting",
+            "reference_elevation_mm": 6500.0,
+            "installed_soffit_elevation_mm": 6953.542,
+            "normal_offset_mm": 440.0
+          }
+        ],
+        "seat_steel_mass_kg_by_source_level": {
+          "EL-6500": 824.3,
+          "EL-0": 293.9
+        },
+        "added_boundary_bearer_mass_kg_by_source_level": {
+          "EL-6500": 2193.29,
+          "EL-0": 526.13
+        },
+        "source_workline_to_soffit": [
+          {
+            "roles": [
+              "roof sheeting"
+            ],
+            "normal": [
+              -0.24253562503633297,
+              0.0,
+              0.9701425001453319
+            ],
+            "datum_mm": 6305.926,
+            "soffit_lift_mm": 440.0,
+            "installed_secondary_count": 42
+          },
+          {
+            "roles": [
+              "roof sheeting"
+            ],
+            "normal": [
+              0.24253562503633297,
+              0.0,
+              0.9701425001453319
+            ],
+            "datum_mm": 10671.568,
+            "soffit_lift_mm": 440.0,
+            "installed_secondary_count": 42
+          },
+          {
+            "roles": [
+              "wall cladding"
+            ],
+            "exterior_planes_global_mm": {
+              "0-0": -590.0,
+              "0-1": 18590.0,
+              "1-0": -590.0,
+              "1-1": 36590.0
+            }
+          },
+          {
+            "roles": [
+              "fascia rail",
+              "welded eave bracket"
+            ],
+            "eaves": [
+              {
+                "side": 0,
+                "outer_sheet_mm": -590.0,
+                "outer_workline_mm": 0.0,
+                "rail_axis_mm": -498.3027031150084,
+                "free_sheet_edge_mm": 25.0,
+                "longitudinal_rail_overhang_mm": 590.0,
+                "maximum_column_spacing_mm": 6000,
+                "roof_tributary_width_m": 0.7103,
+                "section": "RHS150X100X5-EAVE",
+                "factored_screw_reaction_kN": 0.2162,
+                "fastener_spacing_mm": 150,
+                "rail_checks": {
+                  "bending_dc": 0.45521,
+                  "shear_dc": 0.03163,
+                  "deflection_dc": 0.57781,
+                  "overhang_displacement_dc": 0.92713,
+                  "vertical_displacement_mm": 11.0037,
+                  "horizontal_displacement_mm": 9.35855
+                }
+              },
+              {
+                "side": 1,
+                "outer_sheet_mm": 18590.0,
+                "outer_workline_mm": 18000.0,
+                "rail_axis_mm": 18498.30270311501,
+                "free_sheet_edge_mm": 25.0,
+                "longitudinal_rail_overhang_mm": 590.0,
+                "maximum_column_spacing_mm": 6000,
+                "roof_tributary_width_m": 0.7103,
+                "section": "RHS150X100X5-EAVE",
+                "factored_screw_reaction_kN": 0.2162,
+                "fastener_spacing_mm": 150,
+                "rail_checks": {
+                  "bending_dc": 0.45521,
+                  "shear_dc": 0.03163,
+                  "deflection_dc": 0.57781,
+                  "overhang_displacement_dc": 0.92713,
+                  "vertical_displacement_mm": 11.0037,
+                  "horizontal_displacement_mm": 9.35855
+                }
+              }
+            ],
+            "gable_cantilevers": [
+              {
+                "profile": "LZ260X75X20X1.6",
+                "gable": 0,
+                "governing_member": "Main-PU-2-1",
+                "projection_mm": 590.0,
+                "conservative_arm_mm": 690.0,
+                "tributary_m": 1.5,
+                "bending_dc": 0.0484,
+                "shear_torsion_dc": 0.1161,
+                "deflection_dc": 0.0111,
+                "utilization": 0.11607322661078559,
+                "additional_factored_root_uplift_kN": 2.165
+              },
+              {
+                "profile": "LZ260X75X20X1.6",
+                "gable": 1,
+                "governing_member": "Main-PU-2-6",
+                "projection_mm": 590.0,
+                "conservative_arm_mm": 690.0,
+                "tributary_m": 1.5,
+                "bending_dc": 0.0484,
+                "shear_torsion_dc": 0.1161,
+                "deflection_dc": 0.0111,
+                "utilization": 0.11607322661078559,
+                "additional_factored_root_uplift_kN": 2.165
+              }
+            ],
+            "added_eave_steel_kg": 1724.1
+          }
+        ],
+        "physical_receiver_contacts": 246,
+        "open_contacts": []
+      },
+      "auxiliary_dead_load": {
+        "1": {
+          "physical_kg": 11351.0,
+          "plan_m2": 648,
+          "actual_kNm2": 0.17184,
+          "applied_kNm2": 0.2
+        }
       }
     }
   ],
-  "handoff_sha256": "f415516e26ff9b9bcb27b5abc478030ce281682b778fe7b1ee075dc2269555cb",
-  "members": 537,
+  "handoff_sha256": "c1c765c3729c76b023e3f7b6f4f910d48f43b323b6019ab8d38864da70cc4a70",
+  "members": 593,
   "panels": 18,
-  "connections": 240,
-  "physical_profiles": 12,
+  "connections": 486,
+  "physical_profiles": 13,
   "source_evidence": {
     "producer": "steltic_india.openbim_handoff",
     "files": {
-      "design/calc_package.json": "c493efb0638c89ada5d042f434ea04da57cb0e1980dd1de6e0f9548ba9e67a3a",
-      "design/cfg_snapshot.json": "4dc886a540b26d36aeafc99189e52660148d270c4dad1e37b258e5c38c7320b8",
-      "design/member_schedule.csv": "42a8eb0c8234c2d4f350763ecaf6bd55559c7378284637ec2e24b8a419773f59",
-      "report.html": "a07d7d9d8edfdb780e65eebda306cb29a46e7c0afa0736aefba60829bea33caa",
-      "viewer_3d.html": "67e097bf8b82f1839fc3f1fd18f72ed95d2ab712621f73e0572ff7012fb196f4",
+      "design/calc_package.json": "c76245d6232bc9732ec6c3c5b5da584b6a5170b5c325d7cf9406f9e022e4819c",
+      "design/cfg_snapshot.json": "a4bd321ff8723d41e747c0ab25879d9e8dd3a018e1a9b145be8f86af2e93454b",
+      "design/member_schedule.csv": "a5161dd80fe1395b5a240326867e1c2f0b14a71e3904f22951a4ebecfe9a41ce",
+      "report.html": "a2deed9a7dd636b9938971adbc8e289e5761782e2568cd5741bd017ab1955b85",
+      "viewer_3d.html": "1901604476231e69cf96869805617c4419a5590652f64a9aafbb00a4a5e7e897",
       "STATUS.engine.md": "a710cc66f0c245f14963a296b5b273ee95debb8d032208cc1d60153f75f5bb50"
     },
     "native_status": {

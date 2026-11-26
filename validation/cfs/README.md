@@ -4,14 +4,16 @@ Each `IN_CFS_Ex*/result.json` identifies the active building brief, its hash, th
 
 The engineering reconciliation compares all 15 published reports and both committed reference fixtures with the local designs. It records the corrected storage, wind, corridor and podium inputs alongside the original freeze hashes. [Engineering review](engineering-review.md)
 
+All 15 final designs were independently recalculated in fresh local job directories and passed the documented replay verifier. The receipt records both handoff digests and calculation-package digests for each case. All 175 bound native source files passed their SHA-256 checks. [Independent replay receipts](replay-results.json)
+
 ## Reproduce one design
 
 Use the active `test_buildings/IN_CFS_Ex*.txt` briefs from `Steltic/steltic_CFS_india`. The baseline structural engine commit is `6e43e5839a84358a6a23356b2de4d59ab914a38b`. Use a checkout containing the optional `steel_engine/openbim_handoff.py` producer and install the India BIM package into its Python environment. The native 3D runs also require the CFS repository's OpenSeesPy, NumPy and reporting dependencies. `--jobs` names local scratch. The licensed source corpus and retrieval excerpts stay there.
 
 ```console
-python validation/cfs/run_native.py 9 --engine ../steltic_CFS_india --corpus /path/to/corpus_fixed --jobs /path/to/private/jobs
-python validation/cfs/export_case.py 9 --engine ../steltic_CFS_india --jobs /path/to/private/jobs --target /path/to/replay
-python validation/cfs/verify_replay.py 9 --jobs /path/to/private/jobs --replay /path/to/replay
+python validation/cfs/run_native.py 9 --engine INDIA_CFS --corpus CORPUS --jobs PRIVATE_CFS
+python validation/cfs/export_case.py 9 --engine INDIA_CFS --jobs PRIVATE_CFS --target NEW_CFS_EVIDENCE
+python validation/cfs/verify_replay.py 9 --jobs PRIVATE_CFS --replay NEW_CFS_EVIDENCE
 ```
 
 The first command reconstructs the job from the brief and local specification corpus, calls `india_cfs_pipeline.design_and_report`, and writes the native HTML report, viewer, status and calculation package. The second binds physical occurrences to the actual native group checks and writes the customer job sidecar and portable evidence. The third rehashes every bound native source and compares the issued and recalculated quantities, checks, geometry and bearing probes. Local report paths and timestamps can change the byte hash between independent runs. Within a run the portable handoff must match the native job sidecar byte for byte. Open the job in the India BIM Hub or use the BIM publishing command in the project README.
@@ -36,7 +38,9 @@ The first command reconstructs the job from the brief and local specification co
 | 14 | Noida | Two 64 × 40 m composite podium levels, five U-shaped residential levels, open court and continuous bracing |
 | 15 | Kolkata | Eight-storey cruciform, four re-entrant corners and three primary-column tiers |
 
-`brief_frame.py` supplies project geometry through the native engine’s public custom-builder interface. The occupied pitched buildings have an actual ceiling diaphragm with a roof truss above. The open portal roofs use the eave-spread model. Angle webs, primary chords and the double-height return braces participate in the same analysis as the columns. Noida has a separate concrete-topped diaphragm stiffness at the podium. `grounding.py` records the supplied corpus locators and digests. Noida’s Delhi wind proxy and Srinagar’s ground snow-zone assumption require site confirmation.
+`brief_frame.py` supplies project geometry through the native engine’s public custom-builder interface. The occupied pitched buildings have a ceiling diaphragm with a roof truss above. The open portal roofs use the eave-spread model. Angle webs, primary chords and double-height return braces participate in the same analysis as the columns. The measured chord deviations govern as flexible in Nagpur, Visakhapatnam and Ahmedabad. Noida’s concrete-topped podium classifies as rigid at both levels and its five residential diaphragms classify as flexible.
+
+`grounding.py` records the supplied corpus locators and file digests. The snow-load PDF is IS 875 (Part 4):2021. Its supplied corpus folder and PDF filename carry the historical 1987 label. Srinagar’s selected ground snow zone and Noida’s Delhi wind proxy require site confirmation. [Corpus and PDF verification](../corpus-verification.json)
 
 ## Interpreting the evidence
 

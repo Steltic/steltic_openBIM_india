@@ -20,7 +20,9 @@ def part_weight(part):
     if part['kind']=='plate':
         volume=(area(part['outline'])-sum(area(r) for r in part.get('openings',[])))*part['thickness_mm']
     else:
-        section=(math.pi*part['diameter_mm']**2/4 if part['kind']=='bolt' else part['leg_mm']**2/2)
+        if part['kind']=='bolt':section=math.pi*part['diameter_mm']**2/4
+        elif part.get('weld_type')=='cjp':section=part['throat_mm']*part.get('width_mm',part['throat_mm'])
+        else:section=part['leg_mm']**2/2
         volume=section*math.dist(part['start'],part['end'])
     return volume*7.85e-6*9.81/1000   # kN
 

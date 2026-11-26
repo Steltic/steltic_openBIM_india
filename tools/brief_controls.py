@@ -54,6 +54,7 @@ def installed_measurements(model, *, floor_areas=False, condenser_openings=False
         condenser_posts=[]
         column_xy=[]
         main_roof=[]
+        lean_to_roof=[]
         stepped_panels={}
         storeys=[s for r in building.IsDecomposedBy for s in r.RelatedObjects if s.is_a("IfcBuildingStorey")]
         for storey in storeys:
@@ -88,7 +89,7 @@ def installed_measurements(model, *, floor_areas=False, condenser_openings=False
                         holes=[ring(r)[:,:2] for r in getattr(area,"InnerCurves",())]
                         footprint=Polygon(exterior[:,:2],holes)
                         if shed_overhang and roof_panel and "canopy" not in role:
-                            main_roof.append(footprint)
+                            (lean_to_roof if role=="lean-to roof" else main_roof).append(footprint)
                         if stepped_office and role=="roof deck":
                             stepped_panels.setdefault(round(storey.Elevation),[]).append(footprint)
                         if condenser_openings and role=="pitched roof":
@@ -134,9 +135,18 @@ def installed_measurements(model, *, floor_areas=False, condenser_openings=False
             bounds=np.asarray(column_xy)
             x0,y0=bounds.min(axis=0)
             x1,y1=bounds.max(axis=0)
-            installed=unary_union(main_roof)
-            ax,ay,bx,by=installed.bounds
-            measured[key]["weathered_roof"]={"in_grid_m2":installed.intersection(box(x0,y0,x1,y1)).area/1e6,
+            hall=unary_union(main_roof)
+            installed=unary_union(main_roof+lean_to_roof)
+            annex_area=0.
+            if lean_to_roof:
+                # Shimla has a 24 x 60 m warehouse and a 12 x 30 m attached office.
+                # An overhang above the empty half of the bounding rectangle is outside both buildings.
+                x0=x1-24000.
+                annex_grid=box(x0-12000.,y0,x0,y0+30000.)
+                annex_area=unary_union(lean_to_roof).intersection(annex_grid).area/1e6
+            hall_area=hall.intersection(box(x0,y0,x1,y1)).area/1e6
+            ax,ay,bx,by=hall.bounds
+            measured[key]["weathered_roof"]={"in_grid_m2":hall_area+annex_area,"main_in_grid_m2":hall_area,"lean_to_in_grid_m2":annex_area,
                 "installed_m2":installed.area/1e6,"extensions_mm":{"west":x0-ax,"east":bx-x1,"south":y0-ay,"north":by-y1}}
         if stepped_office:
             # Pune's five lower terrace edge columns are 500 mm boxes. The sheet
@@ -197,7 +207,7 @@ def run(family, number, measurements):
         else:
             bounds = wanted if isinstance(wanted,tuple) else (wanted,wanted)
             ok = observed is not None and bounds[0]-tolerance <= observed <= bounds[1]+tolerance
-        records.append({"unit":unit, "control":label, "required":wanted, "measured":observed, "pass":ok})
+        records.append({"unit":unit, "control":label, "required":wanted, "measured":observed, "pass":bool(ok)})
     check("project","independent unit count",len(measurements),len(expected),0)
     for unit,(width,length,top,area) in expected.items():
         model = measurements.get(unit,{})
@@ -233,6 +243,9 @@ def run(family, number, measurements):
         elif family=="hr" and number in (6,7,8,9,10,21):
             weather=model.get("weathered_roof",{})
             check(unit,"main roof coverage inside the structural grid (m²)",weather.get("in_grid_m2"),area,.1)
+            if number==9:
+                check(unit,"main shed inside the 24 × 60 m grid (m²)",weather.get("main_in_grid_m2"),1440,.1)
+                check(unit,"attached 12 × 30 m lean-to weather coverage (m²)",weather.get("lean_to_in_grid_m2"),360,.1)
             check(unit,"whole installed weathered roof, two independent IFC readers (m²)",weather.get("installed_m2"),model["roof_plan_union_m2"],.003)
             eaves={6:(("south","north"),450),7:(("west","east"),644),8:(("west","east"),617),
                    9:(("west","east"),692),10:(("south","north"),534.5),21:(("west","east"),590)}
