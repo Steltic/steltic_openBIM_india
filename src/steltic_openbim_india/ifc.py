@@ -14,7 +14,7 @@ import ifcopenshell
 import ifcopenshell.api.context
 from shapely import set_precision, to_wkb
 
-from .geometry import frame, project, sub
+from .geometry import dot, frame, member_body_ends, project, sub
 from .model import at_level, design_status, panel_shape, unit_levels
 from .profiles import polygon, section_polygons
 
@@ -26,6 +26,8 @@ ORIGIN = (0., 0., 0.)
 
 def member_class(role):
     name = role.casefold()
+    if any(k in name for k in ("brace","bracing","flange stay")):
+        return "IfcMember"
     if any(k in name for k in ("column", "stud", "post", "stanchion", "jamb", "stilt")):
         return "IfcColumn"
     if any(k in name for k in ("beam", "rafter", "girder", "joist", "lintel", "purlin", "girt", "header", "stringer")):
@@ -195,12 +197,13 @@ class Exchange:
         return self.m.create_entity("IfcPolygonalFaceSet", Coordinates=self.m.create_entity("IfcCartesianPointList3D", CoordList=points),
                                     Faces=faces, Closed=True)
 
-    def axis_rep(self, length):
-        if length not in self.axes:
-            curve = self.curve([ORIGIN, (0., 0., float(length))])
-            self.axes[length] = self.m.create_entity("IfcShapeRepresentation", ContextOfItems=self.axis_context,
+    def axis_rep(self, length, cutback=0.):
+        key=(length,cutback)
+        if key not in self.axes:
+            curve = self.curve([(0.,0.,-float(cutback)), (0., 0., float(length-cutback))])
+            self.axes[key] = self.m.create_entity("IfcShapeRepresentation", ContextOfItems=self.axis_context,
                                                       RepresentationIdentifier="Axis", RepresentationType="Curve3D", Items=[curve])
-        return self.axes[length]
+        return self.axes[key]
 
     def product_shape(self,representations):
         if not representations:
@@ -246,13 +249,41 @@ class Exchange:
 
     def member(self, row):
         a, b = row["start"], row["end"]
-        x, _, z = frame(a, b, row.get("ref_direction"))
+        x, y, z = frame(a, b, row.get("ref_direction"))
         length = math.dist(a, b)
-        body = self.member_body(row["profile"], row.get("end_profile"), length)
+        p,q=member_body_ends(row)
+        body = self.member_body(row["profile"], row.get("end_profile"), math.dist(p,q))
         uid = row.get("unit") if self.data.get("units") else None
         level = at_level(self.data, row, min(a[2], b[2]),self.levels[uid])
-        obj = self.product(member_class(row["role"]), row, row["role"], a, x, z, [self.axis_rep(length), body], container=(uid,level))
-        self.props(obj, row["id"], self.source_props(row, row["role"], WorklineLengthMm=length))
+        cutback=row.get("end_cutbacks_mm",[0,0])[0]
+        obj = self.product(member_class(row["role"]), row, row["role"], p, x, z, [self.axis_rep(length,cutback), body], container=(uid,level))
+        self.props(obj, row["id"], self.source_props(row, row["role"], WorklineLengthMm=length,
+                   EndCutbacksMm=row.get("end_cutbacks_mm"),DrilledFeatures=len(row["member_voids"]) if row.get("member_voids") else None))
+        for feature in row.get("member_voids",[]):
+            self.member_void(obj,feature,p,(x,y,z))
+
+    def member_void(self,obj,feature,host_origin,host_axes):
+        def local(v):
+            return tuple(dot(v,axis) for axis in host_axes)
+        if feature["kind"]=="bore":
+            a,b=feature["start"],feature["end"]
+            x,_,z=frame(a,b)
+            d=float(feature["diameter_mm"])
+            length=math.dist(a,b)
+            token=("bore",d,round(length,8))
+            if token not in self.fastener_bodies:
+                prof=self.m.create_entity("IfcCircleProfileDef",ProfileType="AREA",ProfileName="Drill",Radius=d/2)
+                self.fastener_bodies[token]=self.sweep("Drill",[prof],length)
+            shape=self.fastener_bodies[token]
+        else:
+            (a,x,_,z),section=panel_shape(feature)
+            shape=self.panel_body(section,feature["thickness_mm"])
+        key=f"{obj.Tag}/void/{feature['id']}"
+        place=self.placement(local(sub(a,host_origin)),local(x),local(z),obj.ObjectPlacement)
+        op=self.root("IfcOpeningElement","opening:"+key,Name=key,Tag=key,ObjectType=feature["kind"],
+                     Description=feature.get("connection"),PredefinedType="OPENING",ObjectPlacement=place,
+                     Representation=self.product_shape([shape]))
+        self.root("IfcRelVoidsElement","void:"+key,RelatingBuildingElement=obj,RelatedOpeningElement=op)
 
     def panel_body(self, shape, depth):
         signature=sha256(to_wkb(set_precision(shape,1e-7,mode="pointwise"))).digest()

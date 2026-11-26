@@ -452,10 +452,10 @@
       ]
     }
   ],
-  "handoff_sha256": "2b85dc2be6291412adb71bc046202de0b3e506eefc79cd2ccd9a7abb2e755419",
-  "members": 892,
+  "handoff_sha256": "9e07d834784e13c5c78d691dc008c6d61a7450498c9b67127cad07acefa29815",
+  "members": 898,
   "panels": 44,
-  "connections": 97,
+  "connections": 123,
   "physical_profiles": 13,
   "source_evidence": {
     "producer": "steltic_india.openbim_handoff",

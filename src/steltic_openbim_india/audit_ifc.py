@@ -16,6 +16,7 @@ from shapely.ops import unary_union
 from shapely.strtree import STRtree
 
 from .audit_gaps import measure
+from .audit_features import check as check_member_openings, mesh as feature_mesh
 from .bolt_fit import assembly as measure_bolts
 
 
@@ -158,7 +159,7 @@ def audit_ifc(source, path, source_hash, expect):
     settings = ifcopenshell.geom.settings()
     cached_shapes, checked_profiles = set(), set()
     gaps = json.loads(project_data.get("SeparationJoints","[]"))
-    meshes, unit_solids = {}, {}
+    meshes, unit_solids, drilled_cache = {}, {}, {}
     unit_for = {r["id"]: r.get("unit") for r in [*source["members"], *source.get("panels",[])]}
     for joint in source.get("connections",[]):
         unit_for.update({p["id"]:joint.get("unit") for p in joint.get("parts",[])})
@@ -193,7 +194,7 @@ def audit_ifc(source, path, source_hash, expect):
             except (ValueError,RuntimeError,TypeError) as error:
                 expect(False, "independent solid tessellation", f"{key}: {error}")
         if gaps and body and body.id() in meshes:
-            local, triangles = meshes[body.id()]
+            local, triangles = feature_mesh(settings,obj) if row.get("member_voids") else meshes[body.id()]
             loc = matrix(obj.ObjectPlacement)
             vertices = local @ loc[:3,:3].T + loc[:3,3]
             unit_solids.setdefault(unit_for.get(key), []).append((key,vertices,triangles))
@@ -217,6 +218,9 @@ def audit_ifc(source, path, source_hash, expect):
         if read is None:
             continue
         obj, props, body = read
+        role=str(obj.ObjectType or "").casefold()
+        if any(word in role for word in ("brace","bracing","flange stay")):
+            expect(obj.is_a()=="IfcMember","bracing occurrence classification",key)
         expected_level = row.get("level")
         if not expected_level:
             z = min(row["start"][2],row["end"][2])
@@ -231,17 +235,23 @@ def audit_ifc(source, path, source_hash, expect):
             expect(len(points)==2 and near(points,[row["start"],row["end"]]), "actual IFC axis",key)
             owner = row.get("unit","Main")
             axis_tops[owner] = max(axis_tops.get(owner,float("-inf")),*(p[2] for p in points))
-            if "column" in str(obj.ObjectType).lower():
+            if obj.is_a("IfcColumn") and "column" in role:
                 column_points.setdefault(owner,[]).extend(points)
         else:
             expect(False,"missing axis",key)
         if not body:
             expect(False,"missing member body",key)
             continue
+        if row.get("member_voids") or obj.HasOpenings:
+            check_member_openings(row,obj,body,settings,matrix,expect,drilled_cache)
+        end_a,end_b=np.asarray(row["start"],dtype=float),np.asarray(row["end"],dtype=float)
+        direction=(end_b-end_a)/np.linalg.norm(end_b-end_a)
+        d0,d1=row.get("end_cutbacks_mm",(0.,0.))
+        actual_start,actual_end=end_a+d0*direction,end_b-d1*direction
         if all(solid.is_a("IfcPolygonalFaceSet") for solid in body.Items):
             # A tapered arbitrary profile is represented as a capped loft. Compare
             # the actual two cap polygons (including holes), not an axis or label.
-            a,b = np.asarray(row["start"]), np.asarray(row["end"])
+            a,b = actual_start,actual_end
             length=float(np.linalg.norm(b-a))
             trans=matrix(obj.ObjectPlacement)
             expect(near(trans[:3,3],a) and near(world(trans,[0,0,length]),b), "loft endpoints",key)
@@ -270,7 +280,7 @@ def audit_ifc(source, path, source_hash, expect):
                         expect(near([x1-x0,y1-y0],[w,dims.get("d",dims.get("t",dims.get("diameter")))]),"loft end dimensions",key)
             continue
         for solid in body.Items:
-            sweep(solid,obj,row,key)
+            sweep(solid,obj,dict(row,start=actual_start,end=actual_end) if d0 or d1 else row,key)
         ends = [("SweptArea",row["profile"])]
         if row.get("end_profile", row["profile"]) != row["profile"]:
             ends.append(("EndSweptArea",row["end_profile"]))
@@ -305,7 +315,7 @@ def audit_ifc(source, path, source_hash, expect):
         required = Polygon(local(row["outline"]), [local(h) for h in row.get("openings",[])])
         actual = areas(solid.SweptArea)
         role = str(obj.ObjectType or "").lower()
-        if building_surface and ("roof" in role or "floor" in role) and not any(t in role for t in ("airlock","canopy")):
+        if building_surface and ("roof" in role or "floor" in role or role=="amenity deck") and not any(t in role for t in ("airlock","canopy")):
             unit = row.get("unit","Main")
             ring = [world(mat,[x,y,0.]) for x,y in actual.exterior.coords]
             holes = [[world(mat,[x,y,0.])[:2] for x,y in inner.coords] for inner in actual.interiors]
@@ -408,7 +418,8 @@ def audit_ifc(source, path, source_hash, expect):
     dimensions = {}
     for unit, top in axis_tops.items():
         panels = footprints.get(unit,[])
-        roof = [p for role,p,_,_ in panels if "roof" in role]
+        roof_faces=[(p,z0,z1) for role,p,z0,z1 in panels if "roof" in role or role=="amenity deck"]
+        roof=[p for p,_,_ in roof_faces]
         columns = np.asarray(column_points.get(unit,[]))
         floors = {}
         for role,poly,z0,z1 in panels:
@@ -435,10 +446,14 @@ def audit_ifc(source, path, source_hash, expect):
             "maximum_steel_workline_z_mm": round(float(top),3),
             "roof_plan_union_m2": round(roof_union.area/1e6,3) if roof else None,
             "roof_transverse_sections_by_y_fraction":widths,
-            "pitched_roof_panels": sum(1 for role,_,z0,z1 in panels if "roof" in role and abs(z1-z0)>10),
-            "flat_roof_panels": sum(1 for role,_,z0,z1 in panels if "roof" in role and abs(z1-z0)<=10),
+            "pitched_roof_panels": sum(1 for _,z0,z1 in roof_faces if abs(z1-z0)>10),
+            "flat_roof_panels": sum(1 for _,z0,z1 in roof_faces if abs(z1-z0)<=10),
+            "flat_roof_plan_union_m2":round(unary_union([p for p,z0,z1 in roof_faces if abs(z1-z0)<=10]).area/1e6,3),
+            "pitched_roof_plan_union_m2":round(unary_union([p for p,z0,z1 in roof_faces if abs(z1-z0)>10]).area/1e6,3),
             "floor_net_plan_m2_by_elevation_mm": {str(z):round(unary_union(polys).area/1e6,3) for z,polys in sorted(floors.items())}}
     return dict(schema=model.schema, length_unit="mm", members=len(source["members"]), panels=len(source.get("panels",[])),
+                member_voids=sum(len(m.get("member_voids",[])) for m in source["members"]),
+                cutback_members=sum(any(m.get("end_cutbacks_mm",[])) for m in source["members"]),
                 assemblies=len(source.get("connections",[])), parts=len(parts), storeys=len(storeys),
                 tessellated_representations=len(cached_shapes), occurrence_placements=len(entities), schema_errors=len(errors),
                 interunit_horizontal_plate_overlaps=overlaps, declared_design_status=project_data.get("DesignStatus"),

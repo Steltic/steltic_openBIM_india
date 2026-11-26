@@ -17,6 +17,19 @@
     <section id="design" hidden><h1>Generate drawings and IFC</h1><p>Upload a physical handoff from an India HR or CFS design job.</p>
       <form id="design-form" class="upload"><label>Design handoff <input name="file" type="file" accept=".json,.gz,application/json,application/gzip" required></label><button class="primary">Generate delivery</button></form>
       <form id="job-form" class="upload" hidden><label>Local design job <select id="source-jobs"></select></label><button>Import job</button></form>
+      <details id="drawing-queries" hidden><summary>Request register and drawing revisions</summary>
+        <label>Drawing revision <select id="query-revision"></select></label>
+        <form id="answer-form"><label>Request <select id="query-id"></select></label>
+          <p id="query-description"></p><p id="saved-response"></p>
+          <div id="opening-host" hidden><label>Opening mark <input name="mark" maxlength="100" placeholder="O-01"></label>
+            <label>Host panel <select name="panel"></select></label></div>
+          <label>Response <select name="action"><option value="information">Record information</option><option value="confirm opening">Confirm opening geometry</option><option value="reopen">Reopen request</option></select></label>
+          <label id="opening-points" hidden>Perimeter vertices in global mm, one X, Y, Z point per line <textarea name="points" rows="4"></textarea></label>
+          <label>Reviewer <input name="reviewer" required maxlength="120"></label>
+          <label>Information supplied <textarea name="note" required maxlength="600" rows="2"></textarea></label>
+          <button>Save and regenerate drawings</button>
+        </form>
+      </details>
     </section>
     <section id="import" hidden><h1>Review an IFC model</h1><p>Inspect the source units, storeys, member profiles and three-dimensional geometry.</p>
       <form id="import-form" class="upload"><label>IFC2x3, IFC4 or IFC4x3 <input name="file" type="file" accept=".ifc" required></label><button class="primary">Inspect IFC</button></form>

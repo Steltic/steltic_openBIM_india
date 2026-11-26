@@ -13,6 +13,7 @@ import subprocess
 import sys
 import tempfile
 import uuid
+from typing import Literal
 
 from fastapi import FastAPI, HTTPException, UploadFile
 from fastapi.responses import FileResponse
@@ -20,6 +21,7 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
 from . import local_guard
+from . import drawing_queries
 
 app = FastAPI(title="Steltic openBIM India")
 local_guard.install(app)
@@ -27,7 +29,7 @@ static = Path(__file__).with_name("static")
 app.mount("/static", StaticFiles(directory=static), name="static")
 
 DOWNLOADS = {
-    "design": {"drawings.pdf", "model.ifc", "drawing_register.json", "certificate.json", "handoff.json"},
+    "design": {"drawings.pdf", "model.ifc", "drawing_register.json", "certificate.json", "handoff.json", "requests.json"},
     "import": {"original.ifc", "inspection.json"},
     "review": {"review.json"},
     "brief": {"design_brief.txt", "architectural_geometry.json"},
@@ -137,7 +139,7 @@ def download(project: str, key: str, name: str):
     return FileResponse(folder / name, filename=name)
 
 
-def issue_design(project, source, label, job_directory=None):
+def issue_design(project, source, label, job_directory=None, register=None, **lineage):
     with revision(project) as (key, folder):
         compressed=source.read(2)==b"\x1f\x8b"
         source.seek(0)
@@ -151,16 +153,60 @@ def issue_design(project, source, label, job_directory=None):
         worker("", "deliver", folder / "handoff.json", "--output", folder / "delivery", *verification,
                timeout=int(os.getenv("OPENBIM_DELIVERY_TIMEOUT","7200")))
         # The user can request a candidate even when the engineer left an explicit review item.
-        for name in DOWNLOADS["design"] - {"handoff.json"}:
+        for name in DOWNLOADS["design"] - {"handoff.json", "requests.json"}:
             (folder / "delivery" / name).rename(folder / name)
         certificate = json.loads((folder/"certificate.json").read_text(encoding="utf-8"))
+        if register is None:
+            register = drawing_queries.register(json.loads((folder / "handoff.json").read_bytes()), [])
+        register["handoff_sha256"] = digest
+        (folder / "requests.json").write_text(json.dumps(register, ensure_ascii=False), encoding="utf-8")
         return save_state(key, folder, "design", label, source_sha256=digest,
-                          artifact_check=certificate["artifact_status"], engineering=certificate["design_status"])
+                          artifact_check=certificate["artifact_status"], engineering=certificate["design_status"], **lineage)
 
 
 @app.post("/api/projects/{project}/design")
 def design(project: str, file: UploadFile):
     return issue_design(project, file.file, Path(file.filename or "handoff.json").name)
+
+
+class DrawingAnswer(BaseModel):
+    request_id: str = Field(min_length=1, max_length=240)
+    reviewer: str = Field(min_length=1, max_length=120)
+    note: str = Field(min_length=1, max_length=600)
+    action: Literal["information", "confirm opening", "reopen"]
+    panel: str | None = Field(default=None, max_length=240)
+    outline: list[tuple[float, float, float]] | None = Field(default=None, max_length=128)
+
+
+@app.post("/api/projects/{project}/{key}/answers")
+def drawing_answer(project: str, key: str, answer: DrawingAnswer):
+    folder, state = load_state(project, key)
+    if state["kind"] != "design":
+        raise HTTPException(422, "Choose a design delivery")
+    base_key = state.get("base_revision", key)
+    base, base_state = load_state(project, base_key)
+    # Always start with the frozen producer export so replacing/reopening a response is reversible.
+    source = json.loads((base / "handoff.json").read_bytes())
+    old = folder / "requests.json"
+    previous = json.loads(old.read_bytes())["answers"] if old.is_file() else []
+    response = answer.model_dump(mode="json")
+    if not answer.reviewer.strip() or not answer.note.strip():
+        raise HTTPException(422, "Enter the reviewer and information supplied")
+    register = drawing_queries.register(source, [])
+    try:
+        register["answers"] = drawing_queries.revise(source, previous, response)
+    except (ValueError, TypeError) as error:
+        raise HTTPException(422, str(error)) from error
+    source["drawing_revision"] = {"native_handoff_sha256": base_state["source_sha256"],
+                                  "parent_handoff_sha256": state["source_sha256"], "responses": register["answers"]}
+    with tempfile.TemporaryDirectory(dir=directory(project)) as temporary:
+        revised = Path(temporary) / "revised.json"
+        with revised.open("w",encoding="utf-8") as out:
+            json.dump(source, out, ensure_ascii=False, allow_nan=False, separators=(",", ":"))
+        del source
+        with revised.open("rb") as stream:
+            return issue_design(project, stream, base_state["label"], register=register,
+                                base_revision=base_key, parent_revision=key)
 
 
 def source_roots():

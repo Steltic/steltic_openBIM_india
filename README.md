@@ -40,12 +40,14 @@ steltic-openbim-india serve --port 8090
 
 Open [the local application](http://127.0.0.1:8090). **Steltic import** accepts a JSON handoff or a completed native job discovered under `HR_JOBS` or `CFS_JOBS`. **IFC import** inspects an IFC2x3, IFC4 or IFC4x3 source and displays selected storeys or structural products in 3D. Its architectural brief export retains geometry constraints and source identity for the chosen India module. **IFC export** provides both generated structural deliveries and the byte-identical original of an uploaded IFC. `OPENBIM_JOBS` sets the project history directory. The [Steltic Hub manifest](steltic_module.json) exposes the same workflow when installed as a module.
 
+Under **Request register and drawing revisions**, choose a drawing set, name the reviewer and record an answer. Confirm an architectural opening by selecting its host panel and entering perimeter coordinates in mm. The revised PDF and IFC include the measured opening, the reviewer attribution and an open structural-coordination check. Reopening the item restores the source panel. Each answer creates a separate revision with links to its parent and original design. `requests.json` lists outstanding engineering checks, connection details and recorded responses.
+
 ## What the drawings and certificate cover
 
 | Output | Contents |
 | --- | --- |
 | Plans and elevations | Level framing plans, elevations of each occupied frame line and orthogonal off-grid projections. Independent structures have separate placements, levels and joint schedules. |
-| Schedules and details | Member marks, section shapes and orientation, workline lengths, panels and openings, selected grades, located connections, receiver IDs, three orthogonal detail views and part schedules for the supplied assemblies. The K-series prints the source calculation decisions and utilization. |
+| Schedules and details | Member marks, section shapes and orientation, workline and cut lengths, stock drilling and slot coordinates, panels and openings, selected grades, located connections, receiver IDs, three orthogonal detail views and part schedules for the supplied assemblies. The K-series prints the source calculation decisions and utilization. |
 | IFC | Actual solid sections, rolled and built-up members, tapered profiles, sheet and slab panels with hosted openings, connection assemblies, plates, fastener shafts and fillet welds. A located connection with pending fabrication geometry is identified on its drawing. |
 | Readback | IfcOpenShell independently parses the STEP, validates the schema and tessellates distinct bodies. The checker measures placements, sizes, profile walls, hosted holes, fasteners, welds, unit clearances and horizontal plate overlaps. PyMuPDF rasterizes every sheet and checks printed schedules, dimensions and projected linework. |
 

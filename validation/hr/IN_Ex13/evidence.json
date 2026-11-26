@@ -45,21 +45,21 @@
         "soil": "II",
         "R_x": 4.5,
         "R_y": 4.5,
-        "W_kN": 21629.767,
+        "W_kN": 22277.923,
         "Ta_x_s": 0.2958,
         "Ta_y_s": 0.3307,
         "Sa_g_x": 2.5,
         "Sa_g_y": 2.5,
         "Ah_x": 0.08,
         "Ah_y": 0.08,
-        "VB_x_kN": 1730.381,
-        "VB_y_kN": 1730.381,
+        "VB_x_kN": 1782.234,
+        "VB_y_kN": 1782.234,
         "W_by_floor_kN": [
-          4912.357,
-          4876.324,
-          4817.643,
-          4767.173,
-          2256.269
+          5056.707,
+          5019.248,
+          4964.929,
+          4918.463,
+          2318.576
         ]
       },
       "wind": {
@@ -81,17 +81,17 @@
         "rsa_used_in_demands": true,
         "scale_by_axis": {
           "X": {
-            "VB_rsa_kN": 1270.37,
-            "VBbar_kN": 1730.38,
-            "scale": 1.3621,
-            "VB_scaled_kN": 1730.38,
+            "VB_rsa_kN": 1339.87,
+            "VBbar_kN": 1782.23,
+            "scale": 1.3302,
+            "VB_scaled_kN": 1782.23,
             "mass_participation": 1.0
           },
           "Y": {
-            "VB_rsa_kN": 1255.85,
-            "VBbar_kN": 1730.38,
-            "scale": 1.3779,
-            "VB_scaled_kN": 1730.38,
+            "VB_rsa_kN": 1347.37,
+            "VBbar_kN": 1782.23,
+            "scale": 1.3227,
+            "VB_scaled_kN": 1782.23,
             "mass_participation": 1.0
           }
         }
@@ -435,12 +435,9 @@
         }
       ],
       "native_checks": {
-        "status": "partial",
-        "native_findings": 316,
-        "finding_classes": {
-          "irregularity": 1,
-          "elements": 315
-        },
+        "status": "complete",
+        "native_findings": 0,
+        "finding_classes": {},
         "model_gates": {
           "rsa_X": true,
           "modalmass_X": true,
@@ -458,58 +455,68 @@
         },
         "combination_count": 134,
         "members": {
-          "groups": 18,
-          "groups_with_numeric_dc": 18,
+          "groups": 17,
+          "groups_with_numeric_dc": 17,
           "groups_above_unity": 0,
-          "governing_group": "lateral_col-WPB550X300X119.99",
-          "governing_dc": 0.8638274990264079,
-          "section": "WPB550X300X119.99",
+          "governing_group": "floor-NPB300X150X49.32",
+          "governing_dc": 0.8990802937329738,
+          "section": "NPB300X150X49.32",
           "limit_state": "IS 800 9.3 interaction / member resistance",
-          "governing_element": 101,
-          "governing_combination": "1.2DL+0.5LL-2.5EQ_X[eb]+0.3EQ_Z[col]"
+          "governing_element": 360,
+          "governing_combination": "1.5DL+1.5EQ_Z-0.45EQ_X"
         },
         "connections": {
-          "groups": 18,
-          "groups_with_numeric_dc": 16,
+          "groups": 17,
+          "groups_with_numeric_dc": 17,
           "groups_above_unity": 0,
-          "governing_group": "conn-brace-WPB300X300X88.34",
-          "governing_dc": 0.9533531638723635,
-          "section": "WPB300X300X88.34",
-          "limit_state": "brace end: brace_conn_1p2Mp",
+          "governing_group": "conn-lateral_col-WPB260X260X114.4",
+          "governing_dc": 0.9476105923443475,
+          "section": "WPB260X260X114.4",
+          "limit_state": "column splice: division_plate_bending",
           "governing_element": null,
           "governing_combination": null
         },
         "governing_drift": {
           "storey": 4,
-          "dir": "X",
-          "value": 0.0011394364706235978,
+          "dir": "Y",
+          "value": 0.0008799673152816297,
           "limit": 0.004,
-          "dc": 0.28485911765589944,
+          "dc": 0.21999182882040744,
           "ok": true
-        }
+        },
+        "post_report_status_sha256": "18c0848d3637408c022478b589a691360e9b50aac51dea62a0e473aa78b64399"
+      },
+      "office_load_basis": {
+        "edition": "IS 875 Part 2:1987",
+        "locator": "Table 1(v)(b), printed page 9, PDF page 11",
+        "rooms_without_separate_storage_kNm2": 4.0,
+        "adopted_floor_live_kNm2": 4.0,
+        "partition_allowance_kNm2": 1.0,
+        "floor_live_seismic_participation": 0.5,
+        "seismic_locator": "IS 1893 Part 1:2016, Table 10"
       }
     }
   ],
-  "handoff_sha256": "b7da4c7c9b856c1b56634d4a79b64992c2aee91e9c1bee9bf44df5089b03550c",
-  "members": 575,
+  "handoff_sha256": "b5ae9362e4e5453e42c17b6582eb7160c77fb623c4d01a8bd63fe41ca8958e31",
+  "members": 595,
   "panels": 100,
-  "connections": 180,
-  "physical_profiles": 15,
+  "connections": 840,
+  "physical_profiles": 18,
   "source_evidence": {
     "producer": "steltic_india.openbim_handoff",
     "files": {
-      "design/calc_package.json": "148e9bafdce2a83b60b84e0b4e80d324a3b5b0cfb2738c0687ed574efd3a9852",
-      "design/cfg_snapshot.json": "49e2bf7ef660c5635467d2c9dc56788324e0464cac552b648b89c758d50ea7d1",
-      "design/member_schedule.csv": "b3ff7b2802a3074c9af816ab9540178b152eea3733cb4aad49edf7076592f176",
-      "report.html": "02fa65b7db2c6600f92ba279002d2b46c48cdb73c9d227b01a27306540bcd0e9",
-      "viewer_3d.html": "feb0104b1dd5768179cb8b2bad6e750047968c83222debcc4814934002e32dbe",
-      "STATUS.engine.md": "f5a54fb50dd677507635181645053f272ffa8e8567c2049bda5c2d422a49ec68"
+      "design/calc_package.json": "6d54cf07f4a4c06fa79e48c2e36e0699b61ef2f32ee5c507ba11a10333c66039",
+      "design/cfg_snapshot.json": "916379b3977a5409649bbd156f69c75f2c14edbefb373dfe36f53f32ea4709ee",
+      "design/member_schedule.csv": "f8b11ee5a525e46df8738fc54ec3866e62a122bba517a10a931204c224b4a269",
+      "report.html": "1d34b416ccdd6f660a1ae5ddfed718ca87e342baae0d23e34a8dd597d8f9184b",
+      "viewer_3d.html": "14375ba8e348a91aed0a848e1cb02af64504d2fceb7f1552c9a33e6437d54a6e",
+      "STATUS.engine.md": "18c0848d3637408c022478b589a691360e9b50aac51dea62a0e473aa78b64399"
     },
     "native_status": {
-      "Main": "partial"
+      "Main": "complete"
     },
-    "native_elements": 475,
-    "bound_elements": 475,
+    "native_elements": 495,
+    "bound_elements": 495,
     "open_items": []
   },
   "checked_design_status": "review",

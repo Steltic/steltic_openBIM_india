@@ -14,7 +14,7 @@ from reportlab.pdfbase.pdfmetrics import stringWidth
 from reportlab.pdfgen.canvas import Canvas
 from shapely.geometry import MultiPoint
 
-from .geometry import frame, plane
+from .geometry import dot, frame, member_body_ends, plane, sub
 from .model import design_status, unit_levels
 from .profiles import section_polygons
 
@@ -282,7 +282,7 @@ class Sheets:
 
     def physical_outline(self,m,axes,tr,scale):
         """Projected outside envelope; end-on sections retain their open folds and bores."""
-        a,b=m["start"],m["end"]
+        a,b=member_body_ends(m)
         x,y,z=frame(a,b,m.get("ref_direction"))
         offset=tuple(b[i]-a[i] for i in axes)
         key=(m["profile"],m.get("end_profile"),tuple(axes),x,y,offset)
@@ -454,6 +454,41 @@ class Sheets:
         if rows:
             self.table("A-002","Hosted opening set-out","openings",[("Host panel",.18),("Opening",.09),("Perimeter X, Y, Z (mm)",.73)],rows)
 
+    def steel_preparation(self):
+        members=[]
+        templates={}
+        operations=[]
+        for m in self.data["members"]:
+            if not (m.get("member_voids") or m.get("end_cutbacks_mm")):
+                continue
+            axes=frame(m["start"],m["end"],m.get("ref_direction"))
+            def local(p):
+                return tuple(round(dot(sub(p,m["start"]),axis),2) or 0. for axis in axes)
+            cuts=[]
+            for f in m.get("member_voids",[]):
+                if f["kind"]=="bore":
+                    cuts.append(("bore",round(f["diameter_mm"],2),local(f["start"]),local(f["end"])))
+                else:
+                    rings=tuple(tuple(local(p) for p in ring) for ring in [f["outline"],*f.get("openings",[])])
+                    cuts.append(("slot",round(f["thickness_mm"],2),rings,()))
+            key=tuple(sorted(cuts))
+            if key and key not in templates:
+                label=f"PR-{len(templates)+1:03}"
+                templates[key]=label
+                for i,(kind,size,start,end) in enumerate(key,1):
+                    geometry=(coord(start)+" to "+coord(end) if kind=="bore" else
+                              " / ".join(", ".join(coord(p) for p in ring) for ring in start))
+                    operations.append((label,i,kind,printed(size),geometry))
+            a,b=m.get("end_cutbacks_mm",(0,0))
+            members.append((m["id"],printed(a),printed(b),printed(math.dist(*member_body_ends(m))),len(cuts),templates.get(key,"-")))
+        if members:
+            self.table("M-002","Steel end planes and machining schedule","preparation",
+                [("Member occurrence",.30),("Start cutback (mm)",.14),("End cutback (mm)",.14),
+                 ("Physical length (mm)",.16),("Operations",.1),("Set-out",.16)],members)
+        if operations:
+            self.table("M-003","Machining set-out in member axes from workline start","machining",
+                [("Set-out",.1),("Operation",.08),("Tool",.09),("Diameter or depth (mm)",.16),("Local X, Y, Z (mm)",.57)],operations)
+
     def sections(self):
         profiles=list(self.data["profiles"].items())
         for page, start in enumerate(range(0,len(profiles),6),1):
@@ -598,7 +633,7 @@ class Sheets:
         self.basis(); self.composite()
         for unit in self.data.get("units",[]) or [None]:
             self.framing(unit)
-        self.schedules(); self.sections(); self.connections()
+        self.schedules(); self.steel_preparation(); self.sections(); self.connections()
         self.c.save()
         return dict(schema_version="1.0",project_id=self.job["id"],source_sha256=self.digest,
                     sheets=self.sheets,views=self.views,dimensions=self.dimensions,marks=self.marks,

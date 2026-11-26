@@ -50,26 +50,26 @@
         "soil": "II",
         "R_x": 4.5,
         "R_y": 4.5,
-        "W_kN": 115980.084,
+        "W_kN": 118061.937,
         "Ta_x_s": 0.465,
         "Ta_y_s": 0.5695,
         "Sa_g_x": 2.5,
         "Sa_g_y": 2.3879,
         "Ah_x": 0.053333,
         "Ah_y": 0.050941,
-        "VB_x_kN": 6185.604,
-        "VB_y_kN": 5908.152,
+        "VB_x_kN": 6296.637,
+        "VB_y_kN": 6014.203,
         "W_by_floor_kN": [
-          12872.118,
-          12650.278,
-          12619.459,
-          12466.662,
-          12233.769,
-          12083.114,
-          11963.741,
-          11845.121,
-          11736.539,
-          5509.283
+          13127.345,
+          12905.56,
+          12852.991,
+          12652.075,
+          12403.007,
+          12262.166,
+          12145.138,
+          12024.184,
+          11927.935,
+          5761.536
         ]
       },
       "wind": {
@@ -84,24 +84,40 @@
         "Ka_area_m2": 30.6,
         "Kc": 1,
         "pz_kNm2": 1.0658369383739998,
-        "pd_kNm2": 0.8561651761059851
+        "pd_kNm2": 0.8561651761059851,
+        "dynamic": {
+          "G_X": 2.9270662928868036,
+          "G_Y": 2.8443121523418995,
+          "fa_x_hz": 0.9129252,
+          "fa_y_hz": 0.9124837,
+          "gust_base_shear_X_kN": 959.5344927106429,
+          "gust_base_shear_Y_kN": 1398.6097401554375,
+          "Cfs_X": 0.0022,
+          "Cfs_Y": 0.0022,
+          "assumption": "Trial rectangular-plan coefficient envelope including 10% figure-reading allowance. Verify application to actual shape and confirm final normal-mode frequencies.",
+          "final_frequency_hz": {
+            "x": 0.9129252,
+            "y": 0.9124837
+          },
+          "source_package_sha256": "3b75f1a51a4123719e942b5d92815295de04640665f6467696c87e0f01d5cae1"
+        }
       },
       "analysis": {
         "method": "RSA",
         "rsa_used_in_demands": true,
         "scale_by_axis": {
           "X": {
-            "VB_rsa_kN": 2323.99,
-            "VBbar_kN": 6185.6,
-            "scale": 2.6616,
-            "VB_scaled_kN": 6185.6,
+            "VB_rsa_kN": 2532.43,
+            "VBbar_kN": 6296.64,
+            "scale": 2.4864,
+            "VB_scaled_kN": 6296.64,
             "mass_participation": 1.0
           },
           "Y": {
-            "VB_rsa_kN": 2322.14,
-            "VBbar_kN": 5908.64,
-            "scale": 2.5445,
-            "VB_scaled_kN": 5908.64,
+            "VB_rsa_kN": 2530.56,
+            "VBbar_kN": 6014.7,
+            "scale": 2.3768,
+            "VB_scaled_kN": 6014.7,
             "mass_participation": 1.0
           }
         }
@@ -542,16 +558,104 @@
             "file": "IS_875_Part_3_2015.pdf",
             "sha256": "c89a9e7858696e38353d65fedc26736fad1bde42c13cb4cdbf90714bf8991c5b"
           }
+        },
+        {
+          "found": true,
+          "cite": "IS 875 Part 3, Figure 10, wind along X, reduced velocity",
+          "source_path": "IS_875_Part_3_2015/tables/IS_875_Part_3_2015_Fig_10_recovered.csv",
+          "sha256": "535ad56988b1dc03d57b12c57a5c5c9a68cb0cbd872af02ae3be23355156ca1e",
+          "csv_rows": [
+            2
+          ],
+          "selected_inputs": {
+            "reduced_velocity": 0.83309,
+            "tabulated_bracket": [
+              2.0,
+              2.0
+            ],
+            "bound_Cfs": 0.002,
+            "adoption": "Upper curve ordinates, both tabulated turbulence bands and shapes"
+          },
+          "edition": "IS 875 (Part 3):2015",
+          "licensed_pdf": {
+            "file": "IS_875_Part_3_2015.pdf",
+            "sha256": "c89a9e7858696e38353d65fedc26736fad1bde42c13cb4cdbf90714bf8991c5b"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 875 Part 3, Figure 11, wind along X, reduced velocity",
+          "source_path": "IS_875_Part_3_2015/tables/IS_875_Part_3_2015_Fig_11_recovered.csv",
+          "sha256": "ca53cb3e973dfbcbeb34192fa138e58608d742f9789b4f78a485b82959ce3d4c",
+          "csv_rows": [
+            2
+          ],
+          "selected_inputs": {
+            "reduced_velocity": 0.83309,
+            "tabulated_bracket": [
+              2.0,
+              2.0
+            ],
+            "bound_Cfs": 0.00062,
+            "adoption": "Upper curve ordinates, both tabulated turbulence bands and shapes"
+          },
+          "edition": "IS 875 (Part 3):2015",
+          "licensed_pdf": {
+            "file": "IS_875_Part_3_2015.pdf",
+            "sha256": "c89a9e7858696e38353d65fedc26736fad1bde42c13cb4cdbf90714bf8991c5b"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 875 Part 3, Figure 10, wind along Y, reduced velocity",
+          "source_path": "IS_875_Part_3_2015/tables/IS_875_Part_3_2015_Fig_10_recovered.csv",
+          "sha256": "535ad56988b1dc03d57b12c57a5c5c9a68cb0cbd872af02ae3be23355156ca1e",
+          "csv_rows": [
+            2
+          ],
+          "selected_inputs": {
+            "reduced_velocity": 0.55513,
+            "tabulated_bracket": [
+              2.0,
+              2.0
+            ],
+            "bound_Cfs": 0.002,
+            "adoption": "Upper curve ordinates, both tabulated turbulence bands and shapes"
+          },
+          "edition": "IS 875 (Part 3):2015",
+          "licensed_pdf": {
+            "file": "IS_875_Part_3_2015.pdf",
+            "sha256": "c89a9e7858696e38353d65fedc26736fad1bde42c13cb4cdbf90714bf8991c5b"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 875 Part 3, Figure 11, wind along Y, reduced velocity",
+          "source_path": "IS_875_Part_3_2015/tables/IS_875_Part_3_2015_Fig_11_recovered.csv",
+          "sha256": "ca53cb3e973dfbcbeb34192fa138e58608d742f9789b4f78a485b82959ce3d4c",
+          "csv_rows": [
+            2
+          ],
+          "selected_inputs": {
+            "reduced_velocity": 0.55513,
+            "tabulated_bracket": [
+              2.0,
+              2.0
+            ],
+            "bound_Cfs": 0.00062,
+            "adoption": "Upper curve ordinates, both tabulated turbulence bands and shapes"
+          },
+          "edition": "IS 875 (Part 3):2015",
+          "licensed_pdf": {
+            "file": "IS_875_Part_3_2015.pdf",
+            "sha256": "c89a9e7858696e38353d65fedc26736fad1bde42c13cb4cdbf90714bf8991c5b"
+          }
         }
       ],
       "native_checks": {
-        "status": "partial",
-        "native_findings": 532,
-        "finding_classes": {
-          "irregularity": 1,
-          "gates": 1,
-          "elements": 530
-        },
+        "status": "complete",
+        "native_findings": 0,
+        "finding_classes": {},
         "model_gates": {
           "rsa_X": true,
           "modalmass_X": true,
@@ -562,69 +666,89 @@
           "drift_Y": true,
           "wind_defl_X": true,
           "wind_defl_Y": true,
-          "dynamic_wind": false,
+          "dynamic_wind": true,
           "beam_deflection": true,
           "model_declared": true,
           "model_consistent": true,
           "model_complete": true
         },
-        "combination_count": 70,
+        "combination_count": 110,
         "members": {
           "groups": 25,
           "groups_with_numeric_dc": 25,
           "groups_above_unity": 0,
-          "governing_group": "lateral_col-WPB300X300X88.34",
-          "governing_dc": 0.9117269080949559,
-          "section": "WPB300X300X88.34",
+          "governing_group": "lateral_col-WPB400X400X239.62",
+          "governing_dc": 0.9259153928054495,
+          "section": "WPB400X400X239.62",
           "limit_state": "IS 800 9.3 interaction / member resistance",
-          "governing_element": 58,
-          "governing_combination": "1.2DL+0.5LL-2.5EQ_X[ea][col]"
+          "governing_element": 15,
+          "governing_combination": "1.2DL+0.5LL-2.5EQ_Y[eb][col]"
         },
         "connections": {
           "groups": 25,
-          "groups_with_numeric_dc": 24,
-          "groups_above_unity": 6,
-          "governing_group": "conn-lateral_col-BOX750X750X25",
-          "governing_dc": 2.2359995976802525,
-          "section": "BOX750X750X25",
-          "limit_state": "column base (base-e1): anchor_combined_10_3_6",
+          "groups_with_numeric_dc": 25,
+          "groups_above_unity": 0,
+          "governing_group": "conn-floor-WPB600X300X211.92",
+          "governing_dc": 0.9388763503998735,
+          "section": "WPB600X300X211.92",
+          "limit_state": "beam-end shear connection: (V + N resultant) support_weld",
           "governing_element": null,
           "governing_combination": null
         },
         "governing_drift": {
           "storey": 9,
           "dir": "X",
-          "value": 0.0021452550431592995,
+          "value": 0.0017479850859183977,
           "limit": 0.004,
-          "dc": 0.5363137607898248,
+          "dc": 0.4369962714795994,
           "ok": true
-        }
+        },
+        "post_report_status_sha256": "906af31a00e5b42ea56b95b9c473b3f8c0630c3aadf14e3a879994ef4f88f70a"
+      },
+      "office_load_basis": {
+        "edition": "IS 875 Part 2:1987",
+        "locator": "Table 1(v)(b), printed page 9, PDF page 11",
+        "rooms_without_separate_storage_kNm2": 4.0,
+        "adopted_floor_live_kNm2": 4.0,
+        "partition_allowance_kNm2": 1.0,
+        "floor_live_seismic_participation": 0.5,
+        "seismic_locator": "IS 1893 Part 1:2016, Table 10"
+      },
+      "fabricated_sections": {
+        "ids": [
+          "BOX500X500X25",
+          "BOX600X600X32",
+          "BOX650X650X32",
+          "BOX700X700X36",
+          "BOX750X750X25"
+        ],
+        "basis": "Independent sizing used fabricated members where the selected rolled families did not pass all trial demands. Confirm substitution and procurement where the brief specifies a rolled family."
       }
     }
   ],
-  "handoff_sha256": "fd4f6507f78048bf3c7164a171f550e8467806cd3c112b89917c1aa718585645",
+  "handoff_sha256": "f127f41d806a49b47da87d2b9a31223d1b4589d42c58ac031b3286eccb0f77d8",
   "members": 1570,
   "panels": 240,
-  "connections": 385,
-  "physical_profiles": 23,
+  "connections": 1830,
+  "physical_profiles": 24,
   "source_evidence": {
     "producer": "steltic_india.openbim_handoff",
     "files": {
-      "design/calc_package.json": "9bcd957dc8eb708d5622b67349432ff55d5047dc5aeb1724471bc80e1662c0a8",
-      "design/cfg_snapshot.json": "f0d086a39a1947dda7cfa30a89881ecdf35ec02435526e55e1fb990dd8e896aa",
-      "design/member_schedule.csv": "723cb5d1e4c33ca17393c1b16c2dda8786f73375f8f35d35b6c38259789518b1",
-      "report.html": "59437802fbd53e991b2599d91337bf68cfb9e99ef46ccc715912513817de485d",
-      "viewer_3d.html": "540dfdccf1eeb98ca570cb3351708d471b9cc54635333e325d634be4fa719e9f",
-      "STATUS.engine.md": "8784536dff665cecd53317027e89a8c298b31b31b358d342d624859bd606db06"
+      "design/calc_package.json": "337334f6817071db5e4c0e70d9ede86a47cf19a2b045e9006f1069f2f6c5ad22",
+      "design/cfg_snapshot.json": "18784b89af1571dc930c7c1a5bef7b6cda384dedcd41c91b77950851157ca023",
+      "design/member_schedule.csv": "079a216e90f93d3add2c02a981147d0074efedcdacd0c5a7456f35a28da2974f",
+      "report.html": "c36695acf1985970e2cadad511d5d5bcbdf021ab4ef44c229a0bca3945302688",
+      "viewer_3d.html": "3504556010fa321a33af035c0f3f9bbbb3a2e7c33b797369f7705bc659b2b710",
+      "STATUS.engine.md": "906af31a00e5b42ea56b95b9c473b3f8c0630c3aadf14e3a879994ef4f88f70a"
     },
     "native_status": {
-      "Main": "partial"
+      "Main": "complete"
     },
     "native_elements": 1090,
     "bound_elements": 1090,
     "open_items": []
   },
-  "checked_design_status": "fail",
+  "checked_design_status": "review",
   "assumptions": [
     "Site soil Type II pending geotechnical confirmation.",
     "Trial connection details and matched source member checks are recorded where available. Each unverified design item retains review status."

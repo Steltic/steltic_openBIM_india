@@ -1,6 +1,7 @@
 """Read actual PDF operators, printed schedules and a raster of every page."""
 from collections import Counter, defaultdict
 import math
+import re
 
 import numpy as np
 import pymupdf
@@ -19,9 +20,10 @@ def schedule_rows(page, kind):
     """Read data by its printed row baseline and column positions in the PDF."""
     spans = [s for b in page.get_text("dict")["blocks"] for line in b.get("lines", []) for s in line["spans"]]
     headings = {s["text"]:s["origin"][0] for s in spans if 130 < s["origin"][1] < 160}
-    titles = (["Check ID", "Calculation or open item", "Status", "Utilization", "Source reference"]
-              if kind == "checks" else ["Mark", "Role", "Start section", "End section if tapered",
-                                        "Material", "Count", "Min length (mm)", "Max length (mm)"])
+    titles = {"checks":["Check ID","Calculation or open item","Status","Utilization","Source reference"],
+              "members":["Mark","Role","Start section","End section if tapered","Material","Count","Min length (mm)","Max length (mm)"],
+              "preparation":["Member occurrence","Start cutback (mm)","End cutback (mm)","Physical length (mm)","Operations","Set-out"],
+              "machining":["Set-out","Operation","Tool","Diameter or depth (mm)","Local X, Y, Z (mm)"]}[kind]
     starts = [headings[t] for t in titles] + [page.rect.width-45]
     cols = [[] for _ in titles]
     for span in spans:
@@ -31,12 +33,12 @@ def schedule_rows(page, kind):
                 if a-.5 <= x < b-.5:
                     cols[i].append((y,span["text"].strip()))
                     break
-    anchor = cols[2] if kind == "checks" else cols[0]
+    anchor = cols[2] if kind == "checks" else cols[1] if kind in ("preparation","machining") else cols[0]
     starts_y = sorted(y for y,t in anchor if kind != "checks" or normal(t) in ("pass","fail","review"))
     result = {}
     for lo, hi in zip(starts_y, starts_y[1:]+[page.rect.height-124]):
         cells = ["".join(t for y,t in sorted(column) if lo-.4 <= y < hi-.4) for column in cols]
-        result[cells[0]] = cells
+        result[(cells[0],cells[1]) if kind=="machining" else cells[0]] = cells
     return result
 
 
@@ -109,7 +111,7 @@ def audit_pdf(source, path, register, expect):
     represented = [occ for d in details.values() for occ in d["occurrences"]]
     expect(Counter(represented)==Counter(joints.keys()),"connection detail occurrence coverage","register")
     detail_edges = 0
-    tables = {"checks": {}, "members": {}}
+    tables = {"checks": {}, "members": {}, "preparation":{}, "machining":{}}
     banner = {"pass":"source checks pass / design coordination", "review":"design review / coordination candidate",
               "fail":"design fail / coordination candidate"}[register["design_status"]]
     drawn_lines = measured = raster_pages = 0
@@ -209,6 +211,37 @@ def audit_pdf(source, path, register, expect):
         dc = check.get("utilization")
         expect(cells and cells[2].lower() == check["status"] and
                (cells[3]=="-" if dc is None else abs(float(cells[3])-dc)<=.000051), "printed calculation decision and value",check["id"])
+    for m in members.values():
+        if not (m.get("member_voids") or m.get("end_cutbacks_mm")):
+            continue
+        cells=tables["preparation"].get(m["id"])
+        cuts=m.get("end_cutbacks_mm",[0.,0.])
+        length=math.dist(m["start"],m["end"])-sum(cuts)
+        features=m.get("member_voids",[])
+        if not cells:
+            expect(False,"printed member preparation",m["id"])
+            continue
+        expect(np.allclose([float(v) for v in cells[1:5]],[*cuts,length,len(features)],atol=.00006,rtol=0),
+               "physical length, cutbacks and machining count on PDF",m["id"])
+        z=np.asarray(m["end"])-np.asarray(m["start"]);z=z/np.linalg.norm(z)
+        ref=np.asarray(m.get("ref_direction",(-z[1],z[0],0.) if math.hypot(z[0],z[1])>1e-9 else (1.,0.,0.)))
+        x=ref-np.dot(ref,z)*z;x=x/np.linalg.norm(x)
+        mat=np.asarray([x,np.cross(z,x),z])
+        required=[]
+        for f in features:
+            pts=([f["start"],f["end"]] if f["kind"]=="bore" else
+                 [pt for ring in [f["outline"],*f.get("openings",[])] for pt in ring])
+            coords=[round(float(v),2) for pt in pts for v in (mat@(np.asarray(pt)-m["start"]))]
+            required.append((f["kind"],round(f.get("diameter_mm",f.get("thickness_mm")),2),*coords))
+        actual=[]
+        for i in range(1,len(features)+1):
+            operation=tables["machining"].get((cells[5],str(i)))
+            if operation:
+                values=[float(v) for v in re.findall(r"[-+]?(?:\d*\.\d+|\d+)",operation[4])]
+                actual.append((operation[2],float(operation[3]),*values))
+        a,b=sorted(actual),sorted(required)
+        expect(len(a)==len(b) and all(p[0]==q[0] and len(p)==len(q) and np.allclose(p[1:],q[1:],atol=.011,rtol=0)
+                                      for p,q in zip(a,b)), "printed machining features in member axes",m["id"])
     return dict(sheets=len(text_pages), sheet_types=dict(Counter(kind for kind,_ in text_pages)), rasterized_pages=raster_pages,
                 projected_member_lines=drawn_lines, dimension_lines=measured, represented_member_ids=len(all_views),
                 connection_projection_edges=detail_edges)

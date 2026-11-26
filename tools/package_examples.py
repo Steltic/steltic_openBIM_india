@@ -111,7 +111,7 @@ def package(args):
     lines=["# Indian steel building validation","",
            f"The 36 numbered briefs produced {summary['totals']['sheets']:,} drawing sheets and 36 IFC4 models. Each archive contains the issued PDF and IFC, the sheet register and its detached certificate. The individual evidence files give the independent inputs and calculations, corpus references and declared assumptions.","",
            "The native column records the engineering engine's decision for each structural unit. Coordination also considers open checks, connection geometry and separation joints. The brief column shows the independent dimensional and roof-footprint controls measured on the reopened IFC. The files remain available for design review wherever a gate is open.","",
-           "[Numerical results and open items](acceptance.json) · [Worked-example revision checklist](revision-checklist.md) · [Comparison with all published unit reports](comparison.json) · [Specification manifest](corpus-verification.json)","",
+           "[Numerical results and open items](acceptance.json) · [Worked-example revision checklist](revision-checklist.md) · [HR engineering review](hr/engineering-review.md) · [CFS engineering review](cfs/engineering-review.md) · [Published report comparison](comparison.json) · [Drawing samples reviewed](visual-review.json) · [Specification manifest](corpus-verification.json)","",
            "| Building | Native decision | Coordination | Brief | Sheets | Members | Files |","| --- | --- | --- | --- | ---: | ---: | --- |"]
     for r in cases:
         states=", ".join((k+" " if len(r["native"])>1 else "")+str(v) for k,v in r["native"].items())

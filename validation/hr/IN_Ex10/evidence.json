@@ -41,17 +41,17 @@
         "soil": "II",
         "R_x": 4.5,
         "R_y": 4.5,
-        "W_kN": 7411.137,
+        "W_kN": 7970.758,
         "Ta_x_s": 0.0901,
         "Ta_y_s": 0.1104,
         "Sa_g_x": 2.5,
         "Sa_g_y": 2.5,
         "Ah_x": 0.053333,
         "Ah_y": 0.053333,
-        "VB_x_kN": 395.261,
-        "VB_y_kN": 395.261,
+        "VB_x_kN": 425.107,
+        "VB_y_kN": 425.107,
         "W_by_floor_kN": [
-          7411.137
+          7970.758
         ]
       },
       "wind": {
@@ -73,17 +73,17 @@
         "rsa_used_in_demands": true,
         "scale_by_axis": {
           "X": {
-            "VB_rsa_kN": 395.26,
-            "VBbar_kN": 395.26,
+            "VB_rsa_kN": 425.11,
+            "VBbar_kN": 425.11,
             "scale": 1.0,
-            "VB_scaled_kN": 395.26,
+            "VB_scaled_kN": 425.11,
             "mass_participation": 1.0
           },
           "Y": {
-            "VB_rsa_kN": 395.26,
-            "VBbar_kN": 395.26,
+            "VB_rsa_kN": 425.11,
+            "VBbar_kN": 425.11,
             "scale": 1.0,
-            "VB_scaled_kN": 395.26,
+            "VB_scaled_kN": 425.11,
             "mass_participation": 1.0
           }
         }
@@ -377,14 +377,9 @@
         }
       ],
       "native_checks": {
-        "status": "partial",
-        "native_findings": 79,
-        "finding_classes": {
-          "irregularity": 1,
-          "gates": 1,
-          "evidence": 1,
-          "elements": 76
-        },
+        "status": "complete",
+        "native_findings": 0,
+        "finding_classes": {},
         "model_gates": {
           "rsa_X": true,
           "modalmass_X": true,
@@ -395,7 +390,7 @@
           "drift_Y": true,
           "wind_defl_X": true,
           "wind_defl_Y": true,
-          "beam_deflection": false,
+          "beam_deflection": true,
           "model_declared": true,
           "model_consistent": true,
           "model_complete": true
@@ -404,59 +399,68 @@
         "members": {
           "groups": 5,
           "groups_with_numeric_dc": 5,
-          "groups_above_unity": 2,
-          "governing_group": "roof-WPB360X370X182.02",
-          "governing_dc": 1.994129465585456,
-          "section": "WPB360X370X182.02",
-          "limit_state": "IS 800 9.3 interaction / member resistance",
-          "governing_element": 71,
-          "governing_combination": "1.5DL+1.5LL+N_X"
+          "groups_above_unity": 0,
+          "governing_group": "roof-WPB500X300X187.34",
+          "governing_dc": 0.8253094910591472,
+          "section": "WPB500X300X187.34",
+          "limit_state": "IS 800 Table 3 slenderness",
+          "governing_element": 36,
+          "governing_combination": "1.5DL-1.5EQ_X[ea]"
         },
         "connections": {
           "groups": 5,
           "groups_with_numeric_dc": 5,
-          "groups_above_unity": 1,
-          "governing_group": "conn-brace-WPB800X300X317.36",
-          "governing_dc": 1.1815649706521913,
-          "section": "WPB800X300X317.36",
-          "limit_state": "brace end: brace_conn_1p2Mp",
+          "groups_above_unity": 0,
+          "governing_group": "conn-lateral_col-WPB340X300X134.16",
+          "governing_dc": 0.9285807219812815,
+          "section": "WPB340X300X134.16",
+          "limit_state": "column base (base-e2): plate_thickness",
           "governing_element": null,
           "governing_combination": null
         },
         "governing_drift": {
           "storey": 1,
           "dir": "Y",
-          "value": 6.503127891471105e-05,
+          "value": 5.160979858285272e-05,
           "limit": 0.004,
-          "dc": 0.016257819728677764,
+          "dc": 0.012902449645713179,
           "ok": true
-        }
+        },
+        "post_report_status_sha256": "cddce7a214890e82d6bf4fdbb38e43613db3e004394527ab29ca41878d25f8d6"
+      },
+      "drainage_basis": {
+        "overflow_head_mm": 75,
+        "water_load_kNm2": 0.73575,
+        "rafter_delta_mm": 20.10173676779906,
+        "joist_delta_mm": 38.12017822265625,
+        "reference": "IS 875 Part 4:2021, 4.4; service-load engineering screen",
+        "assumption": "Free discharge at both eave gutters at the 75 mm overflow crest. Confirm scupper hydraulic capacity against local rainfall."
       }
     }
   ],
-  "handoff_sha256": "a7a95599d0eaca1feba21c45e535bf6ce79e1b6aaf52fd66f91aa80f6af26c2f",
-  "members": 311,
+  "handoff_sha256": "b6fc814e29e7218ae8845c9cf5d53f6932c0f06641a03e9b45b1d3a47f5a1c9b",
+  "members": 472,
   "panels": 42,
-  "connections": 70,
-  "physical_profiles": 7,
+  "connections": 199,
+  "physical_profiles": 9,
   "source_evidence": {
     "producer": "steltic_india.openbim_handoff",
     "files": {
-      "design/calc_package.json": "9a179de75a3b5b834518561ae26de6f9f039de736046fee74a47ca077c32d14e",
-      "design/cfg_snapshot.json": "6db533327cc518c44bb495ca7ce04e8f11715df35cf6691f37ec64c65146c606",
-      "design/member_schedule.csv": "831f8226192bb932fe158dd99fb785c107cba41b96111f0161142c1d9c463922",
-      "report.html": "4af706be85929eec298fe6a2ce1861ed2a533b7282f0450d956fbfe780467ff5",
-      "viewer_3d.html": "d6e3cd2724d043ee739f93c7d170cfdd86786cd8efdd9ff0a3384757cea2fb77",
-      "STATUS.engine.md": "ee3cc16052f2b6e25b36da1cc6bbc96e61acccd5f103ed7936a7f35e1e398dc1"
+      "design/calc_package.json": "2f105b65e83bcc87a5952c8b9ed7bf97ef71eafe69f39af057ab8554d98504db",
+      "design/cfg_snapshot.json": "a77747f918f85649b71b5d2d19dab0762a45c393893c5ff4fbdf8f21706963fc",
+      "design/member_schedule.csv": "5872dbf3f2dfe50b7fc7c87e13d2d7818d967c87070a12a47f809a4b1858f8ed",
+      "report.html": "1511b29ff1c6fcc06e85355ac9227cafb9c3a20ca560db02116e9b2b76b87e2d",
+      "viewer_3d.html": "65972b60d0479c61f3544560d956cdebfee2c1842e348e18a84eb4a3df82627d",
+      "STATUS.engine.md": "cddce7a214890e82d6bf4fdbb38e43613db3e004394527ab29ca41878d25f8d6"
     },
     "native_status": {
-      "Main": "partial"
+      "Main": "complete"
     },
     "native_elements": 109,
     "bound_elements": 109,
     "open_items": []
   },
-  "checked_design_status": "fail",
+  "checked_design_status": "review",
   "assumptions": [
     "Single-tenant mercantile occupancy over 200 persons. Owner verification of occupancy classification and measured bare-deck shear stiffness is outstanding.",
     "Site soil Type II pending geotechnical confirmation.",

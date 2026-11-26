@@ -25,6 +25,36 @@ CFS = {
 }
 
 
+def portal_measurements(path):
+    """Measure primary steel separately from the outer roof on five portal briefs."""
+    import ifcopenshell
+    import ifcopenshell.geom
+    import ifcopenshell.util.placement as placement
+    import numpy as np
+    model=ifcopenshell.open(str(path))
+    settings=ifcopenshell.geom.settings()
+    meshes={}
+    peak=[]
+    undersides={"rafter":[],"canopy":[]}
+    for obj in model.by_type("IfcBuildingElement"):
+        role=(obj.ObjectType or "").lower()
+        if role not in ("rafter","gable rafter","canopy"):
+            continue
+        reps={r.RepresentationIdentifier:r for r in obj.Representation.Representations}
+        mat=placement.get_local_placement(obj.ObjectPlacement)
+        if role!="canopy" and "Axis" in reps:
+            peak.extend(float((mat@[*p.Coordinates,1.])[2]) for p in reps["Axis"].Items[0].Points)
+        body=reps["Body"]
+        if body.id() not in meshes:
+            geometry=ifcopenshell.geom.create_shape(settings,body)
+            meshes[body.id()]=np.asarray(geometry.verts).reshape(-1,3)*1000.
+        z=meshes[body.id()]@mat[2,:3]+mat[2,3]
+        undersides["canopy" if role=="canopy" else "rafter"].append(float(z.min()))
+    return {"primary_rafter_axis_apex_mm":max(peak) if peak else None,
+            "minimum_rafter_soffit_mm":min(undersides["rafter"]) if undersides["rafter"] else None,
+            "minimum_canopy_beam_soffit_mm":min(undersides["canopy"]) if undersides["canopy"] else None}
+
+
 def run(family, number, measurements):
     requirements = (HR if family=="hr" else CFS)[number]
     expected = requirements if isinstance(requirements,dict) else {"Main":requirements}
@@ -39,13 +69,20 @@ def run(family, number, measurements):
         spans = model.get("column_spans_mm",[])
         for axis,name,target in [(0,"column span X (m)",width),(1,"column span Y (m)",length)]:
             check(unit,name,spans[axis]/1000 if spans else None,target)
-        maximum = model.get("maximum_steel_workline_z_mm")
-        check(unit,"upper steel datum (m)",maximum/1000 if maximum is not None else None,top)
+        portal=family=="hr" and number<=5
+        maximum=model.get("primary_rafter_axis_apex_mm" if portal else "maximum_steel_workline_z_mm")
+        check(unit,"primary rafter ridge workline (m)" if portal else "upper steel datum (m)",maximum/1000 if maximum is not None else None,top)
+        if family=="hr" and number==2:
+            check(unit,"minimum clear height under main rafters (mm)",model.get("minimum_rafter_soffit_mm"),(12000,13000),.1)
+            check(unit,"minimum clear height under dock canopy steel (mm)",model.get("minimum_canopy_beam_soffit_mm"),(5500,6000),.1)
         check(unit,"union of roof projections (m²)",model.get("roof_plan_union_m2"),area,.1)
         if (family=="hr" and number in (1,2,3,4,5,7,8,9,10,21)) or (family=="cfs" and number in (1,2,3,8,9,11)):
             check(unit,"pitched roof faces",model.get("pitched_roof_panels"),(1,10**6),0)
         if family=="cfs" and number==6:
             check(unit,"south walkout diaphragm at +3.0 m (m²)",model.get("floor_net_plan_m2_by_elevation_mm",{}).get("3000"),388.5,.1)
+        if family=="cfs" and number==11:
+            check(unit,"accessible west amenity deck (m²)",model.get("flat_roof_plan_union_m2"),513,.1)
+            check(unit,"north gabled wing (m²)",model.get("pitched_roof_plan_union_m2"),1045,.1)
         if family=="cfs" and number==13:
             sections=model.get("roof_transverse_sections_by_y_fraction",{})
             for station,target in (("0.125",46),("0.5",8),("0.875",46)):

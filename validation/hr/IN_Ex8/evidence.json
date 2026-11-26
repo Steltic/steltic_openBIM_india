@@ -41,17 +41,17 @@
         "soil": "II",
         "R_x": 5.0,
         "R_y": 5.0,
-        "W_kN": 1410.32,
+        "W_kN": 2711.883,
         "Ta_x_s": 0.4043,
         "Ta_y_s": 0.4043,
         "Sa_g_x": 2.5,
         "Sa_g_y": 2.5,
         "Ah_x": 0.04,
         "Ah_y": 0.04,
-        "VB_x_kN": 56.413,
-        "VB_y_kN": 56.413,
+        "VB_x_kN": 108.475,
+        "VB_y_kN": 108.475,
         "W_by_floor_kN": [
-          1410.32
+          2711.883
         ]
       },
       "wind": {
@@ -73,17 +73,17 @@
         "rsa_used_in_demands": true,
         "scale_by_axis": {
           "X": {
-            "VB_rsa_kN": 56.41,
-            "VBbar_kN": 56.41,
+            "VB_rsa_kN": 108.48,
+            "VBbar_kN": 108.48,
             "scale": 1.0,
-            "VB_scaled_kN": 56.41,
+            "VB_scaled_kN": 108.48,
             "mass_participation": 1.0
           },
           "Y": {
-            "VB_rsa_kN": 52.59,
-            "VBbar_kN": 56.41,
-            "scale": 1.0727,
-            "VB_scaled_kN": 56.41,
+            "VB_rsa_kN": 108.48,
+            "VBbar_kN": 108.48,
+            "scale": 1.0,
+            "VB_scaled_kN": 108.48,
             "mass_participation": 1.0
           }
         }
@@ -291,6 +291,31 @@
         },
         {
           "found": true,
+          "cite": "IS 800 12.11.3.3, column restraint at both beam-flange levels",
+          "source_path": "IS_800_2007/markdown/pages_search/page_096.md",
+          "sha256": "c5965bf0c42cfba0f9fe5f3de4e48fd7644d6f5755c81beeda4965a5367ba3b9",
+          "selected_inputs": {
+            "minimum_fraction_of_beam_flange_strength": 0.02
+          },
+          "edition": "IS 800:2007",
+          "licensed_pdf": {
+            "file": "IS_800_2007.pdf",
+            "sha256": "06711fe3c87a3da0351806a9cdd87f014a7df974e9e07200a2dc0ddbc288617b"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 18168 section 6.2, seismic beam flange restraints",
+          "source_path": "IS_18168_2023/markdown/pages_search/page_009.md",
+          "sha256": "2a2409308eb11b9ea46e72917ff1531516105a4a1890925a7d894cae1405e270",
+          "edition": "IS 18168:2023",
+          "licensed_pdf": {
+            "file": "IS_18168_2023.pdf",
+            "sha256": "e3563ca3bbf2c1f0febb28278f1d081290cea32e4115c3e4dd52aa9f065bd415"
+          }
+        },
+        {
+          "found": true,
           "cite": "IS 875 Part 3, Annex A, Chennai",
           "source_path": "IS_875_Part_3_2015/tables/IS_875_Part_3_2015_Table_AnnexA_recovered.csv",
           "sha256": "4d81896bccbae71a3cfa5a5de4c47542db1e537053d6cbaa660286ddd68fdcb6",
@@ -329,13 +354,9 @@
         }
       ],
       "native_checks": {
-        "status": "partial",
-        "native_findings": 271,
-        "finding_classes": {
-          "gates": 98,
-          "evidence": 1,
-          "elements": 172
-        },
+        "status": "complete",
+        "native_findings": 0,
+        "finding_classes": {},
         "model_gates": {
           "rsa_X": true,
           "modalmass_X": true,
@@ -356,62 +377,71 @@
           "groups": 3,
           "groups_with_numeric_dc": 3,
           "groups_above_unity": 0,
-          "governing_group": "lateral_col-WPB400X400X219.67",
-          "governing_dc": 0.9184817597538355,
-          "section": "WPB400X400X219.67",
-          "limit_state": "IS 800 9.3 interaction / member resistance",
-          "governing_element": 8,
-          "governing_combination": "1.5DL+1.5LL-N_Y"
+          "governing_group": "roof-WPB500X300X187.34",
+          "governing_dc": 0.2751031636863824,
+          "section": "WPB500X300X187.34",
+          "limit_state": "IS 800 Table 3 slenderness",
+          "governing_element": 15,
+          "governing_combination": "1.5DL-1.5W_Y"
         },
         "connections": {
           "groups": 4,
-          "groups_with_numeric_dc": 2,
-          "groups_above_unity": 1,
-          "governing_group": "conn-lateral_col-WPB400X400X219.67",
-          "governing_dc": 1.1353480152183157,
-          "section": "WPB400X400X219.67",
-          "limit_state": "column base (base-e2): bearing_biaxial",
+          "groups_with_numeric_dc": 4,
+          "groups_above_unity": 0,
+          "governing_group": "conn-roof-WPB500X300X187.34",
+          "governing_dc": 0.8976707453176127,
+          "section": "WPB500X300X187.34",
+          "limit_state": "IS 800 12.11.2.2 connection_shear (joint e15)",
           "governing_element": null,
           "governing_combination": null
         },
         "governing_drift": {
           "storey": 1,
           "dir": "Y",
-          "value": 0.00044220254437702457,
+          "value": 9.603607068053621e-05,
           "limit": 0.004,
-          "dc": 0.11055063609425614,
+          "dc": 0.024009017670134053,
           "ok": true
-        }
+        },
+        "post_report_status_sha256": "ddb9beefe23832f079d301b872bf70c2109d6b81a15b22a5eafcdf5c077076c3"
+      },
+      "fabricated_sections": {
+        "ids": [
+          "WI1000X350X40X25",
+          "WI700X700X63X36"
+        ],
+        "basis": "Independent sizing used fabricated members where the selected rolled families did not pass all trial demands. Confirm substitution and procurement where the brief specifies a rolled family."
       }
     }
   ],
-  "handoff_sha256": "15a37fd8893d8120ebd84c83f437f7bea7c86f5cfaa95d8346574c8ea07ebfb7",
-  "members": 242,
+  "handoff_sha256": "2f4bc8bce9269347d98024ca241a904bab2473532bcb8d000823d8aacac43a1b",
+  "members": 954,
   "panels": 20,
-  "connections": 35,
-  "physical_profiles": 6,
+  "connections": 73,
+  "physical_profiles": 13,
   "source_evidence": {
     "producer": "steltic_india.openbim_handoff",
     "files": {
-      "design/calc_package.json": "43c8523cd3956e7d6b5f0f703b19d5d9e5a59e6b66d3b2fbbc581c2b434544f2",
-      "design/cfg_snapshot.json": "28c8f3f42aa37ca99318d736df1d8b2c779dfaab306149ec1716a6c66d60864c",
-      "design/member_schedule.csv": "0f337674bcf52d29f62932358fb75fd19afe7280901d9eb4743ba6472a106d49",
-      "report.html": "ed0ff4674434db729bd70ff18e24909039bb665f1a86167354a6558d7821f21a",
-      "viewer_3d.html": "7258e2e0b9b794ccbbb00f2eb38d7403d096b58e6525e7d0ca08e63eb0d71fbc",
-      "STATUS.engine.md": "c326240185645d42c8038731b78dff0b7936662104a57199f3ff4eb1b9bc89b4"
+      "design/calc_package.json": "ef2c400b5b1c9c93e316e6d2082d32e2bff0954b8bdbd22ebd1baba3aec5756f",
+      "design/cfg_snapshot.json": "22fab6d983fae6d5549d30e78c1c4775a0b15ca673cbfb38887c887f95428b62",
+      "design/member_schedule.csv": "ad1f9bccc5238c63d97cdc409161f981e307b4fcfcd0a395d9ad124a8c860dbc",
+      "report.html": "98a5c4cf65ee3fecd026b493fff0846898b2e8bb4e5d098133490234d5adaa3b",
+      "viewer_3d.html": "4a0ca7c8d96bc2a7fb30ca7525c164e901af38e78664c28f873bf73db056a44d",
+      "STATUS.engine.md": "ddb9beefe23832f079d301b872bf70c2109d6b81a15b22a5eafcdf5c077076c3"
     },
     "native_status": {
-      "Main": "partial"
+      "Main": "complete"
     },
     "native_elements": 46,
     "bound_elements": 46,
     "open_items": []
   },
-  "checked_design_status": "fail",
+  "checked_design_status": "review",
   "assumptions": [
     "Site soil Type II pending geotechnical confirmation.",
     "Trial connection details and matched source member checks are recorded where available. Each unverified design item retains review status.",
-    "Door dimensions and positions are design assumptions for the stated permeability. Coordinate with the architectural door and escape schedule."
+    "Door dimensions and positions are design assumptions for the stated permeability. Coordinate with the architectural door and escape schedule.",
+    "The transverse restraint brings the two flange levels to adjacent framing lines. Check the local end shoes, supporting web and transfer to the roof or floor diaphragm during fabrication coordination."
   ],
   "separation_joints": []
 }

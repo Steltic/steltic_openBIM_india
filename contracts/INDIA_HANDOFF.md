@@ -24,6 +24,8 @@ An explicit contour overrides a parametric section. Parametric origins lie at th
 
 A panel uses an ordered coplanar global outline and a positive thickness. Extrusion follows the right-hand normal of the outer ring. Each opening is a coplanar ring inside that host. Openings cut the body and have explicit IFC void relationships.
 
+Use optional `end_cutbacks_mm` for the distances from each analysis endpoint to the physical steel end plane. The IFC Axis retains the original workline. Section profiles describe the physical start and end faces of the remaining steel. Supply drilled holes or slots in `member_voids` with an occurrence ID and, when available, the owning connection ID. A `bore` gives the global tool-axis `start`, `end` and `diameter_mm`. A `slot` uses an ordered global `outline` and `thickness_mm` in its right-hand normal direction. These operations cut the receiving IFC product. The PDF schedules their positions in the member's local axes from the original workline start. The independent audit compares actual material through each tool path before and after cutting.
+
 ## Connections and calculations
 
 A connection binds a positioned joint to its actual receiving members. The producer may include a description, selected parameter dictionary, check IDs and a list of physical parts. Plates use the panel geometry contract. A bolt supplies its actual shaft endpoints and nominal diameter. A fillet weld uses endpoint positions and an equal leg length. The triangular section occupies local coordinates (0, 0), (leg, 0), (0, leg). Use `ref_direction` to orient it. A bolt shaft does not imply a head, nut, drilled hole or embedment. Include each designed hole in its host.

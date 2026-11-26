@@ -48,24 +48,24 @@
         "soil": "II",
         "R_x": 4.5,
         "R_y": 4.5,
-        "W_kN": 58631.526,
+        "W_kN": 59749.937,
         "Ta_x_s": 0.4233,
         "Ta_y_s": 0.4732,
         "Sa_g_x": 2.5,
         "Sa_g_y": 2.5,
         "Ah_x": 0.066667,
         "Ah_y": 0.066667,
-        "VB_x_kN": 3908.768,
-        "VB_y_kN": 3908.768,
+        "VB_x_kN": 3983.329,
+        "VB_y_kN": 3983.329,
         "W_by_floor_kN": [
-          8235.442,
-          8046.044,
-          7951.721,
-          7856.085,
-          7762.385,
-          7659.301,
-          7557.662,
-          3562.886
+          8360.586,
+          8185.91,
+          8085.848,
+          7993.199,
+          7901.769,
+          7814.737,
+          7745.623,
+          3662.265
         ]
       },
       "wind": {
@@ -87,17 +87,17 @@
         "rsa_used_in_demands": true,
         "scale_by_axis": {
           "X": {
-            "VB_rsa_kN": 2657.8,
-            "VBbar_kN": 3908.77,
-            "scale": 1.4707,
-            "VB_scaled_kN": 3908.77,
+            "VB_rsa_kN": 2864.1,
+            "VBbar_kN": 3983.33,
+            "scale": 1.3908,
+            "VB_scaled_kN": 3983.33,
             "mass_participation": 1.0
           },
           "Y": {
-            "VB_rsa_kN": 2796.36,
-            "VBbar_kN": 3908.77,
-            "scale": 1.3978,
-            "VB_scaled_kN": 3908.77,
+            "VB_rsa_kN": 2911.21,
+            "VBbar_kN": 3983.33,
+            "scale": 1.3683,
+            "VB_scaled_kN": 3983.33,
             "mass_participation": 1.0
           }
         }
@@ -501,11 +501,9 @@
         }
       ],
       "native_checks": {
-        "status": "partial",
-        "native_findings": 661,
-        "finding_classes": {
-          "elements": 661
-        },
+        "status": "complete",
+        "native_findings": 0,
+        "finding_classes": {},
         "model_gates": {
           "rsa_X": true,
           "modalmass_X": true,
@@ -526,58 +524,59 @@
           "groups": 28,
           "groups_with_numeric_dc": 28,
           "groups_above_unity": 0,
-          "governing_group": "lateral_col-WPB600X300X177.78",
-          "governing_dc": 0.955119222534143,
-          "section": "WPB600X300X177.78",
+          "governing_group": "lateral_col-WPB400X400X239.62",
+          "governing_dc": 0.8411314859088085,
+          "section": "WPB400X400X239.62",
           "limit_state": "IS 800 9.3 interaction / member resistance",
-          "governing_element": 162,
-          "governing_combination": "1.2DL+0.5LL-2.5EQ_X[eb][col]"
+          "governing_element": 41,
+          "governing_combination": "1.2DL+0.5LL-2.5EQ_X[ea][col]"
         },
         "connections": {
           "groups": 28,
-          "groups_with_numeric_dc": 26,
-          "groups_above_unity": 6,
-          "governing_group": "conn-brace-WPB800X300X317.36",
-          "governing_dc": 1.1815649706521913,
-          "section": "WPB800X300X317.36",
-          "limit_state": "brace end: brace_conn_1p2Mp",
+          "groups_with_numeric_dc": 28,
+          "groups_above_unity": 0,
+          "governing_group": "conn-brace-WPB260X260X92.99",
+          "governing_dc": 0.9335630355412463,
+          "section": "WPB260X260X92.99",
+          "limit_state": "brace end: brace_conn_bolts",
           "governing_element": null,
           "governing_combination": null
         },
         "governing_drift": {
-          "storey": 7,
+          "storey": 6,
           "dir": "X",
-          "value": 0.0006706738937973627,
+          "value": 0.0005625786345447387,
           "limit": 0.004,
-          "dc": 0.1676684734493407,
+          "dc": 0.14064465863618467,
           "ok": true
-        }
+        },
+        "post_report_status_sha256": "04557e7f20fa5f71776201056585cfae9bdb9e92e7bb1b9c1d9219ab12dd453a"
       }
     }
   ],
-  "handoff_sha256": "34badace66bdd621c78c976bcf9f37b861ea14edf78f725e9009afd87fc4a4f1",
+  "handoff_sha256": "6d11a5cd31e9dce77e4a6eb135a86ba9774128d2dba03edc5ebe0eaf40795861",
   "members": 1176,
   "panels": 160,
-  "connections": 270,
-  "physical_profiles": 21,
+  "connections": 1472,
+  "physical_profiles": 25,
   "source_evidence": {
     "producer": "steltic_india.openbim_handoff",
     "files": {
-      "design/calc_package.json": "61eae7ba43e9c30ef8091133906fbea95556d0877d78a06732f249f7007c602b",
-      "design/cfg_snapshot.json": "560965ab6c43c81b5fcafece5be5294ea42b28baa68a5ae610969e56a08db510",
-      "design/member_schedule.csv": "11609a60996e2b146d2b9a954e08a0de8c6cb064d2298ae8c70bb09a8f3d05ef",
-      "report.html": "e00e6c001e550fbf6b19e2768d6d3aa706392e27978f230d8cd8cb215d6a952c",
-      "viewer_3d.html": "21dae4c9097ce752a8507f7cd5d7f70c2c75cb625b788a5b295298d210b61b6d",
-      "STATUS.engine.md": "ee02a63f638a5149f13a1e33fd8ee7eec92559d31a0652a2955d87bfdd6ba3a4"
+      "design/calc_package.json": "b7d13565932a89fd6a275be657ac1788159c994e2cb1320ec37f5c1805b3cec8",
+      "design/cfg_snapshot.json": "f6f6f103bd28ca7daa94a2b318bdfc5e6b5d37a9b1355be2e128d4259d37c3e7",
+      "design/member_schedule.csv": "ceb11429ff3f7b4e006793a070190e6603f0bc1d8e8457bbe7e7c317ae746a1e",
+      "report.html": "0fb2a1b0ceb61b6e281f8605359396a4667e26f9026b6c167da3dfa5cc2199c6",
+      "viewer_3d.html": "45d695378454f6ce1661a5f876ef7575971ad79ed1e9cd178569590163c4215d",
+      "STATUS.engine.md": "04557e7f20fa5f71776201056585cfae9bdb9e92e7bb1b9c1d9219ab12dd453a"
     },
     "native_status": {
-      "Main": "partial"
+      "Main": "complete"
     },
     "native_elements": 856,
     "bound_elements": 856,
     "open_items": []
   },
-  "checked_design_status": "fail",
+  "checked_design_status": "review",
   "assumptions": [
     "Site soil Type II pending geotechnical confirmation.",
     "Trial connection details and matched source member checks are recorded where available. Each unverified design item retains review status."

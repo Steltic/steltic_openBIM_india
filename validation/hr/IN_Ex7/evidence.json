@@ -372,6 +372,13 @@
         },
         "post_report_status_sha256": "dae0326db3c42fb6f65bc5298c8c08ee5f7bf91c88bb68ed3ecf98b4e224d29f"
       },
+      "fabricated_sections": {
+        "ids": [
+          "WI600X550X36X22",
+          "WI850X600X22X14"
+        ],
+        "basis": "Independent sizing used fabricated members where the selected rolled families did not pass all trial demands. Confirm substitution and procurement where the brief specifies a rolled family."
+      },
       "crane_inputs": {
         "capacity_kN": 200,
         "crab_kN": 40,
@@ -388,7 +395,7 @@
       }
     }
   ],
-  "handoff_sha256": "4b67ce01472d6d0edc7443fe9ecc2e7928ae3263792c634ef91862a6c029335a",
+  "handoff_sha256": "8d34383e1db83ec36b05b71fbc8e998e009064047cffa63daa2d429d35af9371",
   "members": 594,
   "panels": 20,
   "connections": 119,

@@ -174,6 +174,26 @@ def validate(data):
                 raise ValueError(f"{row['id']}: tapered endpoints have incompatible section topology")
         vector(row.get("start"), "member start")
         vector(row.get("end"), "member end")
+        if "end_cutbacks_mm" in row:
+            cuts=row["end_cutbacks_mm"]
+            if (not isinstance(cuts,list) or len(cuts)!=2 or any(not number(v) or v<0 for v in cuts)
+                    or sum(cuts)>=math.dist(row["start"],row["end"])):
+                raise ValueError(f"{row['id']}: end cutbacks must leave a positive member body")
+        for feature in index(row.get("member_voids",[]),"member void").values():
+            if feature.get("kind")=="bore":
+                vector(feature.get("start"),"bore start")
+                vector(feature.get("end"),"bore end")
+                positive(feature.get("diameter_mm"),"bore diameter")
+                if math.dist(feature["start"],feature["end"])<.01:
+                    raise ValueError(f"{row['id']}: invalid drill diameter or length")
+            elif feature.get("kind")=="slot":
+                panel_shape(feature)
+                positive(feature.get("thickness_mm"),"slot depth")
+            else:
+                raise ValueError(f"{row['id']}: member void requires a bore or extruded slot")
+            cid=feature.get("connection")
+            if cid is not None and (cid not in connections or row["id"] not in connections[cid]["members"]):
+                raise ValueError(f"{row['id']}: member void refers to a different joint")
         if "ref_direction" in row:
             vector(row["ref_direction"], "section width direction")
         try:

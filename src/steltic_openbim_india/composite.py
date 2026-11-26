@@ -5,7 +5,7 @@ import math
 from shapely.geometry import Polygon, box
 from shapely.strtree import STRtree
 
-from .geometry import dot, frame, plane, project, sub
+from .geometry import dot, frame, member_body_ends, plane, project, sub
 from .profiles import section_polygons
 
 
@@ -22,7 +22,7 @@ def faces_between(start, end):
 
 
 def member_faces(row, shapes):
-    a,b = row["start"],row["end"]
+    a,b = member_body_ends(row)
     x,y,_ = frame(a,b,row.get("ref_direction"))
     for p,q in zip(shapes[row["profile"]],shapes[row.get("end_profile",row["profile"])]):
         start=transformed(list(p.exterior.coords)[:-1],a,x,y)

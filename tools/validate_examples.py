@@ -5,7 +5,7 @@ import hashlib
 import json
 from pathlib import Path
 import re
-from brief_controls import run as check_brief
+from brief_controls import run as check_brief, portal_measurements
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -60,7 +60,10 @@ def run_case(family, number, output, pipeline, resume):
                    members=cert["readback"].get("ifc",{}).get("members",0),
                    parts=cert["readback"].get("ifc",{}).get("parts",0),
                    checks=cert["source_check_counts"],finding_counts=cert["finding_counts"])
-        row["brief_geometry"] = check_brief(family,number,cert["readback"].get("ifc",{}).get("building_geometry",{}))
+        geometry=cert["readback"].get("ifc",{}).get("building_geometry",{})
+        if family=="hr" and number<=5 and "Main" in geometry:
+            geometry["Main"].update(portal_measurements(delivery/"model.ifc"))
+        row["brief_geometry"] = check_brief(family,number,geometry)
         if cert["findings"]:
             row["first_finding"]=cert["findings"][0]
     except Exception as error:

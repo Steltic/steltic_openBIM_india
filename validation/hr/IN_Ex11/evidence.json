@@ -452,6 +452,15 @@
           "ok": true
         },
         "post_report_status_sha256": "a65494e66e243087c0326904797a771d9cb05ebe86fbb030e0fdb4af2e5117cf"
+      },
+      "office_load_basis": {
+        "edition": "IS 875 Part 2:1987",
+        "locator": "Table 1(v)(b), printed page 9, PDF page 11",
+        "rooms_without_separate_storage_kNm2": 4.0,
+        "adopted_floor_live_kNm2": 4.0,
+        "partition_allowance_kNm2": 1.0,
+        "floor_live_seismic_participation": 0.5,
+        "seismic_locator": "IS 1893 Part 1:2016, Table 10"
       }
     },
     {
@@ -862,7 +871,7 @@
       }
     }
   ],
-  "handoff_sha256": "8d00e93d378ee16d72b3e6dcc26e39cc09366b9f81b1c78043d401ab671c416f",
+  "handoff_sha256": "bb2365afc831dbd7f5c593eb7de0de3a48350131ad9e289de855bda575c8224f",
   "members": 502,
   "panels": 64,
   "connections": 734,

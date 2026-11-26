@@ -61,3 +61,44 @@ def test_import_native_job_rejects_stale_calculation(tmp_path,monkeypatch):
     calc.write_bytes(b'{"changed":true}')
     assert api.post(endpoint).status_code==409
     assert len(api.get("/api/projects/Metric").json())==1
+
+
+def test_drawing_answer_reissues_measured_opening_and_reopens_original(tmp_path, monkeypatch):
+    import ifcopenshell
+
+    monkeypatch.setenv("PYTHONPATH", str(Path(__file__).resolve().parents[1]/"src"))
+    monkeypatch.setenv("OPENBIM_JOBS", str(tmp_path/"revisions"))
+    client = TestClient(app)
+    project = "/api/projects/Opening-review"
+    fixture = Path(__file__).parent/"fixtures/metric_frame.json"
+    original = client.post(project+"/design", files={"file": ("frame.json", fixture.read_bytes())}).json()
+
+    def contents(key, file):
+        return client.get(f"{project}/{key}/files/{file}").content
+
+    def holes(key):
+        model = ifcopenshell.file.from_string(contents(key, "model.ifc").decode())
+        return len(model.by_type("IfcOpeningElement"))
+
+    key = original["id"]
+    register = json.loads(contents(key, "requests.json"))
+    assert register["requests"][0]["id"] == "connection/K2" and register["panels"] == ["W1"]
+    data = {"request_id":"opening/L1", "reviewer":"Architect", "panel":"W1", "action":"confirm opening",
+            "note":"Louvre set-out from the south grid.", "outline":[[400,0,900],[950,0,900],[950,0,1400],[400,0,1400]]}
+    defective = {**data, "outline":[[0,100,0],[450,110,0],[0,110,900]]}
+    assert client.post(f"{project}/{key}/answers",json=defective).status_code == 422
+    issued = client.post(f"{project}/{key}/answers", json=data)
+    assert issued.status_code == 200, issued.text
+    revised = issued.json()
+    assert revised["artifact_check"] == "pass" and revised["parent_revision"] == key
+    assert holes(revised["id"]) == holes(key) + 1
+    actual = json.loads(contents(revised["id"], "handoff.json"))
+    assert actual["drawing_revision"]["native_handoff_sha256"] == original["source_sha256"]
+    assert actual["checks"][-1]["status"] == "review" and actual["panels"][0]["openings"][-1] == data["outline"]
+    note = {**data, "outline":None, "action":"information", "note":"Supplier confirms the louvre model."}
+    annotated = client.post(f"{project}/{revised['id']}/answers", json=note).json()
+    assert holes(annotated["id"]) == holes(revised["id"])
+    reopened = client.post(f"{project}/{annotated['id']}/answers", json={**note, "action":"reopen"}).json()
+    assert holes(reopened["id"]) == holes(key) and reopened["base_revision"] == key
+    assert contents(key,"handoff.json") == fixture.read_bytes()
+    assert len(client.get(project).json()) == 4

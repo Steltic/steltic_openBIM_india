@@ -23,6 +23,13 @@
       "properties":{"id":{"$ref":"#/$defs/id"},"role":{"$ref":"#/$defs/id"},"profile":{"$ref":"#/$defs/id"},
         "end_profile":{"$ref":"#/$defs/id"},"material":{"$ref":"#/$defs/id"},"start":{"$ref":"#/$defs/p3"},
         "end":{"$ref":"#/$defs/p3"},"ref_direction":{"$ref":"#/$defs/p3"},"unit":{"$ref":"#/$defs/id"},
+        "end_cutbacks_mm":{"type":"array","minItems":2,"maxItems":2,"items":{"type":"number","minimum":0}},
+        "member_voids":{"type":"array","items":{"type":"object","required":["id","kind"],"properties":{
+          "id":{"$ref":"#/$defs/id"},"connection":{"$ref":"#/$defs/id"},"start":{"$ref":"#/$defs/p3"},"end":{"$ref":"#/$defs/p3"},
+          "diameter_mm":{"$ref":"#/$defs/thickness"},"outline":{"$ref":"#/$defs/ring3"},"thickness_mm":{"$ref":"#/$defs/thickness"},
+          "openings":{"type":"array","items":{"$ref":"#/$defs/ring3"}}},"oneOf":[
+            {"properties":{"kind":{"const":"bore"}},"required":["start","end","diameter_mm"]},
+            {"properties":{"kind":{"const":"slot"}},"required":["outline","thickness_mm"]}]}},
         "level":{"$ref":"#/$defs/id"},"checks":{"$ref":"#/$defs/ids"}}}},
     "panels":{"type":"array","items":{"allOf":[{"$ref":"#/$defs/plate"},{"type":"object","required":["role"],
       "properties":{"role":{"$ref":"#/$defs/id"},"level":{"$ref":"#/$defs/id"},"unit":{"$ref":"#/$defs/id"},"checks":{"$ref":"#/$defs/ids"}}}]}},

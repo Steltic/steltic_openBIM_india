@@ -7,6 +7,7 @@ const link = (key, file) => api + "/" + key + "/files/" + file;
 const addOption = (select, text, value) => select.add(new Option(text, value));
 const clear = element => element.replaceChildren();
 let viewer;
+let requestData;
 
 async function request(url, init) {
   const res = await fetch(url, init);
@@ -65,6 +66,14 @@ async function refresh() {
   const history = byId("history");
   const filtered = rows.filter(r => tab === "export" || (tab === "design" ? r.kind === "design" : r.kind !== "design"));
   history.replaceChildren(...filtered.map(record));
+  if (tab === "design") {
+    const revisions = rows.filter(r => r.kind === "design" && r.files.includes("requests.json"));
+    const select = byId("query-revision");
+    clear(select);
+    for (const row of revisions) addOption(select, row.label + " · " + row.id.slice(0, 8), row.id);
+    byId("drawing-queries").hidden = !revisions.length;
+    if (revisions.length && byId("drawing-queries").open) await showQueries();
+  }
   if (tab !== "import") return;
   const imports = rows.filter(r => r.kind === "import"), select = byId("model"), selected = select.value;
   clear(select);
@@ -72,6 +81,45 @@ async function refresh() {
   if (imports.some(row => row.id === selected)) select.value = selected;
   byId("review-options").hidden = !imports.length;
   if (imports.length) await showImport();
+}
+async function showQueries() {
+  const revision = byId("query-revision").value;
+  if (!revision) return;
+  const data = await request(link(revision, "requests.json"));
+  if (revision !== byId("query-revision").value) return;
+  requestData = data;
+  const ids = byId("query-id"), form = byId("answer-form"), hosts = form.elements.panel;
+  clear(ids); clear(hosts);
+  for (const row of data.requests) addOption(ids, row.id + " · " + row.status, row.id);
+  for (const row of data.answers.filter(r => r.request_id.startsWith("opening/"))) addOption(ids, row.request_id, row.request_id);
+  for (const panel of data.panels) addOption(hosts, panel, panel);
+  if (data.panels.length) addOption(ids, "Additional architectural opening", "new-opening");
+  form.hidden = !ids.options.length;
+  showResponse();
+}
+function showResponse() {
+  const form = byId("answer-form"), selected = byId("query-id").value;
+  const opening = selected === "new-opening" || selected.startsWith("opening/");
+  const saved = requestData?.answers.find(r => r.request_id === selected);
+  byId("query-description").textContent = requestData?.requests.find(r => r.id === selected)?.description || "";
+  byId("saved-response").textContent = saved ? [saved.reviewer, saved.action, saved.note].join(" · ") : "";
+  byId("opening-host").hidden = !opening;
+  form.elements.mark.value = selected.startsWith("opening/") ? selected.slice(8) : "";
+  form.elements.mark.required = opening;
+  form.elements.mark.readOnly = !!saved;
+  if (saved?.panel) form.elements.panel.value = saved.panel;
+  form.elements.panel.disabled = !opening || !!saved;
+  form.elements.action.options[1].disabled = !opening;
+  form.elements.action.options[2].disabled = !saved;
+  form.elements.action.value = opening ? "confirm opening" : "information";
+  form.elements.points.value = saved?.outline?.map(p => p.join(", ")).join("\n") || "";
+  form.elements.note.value = "";
+  showPoints();
+}
+function showPoints() {
+  const form = byId("answer-form"), confirm = form.elements.action.value === "confirm opening";
+  byId("opening-points").hidden = !confirm;
+  form.elements.points.required = confirm;
 }
 function post(url, data) {
   return request(url, { method: "POST", headers: {"Content-Type":"application/json"}, body: JSON.stringify(data) });
@@ -102,6 +150,22 @@ async function start() {
   const jobs = tab === "design" ? await request("./api/sources") : [];
   byId("job-form").hidden = !jobs.length;
   for (const item of jobs) addOption(byId("source-jobs"), item.module + " / " + item.job, item.module + "/" + encodeURIComponent(item.job));
+  byId("drawing-queries").ontoggle = () => { if (byId("drawing-queries").open) showQueries().catch(e => message(e.message, true)); };
+  byId("query-revision").onchange = () => showQueries().catch(e => message(e.message, true));
+  byId("query-id").onchange = showResponse;
+  byId("answer-form").elements.action.onchange = showPoints;
+  submit("answer-form", async form => {
+    const fields = form.elements, selected = byId("query-id").value;
+    const opening = selected === "new-opening" || selected.startsWith("opening/");
+    const body = {request_id: selected === "new-opening" ? "opening/" + fields.mark.value.trim() : selected,
+      reviewer: fields.reviewer.value, note: fields.note.value, action: fields.action.value};
+    if (opening) body.panel = fields.panel.value;
+    if (body.action === "confirm opening") {
+      body.outline = fields.points.value.trim().split(/\n+/).map(line => line.trim().split(/\s*,\s*|\s+/).map(Number));
+      if (body.outline.some(p => p.length !== 3 || !p.every(Number.isFinite))) throw new Error("Enter three finite coordinates per line.");
+    }
+    await post(api + "/" + byId("query-revision").value + "/answers", body);
+  }, "Saving the response and checking the revised drawings…");
   byId("model").onchange = () => { viewer?.dispose(); clear(byId("viewer")); showImport().catch(e => message(e.message, true)); };
   submit("review-form", async () => {
     const row = await post(api + "/" + byId("model").value + "/review", reviewOptions());

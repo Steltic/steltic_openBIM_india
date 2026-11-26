@@ -56,3 +56,13 @@ def project(ring, basis):
             raise ValueError("vertices depart from their panel plane by more than 0.01 mm")
         points.append((dot(delta, x), dot(delta, y)))
     return points
+
+
+def member_body_ends(member):
+    """Physical end planes along the native analysis axis, in global mm."""
+    a,b=member["start"],member["end"]
+    if "end_cutbacks_mm" not in member:
+        return a,b
+    start,end=member["end_cutbacks_mm"]
+    direction=unit(sub(b,a))
+    return ([v+start*k for v,k in zip(a,direction)],[v-end*k for v,k in zip(b,direction)])

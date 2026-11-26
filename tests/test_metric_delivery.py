@@ -22,6 +22,40 @@ def fixture():
     return load(FIXTURE)[0]
 
 
+def test_flange_stays_keep_their_bracing_class_in_ifc(tmp_path):
+    data=fixture()
+    first=dict(data["members"][0], id="COLUMN-STAY",role="column flange brace",start=[-150,0,100],end=[0,300,300])
+    second=dict(first,id="RAFTER-STAY",role="rafter flange brace",start=[0,300,300],end=[450,300,200])
+    data["members"].extend([first,second])
+    path=tmp_path/"braced.json"
+    path.write_text(json.dumps(data),encoding="utf-8")
+    cert=deliver(path,tmp_path/"building")
+    assert cert["artifact_status"]=="pass",cert["findings"]
+    model=ifcopenshell.open(str(tmp_path/"building/model.ifc"))
+    assert {"COLUMN-STAY","RAFTER-STAY"}<={r.Tag for r in model.by_type("IfcMember")}
+
+
+def test_member_body_ends_bores_and_slots_are_cut_and_printed(tmp_path):
+    data=fixture()
+    member=next(r for r in data["members"] if r["id"]=="COL-2")
+    member["end_cutbacks_mm"]=[35,50]
+    member["member_voids"]=[
+        dict(id="WEB-HOLE",kind="bore",start=[5990,0,250],end=[6010,0,250],diameter_mm=22),
+        dict(id="WEB-SLOT",kind="slot",outline=[[5990,-9,3685],[5990,9,3685],[5990,9,3760],[5990,-9,3760]],thickness_mm=20)]
+    source=tmp_path/"features.json"
+    source.write_text(json.dumps(data),encoding="utf-8")
+    delivered=deliver(source,tmp_path/"steel")
+    assert delivered["artifact_status"]=="pass",delivered["findings"]
+    assert delivered["readback"]["ifc"]["member_voids"]==2
+    assert delivered["readback"]["ifc"]["cutback_members"]==1
+    assert delivered["readback"]["pdf"]["sheet_types"]["machining"]==1
+    member["member_voids"][0].update(start=[6090,0,250],end=[6110,0,250])
+    source.write_text(json.dumps(data),encoding="utf-8")
+    bad=deliver(source,tmp_path/"missed-web")
+    assert bad["artifact_status"]=="fail"
+    assert "specified cut removes actual parent steel" in bad["finding_counts"]
+
+
 def test_metric_delivery_with_native_taper_and_opening(tmp_path):
     output=tmp_path/"delivery"
     result=deliver(FIXTURE,output)
