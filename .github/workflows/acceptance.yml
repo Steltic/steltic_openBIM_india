@@ -64,6 +64,7 @@ jobs:
             cases+=(--case "$FAMILY:$n")
           done
           python tools/validate_examples.py --output "$RUNNER_TEMP/deliveries" "${cases[@]}"
+          python tools/verify_release.py --rebuild "$RUNNER_TEMP/deliveries"/validation*.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -72,7 +73,7 @@ jobs:
             ${{ runner.temp }}/deliveries/validation*.json
             ${{ runner.temp }}/deliveries/**/certificate.json
       - uses: actions/upload-artifact@v4
-        if: success() && (github.event_name == 'pull_request' || inputs.include_deliveries)
+        if: success() && github.event_name == 'workflow_dispatch' && inputs.include_deliveries
         with:
           name: ${{ matrix.module }}-${{ matrix.first }}-${{ matrix.last }}-drawings-and-models
           path: ${{ runner.temp }}/deliveries

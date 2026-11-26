@@ -30,6 +30,11 @@
       "Shapely": "2.2.0",
       "pypdf": "6.16.2"
     },
+    "wheel_files_matching_checkout": 28,
+    "local_jobs_discovered": {
+      "HR": 21,
+      "CFS": 15
+    },
     "cli": [
       {
         "project": "IN_Ex6",
@@ -101,16 +106,16 @@
           "skipped": 5,
           "warning": 1
         },
-        "summary": "1408 passed, 5 skipped, 1 warning in 223.09s (0:03:43)",
-        "report_sha256": "1543898d1e77de8d8a783d1bedb24186f6bab1e216f803381bcef9c842780cb2"
+        "summary": "1408 passed, 5 skipped, 1 warning in 186.63s (0:03:06)",
+        "report_sha256": "73a60333e50659d5d9fa6e347ae62ea2a5390b77574bdf907c755aca4d65d602"
       },
       "cfs": {
         "counts": {
           "passed": 402,
           "skipped": 1
         },
-        "summary": "402 passed, 1 skipped in 27.39s",
-        "report_sha256": "3de35996a6a81a07e68ba0e316e82949ce57bf1004fb67ae64cf8aaa803841e5"
+        "summary": "402 passed, 1 skipped in 22.81s",
+        "report_sha256": "6474a31595a2853c81360ac8761fb68021e37c6a713cf01c2e50a63a5d2ab520"
       }
     },
     "windows_native_suites": {

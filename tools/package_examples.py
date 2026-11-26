@@ -6,7 +6,8 @@ import hashlib
 import json
 from pathlib import Path
 from shutil import copyfileobj
-from zipfile import ZIP_DEFLATED, ZipFile, ZipInfo
+from tempfile import NamedTemporaryFile
+from zipfile import BadZipFile, ZIP_DEFLATED, ZipFile, ZipInfo
 
 ROOT = Path(__file__).resolve().parents[1]
 FILES = ("drawings.pdf","model.ifc","drawing_register.json","certificate.json")
@@ -30,17 +31,39 @@ def record(path):
 
 def archive(path, entries):
     path.parent.mkdir(parents=True,exist_ok=True)
-    with ZipFile(path,"w",compression=ZIP_DEFLATED,compresslevel=6) as z:
-        for name,source in entries:
-            info=ZipInfo(name, date_time=(2000,1,1,0,0,0))
-            info.compress_type=ZIP_DEFLATED
-            info.external_attr=0o100644 << 16
-            info.file_size=source.stat().st_size
-            with source.open("rb") as src, z.open(info,"w") as dst:
-                copyfileobj(src,dst,length=1024*1024)
-    with ZipFile(path) as z:
-        if bad:=z.testzip():
-            raise ValueError(f"{path.name}: unreadable entry {bad}")
+    with NamedTemporaryFile(dir=path.parent,prefix=".issue-",suffix=".tmp",delete=False) as handle:
+        temporary=Path(handle.name)
+    try:
+        with ZipFile(temporary,"w",compression=ZIP_DEFLATED,compresslevel=6) as z:
+            for name,source in entries:
+                info=ZipInfo(name,date_time=(2000,1,1,0,0,0))
+                info.compress_type=ZIP_DEFLATED
+                info.external_attr=0o100644 << 16
+                info.file_size=source.stat().st_size
+                with source.open("rb") as src,z.open(info,"w") as dst:
+                    copyfileobj(src,dst,length=1024*1024)
+        with ZipFile(temporary) as z:
+            if bad:=z.testzip():
+                raise ValueError(f"{path.name}: unreadable entry {bad}")
+        temporary.replace(path)
+    finally:
+        temporary.unlink(missing_ok=True)
+
+
+def bundle_matches(path, checksums):
+    if not path.is_file():
+        return False
+    try:
+        with ZipFile(path) as z:
+            if sorted(z.namelist())!=sorted(checksums):
+                return False
+            for name,digest in checksums.items():
+                with z.open(name) as stream:
+                    if hash_stream(stream)!=digest:
+                        return False
+    except (BadZipFile,OSError):
+        return False
+    return True
 
 
 def package(args):
@@ -93,12 +116,10 @@ def package(args):
         if not comp or any(r["handoff_sha256"]!=fingerprint for r in comp):
             raise ValueError(f"{case}: stale design comparison")
         bundle=dest/"deliveries"/f"{case}.zip"
-        archive(bundle,parts.items())
-        with ZipFile(bundle) as z:
-            for part in FILES:
-                with z.open(part) as stream:
-                    if hash_stream(stream)!=checksums[part]:
-                        raise ValueError(f"{case}: failed archive readback for {part}")
+        if not bundle_matches(bundle,checksums):
+            archive(bundle,parts.items())
+            if not bundle_matches(bundle,checksums):
+                raise ValueError(f"{case}: issued archive differs from its checked files")
         evidence=base/("evidence.json" if family=="hr" else "result.json")
         ev=record(evidence)
         if ev["handoff_sha256"]!=fingerprint:
