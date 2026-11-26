@@ -1,0 +1,227 @@
+{
+  "status": "pass",
+  "samples": [
+    {
+      "id": "Main-skin-floor deck-NPB550X210X92.08",
+      "chain": [
+        "Main-SEC-1-0-0-1",
+        "Main-DECK-1-0-0"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            2500.0,
+            3750.0,
+            4251.5
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Main-support-beam-secondary beam-1",
+      "chain": [
+        "Main-E241",
+        "Main-SEC-1-0-0-1-BEAR-START-PACK",
+        "Main-SEC-1-0-0-1"
+      ],
+      "expected_gaps_mm": [
+        0.0,
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            2500.0,
+            6.0,
+            3978.0
+          ],
+          "measured_gaps_mm": [
+            0.0,
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Main-skin-floor deck-RHS120X80X6-EDGE",
+      "chain": [
+        "Main-DECK-1-0-0-EDGE-1",
+        "Main-DECK-1-0-0"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            7500.0,
+            3750.0,
+            4465.0
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Main-support-beam-secondary beam-4",
+      "chain": [
+        "Main-E270",
+        "Main-DECK-1-0-0-EDGE-1-BEAR-START-LOWER"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            7500.0,
+            183.0,
+            4405.0
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Main-cap-secondary beam",
+      "chain": [
+        "Main-DECK-1-0-0-EDGE-1-BEAR-START-CAP",
+        "Main-DECK-1-0-0-EDGE-1"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            7500.0,
+            183.0,
+            4405.0
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Main-skin-roof deck-NPB300X200X59.57",
+      "chain": [
+        "Main-SEC-8-0-0-1",
+        "Main-DECK-8-0-0"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            2500.0,
+            3750.0,
+            29283.5
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Main-skin-roof deck-RHS120X80X6-EDGE",
+      "chain": [
+        "Main-DECK-8-0-0-EDGE-169",
+        "Main-DECK-8-0-0"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            7500.0,
+            3750.0,
+            29375.0
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    }
+  ],
+  "handoff_sha256": "4aa1a4033cdb29ca0b2c0818adb7891fbff4e9f71ede189bfa77917cc999dd21",
+  "ifc_sha256": "1806426149246a37edcb01ea02bcb4776743a74366e48ff087691b3fffad770e"
+}

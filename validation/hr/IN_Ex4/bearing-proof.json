@@ -1,0 +1,88 @@
+{
+  "project": "IN_Ex4",
+  "status": "pass",
+  "counts": {
+    "blocks": 544,
+    "interfaces": 1440
+  },
+  "minimum_common_area_mm2": 594.0,
+  "minimum_pair": [
+    "Main-GABLE-GIRT-1-5-0-0-LEFT-BL",
+    "Main-C0-12-m1"
+  ],
+  "failures": [],
+  "door_clearances": [
+    {
+      "door": "Y0-1",
+      "clear_width_mm": 3000.0,
+      "clear_height_mm": 3500,
+      "envelope_depth_mm": 1326.0,
+      "intrusions": []
+    },
+    {
+      "door": "Y0-2",
+      "clear_width_mm": 3000.0,
+      "clear_height_mm": 3500,
+      "envelope_depth_mm": 1326.0,
+      "intrusions": []
+    },
+    {
+      "door": "Y0-3",
+      "clear_width_mm": 3000.0,
+      "clear_height_mm": 3500,
+      "envelope_depth_mm": 1326.0,
+      "intrusions": []
+    },
+    {
+      "door": "Y0-4",
+      "clear_width_mm": 3000.0,
+      "clear_height_mm": 3500,
+      "envelope_depth_mm": 1326.0,
+      "intrusions": []
+    },
+    {
+      "door": "Y0-5",
+      "clear_width_mm": 3000.0,
+      "clear_height_mm": 3500,
+      "envelope_depth_mm": 1326.0,
+      "intrusions": []
+    },
+    {
+      "door": "Y0-6",
+      "clear_width_mm": 3000.0,
+      "clear_height_mm": 3500,
+      "envelope_depth_mm": 1326.0,
+      "intrusions": []
+    },
+    {
+      "door": "Y0-7",
+      "clear_width_mm": 3000.0,
+      "clear_height_mm": 3500,
+      "envelope_depth_mm": 1326.0,
+      "intrusions": []
+    },
+    {
+      "door": "Y0-8",
+      "clear_width_mm": 3000.0,
+      "clear_height_mm": 3500,
+      "envelope_depth_mm": 1326.0,
+      "intrusions": []
+    },
+    {
+      "door": "Y0-9",
+      "clear_width_mm": 3000.0,
+      "clear_height_mm": 3500,
+      "envelope_depth_mm": 1326.0,
+      "intrusions": []
+    },
+    {
+      "door": "Y0-10",
+      "clear_width_mm": 3000.0,
+      "clear_height_mm": 3500,
+      "envelope_depth_mm": 1326.0,
+      "intrusions": []
+    }
+  ],
+  "handoff_sha256": "16c8ef867729272e9d9cc5eb567460b5665cd3d656a5c48913a24e1122e51c54",
+  "ifc_sha256": "f0ae1f7d937216df8887f9b9f0b2d0ff4780895cd0acc46ae7247488e58cd09d"
+}

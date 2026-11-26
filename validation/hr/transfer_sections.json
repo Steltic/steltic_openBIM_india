@@ -1,0 +1,81 @@
+{
+  "12": {
+    "Link": {
+      "sections": {
+        "gravity_col": {
+          "WPB300X300X69.8": "WPB300X300X117.03"
+        }
+      },
+      "source_package_sha256": "165646b7a46fdd36add672dec6dab03c825435d398fc95d0cba12598a7280cf3"
+    }
+  },
+  "13": {
+    "Main": {
+      "sections": {
+        "floor": {
+          "NPB300X150X49.32": "NPB350X170X66.05",
+          "NPB300X200X59.57": "NPB350X170X66.05"
+        },
+        "roof": {
+          "MB300": "NPB350X170X66.05",
+          "WPB150X150X36.97": "NPB350X170X66.05",
+          "WPB240X240X47.4": "NPB350X170X66.05"
+        }
+      },
+      "source_package_sha256": "7be19f8746c74a9b333ed5e2f50287b41af86100955901ba2dfba6f19789081b"
+    }
+  },
+  "14": {
+    "Main": {
+      "sections": {
+        "floor": {
+          "NPB700X250X128.41": "WPB550X300X199.44",
+          "WPB320X300X126.66": "WPB550X300X199.44"
+        },
+        "roof": {
+          "NPB350X170X66.05": "NPB450X190X92.37",
+          "WPB340X300X78.9": "NPB450X190X92.37"
+        }
+      },
+      "source_package_sha256": "c756e3a002dd8bdedb51663dc4d703c0b7e720475524a1d3d0baff994bcfed56"
+    }
+  },
+  "16": {
+    "Main": {
+      "sections": {
+        "gravity_col": {
+          "WPB300X300X237.92": "BOX600X600X16",
+          "WPB300X300X88.34": "WPB360X370X136.21",
+          "WPB400X300X124.81": "WPB360X370X182.02",
+          "WPB450X300X263.33": "BOX700X700X16"
+        }
+      },
+      "source_package_sha256": "5795ffe483f5b75beee8e2593e5110a4b22d203f3fb1e19a6e56c3b85d5aab71"
+    }
+  },
+  "18": {
+    "Main": {
+      "sections": {
+        "gravity_col": {
+          "BOX800X800X20": "BOX700X700X36",
+          "WPB320X300X74.25": "WPB550X300X119.99",
+          "WPB400X300X124.81": "WPB400X400X191.11",
+          "WPB400X400X219.67": "BOX600X600X16",
+          "WPB550X300X278.19": "BOX550X550X22",
+          "WPB600X300X177.78": "WPB500X300X270.28"
+        }
+      },
+      "source_package_sha256": "942248e6ca79d1429b9c44035753a08c8fc93b5f91ca754dffa88b2f9df245a6"
+    }
+  },
+  "7": {
+    "Main": {
+      "sections": {
+        "roof": {
+          "WI850X600X22X14": "WI1200X550X32X20"
+        }
+      },
+      "source_package_sha256": "dd27bae46cb11728bcba53f17b63d53c940adfe1e022ba6e0e7b4db8d5071ac9"
+    }
+  }
+}

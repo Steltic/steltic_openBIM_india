@@ -1,0 +1,62 @@
+[
+  {
+    "id": "Pitched roof 0.0000/-0.1644/0.9864 / WPB450X300X171.12 / CLR250X80X25X5",
+    "chain": [
+      "M00035",
+      "J00161-7",
+      "M00090",
+      "P0001"
+    ],
+    "normal": [
+      0.0,
+      -0.16439898730535726,
+      0.9863939238321437
+    ],
+    "stations_mm": [
+      [
+        40.0,
+        3828.04438,
+        6890.44188
+      ]
+    ],
+    "expected_gaps_mm": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "tolerance_mm": 1.0,
+    "structural_datum": "Original sloping primary workplane",
+    "panel_underside_normal_offset_mm": 499.0,
+    "vertical_plane_offset_mm": 505.883
+  },
+  {
+    "id": "Pitched roof -0.0000/0.1644/0.9864 / WPB450X300X171.12 / CLR250X80X25X5",
+    "chain": [
+      "M00036",
+      "J00353-7",
+      "M00294",
+      "P0009"
+    ],
+    "normal": [
+      -0.0,
+      0.16439898730535726,
+      0.9863939238321437
+    ],
+    "stations_mm": [
+      [
+        40.0,
+        12909.91508,
+        7100.7823
+      ]
+    ],
+    "expected_gaps_mm": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "tolerance_mm": 1.0,
+    "structural_datum": "Original sloping primary workplane",
+    "panel_underside_normal_offset_mm": 499.0,
+    "vertical_plane_offset_mm": 505.883
+  }
+]

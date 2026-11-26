@@ -1,0 +1,3488 @@
+{
+  "case": "IN_CFS_Ex12",
+  "city": "Bengaluru",
+  "occupancy": "student residence",
+  "source_brief": "IN_CFS_Ex12_OCBF_6levels_Bengaluru.txt",
+  "source_brief_sha256": "c057aafd75d32e30edf004266cd00059dd6443aa2638b6a76877f0f5f0ad5adb",
+  "upstream": "Steltic/steltic_CFS_india",
+  "upstream_design_commit": "6e43e5839a84358a6a23356b2de4d59ab914a38b",
+  "producer_sha256": "98d43913ba645055dc1d1174cc5db8dc4eb2a8fd2a7b5eac01f094e359a21ad7",
+  "authored_input_sha256": "aadf43c7866d8834ed83e6681ffe7bc14e726a5e1dfe8dfea5532dd51bb44754",
+  "dimensions": {
+    "x_m": 36.0,
+    "y_m": 12,
+    "storey_heights_m": [
+      3.3,
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    "floor_plan_area_m2": [
+      432.0,
+      432.0,
+      432.0,
+      432.0,
+      432.0,
+      432.0
+    ]
+  },
+  "design_status": "complete",
+  "authority": "cold-formed design status (india_cfs_gates) including the hot-rolled frame status and the open items of the frame report",
+  "reasons": [],
+  "site": {
+    "city": "Bengaluru",
+    "zone": "II",
+    "Z": 0.1,
+    "Vb": 33.0,
+    "soil": "medium",
+    "terrain_category": 2,
+    "Kd": 0.9,
+    "cyclone_belt": false,
+    "wind_structure_class": "other"
+  },
+  "occupancy_basis": {
+    "use": "student residence",
+    "area_m2": 2592.0,
+    "educational": false,
+    "hospital": false,
+    "food_storage": false
+  },
+  "gravity": {
+    "D_floor": 1.65,
+    "D_roof": 1.0,
+    "L_floor": 3.0,
+    "Lr": 0.75,
+    "clad": 0.35,
+    "partition_design_kNm2": 1.0,
+    "partition_seismic_kNm2": 1.0,
+    "snow": 0.0,
+    "cite": "IS 875-1:2026 project build-up; IS 875-2:1987 Tables 1 and 2; IS 1893:2016 7.3.6"
+  },
+  "snow": {
+    "applicable": false,
+    "s0_kPa": 0.0,
+    "roof_snow_kNm2": 0.0,
+    "source": "Outside snow region in brief"
+  },
+  "dead_load_build_up_kNm2": {
+    "roof": {
+      "deck_and_finishes": 0.55,
+      "services_and_miscellaneous": 0.45
+    },
+    "floor": {
+      "board_and_finishes": 0.95,
+      "ceiling_and_services": 0.45,
+      "secondary_and_miscellaneous": 0.25
+    }
+  },
+  "eor_inputs": [
+    {
+      "item": "Soil profile and terrain",
+      "value": "medium; terrain 2",
+      "source": "Brief when stated, otherwise project assumption; confirm geotechnical report and upwind exposure",
+      "verify": true
+    },
+    {
+      "item": "Sheathing and fastening certificates",
+      "value": "pending",
+      "source": "Confirm actual tested assembly; non-bearing studs calculated without sheathing restraint",
+      "verify": true
+    },
+    {
+      "item": "Concrete grade and anchorage",
+      "value": "M30 provisional",
+      "source": "Verify project foundation and bond assumptions, pedestal reinforcement and group breakout",
+      "verify": true
+    },
+    {
+      "item": "Floor diaphragm proposed performance",
+      "value": "Gd 3600 kN/m, allowable shear 12 kN/m",
+      "source": "Specified performance only; verify tested shear and in-plane stiffness, including slip",
+      "verify": true
+    }
+  ],
+  "assumptions": [
+    "6 m longitudinal spacing. Braced corridor lines and end grids, 2 m central corridor, 400 mm stud spacing.",
+    "Levels, member axes and all dimensions in the handoff are in millimetres. Verify site soil, opening ratios, terrain, heat numbers and supplier data.",
+    "Physical framing uses nominal analytic workpoints and untrimmed member ends. Panels follow structural control planes. Coordinate finish buildups, offsets, coping and weld preparations in fabrication details.",
+    "The native design gate and governing member checks travel with this model. Review open primary-frame, concrete, diaphragm and fastening checks before design acceptance.",
+    "Any proposed in-plane board stiffness and allowable shear require full assembly test evidence. Concrete pedestal and group breakout design must be verified.",
+    "Dead loads are preliminary assembly allowances. No imposed-load reduction is used. Primary member self-weight is computed separately by the solver.",
+    "Native levels are analytic structural worklines. Floor joists bear on girder flanges; roof purlins bear through their detailed seats. The issued board or roof skin starts on the upper flange. Supplier floor retention, deck fasteners and the podium deck/slab specification remain project inputs."
+  ],
+  "combined_load_sets": 26,
+  "cfs_check_groups": [
+    {
+      "group": "cfs_member",
+      "member": "stud-S1-CLR80X50X10X1.6",
+      "check": "interaction",
+      "value": 0.9182443926831325,
+      "limit": 1.0,
+      "dc": 0.9182443926831325,
+      "ok": true,
+      "combo": "DL+1.0W_X",
+      "clause": "IS 801 6.7.1 (fa/Fa1 < 0.15: fa/Fa1 + fbx/Fbx + fby/Fby)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.3333333333333333
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S1-CLR80X50X10X1.6",
+      "check": "6.4.1 web shear",
+      "value": 5.2408125,
+      "limit": 133.33333333333331,
+      "dc": 0.03930609375,
+      "ok": true,
+      "combo": "DL+1.0W_X",
+      "clause": "IS 801 6.4.1(a)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.3333333333333333
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S1-CLR80X50X10X1.6",
+      "check": "6.5 web crippling at track (end reaction)",
+      "value": 1065.7415999999998,
+      "limit": 4557.584561981147,
+      "dc": 0.23383912805267404,
+      "ok": true,
+      "combo": "DL+1.0W_X",
+      "clause": "IS 801 6.5(a)(1)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.3333333333333333
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S1-CLR80X50X10X1.6",
+      "check": "deflection",
+      "value": 8.68,
+      "limit": 11.0,
+      "dc": 0.7891654884540927,
+      "ok": true,
+      "combo": "DL+1.0WL (service)",
+      "clause": "IS 801 5.1 (no limit); criterion L/300: IS 800:2007 Table 6, other buildings, lateral deflection under wind, elastic cladding: height/300, read for the stud span between floors (stated default: IS 801 5.1 sets no limit and Table 6 has no stud row; 5.6.1 allows a stricter value where the finish is vulnerable to cracking)",
+      "capacity_basis": "IS800_Table6",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S1-CLR80X50X10X1.6",
+      "check": "5.2.4(a) web h/t",
+      "value": 45.0,
+      "limit": 150.0,
+      "dc": 0.3,
+      "ok": true,
+      "combo": "geometry",
+      "clause": "IS 801 5.2.4 (a)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S1-CLR80X50X10X1.6",
+      "check": "5.2.3(a) flange w/t (simple-lip stiffened)",
+      "value": 26.25,
+      "limit": 60.0,
+      "dc": 0.4375,
+      "ok": true,
+      "combo": "geometry",
+      "clause": "IS 801 5.2.3 (a)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S1-CLR80X50X10X1.6",
+      "check": "5.2.3(c) lip w/t (unstiffened)",
+      "value": 3.75,
+      "limit": 60.0,
+      "dc": 0.0625,
+      "ok": true,
+      "combo": "geometry",
+      "clause": "IS 801 5.2.3 (c)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S2-CLR80X50X10X1.6",
+      "check": "interaction",
+      "value": 0.6298578066701906,
+      "limit": 1.0,
+      "dc": 0.6298578066701906,
+      "ok": true,
+      "combo": "DL+1.0W_X",
+      "clause": "IS 801 6.7.1 (fa/Fa1 < 0.15: fa/Fa1 + fbx/Fbx + fby/Fby)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.3333333333333333
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S2-CLR80X50X10X1.6",
+      "check": "6.4.1 web shear",
+      "value": 4.764374999999999,
+      "limit": 133.33333333333331,
+      "dc": 0.0357328125,
+      "ok": true,
+      "combo": "DL+1.0W_X",
+      "clause": "IS 801 6.4.1(a)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.3333333333333333
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S2-CLR80X50X10X1.6",
+      "check": "6.5 web crippling at track (end reaction)",
+      "value": 968.8559999999998,
+      "limit": 4557.584561981147,
+      "dc": 0.21258102550243094,
+      "ok": true,
+      "combo": "DL+1.0W_X",
+      "clause": "IS 801 6.5(a)(1)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.3333333333333333
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S2-CLR80X50X10X1.6",
+      "check": "deflection",
+      "value": 5.93,
+      "limit": 10.0,
+      "dc": 0.5929117118362832,
+      "ok": true,
+      "combo": "DL+1.0WL (service)",
+      "clause": "IS 801 5.1 (no limit); criterion L/300: IS 800:2007 Table 6, other buildings, lateral deflection under wind, elastic cladding: height/300, read for the stud span between floors (stated default: IS 801 5.1 sets no limit and Table 6 has no stud row; 5.6.1 allows a stricter value where the finish is vulnerable to cracking)",
+      "capacity_basis": "IS800_Table6",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S2-CLR80X50X10X1.6",
+      "check": "5.2.4(a) web h/t",
+      "value": 45.0,
+      "limit": 150.0,
+      "dc": 0.3,
+      "ok": true,
+      "combo": "geometry",
+      "clause": "IS 801 5.2.4 (a)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S2-CLR80X50X10X1.6",
+      "check": "5.2.3(a) flange w/t (simple-lip stiffened)",
+      "value": 26.25,
+      "limit": 60.0,
+      "dc": 0.4375,
+      "ok": true,
+      "combo": "geometry",
+      "clause": "IS 801 5.2.3 (a)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S2-CLR80X50X10X1.6",
+      "check": "5.2.3(c) lip w/t (unstiffened)",
+      "value": 3.75,
+      "limit": 60.0,
+      "dc": 0.0625,
+      "ok": true,
+      "combo": "geometry",
+      "clause": "IS 801 5.2.3 (c)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S3-CLR80X50X10X1.6",
+      "check": "interaction",
+      "value": 0.6298578066701906,
+      "limit": 1.0,
+      "dc": 0.6298578066701906,
+      "ok": true,
+      "combo": "DL+1.0W_X",
+      "clause": "IS 801 6.7.1 (fa/Fa1 < 0.15: fa/Fa1 + fbx/Fbx + fby/Fby)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.3333333333333333
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S3-CLR80X50X10X1.6",
+      "check": "6.4.1 web shear",
+      "value": 4.764374999999999,
+      "limit": 133.33333333333331,
+      "dc": 0.0357328125,
+      "ok": true,
+      "combo": "DL+1.0W_X",
+      "clause": "IS 801 6.4.1(a)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.3333333333333333
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S3-CLR80X50X10X1.6",
+      "check": "6.5 web crippling at track (end reaction)",
+      "value": 968.8559999999998,
+      "limit": 4557.584561981147,
+      "dc": 0.21258102550243094,
+      "ok": true,
+      "combo": "DL+1.0W_X",
+      "clause": "IS 801 6.5(a)(1)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.3333333333333333
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S3-CLR80X50X10X1.6",
+      "check": "deflection",
+      "value": 5.93,
+      "limit": 10.0,
+      "dc": 0.5929117118362832,
+      "ok": true,
+      "combo": "DL+1.0WL (service)",
+      "clause": "IS 801 5.1 (no limit); criterion L/300: IS 800:2007 Table 6, other buildings, lateral deflection under wind, elastic cladding: height/300, read for the stud span between floors (stated default: IS 801 5.1 sets no limit and Table 6 has no stud row; 5.6.1 allows a stricter value where the finish is vulnerable to cracking)",
+      "capacity_basis": "IS800_Table6",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S3-CLR80X50X10X1.6",
+      "check": "5.2.4(a) web h/t",
+      "value": 45.0,
+      "limit": 150.0,
+      "dc": 0.3,
+      "ok": true,
+      "combo": "geometry",
+      "clause": "IS 801 5.2.4 (a)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S3-CLR80X50X10X1.6",
+      "check": "5.2.3(a) flange w/t (simple-lip stiffened)",
+      "value": 26.25,
+      "limit": 60.0,
+      "dc": 0.4375,
+      "ok": true,
+      "combo": "geometry",
+      "clause": "IS 801 5.2.3 (a)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S3-CLR80X50X10X1.6",
+      "check": "5.2.3(c) lip w/t (unstiffened)",
+      "value": 3.75,
+      "limit": 60.0,
+      "dc": 0.0625,
+      "ok": true,
+      "combo": "geometry",
+      "clause": "IS 801 5.2.3 (c)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S4-CLR80X50X10X1.6",
+      "check": "interaction",
+      "value": 0.6578404121379247,
+      "limit": 1.0,
+      "dc": 0.6578404121379247,
+      "ok": true,
+      "combo": "DL+1.0W_X",
+      "clause": "IS 801 6.7.1 (fa/Fa1 < 0.15: fa/Fa1 + fbx/Fbx + fby/Fby)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.3333333333333333
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S4-CLR80X50X10X1.6",
+      "check": "6.4.1 web shear",
+      "value": 4.986056604375001,
+      "limit": 133.33333333333331,
+      "dc": 0.03739542453281251,
+      "ok": true,
+      "combo": "DL+1.0W_X",
+      "clause": "IS 801 6.4.1(a)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.3333333333333333
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S4-CLR80X50X10X1.6",
+      "check": "6.5 web crippling at track (end reaction)",
+      "value": 994.3937208240002,
+      "limit": 4557.584561981147,
+      "dc": 0.21818437097560836,
+      "ok": true,
+      "combo": "DL+1.0W_X",
+      "clause": "IS 801 6.5(a)(1)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.3333333333333333
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S4-CLR80X50X10X1.6",
+      "check": "deflection",
+      "value": 6.2,
+      "limit": 10.0,
+      "dc": 0.6204993008763139,
+      "ok": true,
+      "combo": "DL+1.0WL (service)",
+      "clause": "IS 801 5.1 (no limit); criterion L/300: IS 800:2007 Table 6, other buildings, lateral deflection under wind, elastic cladding: height/300, read for the stud span between floors (stated default: IS 801 5.1 sets no limit and Table 6 has no stud row; 5.6.1 allows a stricter value where the finish is vulnerable to cracking)",
+      "capacity_basis": "IS800_Table6",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S4-CLR80X50X10X1.6",
+      "check": "5.2.4(a) web h/t",
+      "value": 45.0,
+      "limit": 150.0,
+      "dc": 0.3,
+      "ok": true,
+      "combo": "geometry",
+      "clause": "IS 801 5.2.4 (a)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S4-CLR80X50X10X1.6",
+      "check": "5.2.3(a) flange w/t (simple-lip stiffened)",
+      "value": 26.25,
+      "limit": 60.0,
+      "dc": 0.4375,
+      "ok": true,
+      "combo": "geometry",
+      "clause": "IS 801 5.2.3 (a)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S4-CLR80X50X10X1.6",
+      "check": "5.2.3(c) lip w/t (unstiffened)",
+      "value": 3.75,
+      "limit": 60.0,
+      "dc": 0.0625,
+      "ok": true,
+      "combo": "geometry",
+      "clause": "IS 801 5.2.3 (c)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S5-CLR80X50X10X1.6",
+      "check": "interaction",
+      "value": 0.6930178471003154,
+      "limit": 1.0,
+      "dc": 0.6930178471003154,
+      "ok": true,
+      "combo": "DL+1.0W_X",
+      "clause": "IS 801 6.7.1 (fa/Fa1 < 0.15: fa/Fa1 + fbx/Fbx + fby/Fby)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.3333333333333333
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S5-CLR80X50X10X1.6",
+      "check": "6.4.1 web shear",
+      "value": 5.264736523200001,
+      "limit": 133.33333333333331,
+      "dc": 0.03948552392400001,
+      "ok": true,
+      "combo": "DL+1.0W_X",
+      "clause": "IS 801 6.4.1(a)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.3333333333333333
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S5-CLR80X50X10X1.6",
+      "check": "6.5 web crippling at track (end reaction)",
+      "value": 1026.49764747264,
+      "limit": 4557.584561981147,
+      "dc": 0.22522843701805706,
+      "ok": true,
+      "combo": "DL+1.0W_X",
+      "clause": "IS 801 6.5(a)(1)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.3333333333333333
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S5-CLR80X50X10X1.6",
+      "check": "deflection",
+      "value": 6.55,
+      "limit": 10.0,
+      "dc": 0.6551801536061947,
+      "ok": true,
+      "combo": "DL+1.0WL (service)",
+      "clause": "IS 801 5.1 (no limit); criterion L/300: IS 800:2007 Table 6, other buildings, lateral deflection under wind, elastic cladding: height/300, read for the stud span between floors (stated default: IS 801 5.1 sets no limit and Table 6 has no stud row; 5.6.1 allows a stricter value where the finish is vulnerable to cracking)",
+      "capacity_basis": "IS800_Table6",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S5-CLR80X50X10X1.6",
+      "check": "5.2.4(a) web h/t",
+      "value": 45.0,
+      "limit": 150.0,
+      "dc": 0.3,
+      "ok": true,
+      "combo": "geometry",
+      "clause": "IS 801 5.2.4 (a)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S5-CLR80X50X10X1.6",
+      "check": "5.2.3(a) flange w/t (simple-lip stiffened)",
+      "value": 26.25,
+      "limit": 60.0,
+      "dc": 0.4375,
+      "ok": true,
+      "combo": "geometry",
+      "clause": "IS 801 5.2.3 (a)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S5-CLR80X50X10X1.6",
+      "check": "5.2.3(c) lip w/t (unstiffened)",
+      "value": 3.75,
+      "limit": 60.0,
+      "dc": 0.0625,
+      "ok": true,
+      "combo": "geometry",
+      "clause": "IS 801 5.2.3 (c)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S6-CLR80X50X10X1.6",
+      "check": "interaction",
+      "value": 0.7082770843934383,
+      "limit": 1.0,
+      "dc": 0.7082770843934383,
+      "ok": true,
+      "combo": "DL+1.0W_X",
+      "clause": "IS 801 6.7.1 (fa/Fa1 < 0.15: fa/Fa1 + fbx/Fbx + fby/Fby)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.3333333333333333
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S6-CLR80X50X10X1.6",
+      "check": "6.4.1 web shear",
+      "value": 5.3856220572,
+      "limit": 133.33333333333331,
+      "dc": 0.040392165429,
+      "ok": true,
+      "combo": "DL+1.0W_X",
+      "clause": "IS 801 6.4.1(a)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.3333333333333333
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S6-CLR80X50X10X1.6",
+      "check": "6.5 web crippling at track (end reaction)",
+      "value": 1040.4236609894401,
+      "limit": 4557.584561981147,
+      "dc": 0.22828400588955303,
+      "ok": true,
+      "combo": "DL+1.0W_X",
+      "clause": "IS 801 6.5(a)(1)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.3333333333333333
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S6-CLR80X50X10X1.6",
+      "check": "deflection",
+      "value": 6.7,
+      "limit": 10.0,
+      "dc": 0.6702239838882745,
+      "ok": true,
+      "combo": "DL+1.0WL (service)",
+      "clause": "IS 801 5.1 (no limit); criterion L/300: IS 800:2007 Table 6, other buildings, lateral deflection under wind, elastic cladding: height/300, read for the stud span between floors (stated default: IS 801 5.1 sets no limit and Table 6 has no stud row; 5.6.1 allows a stricter value where the finish is vulnerable to cracking)",
+      "capacity_basis": "IS800_Table6",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S6-CLR80X50X10X1.6",
+      "check": "5.2.4(a) web h/t",
+      "value": 45.0,
+      "limit": 150.0,
+      "dc": 0.3,
+      "ok": true,
+      "combo": "geometry",
+      "clause": "IS 801 5.2.4 (a)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S6-CLR80X50X10X1.6",
+      "check": "5.2.3(a) flange w/t (simple-lip stiffened)",
+      "value": 26.25,
+      "limit": 60.0,
+      "dc": 0.4375,
+      "ok": true,
+      "combo": "geometry",
+      "clause": "IS 801 5.2.3 (a)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "stud-S6-CLR80X50X10X1.6",
+      "check": "5.2.3(c) lip w/t (unstiffened)",
+      "value": 3.75,
+      "limit": 60.0,
+      "dc": 0.0625,
+      "ok": true,
+      "combo": "geometry",
+      "clause": "IS 801 5.2.3 (c)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "joist-CLR200X50X20X3.15",
+      "check": "6.1/6.2/6.3 bending",
+      "value": 7062499.999999999,
+      "limit": 8025000.000000001,
+      "dc": 0.88006230529595,
+      "ok": true,
+      "combo": "DL+IL",
+      "clause": "IS 801 6.1 / 6.2 / 6.3 / 5.2.1.1 / 6.1.2",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "joist-CLR200X50X20X3.15",
+      "check": "6.4.1 web shear",
+      "value": 9.735403786641301,
+      "limit": 100.00000000000001,
+      "dc": 0.097354037866413,
+      "ok": true,
+      "combo": "DL+IL",
+      "clause": "IS 801 6.4.1(a)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "joist-CLR200X50X20X3.15",
+      "check": "6.5 web crippling (end reaction)",
+      "value": 5649.999999999999,
+      "limit": 12711.291136360924,
+      "dc": 0.44448671180522736,
+      "ok": true,
+      "combo": "DL+IL",
+      "clause": "IS 801 6.5(a)(1)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "joist-CLR200X50X20X3.15",
+      "check": "6.4.3 web bending + shear (quarter point)",
+      "value": 0.09801544052046066,
+      "limit": 1.0,
+      "dc": 0.09801544052046066,
+      "ok": true,
+      "combo": "DL+IL",
+      "clause": "IS 801 6.4.3",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "joist-CLR200X50X20X3.15",
+      "check": "deflection under imposed load",
+      "value": 8.97,
+      "limit": 13.88888888888889,
+      "dc": 0.6461417583326441,
+      "ok": true,
+      "combo": "IL (service)",
+      "clause": "IS 801 5.1 (no limit); criterion L/360: IS 800:2007 Table 6; project adopts L/360 floors and L/240 cladding",
+      "capacity_basis": "IS800_Table6",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "joist-CLR200X50X20X3.15",
+      "check": "5.2.4(a) web h/t",
+      "value": 58.49,
+      "limit": 150.0,
+      "dc": 0.38992592592592595,
+      "ok": true,
+      "combo": "geometry",
+      "clause": "IS 801 5.2.4 (a)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "joist-CLR200X50X20X3.15",
+      "check": "5.2.3(a) flange w/t (simple-lip stiffened)",
+      "value": 10.87,
+      "limit": 60.0,
+      "dc": 0.18116402116402114,
+      "ok": true,
+      "combo": "geometry",
+      "clause": "IS 801 5.2.3 (a)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "joist-CLR200X50X20X3.15",
+      "check": "5.2.3(c) lip w/t (unstiffened)",
+      "value": 3.85,
+      "limit": 60.0,
+      "dc": 0.06412698412698412,
+      "ok": true,
+      "combo": "geometry",
+      "clause": "IS 801 5.2.3 (c)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "purlin-CLR250X50X25X4",
+      "check": "6.1/6.2/6.3 bending (gravity, top flange in compression)",
+      "value": 11812500.0,
+      "limit": 14040000.0,
+      "dc": 0.8413461538461539,
+      "ok": true,
+      "combo": "DL+IL",
+      "clause": "IS 801 6.1 / 6.2 / 6.3 / 5.2.1.1 / 6.1.2",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "purlin-CLR250X50X25X4",
+      "check": "6.4.1 web shear",
+      "value": 8.559782608695652,
+      "limit": 100.00000000000001,
+      "dc": 0.08559782608695651,
+      "ok": true,
+      "combo": "DL+IL",
+      "clause": "IS 801 6.4.1(a)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "purlin-CLR250X50X25X4",
+      "check": "6.5 web crippling (support)",
+      "value": 7875.0,
+      "limit": 36740.57902837023,
+      "dc": 0.21434066115068862,
+      "ok": true,
+      "combo": "DL+IL",
+      "clause": "IS 801 6.5(a)(2)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "purlin-CLR250X50X25X4",
+      "check": "6.1/6.2/6.3 bending (uplift, bottom flange in compression)",
+      "value": 4893204.006777604,
+      "limit": 17864581.87134986,
+      "dc": 0.27390531958797365,
+      "ok": true,
+      "combo": "0.9DL+1.0W_X",
+      "clause": "IS 801 6.1 / 6.2 / 6.3 / 5.2.1.1 / 6.1.2",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.3333333333333333
+    },
+    {
+      "group": "cfs_member",
+      "member": "purlin-CLR250X50X25X4",
+      "check": "sag rod M20 tension (declared)",
+      "value": 2767.2,
+      "limit": 45868.5,
+      "dc": 0.060329017910500715,
+      "ok": true,
+      "combo": "bracing (governing w)",
+      "clause": "IS 800:2007 11.2.1 / 6.3.1 (working stress)",
+      "capacity_basis": "IS800_WSM",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "purlin-CLR250X50X25X4",
+      "check": "deflection",
+      "value": 17.28,
+      "limit": 25.0,
+      "dc": 0.6913372668972093,
+      "ok": true,
+      "combo": "service",
+      "clause": "IS 801 5.1 (no limit); criterion L/240: IS 800:2007 Table 6; project adopts L/360 floors and L/240 cladding",
+      "capacity_basis": "IS800_Table6",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "purlin-CLR250X50X25X4",
+      "check": "5.2.4(a) web h/t",
+      "value": 57.5,
+      "limit": 150.0,
+      "dc": 0.38333333333333336,
+      "ok": true,
+      "combo": "geometry",
+      "clause": "IS 801 5.2.4 (a)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "purlin-CLR250X50X25X4",
+      "check": "5.2.3(a) flange w/t (simple-lip stiffened)",
+      "value": 7.5,
+      "limit": 60.0,
+      "dc": 0.125,
+      "ok": true,
+      "combo": "geometry",
+      "clause": "IS 801 5.2.3 (a)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_member",
+      "member": "purlin-CLR250X50X25X4",
+      "check": "5.2.3(c) lip w/t (unstiffened)",
+      "value": 3.75,
+      "limit": 60.0,
+      "dc": 0.0625,
+      "ok": true,
+      "combo": "geometry",
+      "clause": "IS 801 5.2.3 (c)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_connection",
+      "member": "purlin-cleat-CLR250X50X25X4",
+      "check": "bolts in the purlin web: 7.5.1 edge / spacing",
+      "value": 24.000000000000004,
+      "limit": 30.0,
+      "dc": 0.8000000000000002,
+      "ok": true,
+      "combo": "DL",
+      "clause": "IS 801 7.5.1",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_connection",
+      "member": "purlin-cleat-CLR250X50X25X4",
+      "check": "bolts in the purlin web: 7.5.3 bearing",
+      "value": 41.01562499999999,
+      "limit": 525.0,
+      "dc": 0.07812499999999999,
+      "ok": true,
+      "combo": "DL+IL",
+      "clause": "IS 801 7.5.3",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_connection",
+      "member": "purlin-cleat-CLR250X50X25X4",
+      "check": "bolts in the purlin web: 7.5.4 bolt shear",
+      "value": 13.05567892550704,
+      "limit": 80.41453,
+      "dc": 0.162354725265534,
+      "ok": true,
+      "combo": "DL+IL",
+      "clause": "IS 801 7.5.4",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_connection",
+      "member": "purlin-cleat-CLR250X50X25X4",
+      "check": "cleat compression + minor-axis bending (IS 800 11.5.2)",
+      "value": 0.2054605301611924,
+      "limit": 1.0,
+      "dc": 0.2054605301611924,
+      "ok": true,
+      "combo": "DL+IL",
+      "clause": "IS 800:2007 11.5.2 (a), 11.3.1, 7.1.2.1, 11.4.1 (c)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_connection",
+      "member": "purlin-cleat-CLR250X50X25X4",
+      "check": "cleat fillet welds (IS 800 11.6.3.1)",
+      "value": 23.308722527472533,
+      "limit": 100.0,
+      "dc": 0.23308722527472533,
+      "ok": true,
+      "combo": "DL+IL",
+      "clause": "IS 800:2007 11.6.3.1",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    },
+    {
+      "group": "cfs_connection",
+      "member": "purlin-cleat-CLR250X50X25X4",
+      "check": "cleat tension + minor-axis bending (IS 800 11.5.3)",
+      "value": 0.0793342599738319,
+      "limit": 1.0,
+      "dc": 0.0793342599738319,
+      "ok": true,
+      "combo": "0.9DL+1.0W_X",
+      "clause": "IS 800:2007 11.5.3, 11.2.1 (a), 11.4.1 (c)",
+      "capacity_basis": "IS801_allowable",
+      "allowable_increase": 1.0
+    }
+  ],
+  "native_member_groups": [
+    {
+      "id": "stud-S1-CLR80X50X10X1.6",
+      "role": "stud",
+      "section": "CLR80X50X10X1.6",
+      "n_ply": 1,
+      "DC": 0.9182443926831325,
+      "ok": true,
+      "length_mm": 3300.0,
+      "storey": 1,
+      "Fy_MPa": 250.0
+    },
+    {
+      "id": "stud-S2-CLR80X50X10X1.6",
+      "role": "stud",
+      "section": "CLR80X50X10X1.6",
+      "n_ply": 1,
+      "DC": 0.6298578066701906,
+      "ok": true,
+      "length_mm": 3000.0,
+      "storey": 2,
+      "Fy_MPa": 250.0
+    },
+    {
+      "id": "stud-S3-CLR80X50X10X1.6",
+      "role": "stud",
+      "section": "CLR80X50X10X1.6",
+      "n_ply": 1,
+      "DC": 0.6298578066701906,
+      "ok": true,
+      "length_mm": 3000.0,
+      "storey": 3,
+      "Fy_MPa": 250.0
+    },
+    {
+      "id": "stud-S4-CLR80X50X10X1.6",
+      "role": "stud",
+      "section": "CLR80X50X10X1.6",
+      "n_ply": 1,
+      "DC": 0.6578404121379247,
+      "ok": true,
+      "length_mm": 3000.0,
+      "storey": 4,
+      "Fy_MPa": 250.0
+    },
+    {
+      "id": "stud-S5-CLR80X50X10X1.6",
+      "role": "stud",
+      "section": "CLR80X50X10X1.6",
+      "n_ply": 1,
+      "DC": 0.6930178471003154,
+      "ok": true,
+      "length_mm": 3000.0,
+      "storey": 5,
+      "Fy_MPa": 250.0
+    },
+    {
+      "id": "stud-S6-CLR80X50X10X1.6",
+      "role": "stud",
+      "section": "CLR80X50X10X1.6",
+      "n_ply": 1,
+      "DC": 0.7082770843934383,
+      "ok": true,
+      "length_mm": 3000.0,
+      "storey": 6,
+      "Fy_MPa": 250.0
+    },
+    {
+      "id": "joist-CLR200X50X20X3.15",
+      "role": "joist",
+      "section": "CLR200X50X20X3.15",
+      "n_ply": 1,
+      "DC": 0.88006230529595,
+      "ok": true,
+      "length_mm": 5000,
+      "Fy_MPa": 250.0
+    },
+    {
+      "id": "purlin-CLR250X50X25X4",
+      "role": "purlin",
+      "section": "CLR250X50X25X4",
+      "n_ply": 1,
+      "DC": 0.8413461538461539,
+      "ok": true,
+      "length_mm": 6000.0,
+      "Fy_MPa": 250.0
+    }
+  ],
+  "native_lateral": {
+    "system": "OCBF",
+    "R": 4.0,
+    "R_x": null,
+    "R_y": null,
+    "method": "RSA",
+    "drift": [
+      {
+        "storey": 1,
+        "dir": "X",
+        "drift": 4.7e-05,
+        "limit": 0.004,
+        "value": 4.715314151118157e-05,
+        "dc": 0.011788285377795393,
+        "ok": true,
+        "clause": "IS 1893 7.11.1.1 (edges, 7.8.2 eccentricity, gamma 1.0)"
+      },
+      {
+        "storey": 2,
+        "dir": "X",
+        "drift": 7.6e-05,
+        "limit": 0.004,
+        "value": 7.619961102868615e-05,
+        "dc": 0.019049902757171538,
+        "ok": true,
+        "clause": "IS 1893 7.11.1.1 (edges, 7.8.2 eccentricity, gamma 1.0)"
+      },
+      {
+        "storey": 3,
+        "dir": "X",
+        "drift": 9e-05,
+        "limit": 0.004,
+        "value": 8.964488750181935e-05,
+        "dc": 0.022411221875454836,
+        "ok": true,
+        "clause": "IS 1893 7.11.1.1 (edges, 7.8.2 eccentricity, gamma 1.0)"
+      },
+      {
+        "storey": 4,
+        "dir": "X",
+        "drift": 9.5e-05,
+        "limit": 0.004,
+        "value": 9.549207462458139e-05,
+        "dc": 0.023873018656145346,
+        "ok": true,
+        "clause": "IS 1893 7.11.1.1 (edges, 7.8.2 eccentricity, gamma 1.0)"
+      },
+      {
+        "storey": 5,
+        "dir": "X",
+        "drift": 9.2e-05,
+        "limit": 0.004,
+        "value": 9.228395715359572e-05,
+        "dc": 0.02307098928839893,
+        "ok": true,
+        "clause": "IS 1893 7.11.1.1 (edges, 7.8.2 eccentricity, gamma 1.0)"
+      },
+      {
+        "storey": 6,
+        "dir": "X",
+        "drift": 8.2e-05,
+        "limit": 0.004,
+        "value": 8.20181547699271e-05,
+        "dc": 0.020504538692481773,
+        "ok": true,
+        "clause": "IS 1893 7.11.1.1 (edges, 7.8.2 eccentricity, gamma 1.0)"
+      },
+      {
+        "storey": 1,
+        "dir": "Y",
+        "drift": 5e-05,
+        "limit": 0.004,
+        "value": 4.990882305958146e-05,
+        "dc": 0.012477205764895364,
+        "ok": true,
+        "clause": "IS 1893 7.11.1.1 (edges, 7.8.2 eccentricity, gamma 1.0)"
+      },
+      {
+        "storey": 2,
+        "dir": "Y",
+        "drift": 8.1e-05,
+        "limit": 0.004,
+        "value": 8.066530355155886e-05,
+        "dc": 0.020166325887889715,
+        "ok": true,
+        "clause": "IS 1893 7.11.1.1 (edges, 7.8.2 eccentricity, gamma 1.0)"
+      },
+      {
+        "storey": 3,
+        "dir": "Y",
+        "drift": 9.7e-05,
+        "limit": 0.004,
+        "value": 9.664388811592201e-05,
+        "dc": 0.0241609720289805,
+        "ok": true,
+        "clause": "IS 1893 7.11.1.1 (edges, 7.8.2 eccentricity, gamma 1.0)"
+      },
+      {
+        "storey": 4,
+        "dir": "Y",
+        "drift": 0.000103,
+        "limit": 0.004,
+        "value": 0.00010288367459688912,
+        "dc": 0.02572091864922228,
+        "ok": true,
+        "clause": "IS 1893 7.11.1.1 (edges, 7.8.2 eccentricity, gamma 1.0)"
+      },
+      {
+        "storey": 5,
+        "dir": "Y",
+        "drift": 9.9e-05,
+        "limit": 0.004,
+        "value": 9.935192027753533e-05,
+        "dc": 0.024837980069383835,
+        "ok": true,
+        "clause": "IS 1893 7.11.1.1 (edges, 7.8.2 eccentricity, gamma 1.0)"
+      },
+      {
+        "storey": 6,
+        "dir": "Y",
+        "drift": 9.1e-05,
+        "limit": 0.004,
+        "value": 9.104726108285676e-05,
+        "dc": 0.02276181527071419,
+        "ok": true,
+        "clause": "IS 1893 7.11.1.1 (edges, 7.8.2 eccentricity, gamma 1.0)"
+      }
+    ],
+    "seismic": {
+      "zone": "II",
+      "Z": 0.1,
+      "I": 1.2,
+      "R": 4.0,
+      "soil": "medium",
+      "W_kN": 12462.473,
+      "R_x": 4.0,
+      "Ta_x_s": 0.2745,
+      "R_y": 4.0,
+      "Ta_y_s": 0.47544794667765683,
+      "Ta_s": 0.2745,
+      "Sa_g": 2.5,
+      "Ah": 0.0375,
+      "VB_kN": 467.343
+    },
+    "members": [
+      {
+        "id": "floor-WPB400X300X155.26",
+        "role": "floor",
+        "section": "WPB400X300X155.26",
+        "DC": 0.2039391135577916,
+        "governing_combo": "1.5DL+1.5LL",
+        "n": 225,
+        "value": 0.2039391135577916,
+        "limit": 1.0,
+        "governing_check": "IS 800 9.3 interaction / member resistance (governing combination 1.5DL+1.5LL)",
+        "governing_clause": "IS 800:2007 7.1.2, 8.2, 8.4, 9.3; Table 2/3/10",
+        "strength_dc": 0.2039391135577916,
+        "strength_combo": "1.5DL+1.5LL",
+        "slenderness_ratio": 0.06765899864682001,
+        "KL_r": 20.297699594046005,
+        "KL_r_limit": 300
+      },
+      {
+        "id": "roof-WPB400X300X155.26",
+        "role": "roof",
+        "section": "WPB400X300X155.26",
+        "DC": 0.07319704699432406,
+        "governing_combo": "1.5DL+1.5LL-N_Y",
+        "n": 45,
+        "value": 0.07319704699432406,
+        "limit": 1.0,
+        "governing_check": "IS 800 9.3 interaction / member resistance (governing combination 1.5DL+1.5LL)",
+        "governing_clause": "IS 800:2007 7.1.2, 8.2, 8.4, 9.3; Table 2/3/10",
+        "strength_dc": 0.07319704699432406,
+        "strength_combo": "1.5DL+1.5LL",
+        "slenderness_ratio": 0.06765899864682001,
+        "KL_r": 20.297699594046005,
+        "KL_r_limit": 300
+      },
+      {
+        "id": "brace-WPB250X250X117.58",
+        "role": "brace",
+        "section": "WPB250X250X117.58",
+        "DC": 0.5816876763768261,
+        "governing_combo": "1.2DL+1.2LL-1.2EQ_X[eb]",
+        "n": 144,
+        "value": 104.70378174782869,
+        "limit": 180,
+        "governing_check": "IS 800 Table 3 slenderness KL/r (combination 1.5DL+1.5LL-N_X) -- governing",
+        "governing_clause": "IS 800:2007 3.8 / Table 3",
+        "strength_dc": 0.09980071105744177,
+        "strength_combo": "1.2DL+1.2LL-1.2EQ_Y[ea]",
+        "slenderness_ratio": 0.5816876763768261,
+        "KL_r": 104.70378174782869,
+        "KL_r_limit": 180
+      },
+      {
+        "id": "gravity_col-WPB400X400X239.62",
+        "role": "gravity_col",
+        "section": "WPB400X400X239.62",
+        "DC": 0.18695771319176321,
+        "governing_combo": "1.5DL+1.5LL",
+        "n": 60,
+        "value": 0.18695771319176321,
+        "limit": 1.0,
+        "governing_check": "IS 800 9.3 interaction / member resistance (governing combination 1.5DL+1.5LL-N_X)",
+        "governing_clause": "IS 800:2007 7.1.2, 8.2, 8.4, 9.3; Table 2/3/10",
+        "strength_dc": 0.18695771319176321,
+        "strength_combo": "1.5DL+1.5LL-N_X",
+        "slenderness_ratio": 0.18333333333333332,
+        "KL_r": 33.0,
+        "KL_r_limit": 180
+      },
+      {
+        "id": "lateral_col-WPB400X400X239.62",
+        "role": "lateral_col",
+        "section": "WPB400X400X239.62",
+        "DC": 0.18333333333333332,
+        "governing_combo": "1.5DL+1.5LL-N_Y",
+        "n": 108,
+        "value": 33.0,
+        "limit": 180,
+        "governing_check": "IS 800 Table 3 slenderness KL/r (combination 1.5DL+1.5LL-N_Y) -- governing",
+        "governing_clause": "IS 800:2007 3.8 / Table 3",
+        "strength_dc": 0.17855429616540203,
+        "strength_combo": "1.5DL+1.5LL-N_Y",
+        "slenderness_ratio": 0.18333333333333332,
+        "KL_r": 33.0,
+        "KL_r_limit": 180
+      }
+    ],
+    "connections": [
+      {
+        "id": "conn-floor-WPB400X300X155.26",
+        "type": "beam-to-column",
+        "DC": 0.09256308069438825,
+        "not_evaluated": [],
+        "check_names": [
+          "beam-end shear connection: bolts_10_3",
+          "beam-end shear connection: plate_shear_8_4_1",
+          "beam-end shear connection: block_shear_6_4_1",
+          "beam-end shear connection: support_weld",
+          "beam-end bolts slip_service_10_4_3",
+          "12.4.2 weld type",
+          "12.4.1 bolt type"
+        ],
+        "all_checks_ok": true,
+        "value": 63876.2,
+        "limit": 690082.909090909,
+        "governing_check": "beam-end bolts slip_service_10_4_3",
+        "governing_clause": "IS 800:2007 10.4.3"
+      },
+      {
+        "id": "conn-roof-WPB400X300X155.26",
+        "type": "beam-to-column",
+        "DC": 0.03982807089530304,
+        "not_evaluated": [],
+        "check_names": [
+          "beam-end shear connection: (V + N resultant) bolts_10_3",
+          "beam-end shear connection: (V + N resultant) plate_shear_8_4_1",
+          "beam-end shear connection: (V + N resultant) block_shear_6_4_1",
+          "beam-end shear connection: (V + N resultant) support_weld",
+          "beam-end bolts slip_service_10_4_3",
+          "12.4.2 weld type",
+          "12.4.1 bolt type"
+        ],
+        "all_checks_ok": true,
+        "value": 47270.160400933695,
+        "limit": 1186855.3846153845,
+        "governing_check": "beam-end shear connection: (V + N resultant) bolts_10_3",
+        "governing_clause": "IS 800:2007 10.3.2"
+      },
+      {
+        "id": "conn-brace-WPB250X250X117.58",
+        "type": "brace-to-gusset",
+        "DC": 0.5885094478527607,
+        "not_evaluated": [],
+        "check_names": [
+          "brace end: brace_conn_bolts",
+          "brace end: brace_conn_welds",
+          "brace end: brace_conn_block_shear",
+          "brace end: gusset_whitmore_yield",
+          "brace end: gusset_out_of_plane_buckling",
+          "brace end: brace_conn_1p2Mp",
+          "brace end: 12.4.2_weld_type",
+          "brace end: 12.4.1_bolt_type",
+          "brace end: 12.4.3_no_load_sharing",
+          "brace end bolts slip_service_10_4_3"
+        ],
+        "all_checks_ok": true,
+        "value": 218016000.0,
+        "limit": 370454545.45454544,
+        "governing_check": "brace end: brace_conn_1p2Mp",
+        "governing_clause": "IS 800:2007 12.7.3.3"
+      },
+      {
+        "id": "conn-gravity_col-WPB400X400X239.62",
+        "type": "column splice / base",
+        "DC": 0.05329893430420553,
+        "not_evaluated": [],
+        "check_names": [
+          "column base (base-e61): bearing",
+          "column base (base-e61): anchor_tension_10_3_5",
+          "column base (base-e61): anchor_shear_10_3_3",
+          "column base (base-e61): anchor_combined_10_3_6",
+          "column base (base-e61): shear_key",
+          "column base (base-e61): geometry_anchor_pitch",
+          "column base (base-e61): geometry_anchor_edge",
+          "column base (base-e61): geometry_anchor_fit",
+          "column base (base-e61): anchorage_embedment",
+          "column base (base-e61): plate_thickness",
+          "column base (base-e61): gusset_outstand_table2",
+          "column base (base-e61): gusset_shear_8_4",
+          "column base (base-e61): gusset_bending",
+          "column base (base-e61): gusset_weld_to_column_10_5_7",
+          "column base (base-e61): gusset_weld_to_plate_10_5_7",
+          "column base (base-e61): y:bearing",
+          "column base (base-e61): y:anchor_tension_10_3_5",
+          "column base (base-e61): y:anchor_combined_10_3_6",
+          "column base (base-e61): y:plate_thickness",
+          "column base (base-e61): y:gusset_outstand_table2",
+          "column base (base-e61): y:gusset_shear_8_4",
+          "column base (base-e61): y:gusset_bending",
+          "column base (base-e61): y:gusset_weld_to_column_10_5_7",
+          "column base (base-e61): y:gusset_weld_to_plate_10_5_7",
+          "column base (base-e61): anchor_tension_biaxial_10_3_5",
+          "column base (base-e61): anchor_combined_biaxial_10_3_6",
+          "column base (base-e61): bearing_biaxial",
+          "column splice: cjp_parent_metal"
+        ],
+        "all_checks_ok": true,
+        "value": 9.807003911973817,
+        "limit": 184.0,
+        "governing_check": "column base (base-e61): gusset_weld_to_column_10_5_7",
+        "governing_clause": "IS 800:2007 10.5.7.1.2 / 10.5.10.2.2 / 7.4.2.1"
+      },
+      {
+        "id": "conn-lateral_col-WPB400X400X239.62",
+        "type": "column splice / base",
+        "DC": 0.9288325544453152,
+        "not_evaluated": [],
+        "check_names": [
+          "column base (base-e1): anchor_tension_10_3_5",
+          "column base (base-e1): anchor_shear_10_3_3",
+          "column base (base-e1): anchor_combined_10_3_6",
+          "column base (base-e1): shear_key",
+          "column base (base-e1): geometry_anchor_pitch",
+          "column base (base-e1): geometry_anchor_edge",
+          "column base (base-e1): geometry_anchor_fit",
+          "column base (base-e1): anchorage_embedment",
+          "column base (base-e1): plate_thickness",
+          "column base (base-e1): gusset_outstand_table2",
+          "column base (base-e1): gusset_shear_8_4",
+          "column base (base-e1): gusset_bending",
+          "column base (base-e1): gusset_weld_to_column_10_5_7",
+          "column base (base-e1): gusset_weld_to_plate_10_5_7",
+          "column base (base-e1): y:bearing",
+          "column base (base-e1): y:anchor_tension_10_3_5",
+          "column base (base-e1): y:anchor_combined_10_3_6",
+          "column base (base-e1): y:plate_thickness",
+          "column base (base-e1): y:gusset_outstand_table2",
+          "column base (base-e1): y:gusset_shear_8_4",
+          "column base (base-e1): y:gusset_bending",
+          "column base (base-e1): y:gusset_weld_to_column_10_5_7",
+          "column base (base-e1): y:gusset_weld_to_plate_10_5_7",
+          "column base (base-e1): anchor_tension_biaxial_10_3_5",
+          "column base (base-e1): anchor_combined_biaxial_10_3_6",
+          "column base (base-e1): bearing_biaxial",
+          "column splice: cjp_parent_metal"
+        ],
+        "all_checks_ok": true,
+        "value": 3606394.3127544676,
+        "limit": 3882717.3913043477,
+        "governing_check": "column base (base-e1): shear_key",
+        "governing_clause": "IS 800:2007 7.4.1 (base shear transfer) / 12.12.2; EOR shear key capacity"
+      }
+    ],
+    "wind_vs_eq": null,
+    "irregularity": {
+      "torsion": false,
+      "soft_storey": false,
+      "mass": false,
+      "vertical_geometric": false,
+      "reentrant": false,
+      "nonparallel": false,
+      "floating_columns": false,
+      "in_plane_discontinuity": false,
+      "strength": false,
+      "out_of_plane_offset": false,
+      "modes": false
+    },
+    "flexible_diaphragm_run": null,
+    "diaphragm": [
+      {
+        "storey": 1,
+        "dir": "X",
+        "F_EQ_N": 7657.422204248609,
+        "F_W_N": 19138.8898166004,
+        "governing": "EQ",
+        "v_unit_kN_per_m": 0.3241725509946285,
+        "chord_force_kN": 1.1137070367374773,
+        "dc": 0.027014379249552373,
+        "ok": true,
+        "demand_evaluated": true
+      },
+      {
+        "storey": 1,
+        "dir": "Y",
+        "F_EQ_N": 7657.422204248609,
+        "F_W_N": 68562.12803073479,
+        "governing": "W",
+        "v_unit_kN_per_m": 2.0634416666666664,
+        "chord_force_kN": 8.652819165318645,
+        "dc": 0.1719534722222222,
+        "ok": true,
+        "demand_evaluated": true
+      },
+      {
+        "storey": 2,
+        "dir": "X",
+        "F_EQ_N": 27642.302696174935,
+        "F_W_N": 18227.514111048004,
+        "governing": "EQ",
+        "v_unit_kN_per_m": 0.36326875115127444,
+        "chord_force_kN": 0.7343329917554505,
+        "dc": 0.03027239592927287,
+        "ok": true,
+        "demand_evaluated": true
+      },
+      {
+        "storey": 2,
+        "dir": "Y",
+        "F_EQ_N": 27642.302696174935,
+        "F_W_N": 65297.26479117599,
+        "governing": "W",
+        "v_unit_kN_per_m": 2.0389333333333335,
+        "chord_force_kN": 10.670117375000002,
+        "dc": 0.16991111111111112,
+        "ok": true,
+        "demand_evaluated": true
+      },
+      {
+        "storey": 3,
+        "dir": "X",
+        "F_EQ_N": 60236.40111343337,
+        "F_W_N": 18227.514111048004,
+        "governing": "EQ",
+        "v_unit_kN_per_m": 0.618978344703015,
+        "chord_force_kN": 1.539301129668335,
+        "dc": 0.051581528725251256,
+        "ok": true,
+        "demand_evaluated": true
+      },
+      {
+        "storey": 3,
+        "dir": "Y",
+        "F_EQ_N": 60236.40111343337,
+        "F_W_N": 65297.26479117599,
+        "governing": "W",
+        "v_unit_kN_per_m": 1.9082083333333333,
+        "chord_force_kN": 14.905400526706218,
+        "dc": 0.15901736111111112,
+        "ok": true,
+        "demand_evaluated": true
+      },
+      {
+        "storey": 4,
+        "dir": "X",
+        "F_EQ_N": 105366.69122963733,
+        "F_W_N": 19075.622115120957,
+        "governing": "EQ",
+        "v_unit_kN_per_m": 1.1127043189661094,
+        "chord_force_kN": 2.8311809649384005,
+        "dc": 0.09272535991384245,
+        "ok": true,
+        "demand_evaluated": true
+      },
+      {
+        "storey": 4,
+        "dir": "Y",
+        "F_EQ_N": 105366.69122963733,
+        "F_W_N": 68335.48122464465,
+        "governing": "EQ",
+        "v_unit_kN_per_m": 3.330545877267971,
+        "chord_force_kN": 28.09743634453226,
+        "dc": 0.2775454897723309,
+        "ok": true,
+        "demand_evaluated": true
+      },
+      {
+        "storey": 5,
+        "dir": "X",
+        "F_EQ_N": 163033.17304478688,
+        "F_W_N": 20141.793890610585,
+        "governing": "EQ",
+        "v_unit_kN_per_m": 1.7156863839622416,
+        "chord_force_kN": 4.155969550746454,
+        "dc": 0.1429738653301868,
+        "ok": true,
+        "demand_evaluated": true
+      },
+      {
+        "storey": 5,
+        "dir": "Y",
+        "F_EQ_N": 163033.17304478688,
+        "F_W_N": 72154.8775676066,
+        "governing": "EQ",
+        "v_unit_kN_per_m": 5.07439561104903,
+        "chord_force_kN": 43.07412311555823,
+        "dc": 0.4228663009207525,
+        "ok": true,
+        "demand_evaluated": true
+      },
+      {
+        "storey": 6,
+        "dir": "X",
+        "F_EQ_N": 103406.73337389408,
+        "F_W_N": 10302.138480323694,
+        "governing": "EQ",
+        "v_unit_kN_per_m": 1.373603740924341,
+        "chord_force_kN": 3.606601111787124,
+        "dc": 0.11446697841036174,
+        "ok": true,
+        "demand_evaluated": true
+      },
+      {
+        "storey": 6,
+        "dir": "Y",
+        "F_EQ_N": 103406.73337389408,
+        "F_W_N": 36905.826003850096,
+        "governing": "EQ",
+        "v_unit_kN_per_m": 4.194918430017378,
+        "chord_force_kN": 38.436259576049366,
+        "dc": 0.3495765358347815,
+        "ok": true,
+        "demand_evaluated": true
+      }
+    ],
+    "collector_envelopes": {
+      "applied_to_member_checks": true,
+      "force_basis": "Largest absolute axial force per collector line and direction for unit wind or earthquake. Chords are enveloped per level and direction. Positive is compression. Native IS 800 beam checks combine axial force with flexure.",
+      "rows": [
+        {
+          "level": 1,
+          "direction": "X",
+          "line_m": 5.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": 1.4436,
+          "native_element": 178
+        },
+        {
+          "level": 1,
+          "direction": "X",
+          "line_m": 0.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -2.8206,
+          "native_element": 173
+        },
+        {
+          "level": 1,
+          "direction": "X",
+          "line_m": 7.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": 2.3766,
+          "native_element": 181
+        },
+        {
+          "level": 1,
+          "direction": "X",
+          "line_m": 12.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -4.2402,
+          "native_element": 191
+        },
+        {
+          "level": 1,
+          "direction": "X",
+          "line_m": null,
+          "role": "chord",
+          "action": "EQ",
+          "N_kN": -0.9861,
+          "native_element": 195
+        },
+        {
+          "level": 2,
+          "direction": "X",
+          "line_m": 5.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -0.309,
+          "native_element": 247
+        },
+        {
+          "level": 2,
+          "direction": "X",
+          "line_m": 0.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -5.3933,
+          "native_element": 238
+        },
+        {
+          "level": 2,
+          "direction": "X",
+          "line_m": 7.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -4.7982,
+          "native_element": 251
+        },
+        {
+          "level": 2,
+          "direction": "X",
+          "line_m": 12.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -4.4423,
+          "native_element": 256
+        },
+        {
+          "level": 2,
+          "direction": "X",
+          "line_m": null,
+          "role": "chord",
+          "action": "EQ",
+          "N_kN": -0.5265,
+          "native_element": 262
+        },
+        {
+          "level": 3,
+          "direction": "X",
+          "line_m": 5.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -0.0657,
+          "native_element": 315
+        },
+        {
+          "level": 3,
+          "direction": "X",
+          "line_m": 0.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -6.723,
+          "native_element": 307
+        },
+        {
+          "level": 3,
+          "direction": "X",
+          "line_m": 7.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -7.1615,
+          "native_element": 320
+        },
+        {
+          "level": 3,
+          "direction": "X",
+          "line_m": 12.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -6.2988,
+          "native_element": 325
+        },
+        {
+          "level": 3,
+          "direction": "X",
+          "line_m": null,
+          "role": "chord",
+          "action": "EQ",
+          "N_kN": -0.9125,
+          "native_element": 331
+        },
+        {
+          "level": 4,
+          "direction": "X",
+          "line_m": 5.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -0.0624,
+          "native_element": 385
+        },
+        {
+          "level": 4,
+          "direction": "X",
+          "line_m": 0.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": 11.6321,
+          "native_element": 380
+        },
+        {
+          "level": 4,
+          "direction": "X",
+          "line_m": 7.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -12.2571,
+          "native_element": 389
+        },
+        {
+          "level": 4,
+          "direction": "X",
+          "line_m": 12.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": 11.7236,
+          "native_element": 398
+        },
+        {
+          "level": 4,
+          "direction": "X",
+          "line_m": null,
+          "role": "chord",
+          "action": "EQ",
+          "N_kN": -1.7502,
+          "native_element": 400
+        },
+        {
+          "level": 5,
+          "direction": "X",
+          "line_m": 5.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -0.311,
+          "native_element": 453
+        },
+        {
+          "level": 5,
+          "direction": "X",
+          "line_m": 0.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": 17.2006,
+          "native_element": 449
+        },
+        {
+          "level": 5,
+          "direction": "X",
+          "line_m": 7.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -17.4644,
+          "native_element": 458
+        },
+        {
+          "level": 5,
+          "direction": "X",
+          "line_m": 12.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": 17.2109,
+          "native_element": 467
+        },
+        {
+          "level": 5,
+          "direction": "X",
+          "line_m": null,
+          "role": "chord",
+          "action": "EQ",
+          "N_kN": -2.6815,
+          "native_element": 469
+        },
+        {
+          "level": 6,
+          "direction": "X",
+          "line_m": 5.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -0.1715,
+          "native_element": 523
+        },
+        {
+          "level": 6,
+          "direction": "X",
+          "line_m": 0.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": 12.6975,
+          "native_element": 518
+        },
+        {
+          "level": 6,
+          "direction": "X",
+          "line_m": 7.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -8.0395,
+          "native_element": 527
+        },
+        {
+          "level": 6,
+          "direction": "X",
+          "line_m": 12.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": 15.0925,
+          "native_element": 536
+        },
+        {
+          "level": 6,
+          "direction": "X",
+          "line_m": null,
+          "role": "chord",
+          "action": "EQ",
+          "N_kN": -2.1691,
+          "native_element": 538
+        },
+        {
+          "level": 1,
+          "direction": "Y",
+          "line_m": 0.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -8.0633,
+          "native_element": 193
+        },
+        {
+          "level": 1,
+          "direction": "Y",
+          "line_m": 24.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": 0.9126,
+          "native_element": 207
+        },
+        {
+          "level": 1,
+          "direction": "Y",
+          "line_m": 6.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": 0.914,
+          "native_element": 198
+        },
+        {
+          "level": 1,
+          "direction": "Y",
+          "line_m": 12.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": 0.9126,
+          "native_element": 201
+        },
+        {
+          "level": 1,
+          "direction": "Y",
+          "line_m": 18.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": 1.8263,
+          "native_element": 204
+        },
+        {
+          "level": 1,
+          "direction": "Y",
+          "line_m": 36.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -8.0633,
+          "native_element": 211
+        },
+        {
+          "level": 1,
+          "direction": "Y",
+          "line_m": 30.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": 0.914,
+          "native_element": 210
+        },
+        {
+          "level": 1,
+          "direction": "Y",
+          "line_m": null,
+          "role": "chord",
+          "action": "EQ",
+          "N_kN": 8.0785,
+          "native_element": 171
+        },
+        {
+          "level": 2,
+          "direction": "Y",
+          "line_m": 0.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -7.819,
+          "native_element": 262
+        },
+        {
+          "level": 2,
+          "direction": "Y",
+          "line_m": 24.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": 0.2255,
+          "native_element": 274
+        },
+        {
+          "level": 2,
+          "direction": "Y",
+          "line_m": 6.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -0.2256,
+          "native_element": 267
+        },
+        {
+          "level": 2,
+          "direction": "Y",
+          "line_m": 12.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": 0.2255,
+          "native_element": 268
+        },
+        {
+          "level": 2,
+          "direction": "Y",
+          "line_m": 18.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -3.5625,
+          "native_element": 271
+        },
+        {
+          "level": 2,
+          "direction": "Y",
+          "line_m": 36.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -7.819,
+          "native_element": 280
+        },
+        {
+          "level": 2,
+          "direction": "Y",
+          "line_m": 30.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -0.2256,
+          "native_element": 279
+        },
+        {
+          "level": 2,
+          "direction": "Y",
+          "line_m": null,
+          "role": "chord",
+          "action": "EQ",
+          "N_kN": -3.4459,
+          "native_element": 239
+        },
+        {
+          "level": 3,
+          "direction": "Y",
+          "line_m": 0.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -8.6865,
+          "native_element": 331
+        },
+        {
+          "level": 3,
+          "direction": "Y",
+          "line_m": 24.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -0.06,
+          "native_element": 343
+        },
+        {
+          "level": 3,
+          "direction": "Y",
+          "line_m": 6.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -0.0609,
+          "native_element": 334
+        },
+        {
+          "level": 3,
+          "direction": "Y",
+          "line_m": 12.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -0.06,
+          "native_element": 337
+        },
+        {
+          "level": 3,
+          "direction": "Y",
+          "line_m": 18.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -5.6871,
+          "native_element": 340
+        },
+        {
+          "level": 3,
+          "direction": "Y",
+          "line_m": 36.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -8.6865,
+          "native_element": 349
+        },
+        {
+          "level": 3,
+          "direction": "Y",
+          "line_m": 30.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -0.0609,
+          "native_element": 346
+        },
+        {
+          "level": 3,
+          "direction": "Y",
+          "line_m": null,
+          "role": "chord",
+          "action": "EQ",
+          "N_kN": -8.3499,
+          "native_element": 308
+        },
+        {
+          "level": 4,
+          "direction": "Y",
+          "line_m": 0.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -11.3426,
+          "native_element": 400
+        },
+        {
+          "level": 4,
+          "direction": "Y",
+          "line_m": 24.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -0.0406,
+          "native_element": 414
+        },
+        {
+          "level": 4,
+          "direction": "Y",
+          "line_m": 6.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -0.042,
+          "native_element": 405
+        },
+        {
+          "level": 4,
+          "direction": "Y",
+          "line_m": 12.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -0.0406,
+          "native_element": 408
+        },
+        {
+          "level": 4,
+          "direction": "Y",
+          "line_m": 18.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -9.1502,
+          "native_element": 409
+        },
+        {
+          "level": 4,
+          "direction": "Y",
+          "line_m": 36.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -11.3426,
+          "native_element": 418
+        },
+        {
+          "level": 4,
+          "direction": "Y",
+          "line_m": 30.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -0.042,
+          "native_element": 417
+        },
+        {
+          "level": 4,
+          "direction": "Y",
+          "line_m": null,
+          "role": "chord",
+          "action": "EQ",
+          "N_kN": -17.0701,
+          "native_element": 377
+        },
+        {
+          "level": 5,
+          "direction": "Y",
+          "line_m": 0.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -14.3923,
+          "native_element": 469
+        },
+        {
+          "level": 5,
+          "direction": "Y",
+          "line_m": 24.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -0.1876,
+          "native_element": 481
+        },
+        {
+          "level": 5,
+          "direction": "Y",
+          "line_m": 6.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -0.1887,
+          "native_element": 472
+        },
+        {
+          "level": 5,
+          "direction": "Y",
+          "line_m": 12.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -0.1876,
+          "native_element": 475
+        },
+        {
+          "level": 5,
+          "direction": "Y",
+          "line_m": 18.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -13.6063,
+          "native_element": 478
+        },
+        {
+          "level": 5,
+          "direction": "Y",
+          "line_m": 36.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -14.3923,
+          "native_element": 487
+        },
+        {
+          "level": 5,
+          "direction": "Y",
+          "line_m": 30.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -0.1887,
+          "native_element": 484
+        },
+        {
+          "level": 5,
+          "direction": "Y",
+          "line_m": null,
+          "role": "chord",
+          "action": "EQ",
+          "N_kN": -26.0085,
+          "native_element": 446
+        },
+        {
+          "level": 6,
+          "direction": "Y",
+          "line_m": 0.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": 14.4911,
+          "native_element": 540
+        },
+        {
+          "level": 6,
+          "direction": "Y",
+          "line_m": 24.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": 0.0998,
+          "native_element": 550
+        },
+        {
+          "level": 6,
+          "direction": "Y",
+          "line_m": 6.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -0.1003,
+          "native_element": 543
+        },
+        {
+          "level": 6,
+          "direction": "Y",
+          "line_m": 12.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": 0.0998,
+          "native_element": 544
+        },
+        {
+          "level": 6,
+          "direction": "Y",
+          "line_m": 18.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -3.6538,
+          "native_element": 547
+        },
+        {
+          "level": 6,
+          "direction": "Y",
+          "line_m": 36.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": 14.4911,
+          "native_element": 558
+        },
+        {
+          "level": 6,
+          "direction": "Y",
+          "line_m": 30.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -0.1003,
+          "native_element": 555
+        },
+        {
+          "level": 6,
+          "direction": "Y",
+          "line_m": null,
+          "role": "chord",
+          "action": "EQ",
+          "N_kN": 28.4152,
+          "native_element": 535
+        },
+        {
+          "level": 1,
+          "direction": "X",
+          "line_m": 5.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": 0.3631,
+          "native_element": 178
+        },
+        {
+          "level": 1,
+          "direction": "X",
+          "line_m": 0.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": -1.6123,
+          "native_element": 169
+        },
+        {
+          "level": 1,
+          "direction": "X",
+          "line_m": 7.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": 1.3299,
+          "native_element": 185
+        },
+        {
+          "level": 1,
+          "direction": "X",
+          "line_m": 12.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": 1.3189,
+          "native_element": 192
+        },
+        {
+          "level": 1,
+          "direction": "X",
+          "line_m": null,
+          "role": "chord",
+          "action": "W",
+          "N_kN": -0.2241,
+          "native_element": 193
+        },
+        {
+          "level": 2,
+          "direction": "X",
+          "line_m": 5.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": 0.0719,
+          "native_element": 246
+        },
+        {
+          "level": 2,
+          "direction": "X",
+          "line_m": 0.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": 2.1948,
+          "native_element": 242
+        },
+        {
+          "level": 2,
+          "direction": "X",
+          "line_m": 7.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": -2.3481,
+          "native_element": 251
+        },
+        {
+          "level": 2,
+          "direction": "X",
+          "line_m": 12.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": -2.1042,
+          "native_element": 257
+        },
+        {
+          "level": 2,
+          "direction": "X",
+          "line_m": null,
+          "role": "chord",
+          "action": "W",
+          "N_kN": -0.3328,
+          "native_element": 262
+        },
+        {
+          "level": 3,
+          "direction": "X",
+          "line_m": 5.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": 0.0168,
+          "native_element": 316
+        },
+        {
+          "level": 3,
+          "direction": "X",
+          "line_m": 0.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": -1.9346,
+          "native_element": 308
+        },
+        {
+          "level": 3,
+          "direction": "X",
+          "line_m": 7.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": -2.0695,
+          "native_element": 320
+        },
+        {
+          "level": 3,
+          "direction": "X",
+          "line_m": 12.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": 1.9379,
+          "native_element": 329
+        },
+        {
+          "level": 3,
+          "direction": "X",
+          "line_m": null,
+          "role": "chord",
+          "action": "W",
+          "N_kN": -0.2911,
+          "native_element": 331
+        },
+        {
+          "level": 4,
+          "direction": "X",
+          "line_m": 5.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": -0.005,
+          "native_element": 385
+        },
+        {
+          "level": 4,
+          "direction": "X",
+          "line_m": 0.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": 2.0913,
+          "native_element": 380
+        },
+        {
+          "level": 4,
+          "direction": "X",
+          "line_m": 7.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": -2.1825,
+          "native_element": 389
+        },
+        {
+          "level": 4,
+          "direction": "X",
+          "line_m": 12.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": 2.1239,
+          "native_element": 398
+        },
+        {
+          "level": 4,
+          "direction": "X",
+          "line_m": null,
+          "role": "chord",
+          "action": "W",
+          "N_kN": -0.3155,
+          "native_element": 400
+        },
+        {
+          "level": 5,
+          "direction": "X",
+          "line_m": 5.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": 0.0306,
+          "native_element": 454
+        },
+        {
+          "level": 5,
+          "direction": "X",
+          "line_m": 0.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": 2.1377,
+          "native_element": 449
+        },
+        {
+          "level": 5,
+          "direction": "X",
+          "line_m": 7.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": -2.178,
+          "native_element": 458
+        },
+        {
+          "level": 5,
+          "direction": "X",
+          "line_m": 12.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": -2.155,
+          "native_element": 464
+        },
+        {
+          "level": 5,
+          "direction": "X",
+          "line_m": null,
+          "role": "chord",
+          "action": "W",
+          "N_kN": -0.3307,
+          "native_element": 469
+        },
+        {
+          "level": 6,
+          "direction": "X",
+          "line_m": 5.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": 0.0205,
+          "native_element": 522
+        },
+        {
+          "level": 6,
+          "direction": "X",
+          "line_m": 0.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": -1.3176,
+          "native_element": 515
+        },
+        {
+          "level": 6,
+          "direction": "X",
+          "line_m": 7.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": 0.6376,
+          "native_element": 530
+        },
+        {
+          "level": 6,
+          "direction": "X",
+          "line_m": 12.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": -1.6418,
+          "native_element": 533
+        },
+        {
+          "level": 6,
+          "direction": "X",
+          "line_m": null,
+          "role": "chord",
+          "action": "W",
+          "N_kN": -0.2355,
+          "native_element": 538
+        },
+        {
+          "level": 1,
+          "direction": "Y",
+          "line_m": 0.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": -7.3756,
+          "native_element": 193
+        },
+        {
+          "level": 1,
+          "direction": "Y",
+          "line_m": 24.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": -0.8202,
+          "native_element": 205
+        },
+        {
+          "level": 1,
+          "direction": "Y",
+          "line_m": 6.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": 0.8205,
+          "native_element": 198
+        },
+        {
+          "level": 1,
+          "direction": "Y",
+          "line_m": 12.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": -0.8202,
+          "native_element": 199
+        },
+        {
+          "level": 1,
+          "direction": "Y",
+          "line_m": 18.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": -6.1907,
+          "native_element": 202
+        },
+        {
+          "level": 1,
+          "direction": "Y",
+          "line_m": 36.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": -7.3756,
+          "native_element": 211
+        },
+        {
+          "level": 1,
+          "direction": "Y",
+          "line_m": 30.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": 0.8205,
+          "native_element": 210
+        },
+        {
+          "level": 1,
+          "direction": "Y",
+          "line_m": null,
+          "role": "chord",
+          "action": "W",
+          "N_kN": -5.552,
+          "native_element": 170
+        },
+        {
+          "level": 2,
+          "direction": "Y",
+          "line_m": 0.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": -8.4515,
+          "native_element": 262
+        },
+        {
+          "level": 2,
+          "direction": "Y",
+          "line_m": 24.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": -0.1883,
+          "native_element": 276
+        },
+        {
+          "level": 2,
+          "direction": "Y",
+          "line_m": 6.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": -0.1885,
+          "native_element": 267
+        },
+        {
+          "level": 2,
+          "direction": "Y",
+          "line_m": 12.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": -0.1883,
+          "native_element": 270
+        },
+        {
+          "level": 2,
+          "direction": "Y",
+          "line_m": 18.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": -6.1179,
+          "native_element": 271
+        },
+        {
+          "level": 2,
+          "direction": "Y",
+          "line_m": 36.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": -8.4515,
+          "native_element": 280
+        },
+        {
+          "level": 2,
+          "direction": "Y",
+          "line_m": 30.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": -0.1885,
+          "native_element": 279
+        },
+        {
+          "level": 2,
+          "direction": "Y",
+          "line_m": null,
+          "role": "chord",
+          "action": "W",
+          "N_kN": -10.662,
+          "native_element": 239
+        },
+        {
+          "level": 3,
+          "direction": "Y",
+          "line_m": 0.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": -7.2449,
+          "native_element": 331
+        },
+        {
+          "level": 3,
+          "direction": "Y",
+          "line_m": 24.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": -0.053,
+          "native_element": 343
+        },
+        {
+          "level": 3,
+          "direction": "Y",
+          "line_m": 6.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": -0.0533,
+          "native_element": 334
+        },
+        {
+          "level": 3,
+          "direction": "Y",
+          "line_m": 12.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": -0.053,
+          "native_element": 337
+        },
+        {
+          "level": 3,
+          "direction": "Y",
+          "line_m": 18.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": -5.7255,
+          "native_element": 340
+        },
+        {
+          "level": 3,
+          "direction": "Y",
+          "line_m": 36.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": -7.2449,
+          "native_element": 349
+        },
+        {
+          "level": 3,
+          "direction": "Y",
+          "line_m": 30.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": -0.0533,
+          "native_element": 346
+        },
+        {
+          "level": 3,
+          "direction": "Y",
+          "line_m": null,
+          "role": "chord",
+          "action": "W",
+          "N_kN": -9.9985,
+          "native_element": 308
+        },
+        {
+          "level": 4,
+          "direction": "Y",
+          "line_m": 0.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": -6.9466,
+          "native_element": 400
+        },
+        {
+          "level": 4,
+          "direction": "Y",
+          "line_m": 18.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": -5.8316,
+          "native_element": 409
+        },
+        {
+          "level": 4,
+          "direction": "Y",
+          "line_m": 36.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": -6.9466,
+          "native_element": 418
+        },
+        {
+          "level": 4,
+          "direction": "Y",
+          "line_m": null,
+          "role": "chord",
+          "action": "W",
+          "N_kN": 11.1952,
+          "native_element": 398
+        },
+        {
+          "level": 5,
+          "direction": "Y",
+          "line_m": 0.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": -6.4579,
+          "native_element": 469
+        },
+        {
+          "level": 5,
+          "direction": "Y",
+          "line_m": 24.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": 0.0672,
+          "native_element": 483
+        },
+        {
+          "level": 5,
+          "direction": "Y",
+          "line_m": 6.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": -0.0675,
+          "native_element": 472
+        },
+        {
+          "level": 5,
+          "direction": "Y",
+          "line_m": 12.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": 0.0672,
+          "native_element": 477
+        },
+        {
+          "level": 5,
+          "direction": "Y",
+          "line_m": 18.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": -6.0109,
+          "native_element": 478
+        },
+        {
+          "level": 5,
+          "direction": "Y",
+          "line_m": 36.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": -6.4579,
+          "native_element": 487
+        },
+        {
+          "level": 5,
+          "direction": "Y",
+          "line_m": 30.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": -0.0675,
+          "native_element": 484
+        },
+        {
+          "level": 5,
+          "direction": "Y",
+          "line_m": null,
+          "role": "chord",
+          "action": "W",
+          "N_kN": -11.6265,
+          "native_element": 446
+        },
+        {
+          "level": 6,
+          "direction": "Y",
+          "line_m": 0.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": 6.0618,
+          "native_element": 540
+        },
+        {
+          "level": 6,
+          "direction": "Y",
+          "line_m": 24.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": 0.0434,
+          "native_element": 550
+        },
+        {
+          "level": 6,
+          "direction": "Y",
+          "line_m": 6.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": -0.0436,
+          "native_element": 543
+        },
+        {
+          "level": 6,
+          "direction": "Y",
+          "line_m": 12.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": 0.0434,
+          "native_element": 544
+        },
+        {
+          "level": 6,
+          "direction": "Y",
+          "line_m": 18.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": -0.541,
+          "native_element": 547
+        },
+        {
+          "level": 6,
+          "direction": "Y",
+          "line_m": 36.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": 6.0618,
+          "native_element": 558
+        },
+        {
+          "level": 6,
+          "direction": "Y",
+          "line_m": 30.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": -0.0436,
+          "native_element": 555
+        },
+        {
+          "level": 6,
+          "direction": "Y",
+          "line_m": null,
+          "role": "chord",
+          "action": "W",
+          "N_kN": -12.4773,
+          "native_element": 516
+        }
+      ]
+    },
+    "diaphragm_classification": {}
+  },
+  "physical_layout": {
+    "roles": {
+      "column": 168,
+      "beam": 270,
+      "brace": 144,
+      "joist": 1365,
+      "stud": 1452,
+      "purlin": 66
+    },
+    "panel_roles": {
+      "Floor": 90,
+      "Exterior wall": 108,
+      "Roof": 18
+    },
+    "part_counts": {
+      "plate": 2656,
+      "bolt": 17484,
+      "weld": 528
+    },
+    "joint_types": {
+      "Column base": 28,
+      "Beam shear connection": 540,
+      "Brace end": 288,
+      "Purlin cleat": 132
+    },
+    "panel_openings": 0,
+    "member_workpoint_top_mm": 18645.0,
+    "declared_roof_planes": [],
+    "floor_footprints_m": [
+      {
+        "level": 1,
+        "occupied_rectangles": [
+          [
+            0,
+            0,
+            36,
+            12
+          ]
+        ]
+      },
+      {
+        "level": 2,
+        "occupied_rectangles": [
+          [
+            0,
+            0,
+            36,
+            12
+          ]
+        ]
+      },
+      {
+        "level": 3,
+        "occupied_rectangles": [
+          [
+            0,
+            0,
+            36,
+            12
+          ]
+        ]
+      },
+      {
+        "level": 4,
+        "occupied_rectangles": [
+          [
+            0,
+            0,
+            36,
+            12
+          ]
+        ]
+      },
+      {
+        "level": 5,
+        "occupied_rectangles": [
+          [
+            0,
+            0,
+            36,
+            12
+          ]
+        ]
+      },
+      {
+        "level": 6,
+        "occupied_rectangles": [
+          [
+            0,
+            0,
+            36,
+            12
+          ]
+        ]
+      }
+    ]
+  },
+  "grounding": [
+    {
+      "stem": "IS_801_1975",
+      "query": "section 5.2",
+      "found": true,
+      "cite": "IS_801_1975 section 5.2, PDF p. 6",
+      "purpose": "cold-formed member",
+      "source_file": "IS_801_1975/indexes/sections.json",
+      "source_sha256": "87599eebf6e99e2f6bfa36886ddc9f56d9147c0d06c8d29eb94b374b18649021"
+    },
+    {
+      "stem": "IS_801_1975",
+      "query": "section 6.1",
+      "found": true,
+      "cite": "IS_801_1975 section 6.1, PDF p. 12",
+      "purpose": "cold-formed member",
+      "source_file": "IS_801_1975/indexes/sections.json",
+      "source_sha256": "87599eebf6e99e2f6bfa36886ddc9f56d9147c0d06c8d29eb94b374b18649021"
+    },
+    {
+      "stem": "IS_801_1975",
+      "query": "section 6.3",
+      "found": true,
+      "cite": "IS_801_1975 section 6.3, PDF p. 15",
+      "purpose": "cold-formed member",
+      "source_file": "IS_801_1975/indexes/sections.json",
+      "source_sha256": "87599eebf6e99e2f6bfa36886ddc9f56d9147c0d06c8d29eb94b374b18649021"
+    },
+    {
+      "stem": "IS_801_1975",
+      "query": "section 6.4",
+      "found": true,
+      "cite": "IS_801_1975 section 6.4, PDF p. 16",
+      "purpose": "cold-formed member",
+      "source_file": "IS_801_1975/indexes/sections.json",
+      "source_sha256": "87599eebf6e99e2f6bfa36886ddc9f56d9147c0d06c8d29eb94b374b18649021"
+    },
+    {
+      "stem": "IS_801_1975",
+      "query": "section 6.5",
+      "found": true,
+      "cite": "IS_801_1975 section 6.5, PDF p. 17",
+      "purpose": "cold-formed member",
+      "source_file": "IS_801_1975/indexes/sections.json",
+      "source_sha256": "87599eebf6e99e2f6bfa36886ddc9f56d9147c0d06c8d29eb94b374b18649021"
+    },
+    {
+      "stem": "IS_801_1975",
+      "query": "section 6.6",
+      "found": true,
+      "cite": "IS_801_1975 section 6.6, PDF p. 18",
+      "purpose": "cold-formed member",
+      "source_file": "IS_801_1975/indexes/sections.json",
+      "source_sha256": "87599eebf6e99e2f6bfa36886ddc9f56d9147c0d06c8d29eb94b374b18649021"
+    },
+    {
+      "stem": "IS_801_1975",
+      "query": "section 6.7",
+      "found": true,
+      "cite": "IS_801_1975 section 6.7, PDF p. 22",
+      "purpose": "cold-formed member",
+      "source_file": "IS_801_1975/indexes/sections.json",
+      "source_sha256": "87599eebf6e99e2f6bfa36886ddc9f56d9147c0d06c8d29eb94b374b18649021"
+    },
+    {
+      "stem": "IS_801_1975",
+      "query": "section 7.3",
+      "found": true,
+      "cite": "IS_801_1975 section 7.3, PDF p. 28",
+      "purpose": "cold-formed member",
+      "source_file": "IS_801_1975/markdown/pages_search/page_028.md",
+      "source_sha256": "aec6a0f8aec6dec459a59b223bbf0c341f4347c5d98efeb0b094509ae2031c8f"
+    },
+    {
+      "stem": "IS_801_1975",
+      "query": "section 7.5",
+      "found": true,
+      "cite": "IS_801_1975 section 7.5, PDF p. 30",
+      "purpose": "cold-formed member",
+      "source_file": "IS_801_1975/indexes/sections.json",
+      "source_sha256": "87599eebf6e99e2f6bfa36886ddc9f56d9147c0d06c8d29eb94b374b18649021"
+    },
+    {
+      "stem": "IS_801_1975",
+      "query": "section 8.1",
+      "found": true,
+      "cite": "IS_801_1975 section 8.1, PDF p. 31",
+      "purpose": "cold-formed member",
+      "source_file": "IS_801_1975/indexes/sections.json",
+      "source_sha256": "87599eebf6e99e2f6bfa36886ddc9f56d9147c0d06c8d29eb94b374b18649021"
+    },
+    {
+      "stem": "IS_801_1975",
+      "query": "section 8.2",
+      "found": true,
+      "cite": "IS_801_1975 section 8.2, PDF p. 33",
+      "purpose": "cold-formed member",
+      "source_file": "IS_801_1975/indexes/sections.json",
+      "source_sha256": "87599eebf6e99e2f6bfa36886ddc9f56d9147c0d06c8d29eb94b374b18649021"
+    },
+    {
+      "stem": "IS_811_1987",
+      "query": "table 3",
+      "found": true,
+      "cite": "IS_811_1987 table 3, PDF p. 12",
+      "purpose": "cold-formed section properties",
+      "source_file": "IS_811_1987/indexes/tables.json",
+      "source_sha256": "233268814fe3e7be90fbdc9b5829e17e685fc906a0b24256cf2319c92940634b"
+    },
+    {
+      "stem": "IS_811_1987",
+      "query": "table 4",
+      "found": true,
+      "cite": "IS_811_1987 table 4, PDF p. 14",
+      "purpose": "cold-formed section properties",
+      "source_file": "IS_811_1987/indexes/tables.json",
+      "source_sha256": "233268814fe3e7be90fbdc9b5829e17e685fc906a0b24256cf2319c92940634b"
+    },
+    {
+      "stem": "IS_875_Part_1_2026",
+      "query": "table 1",
+      "found": true,
+      "cite": "IS_875_Part_1_2026 table 1, PDF p. 4",
+      "purpose": "dead load",
+      "source_file": "IS_875_Part_1_2026/indexes/tables.json",
+      "source_sha256": "741cb4a0f3e9746696e81fe550be62fc503cb158876b26c0e37524e9008f4b2d"
+    },
+    {
+      "stem": "IS_875_Part_2_1987",
+      "query": "table 1",
+      "found": true,
+      "cite": "IS_875_Part_2_1987 table 1, PDF p. 9",
+      "purpose": "imposed load",
+      "source_file": "IS_875_Part_2_1987/indexes/tables.json",
+      "source_sha256": "76aada395beacebe01041b7c1263fb4926a7a633ab0c4e7d2bff15de6709ed23"
+    },
+    {
+      "stem": "IS_875_Part_2_1987",
+      "query": "table 2",
+      "found": true,
+      "cite": "IS_875_Part_2_1987 table 2, PDF p. 16",
+      "purpose": "imposed load",
+      "source_file": "IS_875_Part_2_1987/indexes/tables.json",
+      "source_sha256": "76aada395beacebe01041b7c1263fb4926a7a633ab0c4e7d2bff15de6709ed23"
+    },
+    {
+      "stem": "IS_875_Part_2_1987",
+      "query": "section 3.1.2",
+      "found": true,
+      "cite": "IS_875_Part_2_1987 section 3.1.2, PDF p. 14",
+      "purpose": "partition allowance",
+      "source_file": "IS_875_Part_2_1987/indexes/sections.json",
+      "source_sha256": "4c3294b3ae41393301831a81e7fdbb3a2e2119ebe2552b40072705ef5ecbd823"
+    },
+    {
+      "stem": "IS_875_Part_3_2015",
+      "query": "table 2",
+      "found": true,
+      "cite": "IS_875_Part_3_2015 table 2, PDF p. 10",
+      "purpose": "wind",
+      "source_file": "IS_875_Part_3_2015/indexes/tables.json",
+      "source_sha256": "ffdaf0575f9fd700bbb467b7d4e4a4f2c0575804f91868c7c4eb224b494766ca"
+    },
+    {
+      "stem": "IS_875_Part_3_2015",
+      "query": "table 4",
+      "found": true,
+      "cite": "IS_875_Part_3_2015 table 4, PDF p. 12",
+      "purpose": "wind",
+      "source_file": "IS_875_Part_3_2015/indexes/tables.json",
+      "source_sha256": "ffdaf0575f9fd700bbb467b7d4e4a4f2c0575804f91868c7c4eb224b494766ca"
+    },
+    {
+      "stem": "IS_875_Part_3_2015",
+      "query": "table 5",
+      "found": true,
+      "cite": "IS_875_Part_3_2015 table 5, PDF p. 15",
+      "purpose": "wind",
+      "source_file": "IS_875_Part_3_2015/indexes/tables.json",
+      "source_sha256": "ffdaf0575f9fd700bbb467b7d4e4a4f2c0575804f91868c7c4eb224b494766ca"
+    },
+    {
+      "stem": "IS_875_Part_3_2015",
+      "query": "table 6",
+      "found": true,
+      "cite": "IS_875_Part_3_2015 table 6, PDF p. 16",
+      "purpose": "wind",
+      "source_file": "IS_875_Part_3_2015/indexes/tables.json",
+      "source_sha256": "ffdaf0575f9fd700bbb467b7d4e4a4f2c0575804f91868c7c4eb224b494766ca"
+    },
+    {
+      "stem": "IS_875_Part_3_2015",
+      "query": "section 6.3.4",
+      "found": true,
+      "cite": "IS_875_Part_3_2015 section 6.3.4, PDF p. 10",
+      "purpose": "wind",
+      "source_file": "IS_875_Part_3_2015/indexes/sections.json",
+      "source_sha256": "1991beaab87f2cb8b9f7acbf2c25266255a2ffa459fbbad88e476073b067c7cc"
+    },
+    {
+      "stem": "IS_875_Part_3_2015",
+      "query": "section 7.2.1",
+      "found": true,
+      "cite": "IS_875_Part_3_2015 section 7.2.1, PDF p. 11",
+      "purpose": "wind",
+      "source_file": "IS_875_Part_3_2015/indexes/sections.json",
+      "source_sha256": "1991beaab87f2cb8b9f7acbf2c25266255a2ffa459fbbad88e476073b067c7cc"
+    },
+    {
+      "stem": "IS_875_Part_3_2015",
+      "query": "section 7.3",
+      "found": true,
+      "cite": "IS_875_Part_3_2015 section 7.3, PDF p. 12",
+      "purpose": "wind",
+      "source_file": "IS_875_Part_3_2015/indexes/sections.json",
+      "source_sha256": "1991beaab87f2cb8b9f7acbf2c25266255a2ffa459fbbad88e476073b067c7cc"
+    },
+    {
+      "stem": "IS_875_Part_5_1987",
+      "query": "section 8.1",
+      "found": true,
+      "cite": "IS_875_Part_5_1987 section 8.1, PDF p. 18",
+      "purpose": "working stress combinations",
+      "source_file": "IS_875_Part_5_1987/indexes/sections.json",
+      "source_sha256": "794001c5d3f5d8920f63fcdf531959630ab2c6e85d427be1c7dc053e4f525e70"
+    },
+    {
+      "stem": "IS_1893_Part_1_2016",
+      "query": "table 3",
+      "found": true,
+      "cite": "IS_1893_Part_1_2016 table 3, PDF p. 12",
+      "purpose": "seismic",
+      "source_file": "IS_1893_Part_1_2016/indexes/tables.json",
+      "source_sha256": "f4f11eb3347a51669b4825ce4557af08aab657792a08844c2bbfbd390ac228aa"
+    },
+    {
+      "stem": "IS_1893_Part_1_2016",
+      "query": "table 7",
+      "found": true,
+      "cite": "IS_1893_Part_1_2016 table 7, PDF p. 21",
+      "purpose": "seismic",
+      "source_file": "IS_1893_Part_1_2016/indexes/tables.json",
+      "source_sha256": "f4f11eb3347a51669b4825ce4557af08aab657792a08844c2bbfbd390ac228aa"
+    },
+    {
+      "stem": "IS_1893_Part_1_2016",
+      "query": "table 8",
+      "found": true,
+      "cite": "IS_1893_Part_1_2016 table 8, PDF p. 21",
+      "purpose": "seismic",
+      "source_file": "IS_1893_Part_1_2016/indexes/tables.json",
+      "source_sha256": "f4f11eb3347a51669b4825ce4557af08aab657792a08844c2bbfbd390ac228aa"
+    },
+    {
+      "stem": "IS_1893_Part_1_2016",
+      "query": "table 9",
+      "found": true,
+      "cite": "IS_1893_Part_1_2016 table 9, PDF p. 22",
+      "purpose": "seismic",
+      "source_file": "IS_1893_Part_1_2016/indexes/tables.json",
+      "source_sha256": "f4f11eb3347a51669b4825ce4557af08aab657792a08844c2bbfbd390ac228aa"
+    },
+    {
+      "stem": "IS_1893_Part_1_2016",
+      "query": "table 10",
+      "found": true,
+      "cite": "IS_1893_Part_1_2016 table 10, PDF p. 22",
+      "purpose": "seismic",
+      "source_file": "IS_1893_Part_1_2016/indexes/tables.json",
+      "source_sha256": "f4f11eb3347a51669b4825ce4557af08aab657792a08844c2bbfbd390ac228aa"
+    },
+    {
+      "stem": "IS_1893_Part_1_2016",
+      "query": "section 6.4.2",
+      "found": true,
+      "cite": "IS_1893_Part_1_2016 section 6.4.2, PDF p. 11",
+      "purpose": "seismic",
+      "source_file": "IS_1893_Part_1_2016/indexes/sections.json",
+      "source_sha256": "9f96819fa1867ecd3da865181b3a666abe591bde6e326fad0b53c08bc3ff715c"
+    },
+    {
+      "stem": "IS_1893_Part_1_2016",
+      "query": "section 7.7.1",
+      "found": true,
+      "cite": "IS_1893_Part_1_2016 section 7.7.1, PDF p. 25",
+      "purpose": "seismic",
+      "source_file": "IS_1893_Part_1_2016/indexes/sections.json",
+      "source_sha256": "9f96819fa1867ecd3da865181b3a666abe591bde6e326fad0b53c08bc3ff715c"
+    },
+    {
+      "stem": "IS_1893_Part_1_2016",
+      "query": "section 7.11.1",
+      "found": true,
+      "cite": "IS_1893_Part_1_2016 section 7.11.1, PDF p. 28",
+      "purpose": "seismic",
+      "source_file": "IS_1893_Part_1_2016/indexes/sections.json",
+      "source_sha256": "9f96819fa1867ecd3da865181b3a666abe591bde6e326fad0b53c08bc3ff715c"
+    },
+    {
+      "stem": "IS_800_2007",
+      "query": "table 6",
+      "found": true,
+      "cite": "IS_800_2007 table 6, PDF p. 37",
+      "purpose": "serviceability_limits_table6",
+      "source_file": "IS_800_2007/indexes/tables.json",
+      "source_sha256": "ac4e3b05f1c81992b3e5c310bac18cd5beb382b899cd084ad45643753de9436e"
+    },
+    {
+      "stem": "IS_800_2007",
+      "query": "table 4",
+      "found": true,
+      "cite": "IS_800_2007 table 4, PDF p. 35",
+      "purpose": "lateral_frame_is800",
+      "source_file": "IS_800_2007/indexes/tables.json",
+      "source_sha256": "ac4e3b05f1c81992b3e5c310bac18cd5beb382b899cd084ad45643753de9436e"
+    },
+    {
+      "stem": "IS_800_2007",
+      "query": "table 5",
+      "found": true,
+      "cite": "IS_800_2007 table 5, PDF p. 36",
+      "purpose": "lateral_frame_is800",
+      "source_file": "IS_800_2007/indexes/tables.json",
+      "source_sha256": "ac4e3b05f1c81992b3e5c310bac18cd5beb382b899cd084ad45643753de9436e"
+    },
+    {
+      "stem": "IS_800_2007",
+      "query": "section 12",
+      "found": true,
+      "cite": "IS_800_2007 section 12, PDF p. 93",
+      "purpose": "lateral_frame_is800",
+      "source_file": "IS_800_2007/markdown/pages_search/page_093.md",
+      "source_sha256": "96f98b81e71a3b8cbedf12ed244867b8b6153e8fac1c6a578d0b7a8a1712cb8e"
+    },
+    {
+      "stem": "IS_875_Part_3_2015",
+      "query": "Annex A Bengaluru",
+      "found": true,
+      "cite": "IS_875_Part_3_2015 Annex A Bengaluru, PDF p. 59",
+      "purpose": "design loads",
+      "source_file": "IS_875_Part_3_2015/tables/IS_875_Part_3_2015_Table_AnnexA_recovered.csv",
+      "source_sha256": "4d81896bccbae71a3cfa5a5de4c47542db1e537053d6cbaa660286ddd68fdcb6"
+    },
+    {
+      "stem": "IS_1893_Part_1_2016",
+      "query": "Annex E Bengaluru",
+      "found": true,
+      "cite": "IS_1893_Part_1_2016 Annex E Bengaluru, PDF p. 38",
+      "purpose": "design loads",
+      "source_file": "IS_1893_Part_1_2016/markdown/pages_recovered/page_038.md",
+      "source_sha256": "afea7c09e8c0e1ce86679fa1c17b2cdb18c9d5ab262539aa6459e1d295a7f541"
+    },
+    {
+      "stem": "IS_875_Part_4_1987",
+      "query": "site snow applicability",
+      "found": false,
+      "cite": "IS_875_Part_4_1987 site snow applicability",
+      "source": "Site is outside the snow region per brief",
+      "verify": true,
+      "value": 0
+    }
+  ],
+  "physical_member_count": 3465,
+  "physical_panel_count": 216,
+  "connection_occurrences": 988,
+  "profile_count": 6,
+  "handoff_sha256": "7d8157ca4451faf70b7e10272ac1baa3545adc349d9519c3bd6082900c507650",
+  "native_files": {
+    "design/calc_package_cfs.json": "a754b25b10c0555960ba8cd37a72cd10fc85b1f0840097d1281babbbe2681674",
+    "cfg_snapshot.json": "fb6c81b5c706d51b62a5ddcd9bc8e2c96971884e13cbd093c3ff5a9b6935003c",
+    "load_plan.json": "1a39072be4494aa3ef3dadefe07ca1892396d1bdba8e67933676abd4303b969b",
+    "STATUS.md": "4381fc971b500c40ec495bafe022587c922905d1a2fcaac6cb67c7ddbb6c92c7",
+    "EOR_inputs.json": "7b8e36e53be98ff65facb39eaea7328509634c36355bd257108d4c021f014634",
+    "report.html": "6c5e663b2b21272284c845274df1b40f4de51b270a2082fb5365951f7a4bfa6c",
+    "viewer_3d.html": "540a37bb3e9d7d79c6bd40c08758ba7fe580c87251bec48cb3c2cf8ad5b57885",
+    "lateral/IN_CFS_Ex12_lateral/design/calc_package.json": "5c0f719cb524b650d7a746c4a59d9758a34b82819090b62ad338e78fc132d3eb",
+    "lateral/IN_CFS_Ex12_lateral/design/member_schedule.csv": "cf3e32e6c3071f346dc9e8fcf87c8882593ec41e458554cdf4aa828c1bd2b358",
+    "lateral/IN_CFS_Ex12_lateral/lateral_result.json": "b7571581817281ff7287a7c971833b818d09be1a567688b81e9a6a51ba48b850",
+    "lateral/IN_CFS_Ex12_lateral/report.html": "f2c04ce33781b69d29db812c5082a9ce29259b633623e7def70929bf01b073eb",
+    "lateral/IN_CFS_Ex12_lateral/viewer_3d.html": "540a37bb3e9d7d79c6bd40c08758ba7fe580c87251bec48cb3c2cf8ad5b57885"
+  },
+  "wind": {
+    "Vb_mps": 33.0,
+    "terrain_category": 2,
+    "k1": 1.0,
+    "k3": 1.0,
+    "k4": 1.0,
+    "Kd": 0.9,
+    "Ka_X": 0.956667,
+    "Ka_Y": 0.934667,
+    "Cpe_X": {
+      "windward": 0.8,
+      "leeward": -0.1,
+      "net": 0.9,
+      "cite": "IS 875 (Part 3) : 2015 Table 5 / cl.7.3.3.1 (in-repo fallback; prefer corpus exact_table 5)",
+      "h_over_w": 1.5250000000000001,
+      "l_over_w": 3.0,
+      "theta_deg": 90.0,
+      "face_width_m": 12.0
+    },
+    "Cpe_Y": {
+      "windward": 0.7,
+      "leeward": -0.4,
+      "net": 1.1,
+      "cite": "IS 875 (Part 3) : 2015 Table 5 / cl.7.3.3.1 (in-repo fallback; prefer corpus exact_table 5)",
+      "h_over_w": 1.5250000000000001,
+      "l_over_w": 3.0,
+      "theta_deg": 0.0,
+      "face_width_m": 36.0
+    },
+    "VB_x_kN": 105.11347252475164,
+    "VB_y_kN": 376.5528424091881
+  },
+  "installed_bearings": {
+    "Floor / WPB400X300X155.26 / CLR200X50X20X3.15": {
+      "samples": 2730,
+      "min_panel_underside_offset_mm": 400.0,
+      "max_panel_underside_offset_mm": 400.0
+    },
+    "Roof / WPB400X300X155.26 / CLR250X50X25X4": {
+      "samples": 132,
+      "min_panel_underside_offset_mm": 470.0,
+      "max_panel_underside_offset_mm": 470.0
+    }
+  },
+  "native_warnings": []
+}

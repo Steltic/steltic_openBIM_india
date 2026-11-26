@@ -1,0 +1,840 @@
+{
+  "status": "pass",
+  "jobs": [
+    {
+      "module": "HR",
+      "job": "IN_Ex1",
+      "groups": [
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 0.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 22
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 75.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 4
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 150.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 4
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 225.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 4
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 300.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 4
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 375.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 4
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 450.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 4
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 525.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 4
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 600.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 4
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 1500.0,
+          "global_dof": 1,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 11
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 1500.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 4
+        }
+      ],
+      "modal_sha256": "96e7429616886640337a0d5b51355f34b16388f57613d4f4407b6c5bd898c849",
+      "static_sha256": "1b3f29afbb173c3b969c6baa6e777410a1083e426bc2dda7e01826a6024156e6"
+    },
+    {
+      "module": "HR",
+      "job": "IN_Ex10",
+      "groups": [
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 0.0,
+          "global_dof": 1,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 14
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 250.0,
+          "global_dof": 1,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 14
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 500.0,
+          "global_dof": 1,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 7
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 500.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 7
+        }
+      ],
+      "modal_sha256": "991f41ffc5be3c7aaa48a6d566a04891d29216da483a0945bf9dfbe66d959d8e",
+      "static_sha256": "9141f4bdc59843ab1789b46d344ba1e008a984fd0d2e8d0bed5a0c367aaaef9b"
+    },
+    {
+      "module": "HR",
+      "job": "IN_Ex2",
+      "groups": [
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 0.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 26
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 30.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 4
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 60.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 4
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 90.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 4
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 120.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 4
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 150.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 4
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 180.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 4
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 210.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 4
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 240.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 4
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 1200.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 8
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 2400.0,
+          "global_dof": 1,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 13
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 2400.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 4
+        }
+      ],
+      "modal_sha256": "1902f0b2a322d347b7366633efe48005202f2441352d65ba676509ae24e372e7",
+      "static_sha256": "b07d5e74071aa48ac5e3e54ef96933464efabfca5b26b244eb643a4ac1583d68"
+    },
+    {
+      "module": "HR",
+      "job": "IN_Ex21",
+      "groups": [
+        {
+          "formulation": "twoNodeLink",
+          "offset_mm": 2250.0,
+          "global_dof": 1,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 7
+        },
+        {
+          "formulation": "twoNodeLink",
+          "offset_mm": 2250.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 4
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 0.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 14
+        }
+      ],
+      "modal_sha256": "b68629d8fe28099bd13bf4ec87f585092696d48e5b02204af94e08ad542aeea9",
+      "static_sha256": "c184a5235a42ed41a0c1d03dc7523c3438f3632146ee5c5e75c4341d7b1c9c51"
+    },
+    {
+      "module": "HR",
+      "job": "IN_Ex3",
+      "groups": [
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 0.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 18
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 60.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 4
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 120.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 4
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 180.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 4
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 240.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 4
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 300.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 4
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 360.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 4
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 420.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 4
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 480.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 4
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 1200.0,
+          "global_dof": 1,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 9
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 1200.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 4
+        }
+      ],
+      "modal_sha256": "01990275cd3006be44c76ea9abaeab82c1017f8752ac5e4a5eaa453022d3142b",
+      "static_sha256": "0e43a375024511e82f4b75fa243bc28871a7dec5c3423b5abc57911fea2e1e14"
+    },
+    {
+      "module": "HR",
+      "job": "IN_Ex4",
+      "groups": [
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 0.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 26
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 75.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 4
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 150.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 4
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 225.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 4
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 300.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 4
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 375.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 4
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 450.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 4
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 525.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 4
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 600.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 4
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 1500.0,
+          "global_dof": 1,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 13
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 1500.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 4
+        }
+      ],
+      "modal_sha256": "51fb6b7575b06be95d467aa497cd3b753390bd0f34631e69d6b0e97b4c1b0a2d",
+      "static_sha256": "ae2ba3310d7435ed77cc4e28345ce24d8db099cb643ffe9b7100739b7b045010"
+    },
+    {
+      "module": "HR",
+      "job": "IN_Ex5",
+      "groups": [
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 0.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 22
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 75.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 4
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 150.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 4
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 225.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 4
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 300.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 4
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 375.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 4
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 450.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 4
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 525.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 4
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 600.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 4
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 1500.0,
+          "global_dof": 1,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 11
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 1500.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 4
+        }
+      ],
+      "modal_sha256": "4194d1ab2e28bed9cad0c14ec0c7ebeaa6b385622543e35b140c49ab779567bf",
+      "static_sha256": "db2a271d4cd9663615289b51a2093ed9f4de4bc36ce5f427135c63da63114c4d"
+    },
+    {
+      "module": "HR",
+      "job": "IN_Ex7",
+      "groups": [
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 0.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 18
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 1050.0,
+          "global_dof": 1,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 9
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 1050.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 4
+        }
+      ],
+      "modal_sha256": "f1000d5f2919d4df4d77b8c91559aeb4de8e9755b48af6eb3c7040b0a5e99f18",
+      "static_sha256": "26a5ca15a90ee7bf85a7ee0261a54ad8bf7c2fc7ed678fb0743051f092f711b8"
+    },
+    {
+      "module": "HR",
+      "job": "IN_Ex8",
+      "groups": [
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 0.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 14
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 1200.0,
+          "global_dof": 1,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 7
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 1200.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 4
+        }
+      ],
+      "modal_sha256": "a263eb97d4becab483d41207d91faf1de3d8422ceea57e38b105925ef0c79e33",
+      "static_sha256": "20ba0cfa902d79e8f6eb6fb1db98189c4f09b4c86ac9c0f51ee3fbad1fe19336"
+    },
+    {
+      "module": "HR",
+      "job": "IN_Ex9",
+      "groups": [
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 0.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 18
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 3000.0,
+          "global_dof": 1,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 9
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 3000.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 4
+        }
+      ],
+      "modal_sha256": "e7dc4a10eab68e4e606bcfe805aa4387be8d1aab1e2dbf58bcf27c9d7a74658c",
+      "static_sha256": "0aa009ef55cf8290a3f3b19e765f848c8c4b6b1634a8d3d6d0e7582b0530e6bb"
+    },
+    {
+      "module": "CFS",
+      "job": "IN_CFS_Ex1/lateral/IN_CFS_Ex1_lateral",
+      "groups": [
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 0.0,
+          "global_dof": 1,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 18
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 1500.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 9
+        }
+      ],
+      "modal_sha256": "a9c7a78627fc4d053b7d4c5cf8c9eb0f0f90ad286c9de80f878ba62695814ac4",
+      "static_sha256": "96ed07ffcccc1840c4cce2750fb3503b093aa926006499c5e93ca04ac0efbed6"
+    },
+    {
+      "module": "CFS",
+      "job": "IN_CFS_Ex2/lateral/IN_CFS_Ex2_lateral",
+      "groups": [
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 0.0,
+          "global_dof": 1,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 48
+        },
+        {
+          "formulation": "zeroLength",
+          "offset_mm": 1000.0,
+          "global_dof": 2,
+          "stiffness_N_mm": 1000000000.0,
+          "count": 20
+        }
+      ],
+      "modal_sha256": "6afe4fb1c8df3eaea5a6b4d599a8aef3134886f1e8eef7ba832f3272aa6cb204",
+      "static_sha256": "9dc3bc25e27bb1090daa93020d9c881d10f8598f613032e3b150fd0825fd848a"
+    }
+  ],
+  "compiled_tangents": [
+    {
+      "offset_mm": 30.0,
+      "global_dof": 2,
+      "stiffness_N_mm": 1000000000.0,
+      "maximum_matrix_entry_error": 0.0
+    },
+    {
+      "offset_mm": 60.0,
+      "global_dof": 2,
+      "stiffness_N_mm": 1000000000.0,
+      "maximum_matrix_entry_error": 0.0
+    },
+    {
+      "offset_mm": 75.0,
+      "global_dof": 2,
+      "stiffness_N_mm": 1000000000.0,
+      "maximum_matrix_entry_error": 0.0
+    },
+    {
+      "offset_mm": 90.0,
+      "global_dof": 2,
+      "stiffness_N_mm": 1000000000.0,
+      "maximum_matrix_entry_error": 0.0
+    },
+    {
+      "offset_mm": 120.0,
+      "global_dof": 2,
+      "stiffness_N_mm": 1000000000.0,
+      "maximum_matrix_entry_error": 0.0
+    },
+    {
+      "offset_mm": 150.0,
+      "global_dof": 2,
+      "stiffness_N_mm": 1000000000.0,
+      "maximum_matrix_entry_error": 0.0
+    },
+    {
+      "offset_mm": 180.0,
+      "global_dof": 2,
+      "stiffness_N_mm": 1000000000.0,
+      "maximum_matrix_entry_error": 0.0
+    },
+    {
+      "offset_mm": 210.0,
+      "global_dof": 2,
+      "stiffness_N_mm": 1000000000.0,
+      "maximum_matrix_entry_error": 0.0
+    },
+    {
+      "offset_mm": 225.0,
+      "global_dof": 2,
+      "stiffness_N_mm": 1000000000.0,
+      "maximum_matrix_entry_error": 0.0
+    },
+    {
+      "offset_mm": 240.0,
+      "global_dof": 2,
+      "stiffness_N_mm": 1000000000.0,
+      "maximum_matrix_entry_error": 0.0
+    },
+    {
+      "offset_mm": 250.0,
+      "global_dof": 1,
+      "stiffness_N_mm": 1000000000.0,
+      "maximum_matrix_entry_error": 0.0
+    },
+    {
+      "offset_mm": 300.0,
+      "global_dof": 2,
+      "stiffness_N_mm": 1000000000.0,
+      "maximum_matrix_entry_error": 0.0
+    },
+    {
+      "offset_mm": 360.0,
+      "global_dof": 2,
+      "stiffness_N_mm": 1000000000.0,
+      "maximum_matrix_entry_error": 0.0
+    },
+    {
+      "offset_mm": 375.0,
+      "global_dof": 2,
+      "stiffness_N_mm": 1000000000.0,
+      "maximum_matrix_entry_error": 0.0
+    },
+    {
+      "offset_mm": 420.0,
+      "global_dof": 2,
+      "stiffness_N_mm": 1000000000.0,
+      "maximum_matrix_entry_error": 0.0
+    },
+    {
+      "offset_mm": 450.0,
+      "global_dof": 2,
+      "stiffness_N_mm": 1000000000.0,
+      "maximum_matrix_entry_error": 0.0
+    },
+    {
+      "offset_mm": 480.0,
+      "global_dof": 2,
+      "stiffness_N_mm": 1000000000.0,
+      "maximum_matrix_entry_error": 0.0
+    },
+    {
+      "offset_mm": 500.0,
+      "global_dof": 1,
+      "stiffness_N_mm": 1000000000.0,
+      "maximum_matrix_entry_error": 0.0
+    },
+    {
+      "offset_mm": 500.0,
+      "global_dof": 2,
+      "stiffness_N_mm": 1000000000.0,
+      "maximum_matrix_entry_error": 0.0
+    },
+    {
+      "offset_mm": 525.0,
+      "global_dof": 2,
+      "stiffness_N_mm": 1000000000.0,
+      "maximum_matrix_entry_error": 0.0
+    },
+    {
+      "offset_mm": 600.0,
+      "global_dof": 2,
+      "stiffness_N_mm": 1000000000.0,
+      "maximum_matrix_entry_error": 0.0
+    },
+    {
+      "offset_mm": 1000.0,
+      "global_dof": 2,
+      "stiffness_N_mm": 1000000000.0,
+      "maximum_matrix_entry_error": 0.0
+    },
+    {
+      "offset_mm": 1050.0,
+      "global_dof": 1,
+      "stiffness_N_mm": 1000000000.0,
+      "maximum_matrix_entry_error": 0.0
+    },
+    {
+      "offset_mm": 1050.0,
+      "global_dof": 2,
+      "stiffness_N_mm": 1000000000.0,
+      "maximum_matrix_entry_error": 0.0
+    },
+    {
+      "offset_mm": 1200.0,
+      "global_dof": 1,
+      "stiffness_N_mm": 1000000000.0,
+      "maximum_matrix_entry_error": 0.0
+    },
+    {
+      "offset_mm": 1200.0,
+      "global_dof": 2,
+      "stiffness_N_mm": 1000000000.0,
+      "maximum_matrix_entry_error": 0.0
+    },
+    {
+      "offset_mm": 1500.0,
+      "global_dof": 1,
+      "stiffness_N_mm": 1000000000.0,
+      "maximum_matrix_entry_error": 0.0
+    },
+    {
+      "offset_mm": 1500.0,
+      "global_dof": 2,
+      "stiffness_N_mm": 1000000000.0,
+      "maximum_matrix_entry_error": 0.0
+    },
+    {
+      "offset_mm": 2250.0,
+      "global_dof": 1,
+      "stiffness_N_mm": 1000000000.0,
+      "maximum_matrix_entry_error": 0.0
+    },
+    {
+      "offset_mm": 2250.0,
+      "global_dof": 2,
+      "stiffness_N_mm": 1000000000.0,
+      "maximum_matrix_entry_error": 0.0
+    },
+    {
+      "offset_mm": 2400.0,
+      "global_dof": 1,
+      "stiffness_N_mm": 1000000000.0,
+      "maximum_matrix_entry_error": 0.0
+    },
+    {
+      "offset_mm": 2400.0,
+      "global_dof": 2,
+      "stiffness_N_mm": 1000000000.0,
+      "maximum_matrix_entry_error": 0.0
+    },
+    {
+      "offset_mm": 3000.0,
+      "global_dof": 1,
+      "stiffness_N_mm": 1000000000.0,
+      "maximum_matrix_entry_error": 0.0
+    },
+    {
+      "offset_mm": 3000.0,
+      "global_dof": 2,
+      "stiffness_N_mm": 1000000000.0,
+      "maximum_matrix_entry_error": 0.0
+    }
+  ],
+  "scope": "Both link formulations were checked against the expected 9-by-9 tangent for an isolated translational spring with the native projected-node Z, RX and RY restraints. Input hashes identify the modal and static building replays. Physical member and bearing geometry is assessed in each building's IFC acceptance record."
+}

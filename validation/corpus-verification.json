@@ -1,0 +1,150 @@
+{
+  "archive_sha256": "95d6c30fb7fe4a0eeeea25e24783072979181c956dc7b02ec69403f48673b81b",
+  "matching_archive_entries": {
+    "documents": 4762,
+    "indexes": 10,
+    "INDIA_MANIFEST.json": 1
+  },
+  "editions_and_pdf_fingerprints": [
+    {
+      "stem": "IS_800_2007",
+      "edition": "2007",
+      "pdf": "IS_800_2007.pdf",
+      "pages": 150,
+      "sha256": "06711fe3c87a3da0351806a9cdd87f014a7df974e9e07200a2dc0ddbc288617b"
+    },
+    {
+      "stem": "IS_875_Part_1_2026",
+      "edition": "2026",
+      "pdf": "IS_875_Part_1_2026.pdf",
+      "pages": 46,
+      "sha256": "510034f7a6678a4cbdde39ee8c139196febb20b041856a7428417db29b9837cc"
+    },
+    {
+      "stem": "IS_875_Part_2_1987",
+      "edition": "1987",
+      "pdf": "IS_875_Part_2_1987.pdf",
+      "pages": 21,
+      "sha256": "9b77c1cd890b37df19b04ca8704d11e7657a45b36e8e124c6f30d36ab9044943"
+    },
+    {
+      "stem": "IS_875_Part_3_2015",
+      "edition": "2015",
+      "pdf": "IS_875_Part_3_2015.pdf",
+      "pages": 62,
+      "sha256": "c89a9e7858696e38353d65fedc26736fad1bde42c13cb4cdbf90714bf8991c5b"
+    },
+    {
+      "stem": "IS_875_Part_4_1987",
+      "edition": "2021",
+      "pdf": "IS_875_Part_4_1987.pdf",
+      "pages": 20,
+      "sha256": "609650f68fe576947b571f04a7e4f78ec442cb3b70b692fef582da3aba2f68d8"
+    },
+    {
+      "stem": "IS_875_Part_5_1987",
+      "edition": "1987",
+      "pdf": "IS_875_Part_5_1987.pdf",
+      "pages": 21,
+      "sha256": "8f03abdf8e74ffc1f84781f379c591ffbfdd3a1ef4c2a3d5295f45ed6508fe51"
+    },
+    {
+      "stem": "IS_1893_Part_1_2016",
+      "edition": "2016+A1+A2",
+      "pdf": "IS_1893_Part_1_2016_Amd2_Reff2021.pdf",
+      "pages": 56,
+      "sha256": "00d38dbdac596654a3aa141e378b8018cc665597c3468d3ae91f38e6aeb96805"
+    },
+    {
+      "stem": "IS_2062_Part_1_2025",
+      "edition": "2025",
+      "pdf": "IS_2062_Part_1_2025.pdf",
+      "pages": 18,
+      "sha256": "b6cc751e3f4c7b306877895cff2e4610b12d24932f7cfdde55c540c4e65d83e8"
+    },
+    {
+      "stem": "IS_808_2021",
+      "edition": "2021",
+      "pdf": "IS_808_2021.pdf",
+      "pages": 60,
+      "sha256": "d95b1099da248b7dd6bea5e2e5cf328380734b6a409911c8a9433467cf4fdefa"
+    },
+    {
+      "stem": "IS_816_1969",
+      "edition": "1969",
+      "pdf": "IS_816_1969.pdf",
+      "pages": 29,
+      "sha256": "1273a5af607878ce5ba1161d3d2c898840507a6cbe876b499c95d14acce033d8"
+    },
+    {
+      "stem": "IS_9595_1996",
+      "edition": "1996",
+      "pdf": "IS_9595_1996.pdf",
+      "pages": 56,
+      "sha256": "3608c5bd790b697d7f3f5e8e82d0c7cae6bdfce141333c015b0311a91004791e"
+    },
+    {
+      "stem": "IS_4000_1992",
+      "edition": "1992",
+      "pdf": "IS_4000_1992.pdf",
+      "pages": 15,
+      "sha256": "91fa66919036184a6ab3ce4fe6b68a95daff782a5e9f087a90216d86f770e067"
+    },
+    {
+      "stem": "IS_1161_2014",
+      "edition": "2014",
+      "pdf": "IS_1161_2014.pdf",
+      "pages": 9,
+      "sha256": "11807d4ebcc93ed1ed080655f69ac679c0d258026712b5117b2ca350585daaba"
+    },
+    {
+      "stem": "IS_801_1975",
+      "edition": "1975",
+      "pdf": "IS_801_1975.pdf",
+      "pages": 39,
+      "sha256": "bce08b803da82dd099e55c4ad8b1b509457b3c7e98ce2f37f903324934948c35"
+    },
+    {
+      "stem": "IS_811_1987",
+      "edition": "1987",
+      "pdf": "IS_811_1987.pdf",
+      "pages": 32,
+      "sha256": "557ab692fd9c7b77c8981948abda8d174f4e95890b51e34614d6673128501f47"
+    },
+    {
+      "stem": "IS_811_1987_Amd1_2011",
+      "edition": "2011",
+      "pdf": "IS_811_1987_Amd1_2011.pdf",
+      "pages": 1,
+      "sha256": "8dbb76c4b4cca08a320bb3f7924d3468d835632c144201618692586c5c9a236a"
+    },
+    {
+      "stem": "IS_18168_2023",
+      "edition": "2023",
+      "pdf": "IS_18168_2023.pdf",
+      "pages": 28,
+      "sha256": "e3563ca3bbf2c1f0febb28278f1d081290cea32e4115c3e4dd52aa9f065bd415"
+    }
+  ],
+  "primary_pdf_spot_checks": [
+    {
+      "pdf": "IS_875_Part_4_1987.pdf",
+      "pdf_page": 1,
+      "control": "Snow load edition on the title page",
+      "located": true
+    },
+    {
+      "pdf": "IS_1893_Part_1_2016_Amd2_Reff2021.pdf",
+      "pdf_page": 28,
+      "control": "Storey drift limit",
+      "located": true
+    },
+    {
+      "pdf": "IS_801_1975.pdf",
+      "pdf_page": 12,
+      "control": "Cold-formed working stress",
+      "located": true
+    }
+  ],
+  "differences": []
+}

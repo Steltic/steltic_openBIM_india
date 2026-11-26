@@ -1,0 +1,1446 @@
+[
+  {
+    "id": "IN_Ex1",
+    "module": "HR",
+    "number": 1,
+    "unit": "Main",
+    "handoff_sha256": "2efd4365024e218c98a7431a41d0e620f3d68075a83aecc5f9147cf3e553cf41",
+    "report_url": "https://stelticai.com/solutions_india/hr/IN_Ex1_PEB_factory_shed_tapered_Bengaluru/report.html",
+    "reference_report_sha256": "3a108da518232c764799dabb290d4d6dec9bcaef4c12f61958dc3c4cde70ec68",
+    "published": {
+      "native_status": "complete",
+      "strength_dc": 0.992,
+      "governing_member": "lateral_col-WI350X160X12X10",
+      "takeoff_kg_m2": 33.1
+    },
+    "fresh": {
+      "native_status": "complete",
+      "strength_dc": 0.3465,
+      "governing_member": "lateral_col-WI1072X360X25X14",
+      "check": "IS 800 9.3 interaction / member resistance",
+      "combination": "1.5DL+1.5LL+N_X",
+      "clause": "IS 800:2007 7.1.2, 8.2, 8.4, 9.3; Table 2/3/10",
+      "reason_count": 0,
+      "calculation_status": "complete",
+      "authority_file": "STATUS.engine.md",
+      "authority_sha256": "09eacb726cedebad25d0a14e0cfde9f65dbd2d1958fe70317ab325678350fd75",
+      "calc_sha256": "360280cfcd559fad04ba83134d45232279975452df794483696a540249becbc4",
+      "report_sha256": "61c51bd93214fe55a80291f3078d553e3799f91d2d78b6b6bc8739f10b3851b1",
+      "printed_strength": {
+        "dc": 0.346,
+        "member": "lateral_col-WI1072X360X25X14"
+      },
+      "report_matches_native_headline": true,
+      "open_reasons_sample": []
+    }
+  },
+  {
+    "id": "IN_Ex2",
+    "module": "HR",
+    "number": 2,
+    "unit": "Main",
+    "handoff_sha256": "393de1fa97b0fa8794c45a0d13a23dd6c5281a6f92e1f98c9547d1d0062d9a92",
+    "report_url": "https://stelticai.com/solutions_india/hr/IN_Ex2_PEB_GradeA_warehouse_multispan_Bhiwandi/report.html",
+    "reference_report_sha256": "23a2d0053678121f98c7b6e83f28b9b09f2d299fb631c9b0516a2ba260c9c17c",
+    "published": {
+      "native_status": "complete",
+      "strength_dc": 0.996,
+      "governing_member": "gravity_col-WI300X300X20X4",
+      "takeoff_kg_m2": 52.8
+    },
+    "fresh": {
+      "native_status": "complete",
+      "strength_dc": 0.9764,
+      "governing_member": "roof-WI650X420X32X28",
+      "check": "IS 800 9.3 interaction / member resistance",
+      "combination": "1.5DL+1.5WM90-CD",
+      "clause": "IS 800:2007 7.1.2, 8.2, 8.4, 9.3; Table 2/3/10",
+      "reason_count": 0,
+      "calculation_status": "complete",
+      "authority_file": "STATUS.engine.md",
+      "authority_sha256": "450a9c55cfb4587ecb8c5f8dde2937c5e0cdac7819548a27dac8fe158c3342d7",
+      "calc_sha256": "7f14b87b849307193c10cea8a0d0701f987e8ee19fd4cc04ec7cde399db05b0f",
+      "report_sha256": "0cb54ade76b4fe059c4383b8a088c2badf4c48b7cf1abae8a7033b096ce45ef3",
+      "printed_strength": {
+        "dc": 0.976,
+        "member": "roof-WI650X420X32X28"
+      },
+      "report_matches_native_headline": true,
+      "open_reasons_sample": []
+    }
+  },
+  {
+    "id": "IN_Ex3",
+    "module": "HR",
+    "number": 3,
+    "unit": "Main",
+    "handoff_sha256": "e58d3706af4d6810a5c8464485f42065022c9b78245362af19cbdd0ba3ed7c18",
+    "report_url": "https://stelticai.com/solutions_india/hr/IN_Ex3_PEB_crane_shed_10t_Nagpur/report.html",
+    "reference_report_sha256": "67419697d9a0f4eebb91f55dd66ca157ecca8067bb1201ae2c701ccfd43a12a9",
+    "published": {
+      "native_status": "complete",
+      "strength_dc": 0.992,
+      "governing_member": "gravity_col-WI350X180X8X4",
+      "takeoff_kg_m2": 52.2
+    },
+    "fresh": {
+      "native_status": "complete",
+      "strength_dc": 0.3747,
+      "governing_member": "roof-WI600X350X25X14",
+      "check": "IS 800 9.3 interaction / member resistance",
+      "combination": "1.5DL+1.5WM90-",
+      "clause": "IS 800:2007 7.1.2, 8.2, 8.4, 9.3; Table 2/3/10",
+      "reason_count": 0,
+      "calculation_status": "complete",
+      "authority_file": "STATUS.engine.md",
+      "authority_sha256": "2ac33af3f79d9a84be704a947179e662aaf9bc73f8775a13dc7079ec304940ff",
+      "calc_sha256": "c59ee656bb26cc432f0be045dad6efb98d76d41f1cf9d62a5b56db7d9171c761",
+      "report_sha256": "4d984361b07e0d2b43c8ec86768589ee8d4cb4005b1743d4b25ce6e8e2957262",
+      "printed_strength": {
+        "dc": 0.375,
+        "member": "roof-WI600X350X25X14"
+      },
+      "report_matches_native_headline": true,
+      "open_reasons_sample": []
+    }
+  },
+  {
+    "id": "IN_Ex4",
+    "module": "HR",
+    "number": 4,
+    "unit": "Main",
+    "handoff_sha256": "16c8ef867729272e9d9cc5eb567460b5665cd3d656a5c48913a24e1122e51c54",
+    "report_url": "https://stelticai.com/solutions_india/hr/IN_Ex4_PEB_warehouse_SMRF_Zone4_NCR/report.html",
+    "reference_report_sha256": "4daa26637512ee741967ae05712514a4fbd89291301e345f1b7f90cde2cc581b",
+    "published": {
+      "native_status": "complete",
+      "strength_dc": 0.993,
+      "governing_member": "roof-WI569X250X18X16",
+      "takeoff_kg_m2": 57.3
+    },
+    "fresh": {
+      "native_status": "complete",
+      "strength_dc": 0.3141,
+      "governing_member": "roof-WI680X420X32X30",
+      "check": "IS 800 9.3 interaction / member resistance",
+      "combination": "1.5DL+1.5WM90-",
+      "clause": "IS 800:2007 7.1.2, 8.2, 8.4, 9.3; Table 2/3/10",
+      "reason_count": 0,
+      "calculation_status": "complete",
+      "authority_file": "STATUS.engine.md",
+      "authority_sha256": "ccd2ef5c5c2610557bc8e3c3d35adcfebe2b170e60f99d46b835ec035d19fcc2",
+      "calc_sha256": "4cb0a9d131e08b5d907b46d709cb9e9084d25afc23b19eb375f52db7c8d85919",
+      "report_sha256": "25dbf91766e172acf7580b8eae708f5b527416003523d50341fe1637a6380339",
+      "printed_strength": {
+        "dc": 0.314,
+        "member": "roof-WI680X420X32X30"
+      },
+      "report_matches_native_headline": true,
+      "open_reasons_sample": []
+    }
+  },
+  {
+    "id": "IN_Ex5",
+    "module": "HR",
+    "number": 5,
+    "unit": "Main",
+    "handoff_sha256": "8d18f22bbc638b6ff76979dc3bbb4e72f37e63d235cf1f16a7a920409a3d61ad",
+    "report_url": "https://stelticai.com/solutions_india/hr/IN_Ex5_PEB_rooftop_solar_check_Bengaluru/report.html",
+    "reference_report_sha256": "ec8e390631f795b7183456af356b9019a8a0c5ad3f680ec492a68e93d0ed71d8",
+    "published": {
+      "native_status": "partial",
+      "strength_dc": 1.127,
+      "governing_member": "lateral_col-WI934X240X12X8"
+    },
+    "fresh": {
+      "native_status": "complete",
+      "strength_dc": 0.3725,
+      "governing_member": "lateral_col-WI1072X360X25X14",
+      "check": "IS 800 9.3 interaction / member resistance",
+      "combination": "1.5DL+1.5LL+N_X",
+      "clause": "IS 800:2007 7.1.2, 8.2, 8.4, 9.3; Table 2/3/10",
+      "reason_count": 0,
+      "calculation_status": "complete",
+      "authority_file": "STATUS.engine.md",
+      "authority_sha256": "4335599db8bac1634be648aee9274edd2d4280d899f06f0e5d965012f80bca91",
+      "calc_sha256": "4a3bddb704d2bb76c75bb34fc4bb34ec8dd51ff9ddcd744e1c813bb8f3fbdb52",
+      "report_sha256": "482374c2c870f0894f4e78c3bd678d5399135f1bae6cf8e755a6942880981429",
+      "printed_strength": {
+        "dc": 0.372,
+        "member": "lateral_col-WI1072X360X25X14"
+      },
+      "report_matches_native_headline": true,
+      "open_reasons_sample": []
+    }
+  },
+  {
+    "id": "IN_Ex6",
+    "module": "HR",
+    "number": 6,
+    "unit": "Main",
+    "handoff_sha256": "59cf70df765eab3a50cf4172d13516eb65b27d3831f1f883a1bccdeadf1474d0",
+    "report_url": "https://stelticai.com/solutions_india/hr/IN_Ex6_OMRF_warehouse_mezzanine_Hyderabad/report.html",
+    "reference_report_sha256": "97c992e6e97dd3def5858a6c5ee8bb339c5fa59bd5f79c48d18ea70eed557416",
+    "published": {
+      "native_status": "complete",
+      "strength_dc": 0.887,
+      "governing_member": "floor-NPB600X220X122.45",
+      "takeoff_kg_m2": 47.6
+    },
+    "fresh": {
+      "native_status": "complete",
+      "strength_dc": 0.983,
+      "governing_member": "lateral_col-WPB260X260X92.99",
+      "check": "IS 800 9.3 interaction / member resistance",
+      "combination": "1.2DL+0.5LL-2.5EQ_Y[ea][col]",
+      "clause": "IS 800:2007 7.1.2, 8.2, 8.4, 9.3; Table 2/3/10",
+      "reason_count": 0,
+      "calculation_status": "complete",
+      "authority_file": "STATUS.engine.md",
+      "authority_sha256": "7e7a5f17b8673516e73605baebde29914ec18fe68e21b0edaee9ced7320c08a6",
+      "takeoff_kg_m2": 44.49,
+      "takeoff_basis": "modelled members + declared secondary members and crane brackets; connections, deck and unmodelled secondary beams not included",
+      "calc_sha256": "ebf84cafecf827c5ef100a43031ec04c037d076373cd8e86f76131cff22bf3c8",
+      "report_sha256": "14feb4d33883f3bd028c563889b7a12d5fd655f770b28085c1b4d286b8dd90a2",
+      "printed_strength": {
+        "dc": 0.983,
+        "member": "lateral_col-WPB260X260X92.99"
+      },
+      "report_matches_native_headline": true,
+      "open_reasons_sample": []
+    }
+  },
+  {
+    "id": "IN_Ex7",
+    "module": "HR",
+    "number": 7,
+    "unit": "Main",
+    "handoff_sha256": "180cad02d26148e578f54fd96004f363e34fce5313d48edd9e3fcbddd6dd64e1",
+    "report_url": "https://stelticai.com/solutions_india/hr/IN_Ex7_Crane_bay_OMRF_OCBF_Vizag/report.html",
+    "reference_report_sha256": "bf5b5f78738a784496e1a3c9beddaf363246e44cdf60c09e131022cdc1861b29",
+    "published": {
+      "native_status": "complete",
+      "strength_dc": 0.945,
+      "governing_member": "lateral_col-BOX500X500X14",
+      "takeoff_kg_m2": 64.9
+    },
+    "fresh": {
+      "native_status": "complete",
+      "strength_dc": 0.7207,
+      "governing_member": "lateral_col-WI600X550X36X22",
+      "check": "IS 800 9.3 interaction / member resistance",
+      "combination": "1.5DL+1.5WM0+R",
+      "clause": "IS 800:2007 7.1.2, 8.2, 8.4, 9.3; Table 2/3/10",
+      "reason_count": 0,
+      "calculation_status": "complete",
+      "authority_file": "STATUS.engine.md",
+      "authority_sha256": "dae0326db3c42fb6f65bc5298c8c08ee5f7bf91c88bb68ed3ecf98b4e224d29f",
+      "calc_sha256": "5053c7bce43087100c95638f31cc6b55f9ec8610c376752b46e4c34c5bcd9997",
+      "report_sha256": "ccbad303a3d41f665f3a17e97f20705cf930f0186fe5b1d16b9e8d5922d753af",
+      "printed_strength": {
+        "dc": 0.721,
+        "member": "lateral_col-WI600X550X36X22"
+      },
+      "report_matches_native_headline": true,
+      "open_reasons_sample": []
+    }
+  },
+  {
+    "id": "IN_Ex8",
+    "module": "HR",
+    "number": 8,
+    "unit": "Main",
+    "handoff_sha256": "f2e9d631fc80a697ef9b5c3397347471b9e04c138438b3528d7465a2e092bf7a",
+    "report_url": "https://stelticai.com/solutions_india/hr/IN_Ex8_SMF_portal_Chennai_wind/report.html",
+    "reference_report_sha256": "f225d803ec210ed91bb73dc824bf71d23699faf3df4689132c109913cc5072a7",
+    "published": {
+      "native_status": "complete",
+      "strength_dc": 0.852,
+      "governing_member": "roof-WI550X275X18X14",
+      "takeoff_kg_m2": 55.6
+    },
+    "fresh": {
+      "native_status": "complete",
+      "strength_dc": 0.4037,
+      "governing_member": "roof-WI1000X350X40X25",
+      "check": "IS 800 9.3 interaction / member resistance",
+      "combination": "1.5DL+1.5LL-N_X",
+      "clause": "IS 800:2007 7.1.2, 8.2, 8.4, 9.3; Table 2/3/10",
+      "reason_count": 0,
+      "calculation_status": "complete",
+      "authority_file": "STATUS.engine.md",
+      "authority_sha256": "ddb9beefe23832f079d301b872bf70c2109d6b81a15b22a5eafcdf5c077076c3",
+      "calc_sha256": "4330f906e5fc56ee602ff5c2f85f0ae0e8b9f069635372f8a1536b1784300243",
+      "report_sha256": "1147858470490adaf005caf3b1dece2343c50cd1d775932084b3724cb2852483",
+      "printed_strength": {
+        "dc": 0.404,
+        "member": "roof-WI1000X350X40X25"
+      },
+      "report_matches_native_headline": true,
+      "open_reasons_sample": []
+    }
+  },
+  {
+    "id": "IN_Ex9",
+    "module": "HR",
+    "number": 9,
+    "unit": "Main",
+    "handoff_sha256": "1bf25e63fc90ac3cf737a936e42616e239c8ec3914f1ab14af38e81367dec5f5",
+    "report_url": "https://stelticai.com/solutions_india/hr/IN_Ex9_Gable_warehouse_SMF_SCBF_snow_Shimla/report.html",
+    "reference_report_sha256": "4b7d69b58025ca95ff98cc0454cb289cbee1bee1ed0317d31f3a753c94aeed11",
+    "published": {
+      "native_status": "complete",
+      "strength_dc": 0.811,
+      "governing_member": "roof-WI500X325X22X12",
+      "takeoff_kg_m2": 74.8
+    },
+    "fresh": {
+      "native_status": "complete",
+      "strength_dc": 0.6733,
+      "governing_member": "roof-WPB800X300X317.36",
+      "check": "IS 800 9.3 interaction / member resistance",
+      "combination": "1.5DL+1.5LL+1.5SL",
+      "clause": "IS 800:2007 7.1.2, 8.2, 8.4, 9.3; Table 2/3/10",
+      "reason_count": 0,
+      "calculation_status": "complete",
+      "authority_file": "STATUS.engine.md",
+      "authority_sha256": "106dfe758bdab984c9755abe6d1dc5eadd3da209795ca98c5fe01fd080aaa949",
+      "calc_sha256": "14fcb5050894af2249214b3c568e4c201558323fabd3c853fa838992a57dec58",
+      "report_sha256": "da1e9c1f652ba0502592be5c1bb3970eef00309e42f626a40d7dd2848f56a81f",
+      "printed_strength": {
+        "dc": 0.673,
+        "member": "roof-WPB800X300X317.36"
+      },
+      "report_matches_native_headline": true,
+      "open_reasons_sample": []
+    }
+  },
+  {
+    "id": "IN_Ex10",
+    "module": "HR",
+    "number": 10,
+    "unit": "Main",
+    "handoff_sha256": "41c0cc6f30d63f6a7a3fc2a8f074e20d1a3a9ef4d8694caa9dc58e0ebac2ac51",
+    "report_url": "https://stelticai.com/solutions_india/hr/IN_Ex10_SCBF_bigbox_flexdiaphragm_Indore/report.html",
+    "reference_report_sha256": "8500951907de95c0611f9d2c9b4665b8f3dc69cb2a386904a8c37c842915fad8",
+    "published": {
+      "native_status": "complete",
+      "strength_dc": 0.935,
+      "governing_member": "roof-WI300X175X12X8",
+      "takeoff_kg_m2": 26.3
+    },
+    "fresh": {
+      "native_status": "complete",
+      "strength_dc": 0.8042,
+      "governing_member": "lateral_col-WPB340X300X134.16",
+      "check": "IS 800 9.3 interaction / member resistance",
+      "combination": "1.5DL+1.5WM0-",
+      "clause": "IS 800:2007 7.1.2, 8.2, 8.4, 9.3; Table 2/3/10",
+      "reason_count": 0,
+      "calculation_status": "complete",
+      "authority_file": "STATUS.engine.md",
+      "authority_sha256": "cddce7a214890e82d6bf4fdbb38e43613db3e004394527ab29ca41878d25f8d6",
+      "takeoff_kg_m2": 65.43,
+      "takeoff_basis": "modelled members + declared secondary members and crane brackets; connections, deck and unmodelled secondary beams not included",
+      "calc_sha256": "dbfe1ec4eca66861880fa3c061c3d157184e8e29564fd3073af96c6f3490f569",
+      "report_sha256": "7bc1d9fe43512e05e2ee49f5da4e0a65aeacc369eaeb0e115a5b079704cb2a28",
+      "printed_strength": {
+        "dc": 0.804,
+        "member": "lateral_col-WPB340X300X134.16"
+      },
+      "report_matches_native_headline": true,
+      "open_reasons_sample": []
+    }
+  },
+  {
+    "id": "IN_Ex11",
+    "module": "HR",
+    "number": 11,
+    "unit": "Office",
+    "handoff_sha256": "9f407dc813253445f7f30195e2e331c1eea8815ee1c08b628c06af5a504e88f4",
+    "report_url": "https://stelticai.com/solutions_india/hr/IN_Ex11_OCBF_4levels_splitlevel_Jaipur/report.html",
+    "reference_report_sha256": "a722186c54dd3353605ff26c638e85ffc5593c81ecc6c786d4d6d23cf20faa73",
+    "published": {
+      "native_status": "complete",
+      "strength_dc": 0.943,
+      "governing_member": "gravity_col-HB250",
+      "takeoff_kg_m2": 31.9
+    },
+    "fresh": {
+      "native_status": "complete",
+      "strength_dc": 0.8374,
+      "governing_member": "gravity_col-WPB240X240X60.32",
+      "check": "IS 800 9.3 interaction / member resistance",
+      "combination": "1.5DL+1.5LL+N_X",
+      "clause": "IS 800:2007 7.1.2, 8.2, 8.4, 9.3; Table 2/3/10",
+      "reason_count": 0,
+      "calculation_status": "complete",
+      "authority_file": "STATUS.engine.md",
+      "authority_sha256": "a65494e66e243087c0326904797a771d9cb05ebe86fbb030e0fdb4af2e5117cf",
+      "takeoff_kg_m2": 61.78,
+      "takeoff_basis": "modelled members + declared secondary members and crane brackets; connections, deck and unmodelled secondary beams not included",
+      "calc_sha256": "2be3a814a8fb867889847b9cefa8f1aca9a452622e6af14e3eb62d0a1fcd9fdb",
+      "report_sha256": "b44613e9c286496a54de4c79693c4a1a0513bbdd191b900bf66544c76e5168af",
+      "printed_strength": {
+        "dc": 0.837,
+        "member": "gravity_col-WPB240X240X60.32"
+      },
+      "report_matches_native_headline": true,
+      "open_reasons_sample": []
+    }
+  },
+  {
+    "id": "IN_Ex11",
+    "module": "HR",
+    "number": 11,
+    "unit": "Workshop",
+    "handoff_sha256": "9f407dc813253445f7f30195e2e331c1eea8815ee1c08b628c06af5a504e88f4",
+    "report_url": "https://stelticai.com/solutions_india/hr/IN_Ex11_OCBF_4levels_splitlevel_Jaipur/units/workshop/report.html",
+    "reference_report_sha256": "2f416552384111b29988ddff029f6b88d6fd55200c4f8409b8a4f0b38d7963f1",
+    "published": {
+      "native_status": "complete",
+      "strength_dc": 0.935,
+      "governing_member": "floor-WB600",
+      "takeoff_kg_m2": 35.3
+    },
+    "fresh": {
+      "native_status": "complete",
+      "strength_dc": 0.8074,
+      "governing_member": "gravity_col-WPB300X300X88.34",
+      "check": "IS 800 9.3 interaction / member resistance",
+      "combination": "1.5DL+1.5LL+N_Y",
+      "clause": "IS 800:2007 7.1.2, 8.2, 8.4, 9.3; Table 2/3/10",
+      "reason_count": 0,
+      "calculation_status": "complete",
+      "authority_file": "STATUS.engine.md",
+      "authority_sha256": "4e6391f0a2aa1c33139a36b4fa09178f13b404e2236eb1688e4cdc0caa4e4bff",
+      "takeoff_kg_m2": 78.67,
+      "takeoff_basis": "modelled members + declared secondary members and crane brackets; connections, deck and unmodelled secondary beams not included",
+      "calc_sha256": "23d9b2c8c97723b48942b4bba1f1cb9355ce768f02dbd34ad89a922826da7165",
+      "report_sha256": "3b943b65c05ac28573f2189fe5fa1ceee107d5927c3f026537cd280297c05c13",
+      "printed_strength": {
+        "dc": 0.807,
+        "member": "gravity_col-WPB300X300X88.34"
+      },
+      "report_matches_native_headline": true,
+      "open_reasons_sample": []
+    }
+  },
+  {
+    "id": "IN_Ex12",
+    "module": "HR",
+    "number": 12,
+    "unit": "Classroom",
+    "handoff_sha256": "043a9a08b98aed81c6b217c48f896b8f73ba9123625d5547ae7f449b7643695b",
+    "report_url": "https://stelticai.com/solutions_india/hr/IN_Ex12_SMF_3levels_Zplan_school_Chandigarh/report.html",
+    "reference_report_sha256": "81d572f7645b317b0c7e2a1a8c214648d655d4f53206cbf1c4b4396f335da154",
+    "published": {
+      "native_status": "complete",
+      "strength_dc": 0.941,
+      "governing_member": "floor-WI800X300X16X8",
+      "takeoff_kg_m2": 54.8
+    },
+    "fresh": {
+      "native_status": "complete",
+      "strength_dc": 0.8737,
+      "governing_member": "gravity_col-WPB360X300X91.04",
+      "check": "IS 800 9.3 interaction / member resistance",
+      "combination": "1.5DL+1.5LL+N_Y",
+      "clause": "IS 800:2007 7.1.2, 8.2, 8.4, 9.3; Table 2/3/10",
+      "reason_count": 0,
+      "calculation_status": "complete",
+      "authority_file": "STATUS.engine.md",
+      "authority_sha256": "e0eea80640a9be7dc6d871976a4e9bfd5ac28c794e28d1f6911cd63a058ec01f",
+      "takeoff_kg_m2": 133.2,
+      "takeoff_basis": "modelled members + declared secondary members and crane brackets; connections, deck and unmodelled secondary beams not included",
+      "calc_sha256": "808bd7b49745dd193247b8901a04efe9e5c1cc3e9a1e029a677684763f8b4712",
+      "report_sha256": "e0ef6fc96ef8304bdc006e78c87eea5b40b8d5769339255665d327b3f6c03b98",
+      "printed_strength": {
+        "dc": 0.874,
+        "member": "gravity_col-WPB360X300X91.04"
+      },
+      "report_matches_native_headline": true,
+      "open_reasons_sample": []
+    }
+  },
+  {
+    "id": "IN_Ex12",
+    "module": "HR",
+    "number": 12,
+    "unit": "Link",
+    "handoff_sha256": "043a9a08b98aed81c6b217c48f896b8f73ba9123625d5547ae7f449b7643695b",
+    "report_url": "https://stelticai.com/solutions_india/hr/IN_Ex12_SMF_3levels_Zplan_school_Chandigarh/unitB_link/report.html",
+    "reference_report_sha256": "e8edf66ca89506292f5479b4840d0d3189594b7dd288e88f004f58e99627b24b",
+    "published": {
+      "native_status": "complete",
+      "strength_dc": 0.941,
+      "governing_member": "floor-WI800X300X16X8",
+      "takeoff_kg_m2": 50.1
+    },
+    "fresh": {
+      "native_status": "complete",
+      "strength_dc": 0.974,
+      "governing_member": "gravity_col-WPB200X200X34.65",
+      "check": "IS 800 9.3 interaction / member resistance",
+      "combination": "1.5DL+1.5LL+N_Y",
+      "clause": "IS 800:2007 7.1.2, 8.2, 8.4, 9.3; Table 2/3/10",
+      "reason_count": 0,
+      "calculation_status": "complete",
+      "authority_file": "STATUS.engine.md",
+      "authority_sha256": "5bc671d0c1f7e0f9975cb020bcda3f30b27a9d12f9f864164165cd755ee6fe0a",
+      "takeoff_kg_m2": 185.03,
+      "takeoff_basis": "modelled members + declared secondary members and crane brackets; connections, deck and unmodelled secondary beams not included",
+      "calc_sha256": "fe4afcf4cca88c10e4aea4557c979197089e82f2372abbf898d94f6ffcce0d09",
+      "report_sha256": "078784530992ad43b28362dba18f4a574a213422002c8f470a02151d4beeb26d",
+      "printed_strength": {
+        "dc": 0.974,
+        "member": "gravity_col-WPB200X200X34.65"
+      },
+      "report_matches_native_headline": true,
+      "open_reasons_sample": []
+    }
+  },
+  {
+    "id": "IN_Ex12",
+    "module": "HR",
+    "number": 12,
+    "unit": "Gym",
+    "handoff_sha256": "043a9a08b98aed81c6b217c48f896b8f73ba9123625d5547ae7f449b7643695b",
+    "report_url": "https://stelticai.com/solutions_india/hr/IN_Ex12_SMF_3levels_Zplan_school_Chandigarh/unitC_gym/report.html",
+    "reference_report_sha256": "7ffaf1ee5c8b968b4f93825fabfe70b84e74729e019d468086904867cf73de7d",
+    "published": {
+      "native_status": "complete",
+      "strength_dc": 0.736,
+      "governing_member": "roof-WI1000X225X16X10",
+      "takeoff_kg_m2": 112.5
+    },
+    "fresh": {
+      "native_status": "complete",
+      "strength_dc": 0.5791,
+      "governing_member": "roof-WPB800X300X317.36",
+      "check": "IS 800 9.3 interaction / member resistance",
+      "combination": "1.5DL+1.5LL-N_X",
+      "clause": "IS 800:2007 7.1.2, 8.2, 8.4, 9.3; Table 2/3/10",
+      "reason_count": 0,
+      "calculation_status": "complete",
+      "authority_file": "STATUS.engine.md",
+      "authority_sha256": "8af44f08500fc7fc0b68e495aabe9131dfcd39c772f0195ed2b8e1a8d5f744f0",
+      "takeoff_kg_m2": 212.07,
+      "takeoff_basis": "modelled members + declared secondary members and crane brackets; connections, deck and unmodelled secondary beams not included",
+      "calc_sha256": "9cea080c2a51dbec202a2c7ac98b4fcc15b7af31de6c9a279af833d06de81f5c",
+      "report_sha256": "e907e8bb6c9abe265a70c8b240ac9d62d123a2de587c129f6bcfcaa759f297f5",
+      "printed_strength": {
+        "dc": 0.579,
+        "member": "roof-WPB800X300X317.36"
+      },
+      "report_matches_native_headline": true,
+      "open_reasons_sample": []
+    }
+  },
+  {
+    "id": "IN_Ex13",
+    "module": "HR",
+    "number": 13,
+    "unit": "Main",
+    "handoff_sha256": "7de8c2f5b5f42236fe41ea17783c4be2c237680a12c0bd53643e5805ca1cc661",
+    "report_url": "https://stelticai.com/solutions_india/hr/IN_Ex13_SCBF_5levels_Delhi/report.html",
+    "reference_report_sha256": "17668b12891a4dad42538495283b7d885b9ffc525148ff0d91ac1786c04208ee",
+    "published": {
+      "native_status": "complete",
+      "strength_dc": 0.949,
+      "governing_member": "roof-MB300",
+      "takeoff_kg_m2": 73.8
+    },
+    "fresh": {
+      "native_status": "complete",
+      "strength_dc": 0.8408,
+      "governing_member": "gravity_col-WPB220X220X40.4",
+      "check": "IS 800 9.3 interaction / member resistance",
+      "combination": "1.5DL+1.5LL+N_Y",
+      "clause": "IS 800:2007 7.1.2, 8.2, 8.4, 9.3; Table 2/3/10",
+      "reason_count": 0,
+      "calculation_status": "complete",
+      "authority_file": "STATUS.engine.md",
+      "authority_sha256": "18c0848d3637408c022478b589a691360e9b50aac51dea62a0e473aa78b64399",
+      "takeoff_kg_m2": 67.68,
+      "takeoff_basis": "modelled members + declared secondary members and crane brackets; connections, deck and unmodelled secondary beams not included",
+      "calc_sha256": "8989f8b04c63889e9e1e03e989fb73836d08595c37d9686726e233ba9c35886c",
+      "report_sha256": "caf1918ec225ed9a2f551d766fbb559d1ec360330b7e5edb4e20903858514b01",
+      "printed_strength": {
+        "dc": 0.841,
+        "member": "gravity_col-WPB220X220X40.4"
+      },
+      "report_matches_native_headline": true,
+      "open_reasons_sample": []
+    }
+  },
+  {
+    "id": "IN_Ex14",
+    "module": "HR",
+    "number": 14,
+    "unit": "Main",
+    "handoff_sha256": "4aa1a4033cdb29ca0b2c0818adb7891fbff4e9f71ede189bfa77917cc999dd21",
+    "report_url": "https://stelticai.com/solutions_india/hr/IN_Ex14_SCBF_hospital_Kolkata/report.html",
+    "reference_report_sha256": "664f018a05150697293f69de3b261f1caacaac556c9ded4dc608874887241257",
+    "published": {
+      "native_status": "complete",
+      "strength_dc": 0.975,
+      "governing_member": "brace-WI250X250X16X8",
+      "takeoff_kg_m2": 51.8
+    },
+    "fresh": {
+      "native_status": "complete",
+      "strength_dc": 0.945,
+      "governing_member": "lateral_col-WPB400X400X239.62",
+      "check": "IS 800 9.3 interaction / member resistance",
+      "combination": "1.2DL+0.5LL-2.5EQ_X[eb][col]",
+      "clause": "IS 800:2007 7.1.2, 8.2, 8.4, 9.3; Table 2/3/10",
+      "reason_count": 0,
+      "calculation_status": "complete",
+      "authority_file": "STATUS.engine.md",
+      "authority_sha256": "04557e7f20fa5f71776201056585cfae9bdb9e92e7bb1b9c1d9219ab12dd453a",
+      "takeoff_kg_m2": 102.06,
+      "takeoff_basis": "modelled members + declared secondary members and crane brackets; connections, deck and unmodelled secondary beams not included",
+      "calc_sha256": "838e86078db4c34786f0cdac7cb3de686bcce430c25dff2aa074c806a74f812c",
+      "report_sha256": "2e32d14e614abe56f9ceece43c5bd5bbfbf3fee90e3f731c9e53b4382224e08a",
+      "printed_strength": {
+        "dc": 0.945,
+        "member": "lateral_col-WPB400X400X239.62"
+      },
+      "report_matches_native_headline": true,
+      "open_reasons_sample": []
+    }
+  },
+  {
+    "id": "IN_Ex15",
+    "module": "HR",
+    "number": 15,
+    "unit": "Main",
+    "handoff_sha256": "144923eef3d87fb9604907a93a6af0ee8f726248f5e57d52ae6e6c3dbd5a5d01",
+    "report_url": "https://stelticai.com/solutions_india/hr/IN_Ex15_EBF_8levels_Lplan_Pune/report.html",
+    "reference_report_sha256": "a49045e3e3f9b05d3193926a74bba14a2cc63288ee3e1af8eee5ec11e615c3e7",
+    "published": {
+      "native_status": "complete",
+      "strength_dc": 0.945,
+      "governing_member": "floor-WI550X325X22X14",
+      "takeoff_kg_m2": 55.0
+    },
+    "fresh": {
+      "native_status": "complete",
+      "strength_dc": 0.8797,
+      "governing_member": "gravity_col-WPB200X200X34.65",
+      "check": "IS 800 9.3 interaction / member resistance",
+      "combination": "1.5DL+1.5LL+N_Y",
+      "clause": "IS 800:2007 7.1.2, 8.2, 8.4, 9.3; Table 2/3/10",
+      "reason_count": 0,
+      "calculation_status": "complete",
+      "authority_file": "STATUS.engine.md",
+      "authority_sha256": "e3d1068373c569415c888b5eedcb3fca5dace7407ce3f2bfba9e7290d82bdcc6",
+      "takeoff_kg_m2": 123.09,
+      "takeoff_basis": "modelled members + declared secondary members and crane brackets; connections, deck and unmodelled secondary beams not included",
+      "calc_sha256": "e5df64b928ac4b48d06c6cd8568935adaffdcb50691a71fca2024c5c140b89a9",
+      "report_sha256": "f98cb46dcc9b10c6b33c0cd059d246d19a8de1caa9dffc2355a99304216c95de",
+      "printed_strength": {
+        "dc": 0.88,
+        "member": "gravity_col-WPB200X200X34.65"
+      },
+      "report_matches_native_headline": true,
+      "open_reasons_sample": []
+    }
+  },
+  {
+    "id": "IN_Ex16",
+    "module": "HR",
+    "number": 16,
+    "unit": "Main",
+    "handoff_sha256": "263c01c03410a896818baae93a55a759240c1735986d0cc98634ae7f37e10067",
+    "report_url": "https://stelticai.com/solutions_india/hr/IN_Ex16_SMF_office_Mumbai/report.html",
+    "reference_report_sha256": "6f76785cb57721834f85e549115255498ac91e6c75b79089e8a74a847d28a9cf",
+    "published": {
+      "native_status": "complete",
+      "strength_dc": 0.937,
+      "governing_member": "floor-WI550X225X18X14",
+      "takeoff_kg_m2": 58.2
+    },
+    "fresh": {
+      "native_status": "complete",
+      "strength_dc": 0.9959,
+      "governing_member": "gravity_col-WPB800X300X317.36",
+      "check": "IS 800 9.3 interaction / member resistance",
+      "combination": "1.5DL+1.5LL+N_X",
+      "clause": "IS 800:2007 7.1.2, 8.2, 8.4, 9.3; Table 2/3/10",
+      "reason_count": 0,
+      "calculation_status": "complete",
+      "authority_file": "STATUS.engine.md",
+      "authority_sha256": "5a2462f227ff2dd5f06a99adda6b31bac358e2695c6b1c13033e3a00aff302f1",
+      "takeoff_kg_m2": 151.4,
+      "takeoff_basis": "modelled members + declared secondary members and crane brackets; connections, deck and unmodelled secondary beams not included",
+      "calc_sha256": "b6dcdc5a7ac961f0afaf420e25da4e8991eed5a0f5b5d0dff8a5e5909b0016ad",
+      "report_sha256": "8170f8a4e551294c479bba3b864c56b8ffb855a8c7a8109eeb444984a575a6b6",
+      "printed_strength": {
+        "dc": 0.996,
+        "member": "gravity_col-WPB800X300X317.36"
+      },
+      "report_matches_native_headline": true,
+      "open_reasons_sample": []
+    }
+  },
+  {
+    "id": "IN_Ex17",
+    "module": "HR",
+    "number": 17,
+    "unit": "Main",
+    "handoff_sha256": "5c0bba87ec28736702ebc7b1e0cf7a9cd5a86c5d023a625f46cbb5dcdd918967",
+    "report_url": "https://stelticai.com/solutions_india/hr/IN_Ex17_SCBF_10levels_Ahmedabad/report.html",
+    "reference_report_sha256": "a8df7d8f0f20facb8aa9674d0fa5b521fe75c98274e7f2a7cf46b80b4b81d887",
+    "published": {
+      "native_status": "complete",
+      "strength_dc": 0.945,
+      "governing_member": "gravity_col-BOX350X350X10",
+      "takeoff_kg_m2": 50.7
+    },
+    "fresh": {
+      "native_status": "complete",
+      "strength_dc": 0.9903,
+      "governing_member": "lateral_col-WPB400X400X239.62",
+      "check": "IS 800 9.3 interaction / member resistance",
+      "combination": "1.2DL+0.5LL-2.5EQ_Y[eb][col]",
+      "clause": "IS 800:2007 7.1.2, 8.2, 8.4, 9.3; Table 2/3/10",
+      "reason_count": 0,
+      "calculation_status": "complete",
+      "authority_file": "STATUS.engine.md",
+      "authority_sha256": "906af31a00e5b42ea56b95b9c473b3f8c0630c3aadf14e3a879994ef4f88f70a",
+      "takeoff_kg_m2": 101.79,
+      "takeoff_basis": "modelled members + declared secondary members and crane brackets; connections, deck and unmodelled secondary beams not included",
+      "calc_sha256": "1d441bb302a863f3b90c7d21c92e3479fa7e937f68b5cf6238194b78224da6ba",
+      "report_sha256": "ca5e863e659c686848b5e5b021d2f565d74fb27225474eb8d73fbf40eeeeb361",
+      "printed_strength": {
+        "dc": 0.99,
+        "member": "lateral_col-WPB400X400X239.62"
+      },
+      "report_matches_native_headline": true,
+      "open_reasons_sample": []
+    }
+  },
+  {
+    "id": "IN_Ex18",
+    "module": "HR",
+    "number": 18,
+    "unit": "Main",
+    "handoff_sha256": "eff462029de7e37248e09e75def868fad236aa9aca70f3b24235ff679985d528",
+    "report_url": "https://stelticai.com/solutions_india/hr/IN_Ex18_SMF_podium_11levels_Kochi/report.html",
+    "reference_report_sha256": "fb4cbee0fc245ffde06607a8ec751cc00c3e6445d647e3e72214e6e8c09e0811",
+    "published": {
+      "native_status": "complete",
+      "strength_dc": 0.918,
+      "governing_member": "gravity_col-WB600X145.06",
+      "takeoff_kg_m2": 82.7
+    },
+    "fresh": {
+      "native_status": "complete",
+      "strength_dc": 0.9466,
+      "governing_member": "gravity_col-WPB200X200X34.65",
+      "check": "IS 800 9.3 interaction / member resistance",
+      "combination": "1.5DL+1.5LL+N_Y",
+      "clause": "IS 800:2007 7.1.2, 8.2, 8.4, 9.3; Table 2/3/10",
+      "reason_count": 0,
+      "calculation_status": "complete",
+      "authority_file": "STATUS.engine.md",
+      "authority_sha256": "5ebdebd936b7ee8e17586fdf90f3d03d0165ef3b8f00e5a8e9467baf329a9f4f",
+      "takeoff_kg_m2": 124.1,
+      "takeoff_basis": "modelled members + declared secondary members and crane brackets; connections, deck and unmodelled secondary beams not included",
+      "calc_sha256": "59827c934622eeb471efe88517de64e3ca050440434b98b7670416baf29273b1",
+      "report_sha256": "735ddd6e5e8632b950873bd39280a621ced1c3a887e108640366ed9d0c8ab68b",
+      "printed_strength": {
+        "dc": 0.947,
+        "member": "gravity_col-WPB200X200X34.65"
+      },
+      "report_matches_native_headline": true,
+      "open_reasons_sample": []
+    }
+  },
+  {
+    "id": "IN_Ex19",
+    "module": "HR",
+    "number": 19,
+    "unit": "Flange",
+    "handoff_sha256": "0d069e274ca59b7c3b3145eed7da3b454771ec6304ce1b225c33e52dc4f2e68a",
+    "report_url": "https://stelticai.com/solutions_india/hr/IN_Ex19_EBF_12levels_Tplan_Guwahati/report.html",
+    "reference_report_sha256": "3028632039010bdc9b07537f7bc31a3f229a5ae1ad6deccebcc1cc51473da4a8",
+    "published": {
+      "native_status": "complete",
+      "strength_dc": 0.997,
+      "governing_member": "floor-WI550X300X20X14",
+      "takeoff_kg_m2": 73.3
+    },
+    "fresh": {
+      "native_status": "complete",
+      "strength_dc": 0.952,
+      "governing_member": "gravity_col-WPB280X280X61.26",
+      "check": "IS 800 9.3 interaction / member resistance",
+      "combination": "1.5DL+1.5LL+N_X",
+      "clause": "IS 800:2007 7.1.2, 8.2, 8.4, 9.3; Table 2/3/10",
+      "reason_count": 0,
+      "calculation_status": "complete",
+      "authority_file": "STATUS.engine.md",
+      "authority_sha256": "f1ebb036e0d1d5a5183ce09345b7e4c21ef000ee7c495a78730ed2716b5abc03",
+      "takeoff_kg_m2": 181.57,
+      "takeoff_basis": "modelled members + declared secondary members and crane brackets; connections, deck and unmodelled secondary beams not included",
+      "calc_sha256": "342a4aa36beb9377374e52315256fbab50c31fbc48f5d874638704390f327dc6",
+      "report_sha256": "0a75015f348cb7f46225272d375de60a61be6498f44af62a1adb8744063317c6",
+      "printed_strength": {
+        "dc": 0.952,
+        "member": "gravity_col-WPB280X280X61.26"
+      },
+      "report_matches_native_headline": true,
+      "open_reasons_sample": []
+    }
+  },
+  {
+    "id": "IN_Ex19",
+    "module": "HR",
+    "number": 19,
+    "unit": "Stem",
+    "handoff_sha256": "0d069e274ca59b7c3b3145eed7da3b454771ec6304ce1b225c33e52dc4f2e68a",
+    "report_url": "https://stelticai.com/solutions_india/hr/IN_Ex19_EBF_12levels_Tplan_Guwahati/units/stem/report.html",
+    "reference_report_sha256": "362ab38623a47be2bfc2ccac1647f429eff7aa0e8b358b452fcd8333ad882c78",
+    "published": {
+      "native_status": "complete",
+      "strength_dc": 0.983,
+      "governing_member": "floor-WI550X275X18X14",
+      "takeoff_kg_m2": 79.7
+    },
+    "fresh": {
+      "native_status": "complete",
+      "strength_dc": 0.9551,
+      "governing_member": "gravity_col-WPB280X280X61.26",
+      "check": "IS 800 9.3 interaction / member resistance",
+      "combination": "1.5DL+1.5LL+N_Y",
+      "clause": "IS 800:2007 7.1.2, 8.2, 8.4, 9.3; Table 2/3/10",
+      "reason_count": 0,
+      "calculation_status": "complete",
+      "authority_file": "STATUS.engine.md",
+      "authority_sha256": "c1fddc68bfbebbc46ec22629e34b5f53847f89fac07c78ab1462c32b3730affe",
+      "takeoff_kg_m2": 187.98,
+      "takeoff_basis": "modelled members + declared secondary members and crane brackets; connections, deck and unmodelled secondary beams not included",
+      "calc_sha256": "c6cdb83d17f5b10be6b71fd20aeab3ed7b66683d7f7d897955734318a6a6cb34",
+      "report_sha256": "321f42fcd58bdae10a97d4d41381a9f4f816e3cf0dca7d84b372e8facc6a0efc",
+      "printed_strength": {
+        "dc": 0.955,
+        "member": "gravity_col-WPB280X280X61.26"
+      },
+      "report_matches_native_headline": true,
+      "open_reasons_sample": []
+    }
+  },
+  {
+    "id": "IN_Ex20",
+    "module": "HR",
+    "number": 20,
+    "unit": "Main",
+    "handoff_sha256": "4fcbc152a25c0a4621d7f230a4fd1ea74d56fbd21d1e1c4e847ff5c577160295",
+    "report_url": "https://stelticai.com/solutions_india/hr/IN_Ex20_SCBF_18levels_slender_Noida/report.html",
+    "reference_report_sha256": "6dac0a040bccde9cd0750e35dfd5c3803f91a0409a6906e994dd2d9339781095",
+    "published": {
+      "native_status": "complete",
+      "strength_dc": 0.942,
+      "governing_member": "lateral_col-BOX250X250X22",
+      "takeoff_kg_m2": 91.0
+    },
+    "fresh": {
+      "native_status": "complete",
+      "strength_dc": 0.8495,
+      "governing_member": "lateral_col-BOX650X650X32",
+      "check": "IS 800 9.3 interaction / member resistance",
+      "combination": "1.2DL+0.5LL-2.5EQ_X[ea]+0.3EQ_Z[col]",
+      "clause": "IS 800:2007 7.1.2, 8.2, 8.4, 9.3; Table 2/3/10",
+      "reason_count": 0,
+      "calculation_status": "complete",
+      "authority_file": "STATUS.engine.md",
+      "authority_sha256": "ae64707418c5573f1ac5f4a928aacfce5827b4131a36f7782369d96174653439",
+      "takeoff_kg_m2": 236.15,
+      "takeoff_basis": "modelled members + declared secondary members and crane brackets; connections, deck and unmodelled secondary beams not included",
+      "calc_sha256": "afa9723a8eba43cc2bd9cba758bfcafddb7365c63ada24c640f611947f05cbb3",
+      "report_sha256": "f9fe2c8d2b055481819034e0951bd96fd90f2f3fb73b8cd9f240fa916a6f24c6",
+      "printed_strength": {
+        "dc": 0.85,
+        "member": "lateral_col-BOX650X650X32"
+      },
+      "report_matches_native_headline": true,
+      "open_reasons_sample": []
+    }
+  },
+  {
+    "id": "IN_Ex21",
+    "module": "HR",
+    "number": 21,
+    "unit": "Main",
+    "handoff_sha256": "c1c765c3729c76b023e3f7b6f4f910d48f43b323b6019ab8d38864da70cc4a70",
+    "report_url": "https://stelticai.com/solutions_india/hr/IN_Ex21_MSME_angle_truss_shed_Hosur/report.html",
+    "reference_report_sha256": "3a8f57102be0d3104026edf52bdbe4c988a7024cf7bb89fd205a781a2ccb8cc3",
+    "published": {
+      "native_status": "complete",
+      "strength_dc": 0.874,
+      "governing_member": "truss_bottom_chord-2ISA65X65X6-G8",
+      "takeoff_kg_m2": 30.8
+    },
+    "fresh": {
+      "native_status": "complete",
+      "strength_dc": 0.5114,
+      "governing_member": "truss_knee_brace-ISA120X120X12",
+      "check": "IS 800 axial resistance (6 tension / 7 compression, pin-ended member)",
+      "combination": "1.5DL+1.5LL-N_X",
+      "clause": "IS 800:2007 6.2-6.4, 7.1.2, 7.5.1.2 / 7.5.2.1, Table 3 (pin-ended truss member, axial force only)",
+      "reason_count": 0,
+      "calculation_status": "complete",
+      "authority_file": "STATUS.engine.md",
+      "authority_sha256": "a710cc66f0c245f14963a296b5b273ee95debb8d032208cc1d60153f75f5bb50",
+      "calc_sha256": "c76245d6232bc9732ec6c3c5b5da584b6a5170b5c325d7cf9406f9e022e4819c",
+      "report_sha256": "a2deed9a7dd636b9938971adbc8e289e5761782e2568cd5741bd017ab1955b85",
+      "printed_strength": {
+        "dc": 0.511,
+        "member": "truss_knee_brace-ISA120X120X12"
+      },
+      "report_matches_native_headline": true,
+      "open_reasons_sample": []
+    }
+  },
+  {
+    "id": "IN_CFS_Ex1",
+    "module": "CFS",
+    "number": 1,
+    "unit": "Main",
+    "handoff_sha256": "357a284684ff0933e21bbfd52d1b9b074013cf150327eb52a6a0b1043e43895f",
+    "report_url": "https://stelticai.com/solutions_india/cfs/IN_CFS_Ex1_HR_SMF_portal_Chennai_wind/report.html",
+    "reference_report_sha256": "5d9df86510b0edec670208651da99b123289fbd7e35facd44212d4195053b4a3",
+    "published": {
+      "native_status": "complete",
+      "strength_dc": 0.976,
+      "governing_member": "girt-Z200X65X20X2.0-G350",
+      "hr_frame_strength_dc": 0.6874
+    },
+    "fresh": {
+      "native_status": "complete",
+      "strength_dc": 0.656388,
+      "governing_member": "girt-CLR250X80X25X4",
+      "check": "6.1/6.2/6.3 bending (suction, inner flange in compression)",
+      "combination": "DL+1.0W_X",
+      "clause": "IS 801 6.1 / 6.2 / 6.3 / 5.2.1.1 / 6.1.2",
+      "reason_count": 0,
+      "calculation_status": "complete",
+      "authority_file": "STATUS.md",
+      "authority_sha256": "edb129d21f0186bf7cfc27e9cb43d8071dd00964d9f4f5a9d6ef8bf9a0d6371f",
+      "hr_frame_strength_dc": 0.4744,
+      "calc_sha256": "bb223747117093818b29ef7a0c64c17efe40c3467a6d72b571888042ec92e2d8",
+      "report_sha256": "93c4e7f85932c166a9bbd00276ac855e8e02a530c5976b2947045dc7b23628a3",
+      "printed_strength": {
+        "dc": 0.656,
+        "member": "girt-CLR250X80X25X4"
+      },
+      "report_matches_native_headline": true,
+      "open_reasons_sample": []
+    }
+  },
+  {
+    "id": "IN_CFS_Ex2",
+    "module": "CFS",
+    "number": 2,
+    "unit": "Main",
+    "handoff_sha256": "69a1dde85134f43465a7b9a9b5b0004196460b9fcdadcb1ba1902c542df76af8",
+    "report_url": "https://stelticai.com/solutions_india/cfs/IN_CFS_Ex2_HR_SMF_portal_coldstorage_Srinagar/report.html",
+    "reference_report_sha256": "7b528986a88a8bbe303ad38007067181aaf74f500f82bdd549825e23662d7200",
+    "published": {
+      "native_status": "complete",
+      "strength_dc": 0.98,
+      "governing_member": "door-jamb-vestibule-2xC150X60X20X1.6-G350",
+      "hr_frame_strength_dc": 0.9351
+    },
+    "fresh": {
+      "native_status": "complete",
+      "strength_dc": 0.992349,
+      "governing_member": "purlin-2xCLR200X50X20X3.15",
+      "check": "6.1/6.2/6.3 bending (gravity, top flange in compression)",
+      "combination": "DL+SL",
+      "clause": "IS 801 6.1 / 6.2 / 6.3 / 5.2.1.1 / 6.1.2",
+      "reason_count": 0,
+      "calculation_status": "complete",
+      "authority_file": "STATUS.md",
+      "authority_sha256": "16b72e0b783a5ff684d53590f87b14f1005e6e43ff533890cda8bfe6ffbb92e6",
+      "hr_frame_strength_dc": 0.8682,
+      "calc_sha256": "785cbdd7ab17e1090f2e5c22f736169cbb6684fa63dca01d9bed3bf4f0783b4b",
+      "report_sha256": "bc4a2dc503458acb8f08d7b9adbc8822d275476f118a079861c54e3ffdf68b0b",
+      "printed_strength": {
+        "dc": 0.992,
+        "member": "purlin-2xCLR200X50X20X3.15"
+      },
+      "report_matches_native_headline": true,
+      "open_reasons_sample": []
+    }
+  },
+  {
+    "id": "IN_CFS_Ex3",
+    "module": "CFS",
+    "number": 3,
+    "unit": "Main",
+    "handoff_sha256": "35ef6390ac08ef995f132f2085d2893b9747c58849af3960a2f94197a3f77611",
+    "report_url": "https://stelticai.com/solutions_india/cfs/IN_CFS_Ex3_Portal_allCFS_elastic_Hyderabad/report.html",
+    "reference_report_sha256": "da116f8e2903c7e24cc89e6485a5fb6e7463029bd01f7634e8aa1df6ead7d40e",
+    "published": {
+      "native_status": "complete",
+      "strength_dc": 0.91,
+      "governing_member": "purlin-Z150X60X20X2.0-G350"
+    },
+    "fresh": {
+      "native_status": "complete",
+      "strength_dc": 0.967266,
+      "governing_member": "column-2xCLR250X80X25X5",
+      "check": "interaction",
+      "combination": "DL+IL+1.0WM0+R",
+      "clause": "IS 801 6.7.1 (fa/Fa1 < 0.15: fa/Fa1 + fbx/Fbx + fby/Fby)",
+      "reason_count": 0,
+      "calculation_status": "complete",
+      "authority_file": "STATUS.md",
+      "authority_sha256": "eab4558dfa07fef58adebfa10a8c0fd3f56df5116e1d924a159297652c1f1fdf",
+      "calc_sha256": "694637997ce0c86f88e824b0573b4ff2855e497650136609deac6f2f8171769c",
+      "report_sha256": "ccf9b266e957ad56d490f7eb7c5d7f1788220a69b294fbb16732130b6dd2b05b",
+      "printed_strength": {
+        "dc": 0.967,
+        "member": "column-2xCLR250X80X25X5"
+      },
+      "report_matches_native_headline": true,
+      "open_reasons_sample": []
+    }
+  },
+  {
+    "id": "IN_CFS_Ex4",
+    "module": "CFS",
+    "number": 4,
+    "unit": "Main",
+    "handoff_sha256": "16325fdfd1a1351ce613a13544015333a832a147825bb65e429434e75b745f5c",
+    "report_url": "https://stelticai.com/solutions_india/cfs/IN_CFS_Ex4_OCBF_highbay_2levels_Nagpur/report.html",
+    "reference_report_sha256": "f49f21dfe2278de4e993bb5aeab5c6aa27f826edade0485ca9d46160ef81427c",
+    "published": {
+      "native_status": "complete",
+      "strength_dc": 0.826,
+      "governing_member": "joist-C200X65X20X2.5-G350",
+      "hr_frame_strength_dc": 0.7601
+    },
+    "fresh": {
+      "native_status": "complete",
+      "strength_dc": 0.852564,
+      "governing_member": "joist-CLR250X50X25X4",
+      "check": "6.1/6.2/6.3 bending",
+      "combination": "DL+IL",
+      "clause": "IS 801 6.1 / 6.2 / 6.3 / 5.2.1.1 / 6.1.2",
+      "reason_count": 0,
+      "calculation_status": "complete",
+      "authority_file": "STATUS.md",
+      "authority_sha256": "a9e4e1d89cf447205c84595145b0958765f921e8609fef3679d49f5d1554a45d",
+      "hr_frame_strength_dc": 0.4766,
+      "calc_sha256": "ccbbd2f436b0a2958f1cc7b5585b9fbc794c67046eda5230b6ba9998a36088b9",
+      "report_sha256": "d886d57b510f0c5f4096ecf17fb43a8c8201982f6f32a0ac0ea212ea98d865ac",
+      "printed_strength": {
+        "dc": 0.853,
+        "member": "joist-CLR250X50X25X4"
+      },
+      "report_matches_native_headline": true,
+      "open_reasons_sample": []
+    }
+  },
+  {
+    "id": "IN_CFS_Ex5",
+    "module": "CFS",
+    "number": 5,
+    "unit": "Main",
+    "handoff_sha256": "643008ad33a1d7a52c23387cb7043d80d8b9aa0de9fa92978877f40ea05f9baa",
+    "report_url": "https://stelticai.com/solutions_india/cfs/IN_CFS_Ex5_OCBF_3levels_coastal_Vizag/report.html",
+    "reference_report_sha256": "3549471599f306a79731cca69e2c9d54d4b942ef8a4c198bdfca90289a29a0d1",
+    "published": {
+      "native_status": "complete",
+      "strength_dc": 0.776,
+      "governing_member": "joist-C200X65X20X2.5-G350",
+      "hr_frame_strength_dc": 0.6657
+    },
+    "fresh": {
+      "native_status": "complete",
+      "strength_dc": 0.970269,
+      "governing_member": "joist-CLR200X50X20X3.15",
+      "check": "6.1/6.2/6.3 bending",
+      "combination": "DL+IL",
+      "clause": "IS 801 6.1 / 6.2 / 6.3 / 5.2.1.1 / 6.1.2",
+      "reason_count": 0,
+      "calculation_status": "complete",
+      "authority_file": "STATUS.md",
+      "authority_sha256": "3c21661022a0c8ce910ecb7c5a998c1ef74e9088ace5e22b9b01f303c66a73c2",
+      "hr_frame_strength_dc": 0.295,
+      "calc_sha256": "fc53a993a3cd0f21fb3f4710b197bb46a0ac4602684d9c45291c3352f03a8a83",
+      "report_sha256": "23eae6e75dedb8a902f299cef21f56b81217d12ed361601da55450a7239a935f",
+      "printed_strength": {
+        "dc": 0.97,
+        "member": "joist-CLR200X50X20X3.15"
+      },
+      "report_matches_native_headline": true,
+      "open_reasons_sample": []
+    }
+  },
+  {
+    "id": "IN_CFS_Ex6",
+    "module": "CFS",
+    "number": 6,
+    "unit": "Main",
+    "handoff_sha256": "92d71a4d9c41fb69c79fabd4833314e4c8a22dc32be7fdb19293628b6ff449b9",
+    "report_url": "https://stelticai.com/solutions_india/cfs/IN_CFS_Ex6_SCBF_clinic_splitlevel_Coimbatore/report.html",
+    "reference_report_sha256": "691626a6174cef9960b0481905d75fb13f5cbe40294ef67df3aa6af9c241696b",
+    "published": {
+      "native_status": "partial",
+      "strength_dc": 0.822,
+      "governing_member": "joist-C200X65X20X2.5-G350",
+      "hr_frame_strength_dc": 0.8397
+    },
+    "fresh": {
+      "native_status": "complete",
+      "strength_dc": 0.94774,
+      "governing_member": "joist-CLR250X50X20X3.15",
+      "check": "6.1/6.2/6.3 bending",
+      "combination": "DL+IL",
+      "clause": "IS 801 6.1 / 6.2 / 6.3 / 5.2.1.1 / 6.1.2",
+      "reason_count": 0,
+      "calculation_status": "complete",
+      "authority_file": "STATUS.md",
+      "authority_sha256": "e55e3c8c0c0bd8d04aba0fc41ed3a164b1998dbcf2c3fc744cd9b724d2a76b4a",
+      "hr_frame_strength_dc": 0.5066,
+      "calc_sha256": "495670fc12650a706e70244a0eea15297e0c130b7f7a6d1e245ca999bb76f6ac",
+      "report_sha256": "499807c13512b9467c6cd6d08c0456a5220ee92e964628db2203d920eb0badb6",
+      "printed_strength": {
+        "dc": 0.948,
+        "member": "joist-CLR250X50X20X3.15"
+      },
+      "report_matches_native_headline": true,
+      "open_reasons_sample": []
+    }
+  },
+  {
+    "id": "IN_CFS_Ex7",
+    "module": "CFS",
+    "number": 7,
+    "unit": "Main",
+    "handoff_sha256": "a0a641235de6381c66ef8d389627d5f90880bb63a46d95af3d38eb099334b188",
+    "report_url": "https://stelticai.com/solutions_india/cfs/IN_CFS_Ex7_SCBF_4levels_Delhi/report.html",
+    "reference_report_sha256": "43e56342a1286eb76e221e168227040a2ac47c66b02341723c059d7528fa60f6",
+    "published": {
+      "native_status": "complete",
+      "strength_dc": 0.684,
+      "governing_member": "joist-C150X60X20X2.0-G350",
+      "hr_frame_strength_dc": 0.7388
+    },
+    "fresh": {
+      "native_status": "complete",
+      "strength_dc": 0.849624,
+      "governing_member": "joist-CLR150X50X20X3.15",
+      "check": "6.1/6.2/6.3 bending",
+      "combination": "DL+IL",
+      "clause": "IS 801 6.1 / 6.2 / 6.3 / 5.2.1.1 / 6.1.2",
+      "reason_count": 0,
+      "calculation_status": "complete",
+      "authority_file": "STATUS.md",
+      "authority_sha256": "6d91a8c5d0c4de614545db367219640623b3be07ad366bf3f7ae166865676ea3",
+      "hr_frame_strength_dc": 0.2769,
+      "calc_sha256": "7dbfa695e9e7fd04571c38a2fbe79ec7308a80cd8c7680e256703a1270005b9a",
+      "report_sha256": "d1167324dbac22b9d30d8e3e6ff1cc80e644fc71a36d8547f096bcc2fb7383b0",
+      "printed_strength": {
+        "dc": 0.85,
+        "member": "joist-CLR150X50X20X3.15"
+      },
+      "report_matches_native_headline": true,
+      "open_reasons_sample": []
+    }
+  },
+  {
+    "id": "IN_CFS_Ex8",
+    "module": "CFS",
+    "number": 8,
+    "unit": "Main",
+    "handoff_sha256": "8e2c8c3059d86cd2728d26dd6b7492020bfb9db7233305f3e8bf5b8d80fe0fc9",
+    "report_url": "https://stelticai.com/solutions_india/cfs/IN_CFS_Ex8_SCBF_4levels_Tplan_Ahmedabad/report.html",
+    "reference_report_sha256": "e067427865485a642f46dc6c98b873175855a7c132cc1c3fd2c177ae25395391",
+    "published": {
+      "native_status": "complete",
+      "strength_dc": 0.974,
+      "governing_member": "joist-C250X70X20X2.5-G350",
+      "hr_frame_strength_dc": 0.8879
+    },
+    "fresh": {
+      "native_status": "complete",
+      "strength_dc": 0.951875,
+      "governing_member": "joist-CLR200X50X20X3.15",
+      "check": "6.1/6.2/6.3 bending",
+      "combination": "DL+IL",
+      "clause": "IS 801 6.1 / 6.2 / 6.3 / 5.2.1.1 / 6.1.2",
+      "reason_count": 0,
+      "calculation_status": "complete",
+      "authority_file": "STATUS.md",
+      "authority_sha256": "800e966764fb41f4baa390036a7a748e10d29997e3129f1805d56fefe76d6a68",
+      "hr_frame_strength_dc": 0.2148,
+      "calc_sha256": "32f3e01e08285885803e1375fd93258b5c9c383a147878dffda2b54c96bc8345",
+      "report_sha256": "ab5ebc22dc9313da967a29f75443c6d31ccf2d85aee10f4d4ddaeb28e30b06e2",
+      "printed_strength": {
+        "dc": 0.952,
+        "member": "joist-CLR200X50X20X3.15"
+      },
+      "report_matches_native_headline": true,
+      "open_reasons_sample": []
+    }
+  },
+  {
+    "id": "IN_CFS_Ex9",
+    "module": "CFS",
+    "number": 9,
+    "unit": "Main",
+    "handoff_sha256": "fd5fd43b7d754a1134604aa5e87b41b43bee2dcf1338827b4e18c9ddc4b82c05",
+    "report_url": "https://stelticai.com/solutions_india/cfs/IN_CFS_Ex9_SCBF_4levels_Lucknow/report.html",
+    "reference_report_sha256": "96aa4b1fc11c70f88674d760816248c41adb4b85fb77bb76b5015ac5ceb8d398",
+    "published": {
+      "native_status": "partial",
+      "strength_dc": 0.972,
+      "governing_member": "joist-C200X65X20X2.0-G350",
+      "hr_frame_strength_dc": 0.9381
+    },
+    "fresh": {
+      "native_status": "complete",
+      "strength_dc": 1.0,
+      "governing_member": "joist-CLR150X50X20X3.15",
+      "check": "6.1/6.2/6.3 bending",
+      "combination": "DL+IL",
+      "clause": "IS 801 6.1 / 6.2 / 6.3 / 5.2.1.1 / 6.1.2",
+      "reason_count": 0,
+      "calculation_status": "complete",
+      "authority_file": "STATUS.md",
+      "authority_sha256": "8921ef85043a6fb56efcdca0481676686e992892d66ea129c6f6ebb19c297d70",
+      "hr_frame_strength_dc": 0.4843,
+      "calc_sha256": "b6602c471e9122d740e2242e165304ad0d4e253591fdf9199bd1ffc8f5874ba9",
+      "report_sha256": "3eba0d63a90e4da6ded0e8013a1d332ca53d831c1cead93d030ea4bf11f2e723",
+      "printed_strength": {
+        "dc": 1.0,
+        "member": "joist-CLR150X50X20X3.15"
+      },
+      "report_matches_native_headline": true,
+      "open_reasons_sample": []
+    }
+  },
+  {
+    "id": "IN_CFS_Ex10",
+    "module": "CFS",
+    "number": 10,
+    "unit": "Main",
+    "handoff_sha256": "b4cb606ba80e4d0828861cec67e36ce3b8cecb9b79297f287f57fad39c417e8e",
+    "report_url": "https://stelticai.com/solutions_india/cfs/IN_CFS_Ex10_SCBF_5levels_Mumbai/report.html",
+    "reference_report_sha256": "9411de6b67709fabbb7253455a5a5524b54eb75b9e25e4259bf0005d3105b582",
+    "published": {
+      "native_status": "complete",
+      "strength_dc": 0.836,
+      "governing_member": "joist-C150X60X20X2.0-G350",
+      "hr_frame_strength_dc": 0.8572
+    },
+    "fresh": {
+      "native_status": "complete",
+      "strength_dc": 0.960388,
+      "governing_member": "stud-S5-CLR90X50X10X1.6",
+      "check": "interaction",
+      "combination": "DL+1.0W_X",
+      "clause": "IS 801 6.7.1 (fa/Fa1 < 0.15: fa/Fa1 + fbx/Fbx + fby/Fby)",
+      "reason_count": 0,
+      "calculation_status": "complete",
+      "authority_file": "STATUS.md",
+      "authority_sha256": "2f558921185c64229a80e1b401376004e58e09be7ba044085810da01e847269e",
+      "hr_frame_strength_dc": 0.2039,
+      "calc_sha256": "26f5733b3e6a96d6944bafae8f8846e7048cba09745127be49a7a68fced62097",
+      "report_sha256": "7d82b8c0e3a33ce575142ba1fc564534139c3712d0fad349c27e0cb456d197f8",
+      "printed_strength": {
+        "dc": 0.96,
+        "member": "stud-S5-CLR90X50X10X1.6"
+      },
+      "report_matches_native_headline": true,
+      "open_reasons_sample": []
+    }
+  },
+  {
+    "id": "IN_CFS_Ex11",
+    "module": "CFS",
+    "number": 11,
+    "unit": "Main",
+    "handoff_sha256": "96d46fca06117a84fa8ae28f9c628d80f57bfdce7714b9573799ff56a2005551",
+    "report_url": "https://stelticai.com/solutions_india/cfs/IN_CFS_Ex11_SCBF_5levels_Lplan_Pune/report.html",
+    "reference_report_sha256": "3cc7b8b4dc9b9dafe94b2046dc9581ef263e37d942f9e2bd45e585dad64ecf7a",
+    "published": {
+      "native_status": "complete",
+      "strength_dc": 0.94,
+      "governing_member": "joist-C250X70X20X2.5-G350",
+      "hr_frame_strength_dc": 0.979
+    },
+    "fresh": {
+      "native_status": "complete",
+      "strength_dc": 0.937969,
+      "governing_member": "stud-S1-CLR90X40X10X1.6",
+      "check": "interaction",
+      "combination": "DL+1.0W_X",
+      "clause": "IS 801 6.7.1 (fa/Fa1 < 0.15: fa/Fa1 + fbx/Fbx + fby/Fby)",
+      "reason_count": 0,
+      "calculation_status": "complete",
+      "authority_file": "STATUS.md",
+      "authority_sha256": "92047ffa28c05741fbc50ac931d0b4b118dca82afa76603189ef95df9f89a949",
+      "hr_frame_strength_dc": 0.5036,
+      "calc_sha256": "7ccf285d62f592c5849642b1ddd338c62e2adea415988ff9b64db8c18f03ba27",
+      "report_sha256": "e6da5bc49a6840fdafc7c618f925c4daab41135c8ff510e08e3bb244f2a2232f",
+      "printed_strength": {
+        "dc": 0.938,
+        "member": "stud-S1-CLR90X40X10X1.6"
+      },
+      "report_matches_native_headline": true,
+      "open_reasons_sample": []
+    }
+  },
+  {
+    "id": "IN_CFS_Ex12",
+    "module": "CFS",
+    "number": 12,
+    "unit": "Main",
+    "handoff_sha256": "7d8157ca4451faf70b7e10272ac1baa3545adc349d9519c3bd6082900c507650",
+    "report_url": "https://stelticai.com/solutions_india/cfs/IN_CFS_Ex12_OCBF_6levels_Bengaluru/report.html",
+    "reference_report_sha256": "3d3918e6176e2b48fbab95e5f41c75a1dde318ef84f3dfc2eb7bd22b7646065d",
+    "published": {
+      "native_status": "complete",
+      "strength_dc": 0.836,
+      "governing_member": "joist-C150X60X20X2.0-G350",
+      "hr_frame_strength_dc": 0.9206
+    },
+    "fresh": {
+      "native_status": "complete",
+      "strength_dc": 0.918244,
+      "governing_member": "stud-S1-CLR80X50X10X1.6",
+      "check": "interaction",
+      "combination": "DL+IL-1.0W_Y",
+      "clause": "IS 801 6.7.1 (fa/Fa1 < 0.15: fa/Fa1 + fbx/Fbx + fby/Fby)",
+      "reason_count": 0,
+      "calculation_status": "complete",
+      "authority_file": "STATUS.md",
+      "authority_sha256": "4381fc971b500c40ec495bafe022587c922905d1a2fcaac6cb67c7ddbb6c92c7",
+      "hr_frame_strength_dc": 0.2039,
+      "calc_sha256": "a754b25b10c0555960ba8cd37a72cd10fc85b1f0840097d1281babbbe2681674",
+      "report_sha256": "6c5e663b2b21272284c845274df1b40f4de51b270a2082fb5365951f7a4bfa6c",
+      "printed_strength": {
+        "dc": 0.918,
+        "member": "stud-S1-CLR80X50X10X1.6"
+      },
+      "report_matches_native_headline": true,
+      "open_reasons_sample": []
+    }
+  },
+  {
+    "id": "IN_CFS_Ex13",
+    "module": "CFS",
+    "number": 13,
+    "unit": "Main",
+    "handoff_sha256": "4127ef28da081978e896d2213e5525f1fad84a25db03daaf6e2fa811a896833e",
+    "report_url": "https://stelticai.com/solutions_india/cfs/IN_CFS_Ex13_SCBF_6levels_Zplan_Surat/report.html",
+    "reference_report_sha256": "9c896b885a0fe1eb8af9c94cc09db71e59a86b82119bc007402d958c10f34c5f",
+    "published": {
+      "native_status": "complete",
+      "strength_dc": 0.925,
+      "governing_member": "joist-C200X65X20X2.5-G350",
+      "hr_frame_strength_dc": 0.89
+    },
+    "fresh": {
+      "native_status": "complete",
+      "strength_dc": 0.994439,
+      "governing_member": "stud-S1-CLR80X50X15X2",
+      "check": "interaction",
+      "combination": "DL+1.0W_X",
+      "clause": "IS 801 6.7.1 (fa/Fa1 < 0.15: fa/Fa1 + fbx/Fbx + fby/Fby)",
+      "reason_count": 0,
+      "calculation_status": "complete",
+      "authority_file": "STATUS.md",
+      "authority_sha256": "7ad4e11faec2a8f68d390a94ef7062719dfccf8e3294bf48b265772cbbd2fafe",
+      "hr_frame_strength_dc": 0.6145,
+      "calc_sha256": "d9e8420c6ae458a5bbf46eb3bf38d9e8515e3dc3f9c8e5660879d1028b23fb29",
+      "report_sha256": "63453e74d9692524bd3e51f0af31c14f852d14ed287b3079eab1f04aebb09564",
+      "printed_strength": {
+        "dc": 0.994,
+        "member": "stud-S1-CLR80X50X15X2"
+      },
+      "report_matches_native_headline": true,
+      "open_reasons_sample": []
+    }
+  },
+  {
+    "id": "IN_CFS_Ex14",
+    "module": "CFS",
+    "number": 14,
+    "unit": "Main",
+    "handoff_sha256": "c77716d6c7b5925b6180e215d2218445732ac871cf5c0b8ac2236bde1991aa84",
+    "report_url": "https://stelticai.com/solutions_india/cfs/IN_CFS_Ex14_SCBF_podium_5over2_Uplan_Noida/report.html",
+    "reference_report_sha256": "7c96a89dbaf4eb2ae52dd3e2abb22ef1c621c1f2235c50cae4b2c1c27706dae4",
+    "published": {
+      "native_status": "partial",
+      "strength_dc": 0.912,
+      "governing_member": "joist-C250X70X20X2.5-G350",
+      "hr_frame_strength_dc": 0.9217
+    },
+    "fresh": {
+      "native_status": "complete",
+      "strength_dc": 0.880062,
+      "governing_member": "joist-CLR200X50X20X3.15",
+      "check": "6.1/6.2/6.3 bending",
+      "combination": "DL+IL",
+      "clause": "IS 801 6.1 / 6.2 / 6.3 / 5.2.1.1 / 6.1.2",
+      "reason_count": 0,
+      "calculation_status": "complete",
+      "authority_file": "STATUS.md",
+      "authority_sha256": "324927a1276952d0ec4a890bf41bbb187df5f12adc82e2e8c724e3dc91482289",
+      "hr_frame_strength_dc": 0.4443,
+      "calc_sha256": "26f4f9ea9ec69bd873e5c4275d4a18fc494f4197118a8a2daaaa1614a3a56ad3",
+      "report_sha256": "19bb1d7581c565f8808353d20184e8ac467d0b22229fa6308422a568f117d3b9",
+      "printed_strength": {
+        "dc": 0.88,
+        "member": "joist-CLR200X50X20X3.15"
+      },
+      "report_matches_native_headline": true,
+      "open_reasons_sample": []
+    }
+  },
+  {
+    "id": "IN_CFS_Ex15",
+    "module": "CFS",
+    "number": 15,
+    "unit": "Main",
+    "handoff_sha256": "52e933049c13fc9a008002d6a26dd9471084dfac83fc1a702d1025f33314927a",
+    "report_url": "https://stelticai.com/solutions_india/cfs/IN_CFS_Ex15_SCBF_8levels_crossplan_Kolkata/report.html",
+    "reference_report_sha256": "09649358da3d77d5d28e552b67d5e9514fb8f028c6fac562a6cd9879ac972c03",
+    "published": {
+      "native_status": "partial",
+      "strength_dc": 0.945,
+      "governing_member": "joist-C250X70X20X2.5-G350",
+      "hr_frame_strength_dc": 0.9306
+    },
+    "fresh": {
+      "native_status": "complete",
+      "strength_dc": 0.902319,
+      "governing_member": "joist-CLR200X50X20X3.15",
+      "check": "6.1/6.2/6.3 bending",
+      "combination": "DL+IL",
+      "clause": "IS 801 6.1 / 6.2 / 6.3 / 5.2.1.1 / 6.1.2",
+      "reason_count": 0,
+      "calculation_status": "complete",
+      "authority_file": "STATUS.md",
+      "authority_sha256": "f66b01c9ea9bbdd5e07729c30bc5213af6399bfd6e774053eded0fc533c6717a",
+      "hr_frame_strength_dc": 0.5487,
+      "calc_sha256": "2638c4fc1b6118997c44cbddb7fd5e97575110533bd249f8f0c719b30b195901",
+      "report_sha256": "bbcc3fb44ccb95d5ece43055664c331cace54860901b8e3fffa0a01e9016dc2b",
+      "printed_strength": {
+        "dc": 0.902,
+        "member": "joist-CLR200X50X20X3.15"
+      },
+      "report_matches_native_headline": true,
+      "open_reasons_sample": []
+    }
+  }
+]

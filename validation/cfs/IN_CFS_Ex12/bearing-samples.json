@@ -1,0 +1,58 @@
+[
+  {
+    "id": "Floor / WPB400X300X155.26 / CLR200X50X20X3.15",
+    "chain": [
+      "M00169",
+      "M00583",
+      "P0001"
+    ],
+    "normal": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "stations_mm": [
+      [
+        12.0,
+        40,
+        3500.0
+      ]
+    ],
+    "expected_gaps_mm": [
+      0.0,
+      0.0
+    ],
+    "tolerance_mm": 1.0,
+    "structural_datum_mm": 3300.0,
+    "panel_underside_above_datum_mm": 400.0
+  },
+  {
+    "id": "Roof / WPB400X300X155.26 / CLR250X50X25X4",
+    "chain": [
+      "M00538",
+      "J00857-7",
+      "M03158",
+      "P0181"
+    ],
+    "normal": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "stations_mm": [
+      [
+        40.0,
+        12.0,
+        18500.0
+      ]
+    ],
+    "expected_gaps_mm": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "tolerance_mm": 1.0,
+    "structural_datum_mm": 18300.0,
+    "panel_underside_above_datum_mm": 470.0
+  }
+]

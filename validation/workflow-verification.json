@@ -1,0 +1,164 @@
+{
+  "status": "pass",
+  "release_version": "0.1.0",
+  "reference": {
+    "repository": "Steltic/steltic_openBIM",
+    "commit": "c3796b8f3904b448655a05adf8ca72cc5b868b8a",
+    "version": "0.8.109"
+  },
+  "native_producers": {
+    "hr": {
+      "repository": "Steltic/steltic_india",
+      "main_commit": "3ea5360050cff8ca257557c2ded7217e2228e00a",
+      "pull_request": 38,
+      "pre_exporter_baseline": "d183602d15228249fed464d7236fa5e9a8fadcb4"
+    },
+    "cfs": {
+      "repository": "Steltic/steltic_CFS_india",
+      "main_commit": "2843ba572f43372d2e539d49046c7438069640d1",
+      "pull_request": 26,
+      "pre_exporter_baseline": "6e43e5839a84358a6a23356b2de4d59ab914a38b"
+    }
+  },
+  "installed_consumer": {
+    "platform": "Windows-11-10.0.26300-SP0",
+    "python": "3.12.10",
+    "libraries": {
+      "ifcopenshell": "0.9.0.post1",
+      "reportlab": "5.1.2",
+      "PyMuPDF": "2.2",
+      "Shapely": "2.2.0",
+      "pypdf": "6.16.2"
+    },
+    "wheel_files_matching_checkout": 28,
+    "local_jobs_discovered": {
+      "HR": 21,
+      "CFS": 15
+    },
+    "cli": [
+      {
+        "project": "IN_Ex6",
+        "handoff_sha256": "59cf70df765eab3a50cf4172d13516eb65b27d3831f1f883a1bccdeadf1474d0",
+        "wheel_sha256": "a0bb5482c92852ec426d4708e37866a4405665da37522ca33ab5d7f062fed89e",
+        "commands": {
+          "validate": "pass",
+          "deliver-job": "pass",
+          "detached-audit": "pass"
+        },
+        "bound_native_files": 6,
+        "output_sha256": {
+          "handoff.json": "59cf70df765eab3a50cf4172d13516eb65b27d3831f1f883a1bccdeadf1474d0",
+          "model.ifc": "94453ac37760441e2be6e81be6e74206856dc0d66d323efd83cb335ba88719c4",
+          "drawings.pdf": "e61c116c3c33f69158a517b0d4ed3332d56758f54f767417bcc5b9d602ddad57",
+          "drawing_register.json": "bf19acf0d158d4341f416b244a2ff0b8c038efc02e85aa50740f80fc956ca2e9"
+        },
+        "artifact_status": "pass",
+        "design_status": "review",
+        "members": 297,
+        "sheets": 164
+      },
+      {
+        "project": "IN_CFS_Ex1",
+        "handoff_sha256": "357a284684ff0933e21bbfd52d1b9b074013cf150327eb52a6a0b1043e43895f",
+        "wheel_sha256": "a0bb5482c92852ec426d4708e37866a4405665da37522ca33ab5d7f062fed89e",
+        "commands": {
+          "validate": "pass",
+          "deliver-job": "pass",
+          "detached-audit": "pass"
+        },
+        "bound_native_files": 12,
+        "output_sha256": {
+          "handoff.json": "357a284684ff0933e21bbfd52d1b9b074013cf150327eb52a6a0b1043e43895f",
+          "model.ifc": "6be6f477d7d2d880b210418d6a400f782645a44cf86fdfb75226a5081482acad",
+          "drawings.pdf": "82f4629737cb7dfc3aec9338d4944c14d1489c2e77ff989706bd2e1bf2d07d57",
+          "drawing_register.json": "87720023b6eacab896bdb7a1762ef62f662beeae47d6d74754c4ef852e03d063"
+        },
+        "artifact_status": "pass",
+        "design_status": "review",
+        "members": 556,
+        "sheets": 100
+      }
+    ],
+    "local_browser": {
+      "native_job": "IN_Ex6",
+      "source_sha256": "59cf70df765eab3a50cf4172d13516eb65b27d3831f1f883a1bccdeadf1474d0",
+      "original_delivery": "pass",
+      "regenerated_delivery": "pass",
+      "revised_ifc_sha256": "02bc7c063179e5d508f1ac930f88abce7d01fdc755382f98ba691213dfdee1e9",
+      "byte_identical_return": true,
+      "viewer_canvas": true,
+      "browser_errors": []
+    }
+  },
+  "tests": {
+    "openbim": {
+      "counts": {
+        "passed": 18,
+        "warning": 1
+      },
+      "summary": "18 passed, 1 warning in 13.70s",
+      "report_sha256": "4ab151483e57fffe448a89556c5061145ba3af9c79ebaed109a879fdcfc92bdc"
+    },
+    "native_ubuntu_on_wsl": {
+      "hr": {
+        "counts": {
+          "passed": 1408,
+          "skipped": 5,
+          "warning": 1
+        },
+        "summary": "1408 passed, 5 skipped, 1 warning in 186.63s (0:03:06)",
+        "report_sha256": "73a60333e50659d5d9fa6e347ae62ea2a5390b77574bdf907c755aca4d65d602"
+      },
+      "cfs": {
+        "counts": {
+          "passed": 402,
+          "skipped": 1
+        },
+        "summary": "402 passed, 1 skipped in 22.81s",
+        "report_sha256": "6474a31595a2853c81360ac8761fb68021e37c6a713cf01c2e50a63a5d2ab520"
+      }
+    },
+    "windows_native_suites": {
+      "hr": {
+        "counts": {
+          "failed": 1,
+          "passed": 1404,
+          "skipped": 6,
+          "warning": 1,
+          "errors": 2
+        },
+        "summary": "1 failed, 1404 passed, 6 skipped, 1 warning, 2 errors in 176.80s (0:02:56)",
+        "report_sha256": "16e560d3965f7c48cb5c32d8a650dc65057277c0b7482d5a3242c84b9acde010"
+      },
+      "cfs": {
+        "counts": {
+          "failed": 3,
+          "passed": 399,
+          "skipped": 1
+        },
+        "summary": "3 failed, 399 passed, 1 skipped in 71.51s (0:01:11)",
+        "report_sha256": "491b267898c6469eda4170f32fa80d262ed8cb65f24984c7abe98cf893f1dd5c"
+      }
+    },
+    "windows_baseline_affected_tests": {
+      "hr": {
+        "counts": {
+          "failed": 1,
+          "passed": 17,
+          "errors": 2
+        },
+        "summary": "1 failed, 17 passed, 2 errors in 17.54s",
+        "report_sha256": "541edeaeabcb7c183dfbba9eaad0773caadeec4e5aaa84d8b7f4bbc9f0c15481"
+      },
+      "cfs": {
+        "counts": {
+          "failed": 3
+        },
+        "summary": "3 failed in 1.40s",
+        "report_sha256": "34c55335c964ad5e0bc4a1775eeae01920e48cd8cbcfdb9fd5e720581405c3e8"
+      }
+    },
+    "windows_explanation": "The HR symlink-based PEB fixture and three CFS runner, symlink and vendoring tests also fail on the pre-exporter Windows baseline. The full merged suites pass on a Linux filesystem."
+  },
+  "verification_scope": "The installed CLI imported native jobs, verified the source files, delivered drawings and IFC, and repeated the audit in a fresh process. The browser recorded a review response, regenerated the drawing/model revision, reimported its IFC, rendered a storey and returned the original upload byte-for-byte. Per-building dimensional, bearing and engineering dispositions are recorded in acceptance.json."
+}

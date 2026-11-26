@@ -1,0 +1,165 @@
+[
+  {
+    "id": "Main-skin-floor deck-WPB300X300X69.8",
+    "chain": [
+      "Main-SEC-1-0-0-1",
+      "Main-DECK-1-0-0"
+    ],
+    "normal": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "stations_mm": [
+      [
+        3000.0,
+        3000.0,
+        4023.5
+      ]
+    ],
+    "expected_gaps_mm": [
+      0.0
+    ],
+    "tolerance_mm": 1.0
+  },
+  {
+    "id": "Main-support-beam-secondary beam-1",
+    "chain": [
+      "Main-E151",
+      "Main-SEC-1-0-0-1-BEAR-START-PACK",
+      "Main-SEC-1-0-0-1"
+    ],
+    "normal": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "stations_mm": [
+      [
+        3000.0,
+        6.0,
+        3882.0
+      ]
+    ],
+    "expected_gaps_mm": [
+      0.0,
+      0.0
+    ],
+    "tolerance_mm": 1.0
+  },
+  {
+    "id": "Main-skin-floor deck-RHS120X80X6-EDGE",
+    "chain": [
+      "Main-DECK-1-0-0-EDGE-1",
+      "Main-DECK-1-0-0"
+    ],
+    "normal": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "stations_mm": [
+      [
+        6000.0,
+        3000.0,
+        4105.0
+      ]
+    ],
+    "expected_gaps_mm": [
+      0.0
+    ],
+    "tolerance_mm": 1.0
+  },
+  {
+    "id": "Main-support-beam-secondary beam-4",
+    "chain": [
+      "Main-E180",
+      "Main-DECK-1-0-0-EDGE-1-BEAR-START-LOWER"
+    ],
+    "normal": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "stations_mm": [
+      [
+        6000.0,
+        164.0,
+        4045.0
+      ]
+    ],
+    "expected_gaps_mm": [
+      0.0
+    ],
+    "tolerance_mm": 1.0
+  },
+  {
+    "id": "Main-cap-secondary beam",
+    "chain": [
+      "Main-DECK-1-0-0-EDGE-1-BEAR-START-CAP",
+      "Main-DECK-1-0-0-EDGE-1"
+    ],
+    "normal": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "stations_mm": [
+      [
+        6000.0,
+        164.0,
+        4045.0
+      ]
+    ],
+    "expected_gaps_mm": [
+      0.0
+    ],
+    "tolerance_mm": 1.0
+  },
+  {
+    "id": "Main-skin-roof deck-NPB300X165X45.76",
+    "chain": [
+      "Main-SEC-5-0-0-1",
+      "Main-DECK-5-0-0"
+    ],
+    "normal": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "stations_mm": [
+      [
+        3000.0,
+        3000.0,
+        18438.5
+      ]
+    ],
+    "expected_gaps_mm": [
+      0.0
+    ],
+    "tolerance_mm": 1.0
+  },
+  {
+    "id": "Main-skin-roof deck-RHS120X80X6-EDGE",
+    "chain": [
+      "Main-DECK-5-0-0-EDGE-97",
+      "Main-DECK-5-0-0"
+    ],
+    "normal": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "stations_mm": [
+      [
+        6000.0,
+        3000.0,
+        18535.0
+      ]
+    ],
+    "expected_gaps_mm": [
+      0.0
+    ],
+    "tolerance_mm": 1.0
+  }
+]

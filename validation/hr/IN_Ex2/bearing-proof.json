@@ -1,0 +1,186 @@
+{
+  "project": "IN_Ex2",
+  "handoff_sha256": "393de1fa97b0fa8794c45a0d13a23dd6c5281a6f92e1f98c9547d1d0062d9a92",
+  "ifc_sha256": "f99cdafbc98986cdaafada03e469c2923f9d64e5bd520be2f65d919caae3ca88",
+  "status": "pass",
+  "counts": {
+    "blocks": 2393,
+    "interfaces": 6337
+  },
+  "minimum_common_area_mm2": 422.4,
+  "minimum_pair": [
+    "Main-GABLE-GIRT-1-6-2-0-RIGHT-BL",
+    "Main-C1-12-m1"
+  ],
+  "failures": [],
+  "door_clearances": [
+    {
+      "door": "X0-1",
+      "clear_width_mm": 6000,
+      "clear_height_mm": 6000,
+      "envelope_depth_mm": 1116.0,
+      "intrusions": []
+    },
+    {
+      "door": "X0-2",
+      "clear_width_mm": 6000,
+      "clear_height_mm": 6000,
+      "envelope_depth_mm": 1116.0,
+      "intrusions": []
+    },
+    {
+      "door": "X1-1",
+      "clear_width_mm": 6000,
+      "clear_height_mm": 6000,
+      "envelope_depth_mm": 1116.0,
+      "intrusions": []
+    },
+    {
+      "door": "X1-2",
+      "clear_width_mm": 6000,
+      "clear_height_mm": 6000,
+      "envelope_depth_mm": 1116.0,
+      "intrusions": []
+    },
+    {
+      "door": "Y1-1",
+      "clear_width_mm": 3000.0,
+      "clear_height_mm": 3500,
+      "envelope_depth_mm": 1296.0,
+      "intrusions": []
+    },
+    {
+      "door": "Y1-2",
+      "clear_width_mm": 3000.0,
+      "clear_height_mm": 3500,
+      "envelope_depth_mm": 1296.0,
+      "intrusions": []
+    },
+    {
+      "door": "Y1-3",
+      "clear_width_mm": 3000.0,
+      "clear_height_mm": 3500,
+      "envelope_depth_mm": 1296.0,
+      "intrusions": []
+    },
+    {
+      "door": "Y1-4",
+      "clear_width_mm": 3000.0,
+      "clear_height_mm": 3500,
+      "envelope_depth_mm": 1296.0,
+      "intrusions": []
+    },
+    {
+      "door": "Y1-5",
+      "clear_width_mm": 3000.0,
+      "clear_height_mm": 3500,
+      "envelope_depth_mm": 1296.0,
+      "intrusions": []
+    },
+    {
+      "door": "Y1-6",
+      "clear_width_mm": 3000.0,
+      "clear_height_mm": 3500,
+      "envelope_depth_mm": 1296.0,
+      "intrusions": []
+    },
+    {
+      "door": "Y1-7",
+      "clear_width_mm": 3000.0,
+      "clear_height_mm": 3500,
+      "envelope_depth_mm": 1296.0,
+      "intrusions": []
+    },
+    {
+      "door": "Y1-8",
+      "clear_width_mm": 3000.0,
+      "clear_height_mm": 3500,
+      "envelope_depth_mm": 1296.0,
+      "intrusions": []
+    },
+    {
+      "door": "Y1-9",
+      "clear_width_mm": 3000.0,
+      "clear_height_mm": 3500,
+      "envelope_depth_mm": 1296.0,
+      "intrusions": []
+    },
+    {
+      "door": "Y1-10",
+      "clear_width_mm": 3000.0,
+      "clear_height_mm": 3500,
+      "envelope_depth_mm": 1296.0,
+      "intrusions": []
+    },
+    {
+      "door": "Y1-11",
+      "clear_width_mm": 3000.0,
+      "clear_height_mm": 3500,
+      "envelope_depth_mm": 1296.0,
+      "intrusions": []
+    },
+    {
+      "door": "Y1-12",
+      "clear_width_mm": 3000.0,
+      "clear_height_mm": 3500,
+      "envelope_depth_mm": 1296.0,
+      "intrusions": []
+    },
+    {
+      "door": "Y1-13",
+      "clear_width_mm": 3000.0,
+      "clear_height_mm": 3500,
+      "envelope_depth_mm": 1296.0,
+      "intrusions": []
+    },
+    {
+      "door": "Y1-14",
+      "clear_width_mm": 3000.0,
+      "clear_height_mm": 3500,
+      "envelope_depth_mm": 1296.0,
+      "intrusions": []
+    },
+    {
+      "door": "Y1-15",
+      "clear_width_mm": 3000.0,
+      "clear_height_mm": 3500,
+      "envelope_depth_mm": 1296.0,
+      "intrusions": []
+    },
+    {
+      "door": "Y1-16",
+      "clear_width_mm": 3000.0,
+      "clear_height_mm": 3500,
+      "envelope_depth_mm": 1296.0,
+      "intrusions": []
+    },
+    {
+      "door": "Y1-17",
+      "clear_width_mm": 3000.0,
+      "clear_height_mm": 3500,
+      "envelope_depth_mm": 1296.0,
+      "intrusions": []
+    },
+    {
+      "door": "Y1-18",
+      "clear_width_mm": 3000.0,
+      "clear_height_mm": 3500,
+      "envelope_depth_mm": 1296.0,
+      "intrusions": []
+    },
+    {
+      "door": "Y1-19",
+      "clear_width_mm": 3000.0,
+      "clear_height_mm": 3500,
+      "envelope_depth_mm": 1296.0,
+      "intrusions": []
+    },
+    {
+      "door": "Y1-20",
+      "clear_width_mm": 3000.0,
+      "clear_height_mm": 3500,
+      "envelope_depth_mm": 1296.0,
+      "intrusions": []
+    }
+  ]
+}

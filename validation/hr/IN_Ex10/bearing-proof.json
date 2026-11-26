@@ -1,0 +1,1005 @@
+{
+  "status": "pass",
+  "samples": [
+    {
+      "id": "Main-skin-roof deck-WPB400X300X124.81",
+      "chain": [
+        "Main-SEC-1-0-0-1",
+        "Main-DECK-1-0-0"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        -0.016664352333993333,
+        0.9998611400395999
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            7500.0,
+            2500.0,
+            10246.7646
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Main-support-beam-roof joist-4",
+      "chain": [
+        "Main-E66",
+        "Main-SEC-1-0-0-1-BEAR-START-LOWER"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        -0.016664352333993333,
+        0.9998611400395999
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            6.0,
+            2503.2495,
+            10051.7917
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Main-cap-roof joist",
+      "chain": [
+        "Main-SEC-1-0-0-1-BEAR-START-CAP",
+        "Main-SEC-1-0-0-1"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        -0.016664352333993333,
+        0.9998611400395999
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            6.0,
+            2503.2495,
+            10051.7917
+          ],
+          "measured_gaps_mm": [
+            -0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Main-skin-roof deck-RHS120X80X6-EDGE",
+      "chain": [
+        "Main-DECK-1-0-0-EDGE-1",
+        "Main-DECK-1-0-0"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        -0.016664352333993333,
+        0.9998611400395999
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            7500.0,
+            0.0,
+            10340.1167
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Main-support-column-girt-4",
+      "chain": [
+        "Main-E1",
+        "Main-GIRT-Y0-1-0-0-BEAR-START-LOWER"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        -1,
+        0.0,
+        0.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            -278.0,
+            6.0,
+            2375.0
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Main-cap-girt",
+      "chain": [
+        "Main-GIRT-Y0-1-0-0-BEAR-START-CAP",
+        "Main-GIRT-Y0-1-0-0"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        -1,
+        0.0,
+        0.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            -278.0,
+            6.0,
+            2375.0
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Main-wall-0-0-WPB260X260X68.16",
+      "chain": [
+        "Main-GIRT-Y0-1-0-0",
+        "Main-WALL-Y0-1"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        -1,
+        0.0,
+        0.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            -403.0,
+            7500.0,
+            2375.0
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Main-support-door jamb-girt-1",
+      "chain": [
+        "Main-JAMB-Y0-1-1",
+        "Main-GIRT-Y0-1-1-0-BEAR-END-PACK",
+        "Main-GIRT-Y0-1-1-0"
+      ],
+      "expected_gaps_mm": [
+        0.0,
+        0.0
+      ],
+      "normal": [
+        -1,
+        0.0,
+        0.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            -278.0,
+            27994.0,
+            2375.0
+          ],
+          "measured_gaps_mm": [
+            0.0,
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Main-support-column-girt-1",
+      "chain": [
+        "Main-E3",
+        "Main-GIRT-Y0-2-1-0-BEAR-END-PACK",
+        "Main-GIRT-Y0-2-1-0"
+      ],
+      "expected_gaps_mm": [
+        0.0,
+        0.0
+      ],
+      "normal": [
+        -1,
+        0.0,
+        0.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            -278.0,
+            29994.0,
+            4750.0
+          ],
+          "measured_gaps_mm": [
+            0.0,
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Main-wall-0-1-WPB260X260X68.16",
+      "chain": [
+        "Main-GIRT-Y1-1-0-0",
+        "Main-WALL-Y1-1"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        1,
+        0.0,
+        0.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            90403.0,
+            7500.0,
+            2375.0
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Main-wall-1-0-WPB260X260X68.16",
+      "chain": [
+        "Main-GIRT-X0-1-0-0",
+        "Main-WALL-X0-1"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        -1,
+        0.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            7500.0,
+            -409.5,
+            2375.0
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Main-wall-1-1-WPB260X260X68.16",
+      "chain": [
+        "Main-GIRT-X1-1-0-0",
+        "Main-WALL-X1-1"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        1,
+        0.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            7500.0,
+            60409.5,
+            2375.0
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Main-eave-rail-skin-0",
+      "chain": [
+        "Main-EAVE-RAIL-0-0",
+        "Main-DECK-1-0-0"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        -0.01666435018912545,
+        0.9998611400753478
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            7236.0,
+            -406.181,
+            10193.327573616867
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Main-eave-back-weld-0",
+      "chain": [
+        "Main-EAVE-SEAT-0-0-BACK",
+        "Main-EAVE-SEAT-0-0-WR1--1"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            86.3333,
+            -190.0,
+            9285.0
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Main-eave-web-root-weld-0",
+      "chain": [
+        "Main-EAVE-SEAT-0-0-WEB1",
+        "Main-EAVE-SEAT-0-0-WR1--1"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        1.0,
+        -0.0,
+        -0.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            83.0,
+            -193.3333,
+            9285.0
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Main-eave-cap-weld-0",
+      "chain": [
+        "Main-EAVE-SEAT-0-0-WC1--1",
+        "Main-EAVE-SEAT-0-0-CAP"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        -0.01666435018912545,
+        0.9998611400753478
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            86.3333,
+            -402.5149,
+            9973.3581
+          ],
+          "measured_gaps_mm": [
+            -0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Main-eave-web-cap-weld-0",
+      "chain": [
+        "Main-EAVE-SEAT-0-0-WEB1",
+        "Main-EAVE-SEAT-0-0-WC1--1"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        1.0,
+        -0.0,
+        -0.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            83.0,
+            -402.4594,
+            9970.0253
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Main-eave-web-cap-0",
+      "chain": [
+        "Main-EAVE-SEAT-0-0-WEB1",
+        "Main-EAVE-SEAT-0-0-CAP"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        -0.01666435018912545,
+        0.9998611400753478
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            75.0,
+            -402.5149,
+            9973.358122115507
+          ],
+          "measured_gaps_mm": [
+            -0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Main-eave-column-0",
+      "chain": [
+        "Main-E1",
+        "Main-EAVE-SEAT-0-0-BACK"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            -100.0,
+            -170.0,
+            9285.0
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Main-eave-rail-hold-0",
+      "chain": [
+        "Main-EAVE-RAIL-0-0",
+        "Main-EAVE-SEAT-0-0-HOLD-Main-EAVE-RAIL-0-01"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        -0.0,
+        0.9998611400753478,
+        0.01666435018912545
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            40.0,
+            -302.9065,
+            9997.6881
+          ],
+          "measured_gaps_mm": [
+            -0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Main-eave-cap-hold-0",
+      "chain": [
+        "Main-EAVE-SEAT-0-0-CAP",
+        "Main-EAVE-SEAT-0-0-HOLD-Main-EAVE-RAIL-0-01"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        -0.01666435018912545,
+        0.9998611400753478
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            40.0,
+            -300.1958,
+            9995.0662
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Main-eave-cap-rail-0",
+      "chain": [
+        "Main-EAVE-SEAT-0-0-CAP",
+        "Main-EAVE-RAIL-0-0"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        -0.01666435018912545,
+        0.9998611400753478
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            38.0,
+            -402.8482,
+            9993.3553
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Main-eave-rail-skin-1",
+      "chain": [
+        "Main-EAVE-RAIL-1-0",
+        "Main-DECK-1-0-3"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.01666435018912545,
+        0.9998611400753478
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            7236.0,
+            60406.181,
+            10193.327573616869
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Main-eave-back-weld-1",
+      "chain": [
+        "Main-EAVE-SEAT-1-0-BACK",
+        "Main-EAVE-SEAT-1-0-WR1--1"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            -86.3333,
+            60190.0,
+            9285.0
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Main-eave-web-root-weld-1",
+      "chain": [
+        "Main-EAVE-SEAT-1-0-WEB1",
+        "Main-EAVE-SEAT-1-0-WR1--1"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        -1.0,
+        -0.0,
+        -0.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            -83.0,
+            60193.3333,
+            9285.0
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Main-eave-cap-weld-1",
+      "chain": [
+        "Main-EAVE-SEAT-1-0-WC1--1",
+        "Main-EAVE-SEAT-1-0-CAP"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.01666435018912545,
+        0.9998611400753478
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            -86.3333,
+            60402.5149,
+            9973.3581
+          ],
+          "measured_gaps_mm": [
+            -0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Main-eave-web-cap-weld-1",
+      "chain": [
+        "Main-EAVE-SEAT-1-0-WEB1",
+        "Main-EAVE-SEAT-1-0-WC1--1"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        -1.0,
+        -0.0,
+        -0.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            -83.0,
+            60402.4594,
+            9970.0253
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Main-eave-web-cap-1",
+      "chain": [
+        "Main-EAVE-SEAT-1-0-WEB1",
+        "Main-EAVE-SEAT-1-0-CAP"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.01666435018912545,
+        0.9998611400753478
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            -75.0,
+            60402.5149,
+            9973.358122115507
+          ],
+          "measured_gaps_mm": [
+            -0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Main-eave-column-1",
+      "chain": [
+        "Main-E5",
+        "Main-EAVE-SEAT-1-0-BACK"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            100.0,
+            60170.0,
+            9285.0
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Main-eave-rail-hold-1",
+      "chain": [
+        "Main-EAVE-RAIL-1-0",
+        "Main-EAVE-SEAT-1-0-HOLD-Main-EAVE-RAIL-1-01"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        -0.0,
+        -0.9998611400753478,
+        0.01666435018912545
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            40.0,
+            60302.9065,
+            9997.6881
+          ],
+          "measured_gaps_mm": [
+            -0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Main-eave-cap-hold-1",
+      "chain": [
+        "Main-EAVE-SEAT-1-0-CAP",
+        "Main-EAVE-SEAT-1-0-HOLD-Main-EAVE-RAIL-1-01"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.01666435018912545,
+        0.9998611400753478
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            40.0,
+            60300.1958,
+            9995.0662
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "Main-eave-cap-rail-1",
+      "chain": [
+        "Main-EAVE-SEAT-1-0-CAP",
+        "Main-EAVE-RAIL-1-0"
+      ],
+      "expected_gaps_mm": [
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.01666435018912545,
+        0.9998611400753478
+      ],
+      "tolerance_mm": 1.0,
+      "stations": [
+        {
+          "station_mm": [
+            38.0,
+            60402.8482,
+            9993.3553
+          ],
+          "measured_gaps_mm": [
+            0.0
+          ],
+          "missing_material": [],
+          "pass": true
+        }
+      ],
+      "pass": true
+    }
+  ],
+  "handoff_sha256": "41c0cc6f30d63f6a7a3fc2a8f074e20d1a3a9ef4d8694caa9dc58e0ebac2ac51",
+  "ifc_sha256": "fc1d3b3ee298a00dc87f24bdfd701893554221da95de4c9f7cf4e1b5c925ca81"
+}

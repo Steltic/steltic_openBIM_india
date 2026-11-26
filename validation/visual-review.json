@@ -1,0 +1,866 @@
+[
+  {
+    "id": "IN_Ex1",
+    "pdf_sha256": "c53b40e23ee0af27b7bf919be3e8a8505be684fb46c9e12cde5a29b0bbd8ef5d",
+    "poppler_samples": [
+      {
+        "sheet": "S-102",
+        "page": 3,
+        "kind": "plan",
+        "png_sha256": "c088adf851bb973fa7f4e653cce3d581765981e37bac369e207064fce6b519ce"
+      },
+      {
+        "sheet": "S-201",
+        "page": 4,
+        "kind": "elevation",
+        "png_sha256": "4617c8df1253a4b2d8a33ed098388ed49eccb18819e7eb3cceefbce90d1c5356"
+      },
+      {
+        "sheet": "D-042",
+        "page": 122,
+        "kind": "details",
+        "png_sha256": "f8cdf86cc92edf0a91decfe2b52f83f0a059b166aeb45ee576ef5f1a2cb70e1e"
+      }
+    ]
+  },
+  {
+    "id": "IN_Ex2",
+    "pdf_sha256": "d86d4d90b05197471dea987dd53105a2cf19e92e1e516e9a325247f22b2da55c",
+    "poppler_samples": [
+      {
+        "sheet": "S-102",
+        "page": 3,
+        "kind": "plan",
+        "png_sha256": "53a11a1c5854077aefdfa71237207e1616806c05fb6290d5aff25f407f293cf8"
+      },
+      {
+        "sheet": "S-201",
+        "page": 4,
+        "kind": "elevation",
+        "png_sha256": "4dca4922bcda0e258f6d15b8a78d7a122c10e39896469748c0143cf1042c4ee5"
+      },
+      {
+        "sheet": "D-095",
+        "page": 296,
+        "kind": "details",
+        "png_sha256": "106bf5f8e2504d06dfaae75f2683c5c92a076397cd0f1e5b07804edc77931739"
+      }
+    ]
+  },
+  {
+    "id": "IN_Ex3",
+    "pdf_sha256": "4f7a275a4da2301f2a4acce8a4aabcc1de1f4ba2d0f9d41a9d7050d8543ee843",
+    "poppler_samples": [
+      {
+        "sheet": "S-102",
+        "page": 3,
+        "kind": "plan",
+        "png_sha256": "62019dd848933ab9ad75b8dc7002ca0ab59e20591c0416bf4d027b537321a223"
+      },
+      {
+        "sheet": "S-201",
+        "page": 4,
+        "kind": "elevation",
+        "png_sha256": "7b3d4afa2a50312605ccbf546911cb7e8cf78337ffc36cc74a6c1ec446f32e56"
+      },
+      {
+        "sheet": "D-023",
+        "page": 78,
+        "kind": "details",
+        "png_sha256": "c69950bf63972697d199d0b29b126b1fc1a9af81a30dcdd3d75d7a6726527eb3"
+      }
+    ]
+  },
+  {
+    "id": "IN_Ex4",
+    "pdf_sha256": "804f8d1007d1c3c8c258713aa6ab6ee8ce8c0eab8083e4bfec0572e26fba9039",
+    "poppler_samples": [
+      {
+        "sheet": "S-102",
+        "page": 3,
+        "kind": "plan",
+        "png_sha256": "41a42170d37d1a4d252f7f181fa6ddaba20d9a3cb8f72daca84ba51a9435f848"
+      },
+      {
+        "sheet": "S-201",
+        "page": 4,
+        "kind": "elevation",
+        "png_sha256": "d40424898d2bc7741ea930bbe2ddc718ba54d79da9a78ade4531d1cc5f273387"
+      },
+      {
+        "sheet": "D-060",
+        "page": 167,
+        "kind": "details",
+        "png_sha256": "146ebe5d632c59cfab3aeafc4e3c7a377eca024c879c6cbbb2adb47c4de563bb"
+      }
+    ]
+  },
+  {
+    "id": "IN_Ex5",
+    "pdf_sha256": "81eac5cff948787aab4907c5cc5123ccf879cbdc96f7b09a5080c4c0553eaa56",
+    "poppler_samples": [
+      {
+        "sheet": "S-102",
+        "page": 3,
+        "kind": "plan",
+        "png_sha256": "71f65b23a0058bb52c9b3ae7ee9358f1ac6929d55033f322b561cab08cefe6ec"
+      },
+      {
+        "sheet": "S-201",
+        "page": 4,
+        "kind": "elevation",
+        "png_sha256": "98ec250d89478960b2c3db86ef6ddc31e29caf7e65844b8cce31769e2809841c"
+      },
+      {
+        "sheet": "D-042",
+        "page": 122,
+        "kind": "details",
+        "png_sha256": "5721e91e0ea29992846c4d429e8bbea26aa1ffba284afdb30b55da6e4772b828"
+      }
+    ]
+  },
+  {
+    "id": "IN_Ex6",
+    "pdf_sha256": "e61c116c3c33f69158a517b0d4ed3332d56758f54f767417bcc5b9d602ddad57",
+    "poppler_samples": [
+      {
+        "sheet": "S-103",
+        "page": 4,
+        "kind": "plan",
+        "png_sha256": "b518ff7f102399327a25d1543c6a1b6fea2a029ae34bf6a0a7c38d94907c52c8"
+      },
+      {
+        "sheet": "S-201",
+        "page": 5,
+        "kind": "elevation",
+        "png_sha256": "a5cdd0c2e83c9a693f463b2d125ed28b4661fddd5de2450f26e47216667e8d7f"
+      },
+      {
+        "sheet": "D-057",
+        "page": 155,
+        "kind": "details",
+        "png_sha256": "8922cee6d9c8ef390fd142c8614d73bea7f9a6d626d9d949c21673ceb1c2509c"
+      }
+    ]
+  },
+  {
+    "id": "IN_Ex7",
+    "pdf_sha256": "9b980a092fab35bed810e87b0c7891dc48d011816b6f8fb874cdc1567f0e6f67",
+    "poppler_samples": [
+      {
+        "sheet": "S-102",
+        "page": 3,
+        "kind": "plan",
+        "png_sha256": "7771b28af9b618727151eced74a322ce2718d0ff4543866f3eb7ff282b519e14"
+      },
+      {
+        "sheet": "S-201",
+        "page": 4,
+        "kind": "elevation",
+        "png_sha256": "4c8ed1538b9a73daeca02cdb9e8cb58bef5d66d5de1e18820addfef50c38040c"
+      },
+      {
+        "sheet": "D-003",
+        "page": 45,
+        "kind": "details",
+        "png_sha256": "61d2badc5e4c757b8e7769bee7656b26d994accd6cd82c8546c2d43f18e312e8"
+      }
+    ]
+  },
+  {
+    "id": "IN_Ex8",
+    "pdf_sha256": "87557ca4aedfed3c3ecda30edaecc89ad27b49d8458e79fc909a086d0388e6cb",
+    "poppler_samples": [
+      {
+        "sheet": "S-102",
+        "page": 3,
+        "kind": "plan",
+        "png_sha256": "f0d38ef4c7ec9a06f624c3a0701ba1712de70db076e911831edb0d1c1669470f"
+      },
+      {
+        "sheet": "S-201",
+        "page": 4,
+        "kind": "elevation",
+        "png_sha256": "065c934e3e51bd0a936b3dee19437e0d8bc034cdef1659eea3ab30ea3c0f4670"
+      },
+      {
+        "sheet": "D-001",
+        "page": 36,
+        "kind": "details",
+        "png_sha256": "73d262d16eb3374f914bd9f2b91b91d12ae8c8d871101f53fbb2185344712719"
+      }
+    ]
+  },
+  {
+    "id": "IN_Ex9",
+    "pdf_sha256": "ac82a6ed0b380b2ec78f30074ae76a4b5239d890ba341eac8678def67ba22be5",
+    "poppler_samples": [
+      {
+        "sheet": "S-102",
+        "page": 3,
+        "kind": "plan",
+        "png_sha256": "de78c1a747d09c078a120bc51e320122d88aeea566532374acd6757ee43642c8"
+      },
+      {
+        "sheet": "S-201",
+        "page": 4,
+        "kind": "elevation",
+        "png_sha256": "c9c34e6000a4c26dae7b76ca62cdef5def771b7d7c654958e4ea933fc277bc57"
+      },
+      {
+        "sheet": "D-002",
+        "page": 50,
+        "kind": "details",
+        "png_sha256": "31d9d22bc6fd31a4f39d298020b948b471866b9b7ceb369ede504b724677d25f"
+      }
+    ]
+  },
+  {
+    "id": "IN_Ex10",
+    "pdf_sha256": "64825cc6c79aa71531a8372aca41b933531d9b738c38004e4e0ba3e4655ea8ac",
+    "poppler_samples": [
+      {
+        "sheet": "S-102",
+        "page": 3,
+        "kind": "plan",
+        "png_sha256": "42ac5da799d924914947a14d6d0478ed79868bfc87ac3276b90b028af811861d"
+      },
+      {
+        "sheet": "S-209",
+        "page": 12,
+        "kind": "elevation",
+        "png_sha256": "28c45bad41023d74a6026810eec8f776cf4e790a006f8c8094ca3a42d2dc20e1"
+      },
+      {
+        "sheet": "D-002",
+        "page": 59,
+        "kind": "details",
+        "png_sha256": "e9628504b75db88393677d077dd8928fae9d21605a52250f99e44b797b0b07be"
+      }
+    ]
+  },
+  {
+    "id": "IN_Ex11",
+    "pdf_sha256": "91b9d8304b1cdd15fb75b1a2d6622b045a0f97ee207e72e07fd285be87958648",
+    "poppler_samples": [
+      {
+        "sheet": "S-103",
+        "page": 7,
+        "kind": "plan",
+        "png_sha256": "7e073c819d8dbd842038ee2f0cd469cc214c6d97c153656d50c588015443e391"
+      },
+      {
+        "sheet": "S-201",
+        "page": 10,
+        "kind": "elevation",
+        "png_sha256": "c725af4344bd8b2fd5e12a657fa709fdd04e65932937f88cc17538182020ec82"
+      },
+      {
+        "sheet": "D-002",
+        "page": 110,
+        "kind": "details",
+        "png_sha256": "365d60a03b510bb8b12f0b98c666b3d38dae9036cd63efcc1c9d682b36ab7854"
+      }
+    ]
+  },
+  {
+    "id": "IN_Ex12",
+    "pdf_sha256": "57cd7ab7d41643e90f0ae12ff48fee1ba2afdf921430ef2e7d2bd210de248af0",
+    "poppler_samples": [
+      {
+        "sheet": "S-103",
+        "page": 7,
+        "kind": "plan",
+        "png_sha256": "710056aec5bd5138185ec180ea4262fb969388fe98b9740cc528f2574c60cdaa"
+      },
+      {
+        "sheet": "S-201",
+        "page": 9,
+        "kind": "elevation",
+        "png_sha256": "b7269b3630c1cb847134640c61c4dd1cb615c8b1f579109deea089e96ac210cb"
+      },
+      {
+        "sheet": "D-153",
+        "page": 404,
+        "kind": "details",
+        "png_sha256": "45b0d4d7196b53a81e0888b5da9fe24ce2e78856bf7d2ef29dc906e6635ad7e5"
+      }
+    ]
+  },
+  {
+    "id": "IN_Ex13",
+    "pdf_sha256": "d3d4b5d0434ead59ced9b102da8a5094b2be8fbfc8db067e2459154dff31fc95",
+    "poppler_samples": [
+      {
+        "sheet": "S-103",
+        "page": 4,
+        "kind": "plan",
+        "png_sha256": "3dc6256c524da8655b244b32acffb2629d915592f215e410f135345d451aed17"
+      },
+      {
+        "sheet": "S-201",
+        "page": 8,
+        "kind": "elevation",
+        "png_sha256": "f912c16f5104b3f1305df24f68ee21d4fba2ec14875261cc9e75c7a62f568c07"
+      },
+      {
+        "sheet": "D-002",
+        "page": 100,
+        "kind": "details",
+        "png_sha256": "8e996ac506bd4cb007951b7bedec6e98f5a27ece6f95e42fd47bafdbe0460f28"
+      }
+    ]
+  },
+  {
+    "id": "IN_Ex14",
+    "pdf_sha256": "076e1eb8b631f5a06b52dcaee12b8a5a19c17ace3e80fe3871be32b292124c2a",
+    "poppler_samples": [
+      {
+        "sheet": "S-103",
+        "page": 4,
+        "kind": "plan",
+        "png_sha256": "292ffb65417a798ee169947dcc9a0c03faeb5907ad08fa36aef07682ec45f23e"
+      },
+      {
+        "sheet": "S-201",
+        "page": 11,
+        "kind": "elevation",
+        "png_sha256": "907cf3035d130c6589e227ec8090f2f15da7ca57dc8721b2ca5c876a95a8b900"
+      },
+      {
+        "sheet": "D-002",
+        "page": 173,
+        "kind": "details",
+        "png_sha256": "d8cc0e7e4aeab2b2ea619938da9d22d3510901a61bc3cc38d5c21b5f8d979975"
+      }
+    ]
+  },
+  {
+    "id": "IN_Ex15",
+    "pdf_sha256": "065a09dfeb86325a5c69e8c34ecd938e7312d3ca9fa53f654796aef5c231094a",
+    "poppler_samples": [
+      {
+        "sheet": "S-103",
+        "page": 4,
+        "kind": "plan",
+        "png_sha256": "d469b3c62c24ce27c4b63877b0a553b32edc044ee3285cce0d428089cdbb47d7"
+      },
+      {
+        "sheet": "S-212",
+        "page": 22,
+        "kind": "elevation",
+        "png_sha256": "cf46d658ad654655bc04175e2433dc39b9364bbf20b4c43c86e0708b9c6d17e4"
+      },
+      {
+        "sheet": "D-001",
+        "page": 322,
+        "kind": "details",
+        "png_sha256": "dec33deff488c4d07614aa5891389741e96ee88a035bc3cd618b37fcff91450d"
+      }
+    ]
+  },
+  {
+    "id": "IN_Ex16",
+    "pdf_sha256": "5dcdae95cbefebde790c7223bd2396faa9412e1f3a7a0b572bc37e88cbb56f0f",
+    "poppler_samples": [
+      {
+        "sheet": "S-103",
+        "page": 4,
+        "kind": "plan",
+        "png_sha256": "f5f040112fad399f2d6111f972dd14ae5b75cfd55713a254e2f6c468709a7767"
+      },
+      {
+        "sheet": "S-201",
+        "page": 12,
+        "kind": "elevation",
+        "png_sha256": "316dfecf5ce3b45a87a3fc45bfb2f07a4e12445328afc48c3c2cd6ff7e911734"
+      },
+      {
+        "sheet": "D-001",
+        "page": 142,
+        "kind": "details",
+        "png_sha256": "6423d1672cc70f8afd6bc67cfcf63ddb5598267702dd32b681f80f3a906ea87c"
+      }
+    ]
+  },
+  {
+    "id": "IN_Ex17",
+    "pdf_sha256": "e663f74df88179e000705f707969c4ac20cb3436f3aaae24d957cc1662658806",
+    "poppler_samples": [
+      {
+        "sheet": "S-103",
+        "page": 4,
+        "kind": "plan",
+        "png_sha256": "686fa93ce3bf4d94b0709ef8d471df826cea4135f9ae1a1d0219d6df8ebfbfef"
+      },
+      {
+        "sheet": "S-208",
+        "page": 20,
+        "kind": "elevation",
+        "png_sha256": "97839da5ca6386d3aa6749f3bc2d51cd316b9c60dc9464b79bdce16c55d386c3"
+      },
+      {
+        "sheet": "D-002",
+        "page": 237,
+        "kind": "details",
+        "png_sha256": "e567874094859a8786ca57c8f5b47e59b43ca8691ce1b54066d06e0837e31dd8"
+      }
+    ]
+  },
+  {
+    "id": "IN_Ex18",
+    "pdf_sha256": "0c8b0f92242628b1deac1fd184c668ea1e8f848a14db05fe1ff143cb80c34203",
+    "poppler_samples": [
+      {
+        "sheet": "S-103",
+        "page": 4,
+        "kind": "plan",
+        "png_sha256": "78c3f738e4d3947a917a237fe8a0be07c5b5c15e36c330b001ba15aa4dec6017"
+      },
+      {
+        "sheet": "S-206",
+        "page": 19,
+        "kind": "elevation",
+        "png_sha256": "71269bec1f68c4866a6b80ac68515dd4f74aa2dab845073d0bfff11a744be7ae"
+      },
+      {
+        "sheet": "D-001",
+        "page": 147,
+        "kind": "details",
+        "png_sha256": "1e4f667b61186e8473652c7721ab1cca04e75f5de9dd02352c14c63a3b4a9d1e"
+      }
+    ]
+  },
+  {
+    "id": "IN_Ex19",
+    "pdf_sha256": "a2a398c2b30bc853937051b4095771c476c74beee63797d87a90ec43d24e90f5",
+    "poppler_samples": [
+      {
+        "sheet": "S-103",
+        "page": 7,
+        "kind": "plan",
+        "png_sha256": "078ce34d188e7eba16d308e9a08eb09261a68bffdce7a660ffb4bd4fa31dd523"
+      },
+      {
+        "sheet": "S-208",
+        "page": 25,
+        "kind": "elevation",
+        "png_sha256": "0629bb90d214774c5e73b14bc4efa71794b018a85096251cec7d7463090c0b62"
+      },
+      {
+        "sheet": "D-002",
+        "page": 458,
+        "kind": "details",
+        "png_sha256": "656afabdb2c8967bbf1c0e91a94cf5b57fca97a7e4cd50a4462e10264d0aa5a1"
+      }
+    ]
+  },
+  {
+    "id": "IN_Ex20",
+    "pdf_sha256": "5e5d262a6b88017ba89699acc9c78d8d11833f9ab8c535ff11b75c8824ed60df",
+    "poppler_samples": [
+      {
+        "sheet": "S-103",
+        "page": 4,
+        "kind": "plan",
+        "png_sha256": "78038afa02ba1e45ab69e3843626873cedbfc96220c38b2ea175bf38fc1dabe8"
+      },
+      {
+        "sheet": "S-205",
+        "page": 25,
+        "kind": "elevation",
+        "png_sha256": "b7a3e8911c5f4022c93ac69e71fc0614e5f39be87985d30328733bbe24a93956"
+      },
+      {
+        "sheet": "D-002",
+        "page": 152,
+        "kind": "details",
+        "png_sha256": "a307b2a5c3b1623d859d62c7b464302cb430462fc5ec8f2f12fdc2e516f7e2f1"
+      }
+    ]
+  },
+  {
+    "id": "IN_Ex21",
+    "pdf_sha256": "d86985a760f6d3864db7f4eccb0ca335d24cb4541265c06d4851d566ed5c0387",
+    "poppler_samples": [
+      {
+        "sheet": "S-102",
+        "page": 3,
+        "kind": "plan",
+        "png_sha256": "580ecfced0ba881d7adfd66ed8d5bdba3f2d4886819117db3f444ec07d00f464"
+      },
+      {
+        "sheet": "S-203",
+        "page": 6,
+        "kind": "elevation",
+        "png_sha256": "a3218f487c997db2786aff8f531a6cb3d2feeb59d0e06c3be4c94af2a5562882"
+      },
+      {
+        "sheet": "D-011",
+        "page": 63,
+        "kind": "details",
+        "png_sha256": "0e4b0aa01602dc389462babbfd6ba0464007ae8370be887c8e74e1ec68c90211"
+      }
+    ]
+  },
+  {
+    "id": "IN_CFS_Ex1",
+    "pdf_sha256": "82f4629737cb7dfc3aec9338d4944c14d1489c2e77ff989706bd2e1bf2d07d57",
+    "poppler_samples": [
+      {
+        "sheet": "S-102",
+        "page": 3,
+        "kind": "plan",
+        "png_sha256": "8643b78dc4c42dcdfa2e9f89730fda7eb90fbb58576aede64147361ef75d569d"
+      },
+      {
+        "sheet": "S-210",
+        "page": 14,
+        "kind": "elevation",
+        "png_sha256": "bbc8b9877289e3cfbd2f441034064da48e649320c386f9b8244e783a15a85149"
+      },
+      {
+        "sheet": "D-008",
+        "page": 57,
+        "kind": "details",
+        "png_sha256": "2a01fce3fe49c399dbce5a6cf06586f3785f6559a348861c025075dd78faef17"
+      }
+    ]
+  },
+  {
+    "id": "IN_CFS_Ex2",
+    "pdf_sha256": "fd08698e7a319f1d5932ef19fb4b795a750adfc2b0a6cc6d134e3aa392992060",
+    "poppler_samples": [
+      {
+        "sheet": "S-102",
+        "page": 3,
+        "kind": "plan",
+        "png_sha256": "6ba5f21920a9f24e2b479115775c6eb665a14faf1a23d392ac3c6719a844f36b"
+      },
+      {
+        "sheet": "S-221",
+        "page": 25,
+        "kind": "elevation",
+        "png_sha256": "882b00b12ee017f59b173c5cc78b9668e34e38024d02d1fd10c66fe31553f01e"
+      },
+      {
+        "sheet": "D-006",
+        "page": 156,
+        "kind": "details",
+        "png_sha256": "3c107dc5fec9b693da804eb4a7b35023cc135eb9c77e0c1e03c3ffdd3a6dff8c"
+      }
+    ]
+  },
+  {
+    "id": "IN_CFS_Ex3",
+    "pdf_sha256": "d5c4484392921c10cf84b204da22ae5939de7e36b74a60a617477d39a2ec3179",
+    "poppler_samples": [
+      {
+        "sheet": "S-103",
+        "page": 4,
+        "kind": "plan",
+        "png_sha256": "6db2eb52d9ad71b06db1f6522c6a8c9be2789a09815a2f4aa7f58bd60527f10e"
+      },
+      {
+        "sheet": "S-202",
+        "page": 7,
+        "kind": "elevation",
+        "png_sha256": "fdafb32676c33bc5f119c4d82ca645fc1cf2700b54cd1274a03e8adde25417da"
+      },
+      {
+        "sheet": "D-025",
+        "page": 109,
+        "kind": "details",
+        "png_sha256": "53820a7eed27bda680bdf40db7f2fb89ba353f038b5c8b6956e06619a9c8487d"
+      }
+    ]
+  },
+  {
+    "id": "IN_CFS_Ex4",
+    "pdf_sha256": "ca45c4d2676e5d01e52024a442eea43da9135b537c14caa1c97a18df21cdd77b",
+    "poppler_samples": [
+      {
+        "sheet": "S-103",
+        "page": 4,
+        "kind": "plan",
+        "png_sha256": "dff498917c9cd1c6514ce059c812e6cf4b478c12491cd51d5a4135c1c3916cee"
+      },
+      {
+        "sheet": "S-213",
+        "page": 18,
+        "kind": "elevation",
+        "png_sha256": "b7ef58971be774ea4896ae288ad021d010c1bf7e9b96d1d7ece7e8192e1c08f7"
+      },
+      {
+        "sheet": "D-011",
+        "page": 84,
+        "kind": "details",
+        "png_sha256": "b7b4026c86278f4e58041d15c8e505fac3253ec13233e121729a447a4467233b"
+      }
+    ]
+  },
+  {
+    "id": "IN_CFS_Ex5",
+    "pdf_sha256": "6a0a5e8f12784149f31ebee946af35c7dbd318832b0d169e66fa22594f05b143",
+    "poppler_samples": [
+      {
+        "sheet": "S-103",
+        "page": 4,
+        "kind": "plan",
+        "png_sha256": "9a105458204433a7422fa1403e1b289d620d143c1448df8e57c4fd2d924fc1ec"
+      },
+      {
+        "sheet": "S-213",
+        "page": 18,
+        "kind": "elevation",
+        "png_sha256": "bce14599bc59a863b81f49420a2ca35696c4531888d16f6aab88681de29be973"
+      },
+      {
+        "sheet": "D-011",
+        "page": 84,
+        "kind": "details",
+        "png_sha256": "d50ca939be2105705436166eb27578c0231896b283d9fea2f8848a023800b9dd"
+      }
+    ]
+  },
+  {
+    "id": "IN_CFS_Ex6",
+    "pdf_sha256": "2b479109803506cd12fdf2d7de72baa32357408f454b2e21ea97652a780bdb0c",
+    "poppler_samples": [
+      {
+        "sheet": "S-104",
+        "page": 5,
+        "kind": "plan",
+        "png_sha256": "04097609da684ad28711c7b899674b91ae3d6b20f594f69842b4b3ccbb5f0e54"
+      },
+      {
+        "sheet": "S-208",
+        "page": 14,
+        "kind": "elevation",
+        "png_sha256": "b3acfeb700d08eeba685b33968d055651140ebc4dc51465689f92ded7be130d4"
+      },
+      {
+        "sheet": "D-011",
+        "page": 78,
+        "kind": "details",
+        "png_sha256": "afa8fe71624a043552db34d96aa830ad5bf3cc4c1a7c8aa5d499f09de2646bd5"
+      }
+    ]
+  },
+  {
+    "id": "IN_CFS_Ex7",
+    "pdf_sha256": "59beebef48e17623c14403e24e1694720b67517a56ec3f076a03c58c722a51b2",
+    "poppler_samples": [
+      {
+        "sheet": "S-103",
+        "page": 4,
+        "kind": "plan",
+        "png_sha256": "3646455a621ae1e37f89deabbe8d3af504f124999c2fc29b1729e0bd6d130a21"
+      },
+      {
+        "sheet": "S-204",
+        "page": 10,
+        "kind": "elevation",
+        "png_sha256": "6da7696a34c20e99db30def919089c96598152260d2e0d6218f932f1e8c508f8"
+      },
+      {
+        "sheet": "D-011",
+        "page": 51,
+        "kind": "details",
+        "png_sha256": "57af41bf4eb07c10c4c288f98ecb860e6627b8bed17f3b6fb1e06c9a14025977"
+      }
+    ]
+  },
+  {
+    "id": "IN_CFS_Ex8",
+    "pdf_sha256": "583a3f762f15ff7d033af15296d7f03d993b0616101f830b03cd9b71d05ee07d",
+    "poppler_samples": [
+      {
+        "sheet": "S-103",
+        "page": 4,
+        "kind": "plan",
+        "png_sha256": "e52d1bc6f5b61bec245b8d4e0ef26a9805aa87d3b38d0a1b25c97336d821720a"
+      },
+      {
+        "sheet": "S-219",
+        "page": 27,
+        "kind": "elevation",
+        "png_sha256": "663ced309532ed65fccb8e263f773dd4bba363c5a0091939636abd968813be66"
+      },
+      {
+        "sheet": "D-011",
+        "page": 140,
+        "kind": "details",
+        "png_sha256": "3fd4f44544763e26ddc96db65af54ea561ecda64a9ed02f6234e8448032e56c4"
+      }
+    ]
+  },
+  {
+    "id": "IN_CFS_Ex9",
+    "pdf_sha256": "09bdbcf37da0544b2e90e91806c971c41481ac1e4d2ae4b232cebf4a62b052f1",
+    "poppler_samples": [
+      {
+        "sheet": "S-103",
+        "page": 4,
+        "kind": "plan",
+        "png_sha256": "73259dd85dd65bf5e6b0d9b747577d72ef65fec7795a04274c8850e594d2acc4"
+      },
+      {
+        "sheet": "S-217",
+        "page": 24,
+        "kind": "elevation",
+        "png_sha256": "f6cdf15b11b5fe505712c5324194f5211258de5f025d50f01a105a31625d7cd3"
+      },
+      {
+        "sheet": "D-011",
+        "page": 128,
+        "kind": "details",
+        "png_sha256": "990b1fbea343207ab00ec03ebafa490ec361604b3013842a8ff48e7701789523"
+      }
+    ]
+  },
+  {
+    "id": "IN_CFS_Ex10",
+    "pdf_sha256": "969acb3bfaa95fe27b5b508b05490276186a9e17c148fa2d0cd4704ebc2af2b9",
+    "poppler_samples": [
+      {
+        "sheet": "S-103",
+        "page": 4,
+        "kind": "plan",
+        "png_sha256": "29f53bf02a5ec07179a2291111f2438f60c27e07e763cb2857283cd527c7a506"
+      },
+      {
+        "sheet": "S-206",
+        "page": 13,
+        "kind": "elevation",
+        "png_sha256": "e67ac6bac33673726e6da3f3e1c2575c2757ac2deb12063391e3e30ca774b3d8"
+      },
+      {
+        "sheet": "D-011",
+        "page": 74,
+        "kind": "details",
+        "png_sha256": "2bb4879f96f0d6f02314aa3af51cf6aeea52374189cd32073360f3d110469bd3"
+      }
+    ]
+  },
+  {
+    "id": "IN_CFS_Ex11",
+    "pdf_sha256": "2e976b66d7a1be72f3ce424ada36906c10a52d1bd02d3fe712aa09dc13eeb0a0",
+    "poppler_samples": [
+      {
+        "sheet": "S-103",
+        "page": 4,
+        "kind": "plan",
+        "png_sha256": "8baa12dacd5c7c62fb9a52df42b2f4c1c11a5114e2df7333c72f78a086b684e1"
+      },
+      {
+        "sheet": "S-220",
+        "page": 28,
+        "kind": "elevation",
+        "png_sha256": "96394c8a90cbcbc1b8583bddc640f9e1e5de8d53c40f3547e5192afe952147ba"
+      },
+      {
+        "sheet": "D-011",
+        "page": 172,
+        "kind": "details",
+        "png_sha256": "3b8b4af877b1941a78de7360e2f23313664b055e85023828f1ed33590f7c4f30"
+      }
+    ]
+  },
+  {
+    "id": "IN_CFS_Ex12",
+    "pdf_sha256": "c4107861f944b6fb82420b4163100f9e79df9c601591fdf5f450ea158ab2538c",
+    "poppler_samples": [
+      {
+        "sheet": "S-103",
+        "page": 4,
+        "kind": "plan",
+        "png_sha256": "5c12b87b31d5742abb82b8f8df2c9ef658842ea9fdfad47ebefa3d89d2f42a61"
+      },
+      {
+        "sheet": "S-208",
+        "page": 16,
+        "kind": "elevation",
+        "png_sha256": "4f55b74a4205fe9d2b390cc180578c4a998a2992c6f41254ab3d70bceca3cfae"
+      },
+      {
+        "sheet": "D-011",
+        "page": 91,
+        "kind": "details",
+        "png_sha256": "5f4fc97f1d1460de92e07fb73c4560873a063b55f3b715d73630fca62bccbf83"
+      }
+    ]
+  },
+  {
+    "id": "IN_CFS_Ex13",
+    "pdf_sha256": "167b8c068c2a2cf8ee5b4cf0bb742f5e3804d6b206c4ab447013d265641da716",
+    "poppler_samples": [
+      {
+        "sheet": "S-103",
+        "page": 4,
+        "kind": "plan",
+        "png_sha256": "28c6a3c4c008c795a6baef1b1f24991772f3d525393a8ce77788ca876b20f449"
+      },
+      {
+        "sheet": "S-218",
+        "page": 26,
+        "kind": "elevation",
+        "png_sha256": "4ed29165f3cebddf237bb0727d5df465429c71424bd197e0dff6bcbf941fc8fc"
+      },
+      {
+        "sheet": "D-011",
+        "page": 215,
+        "kind": "details",
+        "png_sha256": "df19191984bbdff63a917fb5668ca8c97c51b6e60b9ce31f6fe52fbe65bead5e"
+      }
+    ]
+  },
+  {
+    "id": "IN_CFS_Ex14",
+    "pdf_sha256": "208d18640b6f875d1aed41ae32c8ebe06444bce1a9ad67f033cb21d035ab9a83",
+    "poppler_samples": [
+      {
+        "sheet": "S-105",
+        "page": 6,
+        "kind": "plan",
+        "png_sha256": "63953b507bd72340eba3cbfdeec3a679177f5be80e975273b6a64753e13a6e36"
+      },
+      {
+        "sheet": "S-210",
+        "page": 19,
+        "kind": "elevation",
+        "png_sha256": "0c8acec41fa707b11c571afbb6c09c24d6452cd7db4e8f4ee5651caaf70f3e61"
+      },
+      {
+        "sheet": "D-011",
+        "page": 234,
+        "kind": "details",
+        "png_sha256": "f25f118f40e4c520a7a3aab08d68bf2176093ced0c643d1b5e5ae1cb362f3046"
+      }
+    ]
+  },
+  {
+    "id": "IN_CFS_Ex15",
+    "pdf_sha256": "093383ebd37808be518eccccb8a91b2073f39b49a82baa27b32950c8e1ed1be1",
+    "poppler_samples": [
+      {
+        "sheet": "S-103",
+        "page": 4,
+        "kind": "plan",
+        "png_sha256": "4fef0e43a028e64d4be166947d91ddc8558e871a4ec8d9227c2660988457a198"
+      },
+      {
+        "sheet": "S-203",
+        "page": 13,
+        "kind": "elevation",
+        "png_sha256": "79570174df99312f9ae7e38332312cb889fe37c7ad1182c25f049c824d105c1a"
+      },
+      {
+        "sheet": "D-011",
+        "page": 205,
+        "kind": "details",
+        "png_sha256": "1339e13a3169333e756b1314d0e97d583a7718c4b42a1bd09d922702cb290539"
+      }
+    ]
+  }
+]

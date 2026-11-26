@@ -1,0 +1,44 @@
+{
+  "case": "IN_Ex21",
+  "replays": {
+    "model_opensees.py": {
+      "counts": {
+        "coincident_eave_springs": 14,
+        "ridge_Y": 4,
+        "ridge_X": 7,
+        "secondary_axial_worklines": 60
+      },
+      "sha256": "b68629d8fe28099bd13bf4ec87f585092696d48e5b02204af94e08ad542aeea9"
+    },
+    "model_static.py": {
+      "counts": {
+        "coincident_eave_springs": 14,
+        "ridge_Y": 4,
+        "ridge_X": 7,
+        "secondary_axial_worklines": 60
+      },
+      "sha256": "c184a5235a42ed41a0c1d03dc7523c3438f3632146ee5c5e75c4341d7b1c9c51"
+    }
+  },
+  "finite_link_tangents": [
+    {
+      "direction": "X",
+      "rigidity_N_per_mm": 1000000000.0,
+      "maximum_discrepancy": 0.0
+    },
+    {
+      "direction": "Y",
+      "rigidity_N_per_mm": 1000000000.0,
+      "maximum_discrepancy": 0.0
+    }
+  ],
+  "periods_s": [
+    0.26887452878969176,
+    0.11193910881209826,
+    0.09650098632486268
+  ],
+  "effective_mass_fraction_X": 1.0000000000000002,
+  "effective_mass_fraction_Y": 0.9999999999999999,
+  "calc_sha256": "c76245d6232bc9732ec6c3c5b5da584b6a5170b5c325d7cf9406f9e022e4819c",
+  "governing_design": "Native equivalent-static seismic analysis, 102 combinations; the modal check tests the three roof degrees of freedom."
+}

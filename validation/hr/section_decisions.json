@@ -1,0 +1,436 @@
+{
+  "10": {
+    "Main": {
+      "frequency_hz": {
+        "x": 7.99105,
+        "y": 4.734848
+      },
+      "sections": {},
+      "source_package_sha256": "9a179de75a3b5b834518561ae26de6f9f039de736046fee74a47ca077c32d14e"
+    }
+  },
+  "11": {
+    "Office": {
+      "frequency_hz": {
+        "x": 2.825976,
+        "y": 2.822308
+      },
+      "sections": {
+        "brace": {
+          "WPB240X240X47.4": "WPB240X240X47.4"
+        }
+      },
+      "source_package_sha256": "742e7ca39ea498cf5a4c441037c9dcc75c586c76c0ad35001ffb0d91d8907989"
+    },
+    "Workshop": {
+      "frequency_hz": {
+        "x": 5.398111,
+        "y": 6.253127
+      },
+      "sections": {
+        "brace": {
+          "WPB260X260X54.15": "WPB260X260X54.15",
+          "WPB400X300X92.4": "WPB400X300X92.4"
+        }
+      },
+      "source_package_sha256": "487217299323568780a8727db1a8bc36d533194d0b344226414cdb4890420616"
+    }
+  },
+  "12": {
+    "Classroom": {
+      "frequency_hz": {
+        "x": 2.283679,
+        "y": 1.890038
+      },
+      "sections": {
+        "floor": {
+          "NPB700X250X171.48": "WPB650X300X224.78"
+        },
+        "lateral_col": {
+          "BOX800X800X20": "BOX700X700X36",
+          "WPB320X300X126.66": "WPB550X300X166.24"
+        },
+        "roof": {
+          "NPB550X210X92.08": "WPB450X300X139.76"
+        }
+      },
+      "source_package_sha256": "378b66ffe013bdcbee250a5d42ac0e033595a5d7082c5f373dcc03fb7f8461ff"
+    },
+    "Gym": {
+      "frequency_hz": {
+        "x": 1.655766,
+        "y": 1.448247
+      },
+      "sections": {
+        "lateral_col": {
+          "BOX350X350X10": "BOX300X300X18"
+        },
+        "roof": {
+          "WPB300X300X69.8": "NPB300X200X75.37",
+          "WPB800X300X171.52": "WPB650X300X224.78"
+        }
+      },
+      "source_package_sha256": "00b15ff31fc141dfe60c05185158dca579db143e9e45f9dcfdd27d788743e51b"
+    },
+    "Link": {
+      "frequency_hz": {
+        "x": 2.984629,
+        "y": 2.286132
+      },
+      "sections": {
+        "floor": {
+          "NPB700X250X171.48": "WPB650X300X224.78"
+        },
+        "lateral_col": {
+          "WPB300X300X100.85": "WPB320X300X126.66",
+          "WPB800X300X171.52": "WPB850X300X195.74"
+        },
+        "roof": {
+          "NPB550X210X92.08": "WPB450X300X139.76"
+        }
+      },
+      "source_package_sha256": "5b3ab9c829555403b72d58682ba95367a54d5d535f0507b4f9b7240b3319c1fe"
+    }
+  },
+  "13": {
+    "Main": {
+      "frequency_hz": {
+        "x": 1.821759,
+        "y": 1.817785
+      },
+      "sections": {
+        "brace": {
+          "WPB200X200X34.65": "WPB200X200X50.92",
+          "WPB240X240X47.4": "WPB220X220X71.47",
+          "WPB300X300X88.34": "WPB300X300X100.85"
+        },
+        "floor": {
+          "NPB250X175X43.94": "NPB300X150X49.32",
+          "NPB500X200X79.36": "WPB450X300X139.76"
+        },
+        "lateral_col": {
+          "WPB140X140X18.08": "WPB200X200X61.3",
+          "WPB200X200X34.65": "WPB200X200X61.3",
+          "WPB240X240X60.32": "WPB220X220X71.47",
+          "WPB300X300X88.34": "WPB260X260X114.4",
+          "WPB550X300X119.99": "WPB500X300X155.08"
+        },
+        "roof": {
+          "NPB350X170X50.22": "NPB350X170X66.05",
+          "WPB180X180X28.68": "WPB150X150X36.97"
+        }
+      },
+      "source_package_sha256": "148e9bafdce2a83b60b84e0b4e80d324a3b5b0cfb2738c0687ed574efd3a9852"
+    }
+  },
+  "14": {
+    "Main": {
+      "frequency_hz": {
+        "x": 1.771071,
+        "y": 2.257438
+      },
+      "sections": {
+        "brace": {
+          "WPB240X240X47.4": "WPB220X220X71.47",
+          "WPB300X300X69.8": "WPB260X260X92.99",
+          "WPB360X370X136.21": "WPB450X300X139.76"
+        },
+        "floor": {
+          "WPB320X300X97.64": "WPB320X300X126.66",
+          "WPB550X300X119.99": "NPB600X220X154.47"
+        },
+        "lateral_col": {
+          "WPB160X160X22.75": "WPB200X200X61.3",
+          "WPB240X240X47.4": "WPB220X220X71.47",
+          "WPB300X300X69.8": "WPB260X260X92.99",
+          "WPB360X370X150.87": "WPB360X370X197.66",
+          "WPB400X300X124.81": "WPB450X300X139.76",
+          "WPB400X300X92.4": "WPB340X300X134.16",
+          "WPB600X300X177.78": "WPB600X300X211.92"
+        },
+        "roof": {
+          "NPB450X190X77.58": "NPB450X190X92.37",
+          "WPB240X240X47.4": "NPB350X170X66.05"
+        }
+      },
+      "source_package_sha256": "61eae7ba43e9c30ef8091133906fbea95556d0877d78a06732f249f7007c602b"
+    }
+  },
+  "15": {
+    "Main": {
+      "frequency_hz": {
+        "x": 3.349972,
+        "y": 2.517814
+      },
+      "sections": {
+        "brace": {
+          "WPB280X280X61.26": "WPB250X250X73.15",
+          "WPB300X300X117.03": "WPB300X300X117.03",
+          "WPB360X370X150.87": "WPB360X370X150.87"
+        },
+        "floor": {
+          "WPB800X300X179.9": "WPB700X300X240.51"
+        },
+        "lateral_col": {
+          "BOX650X650X16": "BOX550X550X32",
+          "WPB200X200X34.65": "WPB220X220X71.47",
+          "WPB250X250X67.22": "WPB240X240X83.2",
+          "WPB360X370X136.21": "BOX350X350X18",
+          "WPB360X370X182.02": "WPB360X370X197.66",
+          "WPB400X300X255.74": "WPB400X300X255.74",
+          "WPB400X400X219.67": "WPB400X400X219.67",
+          "WPB450X300X99.75": "WPB450X300X139.76"
+        },
+        "roof": {
+          "WPB800X300X179.9": "WPB700X300X240.51"
+        }
+      },
+      "source_package_sha256": "6b7273d236d6484f00be5e2937551239636ca5e7c926c089cd8757182051457a"
+    }
+  },
+  "16": {
+    "Main": {
+      "frequency_hz": {
+        "x": 0.491026,
+        "y": 0.58863
+      },
+      "sections": {
+        "floor": {
+          "WPB650X300X137.98": "WPB550X300X199.44",
+          "WPB850X300X214.25": "WPB700X300X300.68"
+        },
+        "lateral_col": {
+          "BOX600X600X14": "BOX500X500X28",
+          "WPB320X300X97.64": "WPB320X300X126.66",
+          "WPB400X400X239.62": "WPB400X400X239.62"
+        },
+        "roof": {
+          "NPB450X190X77.58": "NPB450X190X92.37",
+          "WPB300X300X69.8": "NPB300X200X75.37"
+        }
+      },
+      "source_package_sha256": "5d992ed785122d3dbfceffbea32362e5d52fe550b4200cd388711f6f9f049328"
+    }
+  },
+  "17": {
+    "Main": {
+      "frequency_hz": {
+        "x": 0.831815,
+        "y": 0.831421
+      },
+      "sections": {
+        "brace": {
+          "WPB260X260X54.15": "WPB250X250X73.15",
+          "WPB320X300X97.64": "WPB340X300X104.78",
+          "WPB360X370X136.21": "WPB450X300X139.76"
+        },
+        "floor": {
+          "WPB600X300X177.78": "WPB600X300X211.92"
+        },
+        "lateral_col": {
+          "BOX550X550X16": "BOX500X500X25",
+          "BOX700X700X16": "BOX600X600X32",
+          "BOX750X750X18": "BOX650X650X32",
+          "BOX750X750X25": "BOX700X700X36",
+          "WPB180X180X28.68": "WPB200X200X61.3",
+          "WPB240X240X60.32": "WPB220X220X71.47",
+          "WPB300X300X88.34": "WPB260X260X114.4",
+          "WPB360X370X150.87": "WPB360X370X197.66",
+          "WPB400X400X191.11": "WPB400X400X219.67"
+        },
+        "roof": {
+          "NPB550X210X92.08": "WPB450X300X139.76"
+        }
+      },
+      "source_package_sha256": "9bcd957dc8eb708d5622b67349432ff55d5047dc5aeb1724471bc80e1662c0a8"
+    }
+  },
+  "18": {
+    "Main": {
+      "frequency_hz": {
+        "x": 0.608313,
+        "y": 0.506822
+      },
+      "sections": {
+        "floor": {
+          "WPB800X300X171.52": "WPB650X300X224.78",
+          "WPB800X300X179.9": "WPB700X300X240.51"
+        },
+        "lateral_col": {
+          "BOX1000X1000X32X32": "BOX850X850X63",
+          "BOX625X625X25X25": "BOX600X600X32",
+          "BOX650X650X25X25": "BOX650X650X32",
+          "BOX675X675X25X25": "BOX650X650X32",
+          "BOX700X700X25X25": "BOX650X650X36",
+          "BOX725X725X25X25": "BOX700X700X36",
+          "BOX750X750X32X32": "BOX750X750X40",
+          "BOX775X775X32X32": "BOX750X750X40",
+          "BOX800X800X32X32": "BOX800X800X40"
+        },
+        "roof": {
+          "NPB600X220X107.57": "NPB600X220X154.47"
+        }
+      },
+      "source_package_sha256": "25429e0dca099049d2653aa50c5241b8d98423bd88f9f063956c5bf0c62eb5d2"
+    }
+  },
+  "19": {
+    "Flange": {
+      "frequency_hz": {
+        "x": 1.498038,
+        "y": 2.341756
+      },
+      "sections": {
+        "brace": {
+          "WPB260X260X54.15": "WPB220X220X71.47",
+          "WPB300X300X88.34": "WPB300X300X100.85",
+          "WPB360X370X136.21": "WPB450X300X139.76"
+        },
+        "lateral_col": {
+          "BOX750X750X32X32": "BOX750X750X40",
+          "BOX775X775X32X32": "BOX750X750X40",
+          "BOX800X800X32X32": "BOX800X800X40",
+          "BOX825X825X32X32": "BOX800X800X40",
+          "WPB180X180X28.68": "WPB180X180X51.22",
+          "WPB260X260X54.15": "WPB220X220X71.47",
+          "WPB280X280X76.36": "WPB260X260X92.99",
+          "WPB360X370X136.21": "BOX350X350X18",
+          "WPB360X370X165.35": "WPB360X370X197.66",
+          "WPB500X300X107.46": "WPB450X300X139.76"
+        }
+      },
+      "source_package_sha256": "bba1e168105b25ba8f6064c6c6275fe942b2640a1e8f281b7b92838254f9f495"
+    },
+    "Stem": {
+      "frequency_hz": {
+        "x": 2.472616,
+        "y": 2.472494
+      },
+      "sections": {
+        "brace": {
+          "WPB260X260X54.15": "WPB220X220X71.47",
+          "WPB300X300X88.34": "WPB300X300X100.85",
+          "WPB360X370X136.21": "WPB450X300X139.76"
+        },
+        "floor": {
+          "NPB750X270X145.29": "WPB600X300X211.92"
+        },
+        "lateral_col": {
+          "BOX750X750X32X32": "BOX750X750X40",
+          "BOX775X775X32X32": "BOX750X750X40",
+          "BOX800X800X32X32": "BOX800X800X40",
+          "BOX825X825X32X32": "BOX800X800X40",
+          "WPB160X160X22.75": "WPB180X180X51.22",
+          "WPB260X260X54.15": "WPB220X220X71.47",
+          "WPB280X280X76.36": "WPB260X260X92.99",
+          "WPB360X370X136.21": "BOX350X350X18",
+          "WPB360X370X165.35": "WPB360X370X197.66",
+          "WPB500X300X107.46": "WPB450X300X139.76"
+        },
+        "roof": {
+          "NPB750X270X145.29": "WPB600X300X211.92"
+        }
+      },
+      "source_package_sha256": "141800b29b25be54bd78cea35f00eec7b9c84ce1e8dd4cd8e2f865f249576618"
+    }
+  },
+  "20": {
+    "Main": {
+      "frequency_hz": {
+        "x": 0.691616,
+        "y": 1.009826
+      },
+      "sections": {
+        "brace": {
+          "WPB280X280X61.26": "WPB250X250X73.15"
+        },
+        "floor": {
+          "WPB800X300X171.52": "WPB650X300X224.78",
+          "WPB800X300X179.9": "WPB700X300X240.51"
+        },
+        "lateral_col": {
+          "BOX550X550X25": "BOX650X650X32",
+          "WPB180X180X28.68": "WPB180X180X51.22",
+          "WPB240X240X60.32": "WPB220X220X71.47",
+          "WPB360X370X136.21": "BOX350X350X18",
+          "WPB360X370X165.35": "WPB360X370X197.66",
+          "WPB400X300X92.4": "WPB340X300X134.16"
+        },
+        "roof": {
+          "NPB600X220X107.57": "NPB600X220X154.47"
+        }
+      },
+      "source_package_sha256": "45d9894d28f97a66bc845546b3b41d0a31febe00bf2f905e8959980d6fc6ef6b"
+    }
+  },
+  "21": {
+    "Main": {
+      "frequency_hz": {},
+      "sections": {},
+      "source_package_sha256": "7752988b394424070852b8864ea4f4e486b213394e867648aac02afd7d935770"
+    }
+  },
+  "6": {
+    "Main": {
+      "frequency_hz": {
+        "x": 1.470848,
+        "y": 1.041168
+      },
+      "sections": {
+        "lateral_col": {
+          "WPB240X240X83.2": "WPB260X260X92.99",
+          "WPB260X260X54.15": "WPB300X300X88.34"
+        }
+      },
+      "source_package_sha256": "a564a909efdb00ccd1b438da69a2db8461e070d840667e43398f983852d5ee40"
+    }
+  },
+  "7": {
+    "Main": {
+      "frequency_hz": {
+        "x": 1.144387,
+        "y": 8.822232
+      },
+      "sections": {
+        "lateral_col": {
+          "WPB400X400X191.11": "WI600X550X36X22"
+        }
+      },
+      "source_package_sha256": "b6cbc29099f0c935776d0fd4fe6777da434399d0ae06e736917c6b0df02ad724"
+    }
+  },
+  "8": {
+    "Main": {
+      "frequency_hz": {
+        "x": 2.668588,
+        "y": 1.71362
+      },
+      "sections": {
+        "roof": {
+          "WI1000X500X22X14": "WI1000X350X40X25",
+          "WPB400X400X191.11": "WPB500X300X187.34"
+        }
+      },
+      "source_package_sha256": "43c8523cd3956e7d6b5f0f703b19d5d9e5a59e6b66d3b2fbbc581c2b434544f2"
+    }
+  },
+  "9": {
+    "Main": {
+      "frequency_hz": {
+        "x": 2.386407,
+        "y": 14.126289
+      },
+      "sections": {
+        "lateral_col": {
+          "WPB360X370X165.35": "WPB360X370X197.66"
+        },
+        "roof": {
+          "NPB450X190X77.58": "NPB450X190X92.37",
+          "WI700X600X22X14": "WI700X450X32X20",
+          "WI850X600X22X14": "WI850X450X40X25"
+        }
+      },
+      "source_package_sha256": "00add41b8bae7f56a28d58217553efb6b7381b9602474e2d36401f5295d83bd6"
+    }
+  }
+}

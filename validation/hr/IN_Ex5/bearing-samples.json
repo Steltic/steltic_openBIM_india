@@ -1,0 +1,290 @@
+[
+  {
+    "id": "Main-PU-1-1-PACK-CONTACT",
+    "chain": [
+      "Main-R0-1-lo-m1",
+      "Main-SEAT-2-BL",
+      "Main-PU-1-1"
+    ],
+    "normal": [
+      -0.0995037190209989,
+      0.0,
+      0.995037190209989
+    ],
+    "stations_mm": [
+      [
+        1479.7261,
+        7465.0,
+        10716.7956
+      ]
+    ],
+    "expected_gaps_mm": [
+      0,
+      0
+    ],
+    "tolerance_mm": 1
+  },
+  {
+    "id": "Main-PU-1-1-SKIN-CONTACT",
+    "chain": [
+      "Main-PU-1-1",
+      "Main-SLOPE-1"
+    ],
+    "normal": [
+      -0.0995037190209989,
+      0.0,
+      0.995037190209989
+    ],
+    "stations_mm": [
+      [
+        1379.9015,
+        1125.0,
+        10986.9283
+      ]
+    ],
+    "expected_gaps_mm": [
+      0
+    ],
+    "tolerance_mm": 1
+  },
+  {
+    "id": "Main-PU-11-1-PACK-CONTACT",
+    "chain": [
+      "Main-R0-1-hi-m2",
+      "Main-SEAT-101-BL",
+      "Main-PU-11-1"
+    ],
+    "normal": [
+      0.0995037190209989,
+      -0.0,
+      0.995037190209989
+    ],
+    "stations_mm": [
+      [
+        16592.3643,
+        7465.0,
+        11909.5866
+      ]
+    ],
+    "expected_gaps_mm": [
+      0,
+      0
+    ],
+    "tolerance_mm": 1
+  },
+  {
+    "id": "Main-PU-11-1-SKIN-CONTACT",
+    "chain": [
+      "Main-PU-11-1",
+      "Main-SLOPE-2"
+    ],
+    "normal": [
+      0.0995037190209989,
+      -0.0,
+      0.995037190209989
+    ],
+    "stations_mm": [
+      [
+        16548.0081,
+        1125.0,
+        12194.1373
+      ]
+    ],
+    "expected_gaps_mm": [
+      0
+    ],
+    "tolerance_mm": 1
+  },
+  {
+    "id": "Main-GI-0-1-1-0-PACK-CONTACT",
+    "chain": [
+      "Main-C0-1-m1",
+      "Main-SEAT-211-BL",
+      "Main-GI-0-1-1-0"
+    ],
+    "normal": [
+      -1,
+      0,
+      0
+    ],
+    "stations_mm": [
+      [
+        -566.0,
+        7465.0,
+        4786.7
+      ]
+    ],
+    "expected_gaps_mm": [
+      0,
+      0
+    ],
+    "tolerance_mm": 1
+  },
+  {
+    "id": "Main-GI-0-1-1-0-SKIN-CONTACT",
+    "chain": [
+      "Main-GI-0-1-1-0",
+      "Main-WALL-Y0-1"
+    ],
+    "normal": [
+      -1,
+      0,
+      0
+    ],
+    "stations_mm": [
+      [
+        -845.2,
+        1125.0,
+        4713.3
+      ]
+    ],
+    "expected_gaps_mm": [
+      0
+    ],
+    "tolerance_mm": 1
+  },
+  {
+    "id": "Main-GI-1-1-1-0-PACK-CONTACT",
+    "chain": [
+      "Main-C1-1-m1",
+      "Main-SEAT-255-BL",
+      "Main-GI-1-1-1-0"
+    ],
+    "normal": [
+      1,
+      0,
+      0
+    ],
+    "stations_mm": [
+      [
+        30566.0,
+        7465.0,
+        4713.3
+      ]
+    ],
+    "expected_gaps_mm": [
+      0,
+      0
+    ],
+    "tolerance_mm": 1
+  },
+  {
+    "id": "Main-GI-1-1-1-0-SKIN-CONTACT",
+    "chain": [
+      "Main-GI-1-1-1-0",
+      "Main-WALL-Y1-1"
+    ],
+    "normal": [
+      1,
+      0,
+      0
+    ],
+    "stations_mm": [
+      [
+        30845.2,
+        1125.0,
+        4786.7
+      ]
+    ],
+    "expected_gaps_mm": [
+      0
+    ],
+    "tolerance_mm": 1
+  },
+  {
+    "id": "Main-GABLE-GIRT-0-2-0-0-PACK-CONTACT",
+    "chain": [
+      "Main-E405",
+      "Main-GABLE-GIRT-0-2-0-0-RIGHT-BL",
+      "Main-GABLE-GIRT-0-2-0-0"
+    ],
+    "normal": [
+      0,
+      -1,
+      0
+    ],
+    "stations_mm": [
+      [
+        7452.0,
+        -236.0,
+        6463.3
+      ]
+    ],
+    "expected_gaps_mm": [
+      0,
+      0
+    ],
+    "tolerance_mm": 1
+  },
+  {
+    "id": "Main-GABLE-GIRT-0-2-0-0-SKIN-CONTACT",
+    "chain": [
+      "Main-GABLE-GIRT-0-2-0-0",
+      "Main-WALL-X0-1"
+    ],
+    "normal": [
+      0,
+      -1,
+      0
+    ],
+    "stations_mm": [
+      [
+        3375.0,
+        -515.2,
+        6536.7
+      ]
+    ],
+    "expected_gaps_mm": [
+      0
+    ],
+    "tolerance_mm": 1
+  },
+  {
+    "id": "Main-GABLE-GIRT-1-2-0-0-PACK-CONTACT",
+    "chain": [
+      "Main-E412",
+      "Main-GABLE-GIRT-1-2-0-0-RIGHT-BL",
+      "Main-GABLE-GIRT-1-2-0-0"
+    ],
+    "normal": [
+      0,
+      1,
+      0
+    ],
+    "stations_mm": [
+      [
+        7452.0,
+        75236.0,
+        6536.7
+      ]
+    ],
+    "expected_gaps_mm": [
+      0,
+      0
+    ],
+    "tolerance_mm": 1
+  },
+  {
+    "id": "Main-GABLE-GIRT-1-2-0-0-SKIN-CONTACT",
+    "chain": [
+      "Main-GABLE-GIRT-1-2-0-0",
+      "Main-WALL-X1-1"
+    ],
+    "normal": [
+      0,
+      1,
+      0
+    ],
+    "stations_mm": [
+      [
+        3375.0,
+        75515.2,
+        6463.3
+      ]
+    ],
+    "expected_gaps_mm": [
+      0
+    ],
+    "tolerance_mm": 1
+  }
+]

@@ -1,0 +1,54 @@
+{
+  "16": {
+    "Main": {
+      "frequency_hz": {
+        "x": 0.6614282,
+        "y": 0.8994504
+      },
+      "participating_mass_fraction": {
+        "x": 0.71423,
+        "y": 0.74823
+      },
+      "source_package_sha256": "be7aa1f9931b13f48c6f77f8f74cb7b960c115de246e8e936f21d0003d038f6a"
+    }
+  },
+  "17": {
+    "Main": {
+      "frequency_hz": {
+        "x": 0.8803127,
+        "y": 0.8798867
+      },
+      "participating_mass_fraction": {
+        "x": 0.65241,
+        "y": 0.65195
+      },
+      "source_package_sha256": "4bf793c7ae0e06b4ab0eb908a55330a66294a4da3d46ee65e93d7b2100638f82"
+    }
+  },
+  "18": {
+    "Main": {
+      "frequency_hz": {
+        "x": 0.5437117,
+        "y": 0.4531654
+      },
+      "participating_mass_fraction": {
+        "x": 0.81333,
+        "y": 0.79303
+      },
+      "source_package_sha256": "3ffde7f4d40a5d106623656c6daf0cb3b5fc80b7c07bd26ee012ef455934c13e"
+    }
+  },
+  "20": {
+    "Main": {
+      "frequency_hz": {
+        "x": 0.7564468,
+        "y": 1.0660867
+      },
+      "participating_mass_fraction": {
+        "x": 0.6605,
+        "y": 0.69312
+      },
+      "source_package_sha256": "0c7cd581b97162178b870187e8b57540ab7dd61259d3243ccf371b74e0a3169d"
+    }
+  }
+}
