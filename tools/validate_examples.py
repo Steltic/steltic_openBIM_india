@@ -4,9 +4,11 @@ from concurrent.futures import ProcessPoolExecutor, as_completed
 import hashlib
 import json
 from pathlib import Path
+import platform
 import re
 import subprocess
 import sys
+from tempfile import TemporaryDirectory
 from brief_controls import run as check_brief, installed_measurements
 
 
@@ -21,8 +23,7 @@ def case_id(family, number):
 def pipeline_fingerprint():
     digest = hashlib.sha256()
     package = ROOT/"src/steltic_openbim_india"
-    components = {"delivery","drawings","ifc","model","profiles","composite","geometry","bolt_fit"}
-    for p in sorted(p for p in package.glob("*.py") if p.stem in components or p.stem.startswith("audit")):
+    for p in sorted([*package.glob("*.py"),package/"handoff.schema.json"]):
         digest.update(p.name.encode())
         digest.update(p.read_bytes().replace(b"\r\n",b"\n"))
     return digest.hexdigest()
@@ -35,6 +36,8 @@ def run_case(family, number, output, pipeline, resume):
     import ifcopenshell
     import pymupdf
     import reportlab
+    import numpy as np
+    import shapely
     sid = case_id(family, number)
     base = ROOT/"validation"/family/sid
     candidate = next((p for p in (base/"handoff.json.gz",base/"handoff.json") if p.is_file()), None)
@@ -44,7 +47,8 @@ def run_case(family, number, output, pipeline, resume):
     sha = handoff_digest(candidate)
     directory = output/family/sid
     directory.mkdir(parents=True,exist_ok=True)
-    version_key = f"{pipeline}/{ifcopenshell.version}/{pymupdf.VersionBind}/{reportlab.Version}"
+    version_key = "/".join((pipeline,platform.system(),platform.python_version(),ifcopenshell.version,
+                            pymupdf.VersionBind,reportlab.Version,np.__version__,shapely.__version__))
     key = hashlib.sha256(f"{version_key}/{sha}".encode()).hexdigest()[:20]
     delivery = directory/key
     row.update(handoff_sha256=sha, delivery=delivery.relative_to(output).as_posix())
@@ -64,23 +68,30 @@ def run_case(family, number, output, pipeline, resume):
                    checks=cert["source_check_counts"],finding_counts=cert["finding_counts"])
         geometry=cert["readback"].get("ifc",{}).get("building_geometry",{})
         model=ifcopenshell.open(str(delivery/"model.ifc"))
-        for unit,values in installed_measurements(model,floor_areas=family=="cfs" and number in (6,14)).items():
+        for unit,values in installed_measurements(model,floor_areas=family=="cfs" and number in (6,14),
+                                                  condenser_openings=family=="cfs" and number==2,
+                                                  shed_overhang=family=="hr" and number in (6,7,8,9,10,21),
+                                                  stepped_office=family=="hr" and number==15).items():
             geometry.setdefault(unit,{}).update(values)
         row["brief_geometry"] = check_brief(family,number,geometry)
+        from bearing_controls import measure as check_bearings
         samples=base/"bearing-samples.json"
-        if samples.is_file():
-            from bearing_controls import measure as check_bearings
-            bearings=check_bearings(model,sid,json.loads(samples.read_bytes()))
-            row["brief_geometry"]["bearing_interfaces"]=bearings
-            if bearings["status"]!="pass":
-                row["brief_geometry"]["status"]="fail"
+        bearings=check_bearings(model,sid,json.loads(samples.read_bytes()))
+        row["brief_geometry"]["bearing_interfaces"]=bearings
+        if bearings["status"]!="pass":
+            row["brief_geometry"]["status"]="fail"
         del model
         if family=="hr" and number<=5:
-            probe=subprocess.run([sys.executable,str(ROOT/"validation/hr/verify_peb_bearings.py"),str(candidate),str(delivery/"model.ifc")],
-                                 capture_output=True,text=True,encoding="utf-8",errors="replace")
-            if not probe.stdout.strip():
-                raise ValueError(f"Portal bearing measurement failed: {probe.stderr[-350:]}")
-            contact=json.loads(probe.stdout)
+            # CAD-kernel diagnostics can share stdout with the Python process on Windows.
+            with TemporaryDirectory() as temp:
+                result=Path(temp)/"portal-contact.json"
+                command=[sys.executable,str(ROOT/"validation/hr/verify_peb_bearings.py"),str(candidate),
+                         str(delivery/"model.ifc"),"--output",str(result)]
+                probe=subprocess.run(command,stdout=subprocess.DEVNULL,stderr=subprocess.PIPE,
+                                     text=True,encoding="utf-8",errors="replace")
+                if not result.is_file():
+                    raise ValueError(f"Portal bearing measurement failed: {probe.stderr[-350:]}")
+                contact=json.loads(result.read_bytes())
             row["brief_geometry"]["portal_contact_area"]=contact
             if probe.returncode or contact["status"]!="pass":
                 row["brief_geometry"]["status"]="fail"

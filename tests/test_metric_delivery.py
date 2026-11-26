@@ -22,6 +22,48 @@ def fixture():
     return load(FIXTURE)[0]
 
 
+def test_complete_penetration_groove_on_paper_and_in_step(tmp_path):
+    import pymupdf
+    from shapely.geometry import Polygon
+    from steltic_openbim_india.audit import audit
+
+    data=fixture()
+    joint=data["connections"][0]
+    weld=dict(kind="weld",weld_type="cjp",start=[0,-10,0],end=[0,-10,150],
+              ref_direction=[1,0,0],material="E250",throat_mm=10)
+    joint["parts"].extend([dict(weld,id="G1",width_mm=16),dict(weld,id="G2")])
+    handoff=tmp_path/"groove.json"
+    handoff.write_text(json.dumps(data),encoding="utf-8")
+    folder=tmp_path/"issued"
+    cert=deliver(handoff,folder)
+    assert cert["artifact_status"]=="pass",cert["findings"]
+    model=ifcopenshell.open(str(folder/"model.ifc"))
+    welds={p.Tag:p for p in model.by_type("IfcFastener") if p.PredefinedType=="WELD"}
+    def section(tag):
+        return welds[tag].Representation.Representations[0].Items[0].SweptArea.OuterCurve
+    def area(tag):
+        return Polygon([p.Coordinates for p in section(tag).Points])
+    assert area("G1").bounds==(-8,-5,8,5) and area("G1").area==160
+    assert area("G2").bounds==(-5,-5,5,5) and area("G2").area==100
+    assert area("WELD1").area==18
+    with pymupdf.open(folder/"drawings.pdf") as doc:
+        paper=" ".join(" ".join(p.get_text().split()) for p in doc)
+    assert "CJP throat 10 x width 16 mm" in paper
+    assert "CJP throat 10 x width 10 mm" in paper
+    assert "leg 6 mm" in paper
+    # Replace the saved body with a real fillet, preserving the declared source and IFC properties.
+    welds["G1"].Representation.Representations[0].Items[0].SweptArea=(
+        welds["WELD1"].Representation.Representations[0].Items[0].SweptArea)
+    model.write(str(folder/"model.ifc"))
+    result=audit(handoff,folder)
+    assert result["artifact_status"]=="fail" and "CJP effective groove section" in result["finding_counts"]
+    for bad in (dict(throat_mm=0),dict(width_mm=-1),dict(leg_mm=5),dict(weld_type="unknown")):
+        invalid=copy.deepcopy(data)
+        invalid["connections"][0]["parts"][-1].update(bad)
+        with pytest.raises(ValueError):
+            validate(invalid)
+
+
 def test_flange_stays_keep_their_bracing_class_in_ifc(tmp_path):
     data=fixture()
     first=dict(data["members"][0], id="COLUMN-STAY",role="column flange brace",start=[-150,0,100],end=[0,300,300])

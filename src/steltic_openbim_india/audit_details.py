@@ -23,6 +23,10 @@ def ends(part):
     if part["kind"] == "bolt":
         angles = np.arange(24) * (math.tau/24)
         offsets = (np.outer(np.cos(angles),x) + np.outer(np.sin(angles),y))*part["diameter_mm"]/2
+    elif part.get("weld_type") == "cjp":
+        half_y = y*part["throat_mm"]/2
+        half_x = x*part.get("width_mm",part["throat_mm"])/2
+        offsets = np.array([-half_x-half_y, half_x-half_y, half_x+half_y, -half_x+half_y])
     else:
         offsets = np.array([np.zeros(3), x*part["leg_mm"], y*part["leg_mm"]])
     yield a+offsets, b+offsets

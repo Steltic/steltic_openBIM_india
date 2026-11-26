@@ -42,7 +42,10 @@
       "unit":{"$ref":"#/$defs/id"},"level":{"$ref":"#/$defs/id"},"parts":{"type":"array","items":{"oneOf":[
         {"allOf":[{"$ref":"#/$defs/plate"},{"required":["kind"],"properties":{"kind":{"const":"plate"}}}]},
         {"allOf":[{"$ref":"#/$defs/linearPart"},{"required":["diameter_mm"],"properties":{"kind":{"const":"bolt"},"diameter_mm":{"$ref":"#/$defs/thickness"}}}]},
-        {"allOf":[{"$ref":"#/$defs/linearPart"},{"required":["leg_mm"],"properties":{"kind":{"const":"weld"},"leg_mm":{"$ref":"#/$defs/thickness"}}}]}
+        {"allOf":[{"$ref":"#/$defs/linearPart"},{"properties":{"kind":{"const":"weld"}},"oneOf":[
+          {"required":["leg_mm"],"properties":{"weld_type":{"const":"fillet"},"leg_mm":{"$ref":"#/$defs/thickness"}},"not":{"anyOf":[{"required":["throat_mm"]},{"required":["width_mm"]}]}},
+          {"required":["weld_type","throat_mm"],"properties":{"weld_type":{"const":"cjp"},"throat_mm":{"$ref":"#/$defs/thickness"},"width_mm":{"$ref":"#/$defs/thickness"}},"not":{"required":["leg_mm"]}}
+        ]}]}
       ]}}}}},
     "assumptions":{"$ref":"#/$defs/strings"},
     "units":{"type":"array","items":{"type":"object","required":["id","name","origin_mm"],

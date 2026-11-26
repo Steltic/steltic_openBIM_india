@@ -15,7 +15,7 @@ from reportlab.pdfgen.canvas import Canvas
 from shapely.geometry import MultiPoint
 from shapely.geometry import LineString, box
 
-from .geometry import dot, frame, member_body_ends, plane, sub
+from .geometry import dot, frame, member_body_ends, plane, sub, weld_outline
 from .model import design_status, unit_levels
 from .profiles import section_polygons
 
@@ -584,7 +584,7 @@ class Sheets:
                     r=part["diameter_mm"]/2
                     points=[(r*math.cos(i*math.tau/24),r*math.sin(i*math.tau/24)) for i in range(24)]
                 else:
-                    leg=part["leg_mm"]; points=[(0.,0.),(leg,0.),(0.,leg)]
+                    points=weld_outline(part)
                 rings=[[[p[i]+x*xvec[i]+v*yvec[i] for i in range(3)] for x,v in points] for p in (a,b)]
                 outlines.extend([(ring,True) for ring in rings])
                 outlines.extend([([a_,b_],False) for a_,b_ in zip(*rings)])
@@ -640,8 +640,14 @@ class Sheets:
         if parts:
             rows=[]
             for p in parts:
-                dims=(f"thickness {printed(p['thickness_mm'])} mm" if p["kind"]=="plate" else
-                      f"diameter {printed(p['diameter_mm'])} mm" if p["kind"]=="bolt" else f"leg {printed(p['leg_mm'])} mm")
+                if p["kind"]=="plate":
+                    dims=f"thickness {printed(p['thickness_mm'])} mm"
+                elif p["kind"]=="bolt":
+                    dims=f"diameter {printed(p['diameter_mm'])} mm"
+                elif p.get("weld_type")=="cjp":
+                    dims=f"CJP throat {printed(p['throat_mm'])} x width {printed(p.get('width_mm',p['throat_mm']))} mm"
+                else:
+                    dims=f"leg {printed(p['leg_mm'])} mm"
                 location=("Outline "+ " / ".join(coord(pt) for pt in p["outline"]) if p["kind"]=="plate" else
                           f"{coord(p['start'])} to {coord(p['end'])} / length {printed(round(math.dist(p['start'],p['end']),2))} mm")
                 rows.append((p["id"],p["kind"],p["material"],dims,location))

@@ -37,6 +37,16 @@ def frame(start, end, direction=None):
     return x, cross(z, x), z
 
 
+def weld_outline(part):
+    """Effective weld metal in the local width/depth plane, in millimetres."""
+    if part.get("weld_type", "fillet") == "cjp":
+        y = part["throat_mm"] / 2
+        x = part.get("width_mm", part["throat_mm"]) / 2
+        return [(-x, -y), (x, -y), (x, y), (-x, y)]
+    leg = part["leg_mm"]
+    return [(0., 0.), (leg, 0.), (0., leg)]
+
+
 def plane(ring):
     """Right-handed plane whose normal follows the ordered outer boundary."""
     origin = ring[0]

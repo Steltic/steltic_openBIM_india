@@ -5,7 +5,7 @@ import math
 from shapely.geometry import Polygon, box
 from shapely.strtree import STRtree
 
-from .geometry import dot, frame, member_body_ends, plane, project, sub
+from .geometry import dot, frame, member_body_ends, plane, project, sub, weld_outline
 from .profiles import section_polygons
 
 
@@ -72,8 +72,7 @@ def unit_geometry(data,uid,shapes):
                     r=p["diameter_mm"]/2
                     coords=[(r*math.cos(i*math.tau/96),r*math.sin(i*math.tau/96)) for i in range(96)]
                 else:
-                    size=p["leg_mm"]
-                    coords=[(0.,0.),(size,0.),(0.,size)]
+                    coords=weld_outline(p)
                 yield p["id"],faces_between(transformed(coords,p["start"],x,y),transformed(coords,p["end"],x,y))
 
 

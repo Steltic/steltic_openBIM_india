@@ -375,13 +375,20 @@ def audit_ifc(source, path, source_hash, expect):
             part_read = read_product(part)
             if not part_read:
                 continue
-            product, _, body = part_read
+            product, metadata, body = part_read
             solid = body.Items[0]
             trans=sweep(solid,product,part,part["id"])
             if part["kind"] == "bolt":
                 expect(near(solid.SweptArea.Radius*2,part["diameter_mm"]), "bolt diameter",part["id"])
                 tip=world(trans,np.array(solid.ExtrudedDirection.DirectionRatios)*solid.Depth)
                 bolts.append((product.Tag,trans[:3,3],tip,solid.SweptArea.Radius*2))
+            elif part.get("weld_type")=="cjp":
+                half_y=part["throat_mm"]/2
+                half_x=part.get("width_mm",part["throat_mm"])/2
+                expected=Polygon([(-half_x,-half_y),(half_x,-half_y),(half_x,half_y),(-half_x,half_y)])
+                expect(areas(solid.SweptArea).symmetric_difference(expected).area<.01,"CJP effective groove section",part["id"])
+                expect(metadata.get("WeldType")=="CJP" and metadata.get("EffectiveThroatMm")==2*half_y and
+                       metadata.get("EffectiveWidthMm")==2*half_x,"CJP effective groove properties",part["id"])
             else:
                 expected = Polygon([(0,0),(part["leg_mm"],0),(0,part["leg_mm"])])
                 expect(areas(solid.SweptArea).symmetric_difference(expected).area < .01, "fillet weld size",part["id"])

@@ -14,7 +14,7 @@ import ifcopenshell
 import ifcopenshell.api.context
 from shapely import set_precision, to_wkb
 
-from .geometry import dot, frame, member_body_ends, project, sub
+from .geometry import dot, frame, member_body_ends, project, sub, weld_outline
 from .model import at_level, design_status, panel_shape, unit_levels
 from .profiles import polygon, section_polygons
 
@@ -333,21 +333,31 @@ class Exchange:
                 if kind == "bolt":
                     diameter = float(part["diameter_mm"])
                     cls, subtype = "IfcMechanicalFastener", "BOLT"
+                    sizes = (diameter,)
+                    label = f"BOLT-{diameter:g}"
+                    metadata = {"NominalDiameterMm": diameter}
                 else:
-                    leg = float(part["leg_mm"])
                     cls, subtype = "IfcFastener", "WELD"
-                size=diameter if kind=="bolt" else leg
+                    if part.get("weld_type") == "cjp":
+                        throat = part["throat_mm"]
+                        width = part.get("width_mm", throat)
+                        sizes = ("cjp", throat, width)
+                        label = f"CJP-{throat:g}x{width:g}"
+                        metadata = {"WeldType": "CJP", "EffectiveThroatMm": throat, "EffectiveWidthMm": width}
+                    else:
+                        leg = part["leg_mm"]
+                        sizes = ("fillet", leg)
+                        label = f"FILLET-{leg:g}"
+                        metadata = {"WeldType": "FILLET", "FilletLegMm": leg}
                 length=math.dist(a,b)
-                shape_key=(kind,size,round(length,7))
+                shape_key=(kind,sizes,round(length,7))
                 if shape_key not in self.fastener_bodies:
-                    label=f"{subtype}-{size:g}"
-                    area=(self.m.create_entity("IfcCircleProfileDef",ProfileType="AREA",ProfileName=label,Radius=size/2)
-                          if kind=="bolt" else self.area(label,polygon([(0.,0.),(size,0.),(0.,size)])))
+                    area=(self.m.create_entity("IfcCircleProfileDef",ProfileType="AREA",ProfileName=label,Radius=diameter/2)
+                          if kind=="bolt" else self.area(label,polygon(weld_outline(part))))
                     self.fastener_bodies[shape_key]=self.sweep(label,[area],length)
                 rep=self.fastener_bodies[shape_key]
                 p = self.product(cls, part, kind, a, x, z, [rep], obj, level, PredefinedType=subtype)
-                self.props(p, part["id"], self.source_props(part, kind, NominalDiameterMm=part.get("diameter_mm"),
-                                                            FilletLegMm=part.get("leg_mm")))
+                self.props(p, part["id"], self.source_props(part, kind, **metadata))
             parts.append(p)
         self.aggregate(obj, parts, "parts:" + key)
         for target in row["members"]:

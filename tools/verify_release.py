@@ -17,6 +17,8 @@ def verify(directory):
         raise ValueError("Incomplete issued building or visual review inventory")
     if len(references)!=40 or len({(r["id"],r["unit"]) for r in references})!=40:
         raise ValueError("Incomplete or repeated independent unit comparison")
+    if record(directory/"roof-link-verification.json")["status"]!="pass" or record(directory/"workflow-verification.json")["status"]!="pass":
+        raise ValueError("Incomplete native roof or installed workflow tests")
     sheets=0
     native=Counter()
     for case in accepted["cases"]:
@@ -32,6 +34,11 @@ def verify(directory):
         if (source!=case["sha256"]["handoff.json"] or source!=evidence["handoff_sha256"] or
             set(case["native"])!={r["unit"] for r in comparison} or any(source!=r["handoff_sha256"] for r in comparison)):
             raise ValueError(f"{key}: stale handoff, unit comparison or native evidence")
+        geometry=case["geometry_controls"]
+        if geometry["bearing_interfaces"]["status"]!="pass" or not geometry["bearing_interfaces"]["samples"]:
+            raise ValueError(f"{key}: incomplete bearing verification")
+        if case["module"]=="HR" and case["number"]<=5 and geometry["portal_contact_area"]["status"]!="pass":
+            raise ValueError(f"{key}: incomplete portal contact areas")
         if any(not (directory/p).is_file() for p in case["supplements"]):
             raise ValueError(f"{key}: missing supplement")
         with ZipFile(bundle) as archive:

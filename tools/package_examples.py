@@ -60,11 +60,16 @@ def package(args):
         source_open=gzip.open if handoff.suffix==".gz" else open
         with source_open(handoff,"rb") as stream:
             fingerprint=hash_stream(stream)
-        if fingerprint!=row.get("handoff_sha256") or row["artifact_status"]!="pass" or row.get("brief_geometry",{}).get("status")!="pass":
+        geometry=row.get("brief_geometry",{})
+        if (fingerprint!=row.get("handoff_sha256") or row["artifact_status"]!="pass" or geometry.get("status")!="pass" or
+            geometry.get("bearing_interfaces",{}).get("status")!="pass" or
+            (family=="hr" and row["number"]<=5 and geometry.get("portal_contact_area",{}).get("status")!="pass")):
             raise ValueError(f"{case}: regenerate the changed or failing delivery")
         with source_open(handoff,"rt",encoding="utf-8-sig") as stream:
             source=json.load(stream)
         name=source["project"]["name"]
+        assumptions=source.get("assumptions",[])
+        project_decision=source["project"].get("design_status")
         open_checks=[{"id":r["id"],"status":r["status"],"description":r["description"],"utilization":r.get("utilization")}
                      for r in source.get("checks",[]) if r["status"]!="pass"]
         del source
@@ -93,11 +98,13 @@ def package(args):
                      p!=evidence and not p.name.startswith("handoff.json")]
         cases.append(dict(id=case,module=row["module"],number=row["number"],name=name,supplements=supplements,
                           handoff=handoff.relative_to(dest).as_posix(),native_evidence=evidence.relative_to(dest).as_posix(),
-                          native=native,coordination=cert["design_status"],artifact=cert["artifact_status"],
+                          native=native,declared_project_decision=project_decision,declared_assumptions=assumptions,
+                          coordination=cert["design_status"],artifact=cert["artifact_status"],
                           sheets=row["sheets"],members=row["members"],parts=row["parts"],
                           geometry_controls=row["brief_geometry"],design_check_counts=cert["source_check_counts"],
                           located_joints_without_parts=cert["located_joints_without_parts"],outstanding_checks=open_checks,
                           measured_joints=cert["readback"]["ifc"]["independently_measured_gaps"],
+                          member_voids=cert["readback"]["ifc"]["member_voids"],cutback_members=cert["readback"]["ifc"]["cutback_members"],
                           bolt_plate_fit=cert["readback"]["ifc"]["bolt_plate_fit"],
                           pdf_readback=cert["readback"]["pdf"],sha256=cert["sha256"],archive=bundle.relative_to(dest).as_posix(),
                           archive_sha256=file_sha(bundle)))
@@ -111,7 +118,7 @@ def package(args):
     lines=["# Indian steel building validation","",
            f"The 36 numbered briefs produced {summary['totals']['sheets']:,} drawing sheets and 36 IFC4 models. Each archive contains the issued PDF and IFC, the sheet register and its detached certificate. The individual evidence files give the independent inputs and calculations, corpus references and declared assumptions.","",
            "The native column records the engineering engine's decision for each structural unit. Coordination also considers open checks, connection geometry and separation joints. The brief column shows the independent dimensional and roof-footprint controls measured on the reopened IFC. The files remain available for design review wherever a gate is open.","",
-           "[Numerical results and open items](acceptance.json) · [Worked-example revision checklist](revision-checklist.md) · [HR engineering review](hr/engineering-review.md) · [CFS engineering review](cfs/engineering-review.md) · [Published report comparison](comparison.json) · [Drawing samples reviewed](visual-review.json) · [Specification manifest](corpus-verification.json)","",
+           "[Numerical results and open items](acceptance.json) · [Worked-example revision checklist](revision-checklist.md) · [HR engineering review](hr/engineering-review.md) · [CFS engineering review](cfs/engineering-review.md) · [Published report comparison](comparison.json) · [Drawing samples reviewed](visual-review.json) · [Specification manifest](corpus-verification.json) · [Installed workflow tests](workflow-verification.json) · [Pitched-roof analysis coupling tests](roof-link-verification.json)","",
            "| Building | Native decision | Coordination | Brief | Sheets | Members | Files |","| --- | --- | --- | --- | ---: | ---: | --- |"]
     for r in cases:
         states=", ".join((k+" " if len(r["native"])>1 else "")+str(v) for k,v in r["native"].items())
@@ -131,7 +138,8 @@ def package(args):
         names=[r[key] for r in cases for key in ("archive","native_evidence","handoff")]
         names.extend(s for r in cases for s in r["supplements"])
         names.extend(n for n in ("README.md","acceptance.json","revision-checklist.md","comparison.json","corpus-verification.json",
-                                 "visual-review.json","cfs/engineering-review.md","hr/engineering-review.md") if (dest/n).is_file())
+                                 "visual-review.json","workflow-verification.json","roof-link-verification.json",
+                                 "cfs/engineering-review.md","hr/engineering-review.md"))
         archive(args.output,((n,dest/n) for n in names))
     print(json.dumps(summary["totals"]))
 

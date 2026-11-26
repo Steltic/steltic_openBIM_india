@@ -234,8 +234,20 @@ def validate(data):
                 if "ref_direction" in part:
                     vector(part["ref_direction"], "part width direction")
                 frame(part["start"], part["end"], part.get("ref_direction"))
-                key = "diameter_mm" if part["kind"] == "bolt" else "leg_mm"
-                positive(part.get(key), key)
+                if part["kind"] == "bolt":
+                    positive(part.get("diameter_mm"), "diameter_mm")
+                elif part.get("weld_type", "fillet") == "fillet":
+                    positive(part.get("leg_mm"), "leg_mm")
+                    if "throat_mm" in part or "width_mm" in part:
+                        raise ValueError(f"{part['id']}: a fillet weld requires leg_mm")
+                elif part["weld_type"] == "cjp":
+                    positive(part.get("throat_mm"), "throat_mm")
+                    if "width_mm" in part:
+                        positive(part["width_mm"], "width_mm")
+                    if "leg_mm" in part:
+                        raise ValueError(f"{part['id']}: a CJP weld requires throat_mm and optional width_mm")
+                else:
+                    raise ValueError(f"{part['id']}: unsupported weld_type {part['weld_type']!r}")
             else:
                 raise ValueError(f"{part['id']}: unsupported connection part")
     return data

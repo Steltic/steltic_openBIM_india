@@ -65,8 +65,14 @@ def measure(model, project, samples):
             hits=[surface_distances(solid(key),point,normal) for key in chain]
             missing=[k for k,h in zip(chain,hits) if len(h)<2]
             gaps=[] if missing else [round(float(b.min()-a.max()),3) for a,b in zip(hits,hits[1:])]
-            stations.append({"station_mm":station, "measured_gaps_mm":gaps, "missing_material":missing,
-                             "pass":not missing and all(abs(g-e)<=tol for g,e in zip(gaps,target))})
+            result={"station_mm":station, "measured_gaps_mm":gaps, "missing_material":missing,
+                    "pass":not missing and all(abs(g-e)<=tol for g,e in zip(gaps,target))}
+            if not missing and normal[2]>.999999 and "panel_underside_above_datum_mm" in sample:
+                observed=float(point[2]+hits[-1].min()*normal[2]-sample["structural_datum_mm"])
+                result["installed_underside_above_datum_mm"]=round(observed,3)
+                result["required_underside_above_datum_mm"]=sample["panel_underside_above_datum_mm"]
+                result["pass"] &= abs(observed-sample["panel_underside_above_datum_mm"])<=tol
+            stations.append(result)
         results.append({"id":name,"chain":chain,"expected_gaps_mm":target,"normal":sample["normal"],"tolerance_mm":tol,
                         "stations":stations,"pass":bool(stations) and all(s["pass"] for s in stations)})
     return {"status":"pass" if all(r["pass"] for r in results) else "fail","samples":results}
