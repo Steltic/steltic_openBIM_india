@@ -350,7 +350,8 @@
           "limit": 0.004,
           "dc": 0.025517196995773272,
           "ok": true
-        }
+        },
+        "post_report_status_sha256": "2ac33af3f79d9a84be704a947179e662aaf9bc73f8775a13dc7079ec304940ff"
       },
       "crane_inputs": {
         "capacity_kN": 100,
@@ -365,10 +366,47 @@
       "gantry_check": {
         "section": "WPB600X300X177.78",
         "DC": 0.5005910534159798
-      }
+      },
+      "peb_verified_pdf_pages": [
+        {
+          "file": "IS_800_2007.pdf",
+          "sha256": "06711fe3c87a3da0351806a9cdd87f014a7df974e9e07200a2dc0ddbc288617b",
+          "pdf_page": 32,
+          "clause": "4.6 frame stability",
+          "verified": true
+        },
+        {
+          "file": "IS_800_2007.pdf",
+          "sha256": "06711fe3c87a3da0351806a9cdd87f014a7df974e9e07200a2dc0ddbc288617b",
+          "pdf_page": 37,
+          "clause": "Table 6 industrial roofs and columns",
+          "verified": true
+        },
+        {
+          "file": "IS_800_2007.pdf",
+          "sha256": "06711fe3c87a3da0351806a9cdd87f014a7df974e9e07200a2dc0ddbc288617b",
+          "pdf_page": 64,
+          "clause": "8.3.2 flange restraint",
+          "verified": true
+        },
+        {
+          "file": "IS_800_2007.pdf",
+          "sha256": "06711fe3c87a3da0351806a9cdd87f014a7df974e9e07200a2dc0ddbc288617b",
+          "pdf_page": 95,
+          "clause": "12.10 ordinary moment connections",
+          "verified": true
+        },
+        {
+          "file": "IS_2062_Part_1_2025.pdf",
+          "sha256": "b6cc751e3f4c7b306877895cff2e4610b12d24932f7cfdde55c540c4e65d83e8",
+          "pdf_page": 9,
+          "clause": "Table 3 E350 steel by thickness",
+          "verified": true
+        }
+      ]
     }
   ],
-  "handoff_sha256": "42f1186332315c72acd5df90495187be6ba74c707de3a2d252257749bc069460",
+  "handoff_sha256": "db7e9e50a5b9e23fa5e47a4b508e0f565f111c33d8f72945900949806aa93993",
   "members": 504,
   "panels": 12,
   "connections": 69,

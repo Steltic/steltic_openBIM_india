@@ -414,10 +414,27 @@ def audit_ifc(source, path, source_hash, expect):
         for role,poly,z0,z1 in panels:
             if "floor" in role and abs(z1-z0)<1:
                 floors.setdefault(round(z0),[]).append(poly)
+        roof_union=unary_union(roof)
+        widths={}
+        if not roof_union.is_empty:
+            xmin,ymin,xmax,ymax=roof_union.bounds
+            for station in (.125,.5,.875):
+                y=ymin+station*(ymax-ymin)
+                section=roof_union.intersection(LineString([(xmin-1,y),(xmax+1,y)]))
+                spans=sorted((line.bounds[0],line.bounds[2]) for line in
+                             getattr(section,"geoms",(section,)) if line.geom_type=="LineString" and line.length>.02)
+                joined=[]
+                for start,end in spans:
+                    if joined and start<=joined[-1][1]+.02:
+                        joined[-1][1]=max(joined[-1][1],end)
+                    else:
+                        joined.append([start,end])
+                widths[str(station)]={"segments":len(joined),"total_m":round(sum(b-a for a,b in joined)/1000,3)}
         dimensions[unit] = {
             "column_spans_mm": (columns.max(axis=0)-columns.min(axis=0)).round(3).tolist() if len(columns) else [],
             "maximum_steel_workline_z_mm": round(float(top),3),
-            "roof_plan_union_m2": round(unary_union(roof).area/1e6,3) if roof else None,
+            "roof_plan_union_m2": round(roof_union.area/1e6,3) if roof else None,
+            "roof_transverse_sections_by_y_fraction":widths,
             "pitched_roof_panels": sum(1 for role,_,z0,z1 in panels if "roof" in role and abs(z1-z0)>10),
             "flat_roof_panels": sum(1 for role,_,z0,z1 in panels if "roof" in role and abs(z1-z0)<=10),
             "floor_net_plan_m2_by_elevation_mm": {str(z):round(unary_union(polys).area/1e6,3) for z,polys in sorted(floors.items())}}

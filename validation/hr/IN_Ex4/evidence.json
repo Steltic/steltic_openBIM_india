@@ -382,22 +382,88 @@
           "limit": 0.004,
           "dc": 0.04179352617073238,
           "ok": true
+        },
+        "post_report_status_sha256": "ccd2ef5c5c2610557bc8e3c3d35adcfebe2b170e60f99d46b835ec035d19fcc2"
+      },
+      "peb_verified_pdf_pages": [
+        {
+          "file": "IS_800_2007.pdf",
+          "sha256": "06711fe3c87a3da0351806a9cdd87f014a7df974e9e07200a2dc0ddbc288617b",
+          "pdf_page": 32,
+          "clause": "4.6 frame stability",
+          "verified": true
+        },
+        {
+          "file": "IS_800_2007.pdf",
+          "sha256": "06711fe3c87a3da0351806a9cdd87f014a7df974e9e07200a2dc0ddbc288617b",
+          "pdf_page": 37,
+          "clause": "Table 6 industrial roofs and columns",
+          "verified": true
+        },
+        {
+          "file": "IS_800_2007.pdf",
+          "sha256": "06711fe3c87a3da0351806a9cdd87f014a7df974e9e07200a2dc0ddbc288617b",
+          "pdf_page": 64,
+          "clause": "8.3.2 flange restraint",
+          "verified": true
+        },
+        {
+          "file": "IS_800_2007.pdf",
+          "sha256": "06711fe3c87a3da0351806a9cdd87f014a7df974e9e07200a2dc0ddbc288617b",
+          "pdf_page": 95,
+          "clause": "12.10 ordinary moment connections",
+          "verified": true
+        },
+        {
+          "file": "IS_800_2007.pdf",
+          "sha256": "06711fe3c87a3da0351806a9cdd87f014a7df974e9e07200a2dc0ddbc288617b",
+          "pdf_page": 96,
+          "clause": "12.11 special moment framing",
+          "verified": true
+        },
+        {
+          "file": "IS_2062_Part_1_2025.pdf",
+          "sha256": "b6cc751e3f4c7b306877895cff2e4610b12d24932f7cfdde55c540c4e65d83e8",
+          "pdf_page": 9,
+          "clause": "Table 3 E350 steel by thickness",
+          "verified": true
+        },
+        {
+          "file": "IS_18168_2023.pdf",
+          "sha256": "e3563ca3bbf2c1f0febb28278f1d081290cea32e4115c3e4dd52aa9f065bd415",
+          "pdf_page": 7,
+          "clause": "5.3 seismic compactness",
+          "verified": true
+        },
+        {
+          "file": "IS_18168_2023.pdf",
+          "sha256": "e3563ca3bbf2c1f0febb28278f1d081290cea32e4115c3e4dd52aa9f065bd415",
+          "pdf_page": 9,
+          "clause": "6.2 beam restraint",
+          "verified": true
+        },
+        {
+          "file": "IS_18168_2023.pdf",
+          "sha256": "e3563ca3bbf2c1f0febb28278f1d081290cea32e4115c3e4dd52aa9f065bd415",
+          "pdf_page": 10,
+          "clause": "7.2 seismic column slenderness",
+          "verified": true
         }
-      }
+      ]
     }
   ],
-  "handoff_sha256": "8299f656edf104de0ce1e9bc8b01fa534ad66b8752fca6648a6f1a578769fbc7",
-  "members": 792,
+  "handoff_sha256": "2b85dc2be6291412adb71bc046202de0b3e506eefc79cd2ccd9a7abb2e755419",
+  "members": 892,
   "panels": 44,
   "connections": 97,
-  "physical_profiles": 12,
+  "physical_profiles": 13,
   "source_evidence": {
     "producer": "steltic_india.openbim_handoff",
     "files": {
-      "design/calc_package.json": "2ebb7915eb001b8e2a2ff88913b30329759107acfec0cba78ea20da09ea9ebd5",
-      "design/cfg_snapshot.json": "c6800946b75c245cefe22efa58d3e8dc8f78d3262b88db303b1d99b779350de5",
+      "design/calc_package.json": "592ab57a369f79f1729d4fb41a50521110ec05396271ca9941c0448d5f29963e",
+      "design/cfg_snapshot.json": "815dc905f9bdf80ff665bc6a179c47434f5ace5d3855cafbf5e8abf458b281e5",
       "design/member_schedule.csv": "f1d2308536c88bc98b6ac296fc1d0ea1a1f1aac5c86a64d0a6e9126efad4da9e",
-      "report.html": "b80f3461d3fad7f87fe757b25a3fc6cd5e74fb81cb0e81edd3b4c0d4bf95b4a4",
+      "report.html": "0afbfd4cb3bfb7da9118e0b307621298e0d8017b0086664ace6b60fd87b6a177",
       "viewer_3d.html": "e92b95f6eaf7baf5a4ebe04ee06233295b1305c92abacf9fa0552133be3b3f42",
       "STATUS.engine.md": "ccd2ef5c5c2610557bc8e3c3d35adcfebe2b170e60f99d46b835ec035d19fcc2"
     },
@@ -408,7 +474,7 @@
     "bound_elements": 464,
     "open_items": []
   },
-  "checked_design_status": "fail",
+  "checked_design_status": "review",
   "assumptions": [
     "Delhi/Gurugram site proxy; confirm zone and wind at 28.45 N, 76.82 E.",
     "Site soil Type II pending geotechnical confirmation.",

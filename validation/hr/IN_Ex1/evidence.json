@@ -349,11 +349,49 @@
           "limit": 0.004,
           "dc": 0.12139963969441178,
           "ok": true
+        },
+        "post_report_status_sha256": "09eacb726cedebad25d0a14e0cfde9f65dbd2d1958fe70317ab325678350fd75"
+      },
+      "peb_verified_pdf_pages": [
+        {
+          "file": "IS_800_2007.pdf",
+          "sha256": "06711fe3c87a3da0351806a9cdd87f014a7df974e9e07200a2dc0ddbc288617b",
+          "pdf_page": 32,
+          "clause": "4.6 frame stability",
+          "verified": true
+        },
+        {
+          "file": "IS_800_2007.pdf",
+          "sha256": "06711fe3c87a3da0351806a9cdd87f014a7df974e9e07200a2dc0ddbc288617b",
+          "pdf_page": 37,
+          "clause": "Table 6 industrial roofs and columns",
+          "verified": true
+        },
+        {
+          "file": "IS_800_2007.pdf",
+          "sha256": "06711fe3c87a3da0351806a9cdd87f014a7df974e9e07200a2dc0ddbc288617b",
+          "pdf_page": 64,
+          "clause": "8.3.2 flange restraint",
+          "verified": true
+        },
+        {
+          "file": "IS_800_2007.pdf",
+          "sha256": "06711fe3c87a3da0351806a9cdd87f014a7df974e9e07200a2dc0ddbc288617b",
+          "pdf_page": 95,
+          "clause": "12.10 ordinary moment connections",
+          "verified": true
+        },
+        {
+          "file": "IS_2062_Part_1_2025.pdf",
+          "sha256": "b6cc751e3f4c7b306877895cff2e4610b12d24932f7cfdde55c540c4e65d83e8",
+          "pdf_page": 9,
+          "clause": "Table 3 E350 steel by thickness",
+          "verified": true
         }
-      }
+      ]
     }
   ],
-  "handoff_sha256": "849fbc0f5eff84c4eeff414ddfca40af3f542f4acdcd439fa7a80bfa2e0c9967",
+  "handoff_sha256": "380acd07c4488786323be3318f48265bb95884e35d1d2b1666815299e9ac44e0",
   "members": 618,
   "panels": 26,
   "connections": 83,

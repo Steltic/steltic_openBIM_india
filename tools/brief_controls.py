@@ -20,7 +20,7 @@ CFS = {
     1:(48,18,(6.01,10),864), 2:(76,21,9,1596), 3:(24,30,8.4,720),
     4:(30,36,(7.3,10),1008), 5:(49,31,(8.7,12),700), 6:(37,21,(12.9,15),777),
     7:(12,8,12,96), 8:(43,40,(11.86,17),966), 9:(52,20,(11.91,17),(790,1039.5)),
-    10:(24,12,15,288), 11:(55,46,(14.61,20),1558), 12:(36,12,18.3,432), 13:(74,36,17.8,1656),
+    10:(24,12,15,288), 11:(55,46,(14.61,20),1558), 12:(36,12,18.3,432), 13:(84,54,17.8,1800),
     14:(64,40,23,(900,2560)), 15:(46,46,23.3,1332)
 }
 
@@ -46,9 +46,16 @@ def run(family, number, measurements):
             check(unit,"pitched roof faces",model.get("pitched_roof_panels"),(1,10**6),0)
         if family=="cfs" and number==6:
             check(unit,"south walkout diaphragm at +3.0 m (m²)",model.get("floor_net_plan_m2_by_elevation_mm",{}).get("3000"),388.5,.1)
+        if family=="cfs" and number==13:
+            sections=model.get("roof_transverse_sections_by_y_fraction",{})
+            for station,target in (("0.125",46),("0.5",8),("0.875",46)):
+                check(unit,f"wing or connecting corridor width at y/H={station} (m)",sections.get(station,{}).get("total_m"),target)
         if family=="cfs" and number==14:
             floors=model.get("floor_net_plan_m2_by_elevation_mm",{})
             check(unit,"full podium floor at +4.0 m (m²)",floors.get("4000"),2560,.1)
             upper=floors.get("11000")
             check(unit,"upper U floor and north courtyard at +11.0 m (m²)",upper,(900,2500),.1)
+            sections=model.get("roof_transverse_sections_by_y_fraction",{})
+            check(unit,"continuous south bar",sections.get("0.125",{}).get("segments"),1,0)
+            check(unit,"two wings enclosing the north courtyard",sections.get("0.875",{}).get("segments"),2,0)
     return {"status":"pass" if all(r["pass"] for r in records) else "fail","controls":records}

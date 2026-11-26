@@ -1,0 +1,1366 @@
+{
+  "case": "IN_Ex12",
+  "brief_file": "test_buildings/IN_Ex12_SMF_3levels_Zplan_school_Chandigarh.txt",
+  "brief_sha256": "67ccf5f69cd12abf3f3b62f457212bf791deca65725cb4b50b3b99813bd628b2",
+  "input_failures": {},
+  "units": [
+    {
+      "unit": "Classroom",
+      "site": "Chandigarh",
+      "geometry": {
+        "bays_x": 3,
+        "bays_y": 2,
+        "span_x_m": 8.5,
+        "span_y_m": 8.5,
+        "storey_heights_m": [
+          3.6,
+          3.6,
+          3.6
+        ],
+        "footprint": "rect"
+      },
+      "loads_kN_per_m2": {
+        "D_roof": 2.8,
+        "Lr": 0.75,
+        "D_roof_collateral": 0.0,
+        "D_roof_pv": 0.0,
+        "D_floor": 3.0,
+        "L_floor": 4.0,
+        "clad": 0.5,
+        "partitions": true,
+        "partition_load_kNm2": 1.0,
+        "self_weight": true
+      },
+      "member_grade": "E250B0",
+      "lateral_system": {
+        "X": "SMRF",
+        "Y": "SMRF"
+      },
+      "seismic": {
+        "zone": "IV",
+        "Z": 0.24,
+        "I": 1.5,
+        "soil": "II",
+        "R_x": 5.0,
+        "R_y": 5.0,
+        "W_kN": 7650.84,
+        "Ta_x_s": 0.5064,
+        "Ta_y_s": 0.5064,
+        "Sa_g_x": 2.5,
+        "Sa_g_y": 2.5,
+        "Ah_x": 0.09,
+        "Ah_y": 0.09,
+        "VB_x_kN": 688.576,
+        "VB_y_kN": 688.576,
+        "W_by_floor_kN": [
+          3143.328,
+          3063.275,
+          1444.236
+        ]
+      },
+      "wind": {
+        "Vb_mps": 47.0,
+        "terrain_category": 3,
+        "k1": 1.0,
+        "k2": 0.9196000000000001,
+        "k3": 1.0,
+        "k4": 1.0,
+        "Kd": 0.9,
+        "Ka": 0.892533,
+        "Ka_area_m2": 30.6,
+        "Kc": 1,
+        "pz_kNm2": 1.120843277664,
+        "pd_kNm2": 0.9003506518289547
+      },
+      "analysis": {
+        "method": "RSA",
+        "rsa_used_in_demands": true,
+        "scale_by_axis": {
+          "X": {
+            "VB_rsa_kN": 473.5,
+            "VBbar_kN": 688.58,
+            "scale": 1.4542,
+            "VB_scaled_kN": 688.58,
+            "mass_participation": 1.0
+          },
+          "Y": {
+            "VB_rsa_kN": 440.44,
+            "VBbar_kN": 688.58,
+            "scale": 1.5634,
+            "VB_scaled_kN": 688.58,
+            "mass_participation": 1.0
+          }
+        }
+      },
+      "grounding": [
+        {
+          "found": true,
+          "cite": "IS 1893 Part 1, Annex E, Chandigarh",
+          "source_path": "IS_1893_Part_1_2016/markdown/pages_search/page_038.md",
+          "sha256": "a3daad9a5fa2d2e7bfc8e166d546e035b10e59a10ce8846d1a2c3a12c64bee43",
+          "selected_inputs": {
+            "source": "Annex E town",
+            "town": "Chandigarh",
+            "zone": "IV",
+            "Z": 0.24
+          },
+          "edition": "IS 1893 (Part 1):2016 + Amendments 1 (2017) and 2 (2020)",
+          "licensed_pdf": {
+            "file": "IS_1893_Part_1_2016_Amd2_Reff2021.pdf",
+            "sha256": "00d38dbdac596654a3aa141e378b8018cc665597c3468d3ae91f38e6aeb96805"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 800 Table 2, local classification",
+          "source_path": "IS_800_2007/tables/IS_800_2007_Table_2_recovered.csv",
+          "sha256": "2fdfe1118964c9d7e5e2c7f761a40a5946c8f3ea9d295b4a35a9fd654c101b4d",
+          "csv_rows": [
+            2,
+            3
+          ],
+          "edition": "IS 800:2007",
+          "licensed_pdf": {
+            "file": "IS_800_2007.pdf",
+            "sha256": "06711fe3c87a3da0351806a9cdd87f014a7df974e9e07200a2dc0ddbc288617b"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 875 Part 2, Table 2, maintenance roof",
+          "source_path": "IS_875_Part_2_1987/tables/IS_875_Part_2_1987_Table_2_recovered.csv",
+          "sha256": "2ff62e543ed16a20e12d2a582d9b2eb9524013292a2051a0ee7f0eb5f13ece90",
+          "csv_rows": [
+            4
+          ],
+          "selected_inputs": {
+            "row": "i)(b)",
+            "pitch_deg": 0.0,
+            "roof_imposed_kNm2": 0.75
+          },
+          "edition": "IS 875 (Part 2):1987",
+          "licensed_pdf": {
+            "file": "IS_875_Part_2_1987.pdf",
+            "sha256": "9b77c1cd890b37df19b04ca8704d11e7657a45b36e8e124c6f30d36ab9044943"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 1893 Part 1, Table 3, zone factor",
+          "source_path": "IS_1893_Part_1_2016/tables/IS_1893_Part_1_2016_Table_3_recovered.csv",
+          "sha256": "a291b52db2f4f1b44a297d076c8528dd08ee9b05dc2f5fb4ee8ee3886b28a0d7",
+          "csv_rows": [
+            2
+          ],
+          "selected_inputs": {
+            "zone": "IV",
+            "Z": 0.24
+          },
+          "edition": "IS 1893 (Part 1):2016 + Amendments 1 (2017) and 2 (2020)",
+          "licensed_pdf": {
+            "file": "IS_1893_Part_1_2016_Amd2_Reff2021.pdf",
+            "sha256": "00d38dbdac596654a3aa141e378b8018cc665597c3468d3ae91f38e6aeb96805"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 1893 Part 1, Table 8 importance",
+          "source_path": "IS_1893_Part_1_2016/tables/IS_1893_Part_1_2016_Table_8_recovered.csv",
+          "sha256": "86a8b5de2b9be5856835833d40b8ce4deb96584b6b6e1e684a6995161549af41",
+          "csv_rows": [
+            2
+          ],
+          "selected_inputs": {
+            "I": 1.5,
+            "row": "i)"
+          },
+          "edition": "IS 1893 (Part 1):2016 + Amendments 1 (2017) and 2 (2020)",
+          "licensed_pdf": {
+            "file": "IS_1893_Part_1_2016_Amd2_Reff2021.pdf",
+            "sha256": "00d38dbdac596654a3aa141e378b8018cc665597c3468d3ae91f38e6aeb96805"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 1893 Part 1, Table 9 steel framing systems",
+          "source_path": "IS_1893_Part_1_2016/tables/IS_1893_Part_1_2016_Table_9_recovered.csv",
+          "sha256": "423d6cbdf1587420fa2c91c2c92933fb031d4db4eb32b9b4e0239208abaabc55",
+          "csv_rows": [
+            6
+          ],
+          "selected_inputs": {
+            "system_x": "SMRF",
+            "system_y": "SMRF"
+          },
+          "edition": "IS 1893 (Part 1):2016 + Amendments 1 (2017) and 2 (2020)",
+          "licensed_pdf": {
+            "file": "IS_1893_Part_1_2016_Amd2_Reff2021.pdf",
+            "sha256": "00d38dbdac596654a3aa141e378b8018cc665597c3468d3ae91f38e6aeb96805"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 875 Part 2, Table 1 occupancy",
+          "source_path": "IS_875_Part_2_1987/tables/IS_875_Part_2_1987_Table_1_recovered.csv",
+          "sha256": "de105ba64bc6c10f3318b3c0c247050c3942eb6db596ce397e25cde094571495",
+          "csv_rows": [
+            28,
+            41
+          ],
+          "selected_inputs": {
+            "occupancy_rows": [
+              "ii)(a)",
+              "ii)(m)"
+            ]
+          },
+          "edition": "IS 875 (Part 2):1987",
+          "licensed_pdf": {
+            "file": "IS_875_Part_2_1987.pdf",
+            "sha256": "9b77c1cd890b37df19b04ca8704d11e7657a45b36e8e124c6f30d36ab9044943"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 875 Part 1, Table 1 item 49, steel self-weight",
+          "source_path": "IS_875_Part_1_2026/markdown/pages_search/page_022.md",
+          "sha256": "cc8cee27725cdfea6e05caee6b81f5c37ec034c04c03bce36fb22b835b716774",
+          "selected_inputs": {
+            "steel_unit_weight_kN_per_m3": 78.5
+          },
+          "edition": "IS 875 (Part 1):2026",
+          "licensed_pdf": {
+            "file": "IS_875_Part_1_2026.pdf",
+            "sha256": "510034f7a6678a4cbdde39ee8c139196febb20b041856a7428417db29b9837cc"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 2062 Part 1, Table 3, grade and plate thickness",
+          "source_path": "IS_2062_Part_1_2025/markdown/pages_search/page_009.md",
+          "sha256": "e84a651fe7180146272f813ec8e3b30baf28a2d6e6ed02eab01923e5c2da70dc",
+          "selected_inputs": {
+            "grade": "E250 B0",
+            "basis": "Native thickness band per section"
+          },
+          "edition": "IS 2062 (Part 1):2025",
+          "licensed_pdf": {
+            "file": "IS_2062_Part_1_2025.pdf",
+            "sha256": "b6cc751e3f4c7b306877895cff2e4610b12d24932f7cfdde55c540c4e65d83e8"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 800 Table 4, load combinations",
+          "source_path": "IS_800_2007/tables/IS_800_2007_Table_4_recovered.csv",
+          "sha256": "35147b891c7fcd77c44b0fc6034f9b7b94fbd993a76123357cace1cbe0517233",
+          "csv_rows": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "selected_inputs": {
+            "native_expansion": "IS 800 Table 4 with IS 1893 and Section 12 rows as applicable"
+          },
+          "edition": "IS 800:2007",
+          "licensed_pdf": {
+            "file": "IS_800_2007.pdf",
+            "sha256": "06711fe3c87a3da0351806a9cdd87f014a7df974e9e07200a2dc0ddbc288617b"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 1893 Part 1, 6.4.2, horizontal design spectrum",
+          "source_path": "IS_1893_Part_1_2016/tables/IS_1893_Part_1_2016_Table_6.4.2_spectrum_recovered.csv",
+          "sha256": "0a39baf073dab4a9f78c99060e762ec669c63d68fca6edcec4694dbffb50263e",
+          "csv_rows": [
+            5,
+            6,
+            7,
+            16,
+            17,
+            18,
+            19
+          ],
+          "selected_inputs": {
+            "soil": "II",
+            "damping_percent": 5
+          },
+          "edition": "IS 1893 (Part 1):2016 + Amendments 1 (2017) and 2 (2020)",
+          "licensed_pdf": {
+            "file": "IS_1893_Part_1_2016_Amd2_Reff2021.pdf",
+            "sha256": "00d38dbdac596654a3aa141e378b8018cc665597c3468d3ae91f38e6aeb96805"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 808, section 9 and dimensional tables",
+          "source_path": "IS_808_2021/markdown/pages_search/page_006.md",
+          "sha256": "bcf7151a329b6adb4243daad88b043de02f650052d93cf841998160cde725d9b",
+          "edition": "IS 808:2021",
+          "licensed_pdf": {
+            "file": "IS_808_2021.pdf",
+            "sha256": "d95b1099da248b7dd6bea5e2e5cf328380734b6a409911c8a9433467cf4fdefa"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 18168, earthquake-resistant steel design",
+          "source_path": "IS_18168_2023/markdown/pages_search/page_003.md",
+          "sha256": "5ce06aef2d60ae962e41d2dedc0b7416e9b12f2f38ac66fbcd12dd67d6d96b95",
+          "edition": "IS 18168:2023",
+          "licensed_pdf": {
+            "file": "IS_18168_2023.pdf",
+            "sha256": "e3563ca3bbf2c1f0febb28278f1d081290cea32e4115c3e4dd52aa9f065bd415"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 875 Part 3, Annex A, Chandigarh",
+          "source_path": "IS_875_Part_3_2015/tables/IS_875_Part_3_2015_Table_AnnexA_recovered.csv",
+          "sha256": "4d81896bccbae71a3cfa5a5de4c47542db1e537053d6cbaa660286ddd68fdcb6",
+          "csv_rows": [
+            20
+          ],
+          "selected_inputs": {
+            "town": "Chandigarh",
+            "Vb_mps": 47.0,
+            "site_proxy": false
+          },
+          "edition": "IS 875 (Part 3):2015",
+          "licensed_pdf": {
+            "file": "IS_875_Part_3_2015.pdf",
+            "sha256": "c89a9e7858696e38353d65fedc26736fad1bde42c13cb4cdbf90714bf8991c5b"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 875 Part 3, Table 2, terrain 3 at 10.8 m",
+          "source_path": "IS_875_Part_3_2015/tables/IS_875_Part_3_2015_Table_2_recovered.csv",
+          "sha256": "162e00f79962ce263bf1d831660bde521ceac94881a24b8ebe6993d29b91482b",
+          "csv_rows": [
+            2,
+            3
+          ],
+          "selected_inputs": {
+            "terrain": 3,
+            "height_m": 10.8,
+            "k2": 0.9196
+          },
+          "edition": "IS 875 (Part 3):2015",
+          "licensed_pdf": {
+            "file": "IS_875_Part_3_2015.pdf",
+            "sha256": "c89a9e7858696e38353d65fedc26736fad1bde42c13cb4cdbf90714bf8991c5b"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 875 Part 3, Table 2, terrain 3 at 3.6 m",
+          "source_path": "IS_875_Part_3_2015/tables/IS_875_Part_3_2015_Table_2_recovered.csv",
+          "sha256": "162e00f79962ce263bf1d831660bde521ceac94881a24b8ebe6993d29b91482b",
+          "csv_rows": [
+            2
+          ],
+          "selected_inputs": {
+            "terrain": 3,
+            "height_m": 3.6,
+            "k2": 0.91
+          },
+          "edition": "IS 875 (Part 3):2015",
+          "licensed_pdf": {
+            "file": "IS_875_Part_3_2015.pdf",
+            "sha256": "c89a9e7858696e38353d65fedc26736fad1bde42c13cb4cdbf90714bf8991c5b"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 875 Part 3, Table 2, terrain 3 at 7.2 m",
+          "source_path": "IS_875_Part_3_2015/tables/IS_875_Part_3_2015_Table_2_recovered.csv",
+          "sha256": "162e00f79962ce263bf1d831660bde521ceac94881a24b8ebe6993d29b91482b",
+          "csv_rows": [
+            2
+          ],
+          "selected_inputs": {
+            "terrain": 3,
+            "height_m": 7.2,
+            "k2": 0.91
+          },
+          "edition": "IS 875 (Part 3):2015",
+          "licensed_pdf": {
+            "file": "IS_875_Part_3_2015.pdf",
+            "sha256": "c89a9e7858696e38353d65fedc26736fad1bde42c13cb4cdbf90714bf8991c5b"
+          }
+        }
+      ],
+      "native_checks": {
+        "status": "partial",
+        "native_findings": 381,
+        "finding_classes": {
+          "irregularity": 1,
+          "gates": 162,
+          "elements": 218
+        },
+        "model_gates": {
+          "rsa_X": true,
+          "modalmass_X": true,
+          "rsa_Y": true,
+          "modalmass_Y": true,
+          "stability": true,
+          "drift_X": true,
+          "drift_Y": true,
+          "wind_defl_X": true,
+          "wind_defl_Y": true,
+          "beam_deflection": true,
+          "model_declared": true,
+          "model_consistent": true,
+          "model_complete": true
+        },
+        "combination_count": 166,
+        "members": {
+          "groups": 8,
+          "groups_with_numeric_dc": 8,
+          "groups_above_unity": 1,
+          "governing_group": "lateral_col-WPB320X300X126.66",
+          "governing_dc": 1.3416026158807484,
+          "section": "WPB320X300X126.66",
+          "limit_state": "IS 800 9.3 interaction / member resistance",
+          "governing_element": 6,
+          "governing_combination": "1.5DL+1.5LL-N_X"
+        },
+        "connections": {
+          "groups": 8,
+          "groups_with_numeric_dc": 6,
+          "groups_above_unity": 3,
+          "governing_group": "conn-lateral_col-BOX800X800X20",
+          "governing_dc": 5.610627464581378,
+          "section": "BOX800X800X20",
+          "limit_state": "column base (base-e1): anchor_combined_biaxial_10_3_6",
+          "governing_element": null,
+          "governing_combination": null
+        },
+        "governing_drift": {
+          "storey": 3,
+          "dir": "Y",
+          "value": 0.002655353597216344,
+          "limit": 0.004,
+          "dc": 0.6638383993040861,
+          "ok": true
+        }
+      }
+    },
+    {
+      "unit": "Link",
+      "site": "Chandigarh",
+      "geometry": {
+        "bays_x": 2,
+        "bays_y": 2,
+        "span_x_m": 8.5,
+        "span_y_m": 8.5,
+        "storey_heights_m": [
+          3.6,
+          3.6
+        ],
+        "footprint": "rect"
+      },
+      "loads_kN_per_m2": {
+        "D_roof": 2.8,
+        "Lr": 0.75,
+        "D_roof_collateral": 0.0,
+        "D_roof_pv": 0.0,
+        "D_floor": 3.0,
+        "L_floor": 4.0,
+        "clad": 0.5,
+        "partitions": true,
+        "partition_load_kNm2": 1.0,
+        "self_weight": true
+      },
+      "member_grade": "E250B0",
+      "lateral_system": {
+        "X": "SMRF",
+        "Y": "SMRF"
+      },
+      "seismic": {
+        "zone": "IV",
+        "Z": 0.24,
+        "I": 1.5,
+        "soil": "II",
+        "R_x": 5.0,
+        "R_y": 5.0,
+        "W_kN": 3044.956,
+        "Ta_x_s": 0.3736,
+        "Ta_y_s": 0.3736,
+        "Sa_g_x": 2.5,
+        "Sa_g_y": 2.5,
+        "Ah_x": 0.09,
+        "Ah_y": 0.09,
+        "VB_x_kN": 274.046,
+        "VB_y_kN": 274.046,
+        "W_by_floor_kN": [
+          2067.848,
+          977.107
+        ]
+      },
+      "wind": {
+        "Vb_mps": 47.0,
+        "terrain_category": 3,
+        "k1": 1.0,
+        "k2": 0.91,
+        "k3": 1.0,
+        "k4": 1.0,
+        "Kd": 0.9,
+        "Ka": 0.892533,
+        "Ka_area_m2": 30.6,
+        "Kc": 1,
+        "pz_kNm2": 1.09756374,
+        "pd_kNm2": 0.8816506717980781
+      },
+      "analysis": {
+        "method": "RSA",
+        "rsa_used_in_demands": true,
+        "scale_by_axis": {
+          "X": {
+            "VB_rsa_kN": 196.96,
+            "VBbar_kN": 274.05,
+            "scale": 1.3914,
+            "VB_scaled_kN": 274.05,
+            "mass_participation": 1.0
+          },
+          "Y": {
+            "VB_rsa_kN": 207.3,
+            "VBbar_kN": 274.05,
+            "scale": 1.322,
+            "VB_scaled_kN": 274.05,
+            "mass_participation": 1.0
+          }
+        }
+      },
+      "grounding": [
+        {
+          "found": true,
+          "cite": "IS 1893 Part 1, Annex E, Chandigarh",
+          "source_path": "IS_1893_Part_1_2016/markdown/pages_search/page_038.md",
+          "sha256": "a3daad9a5fa2d2e7bfc8e166d546e035b10e59a10ce8846d1a2c3a12c64bee43",
+          "selected_inputs": {
+            "source": "Annex E town",
+            "town": "Chandigarh",
+            "zone": "IV",
+            "Z": 0.24
+          },
+          "edition": "IS 1893 (Part 1):2016 + Amendments 1 (2017) and 2 (2020)",
+          "licensed_pdf": {
+            "file": "IS_1893_Part_1_2016_Amd2_Reff2021.pdf",
+            "sha256": "00d38dbdac596654a3aa141e378b8018cc665597c3468d3ae91f38e6aeb96805"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 800 Table 2, local classification",
+          "source_path": "IS_800_2007/tables/IS_800_2007_Table_2_recovered.csv",
+          "sha256": "2fdfe1118964c9d7e5e2c7f761a40a5946c8f3ea9d295b4a35a9fd654c101b4d",
+          "csv_rows": [
+            2,
+            3
+          ],
+          "edition": "IS 800:2007",
+          "licensed_pdf": {
+            "file": "IS_800_2007.pdf",
+            "sha256": "06711fe3c87a3da0351806a9cdd87f014a7df974e9e07200a2dc0ddbc288617b"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 875 Part 2, Table 2, maintenance roof",
+          "source_path": "IS_875_Part_2_1987/tables/IS_875_Part_2_1987_Table_2_recovered.csv",
+          "sha256": "2ff62e543ed16a20e12d2a582d9b2eb9524013292a2051a0ee7f0eb5f13ece90",
+          "csv_rows": [
+            4
+          ],
+          "selected_inputs": {
+            "row": "i)(b)",
+            "pitch_deg": 0.0,
+            "roof_imposed_kNm2": 0.75
+          },
+          "edition": "IS 875 (Part 2):1987",
+          "licensed_pdf": {
+            "file": "IS_875_Part_2_1987.pdf",
+            "sha256": "9b77c1cd890b37df19b04ca8704d11e7657a45b36e8e124c6f30d36ab9044943"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 1893 Part 1, Table 3, zone factor",
+          "source_path": "IS_1893_Part_1_2016/tables/IS_1893_Part_1_2016_Table_3_recovered.csv",
+          "sha256": "a291b52db2f4f1b44a297d076c8528dd08ee9b05dc2f5fb4ee8ee3886b28a0d7",
+          "csv_rows": [
+            2
+          ],
+          "selected_inputs": {
+            "zone": "IV",
+            "Z": 0.24
+          },
+          "edition": "IS 1893 (Part 1):2016 + Amendments 1 (2017) and 2 (2020)",
+          "licensed_pdf": {
+            "file": "IS_1893_Part_1_2016_Amd2_Reff2021.pdf",
+            "sha256": "00d38dbdac596654a3aa141e378b8018cc665597c3468d3ae91f38e6aeb96805"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 1893 Part 1, Table 8 importance",
+          "source_path": "IS_1893_Part_1_2016/tables/IS_1893_Part_1_2016_Table_8_recovered.csv",
+          "sha256": "86a8b5de2b9be5856835833d40b8ce4deb96584b6b6e1e684a6995161549af41",
+          "csv_rows": [
+            2
+          ],
+          "selected_inputs": {
+            "I": 1.5,
+            "row": "i)"
+          },
+          "edition": "IS 1893 (Part 1):2016 + Amendments 1 (2017) and 2 (2020)",
+          "licensed_pdf": {
+            "file": "IS_1893_Part_1_2016_Amd2_Reff2021.pdf",
+            "sha256": "00d38dbdac596654a3aa141e378b8018cc665597c3468d3ae91f38e6aeb96805"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 1893 Part 1, Table 9 steel framing systems",
+          "source_path": "IS_1893_Part_1_2016/tables/IS_1893_Part_1_2016_Table_9_recovered.csv",
+          "sha256": "423d6cbdf1587420fa2c91c2c92933fb031d4db4eb32b9b4e0239208abaabc55",
+          "csv_rows": [
+            6
+          ],
+          "selected_inputs": {
+            "system_x": "SMRF",
+            "system_y": "SMRF"
+          },
+          "edition": "IS 1893 (Part 1):2016 + Amendments 1 (2017) and 2 (2020)",
+          "licensed_pdf": {
+            "file": "IS_1893_Part_1_2016_Amd2_Reff2021.pdf",
+            "sha256": "00d38dbdac596654a3aa141e378b8018cc665597c3468d3ae91f38e6aeb96805"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 875 Part 2, Table 1 occupancy",
+          "source_path": "IS_875_Part_2_1987/tables/IS_875_Part_2_1987_Table_1_recovered.csv",
+          "sha256": "de105ba64bc6c10f3318b3c0c247050c3942eb6db596ce397e25cde094571495",
+          "csv_rows": [
+            28,
+            41
+          ],
+          "selected_inputs": {
+            "occupancy_rows": [
+              "ii)(a)",
+              "ii)(m)"
+            ]
+          },
+          "edition": "IS 875 (Part 2):1987",
+          "licensed_pdf": {
+            "file": "IS_875_Part_2_1987.pdf",
+            "sha256": "9b77c1cd890b37df19b04ca8704d11e7657a45b36e8e124c6f30d36ab9044943"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 875 Part 1, Table 1 item 49, steel self-weight",
+          "source_path": "IS_875_Part_1_2026/markdown/pages_search/page_022.md",
+          "sha256": "cc8cee27725cdfea6e05caee6b81f5c37ec034c04c03bce36fb22b835b716774",
+          "selected_inputs": {
+            "steel_unit_weight_kN_per_m3": 78.5
+          },
+          "edition": "IS 875 (Part 1):2026",
+          "licensed_pdf": {
+            "file": "IS_875_Part_1_2026.pdf",
+            "sha256": "510034f7a6678a4cbdde39ee8c139196febb20b041856a7428417db29b9837cc"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 2062 Part 1, Table 3, grade and plate thickness",
+          "source_path": "IS_2062_Part_1_2025/markdown/pages_search/page_009.md",
+          "sha256": "e84a651fe7180146272f813ec8e3b30baf28a2d6e6ed02eab01923e5c2da70dc",
+          "selected_inputs": {
+            "grade": "E250 B0",
+            "basis": "Native thickness band per section"
+          },
+          "edition": "IS 2062 (Part 1):2025",
+          "licensed_pdf": {
+            "file": "IS_2062_Part_1_2025.pdf",
+            "sha256": "b6cc751e3f4c7b306877895cff2e4610b12d24932f7cfdde55c540c4e65d83e8"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 800 Table 4, load combinations",
+          "source_path": "IS_800_2007/tables/IS_800_2007_Table_4_recovered.csv",
+          "sha256": "35147b891c7fcd77c44b0fc6034f9b7b94fbd993a76123357cace1cbe0517233",
+          "csv_rows": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "selected_inputs": {
+            "native_expansion": "IS 800 Table 4 with IS 1893 and Section 12 rows as applicable"
+          },
+          "edition": "IS 800:2007",
+          "licensed_pdf": {
+            "file": "IS_800_2007.pdf",
+            "sha256": "06711fe3c87a3da0351806a9cdd87f014a7df974e9e07200a2dc0ddbc288617b"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 1893 Part 1, 6.4.2, horizontal design spectrum",
+          "source_path": "IS_1893_Part_1_2016/tables/IS_1893_Part_1_2016_Table_6.4.2_spectrum_recovered.csv",
+          "sha256": "0a39baf073dab4a9f78c99060e762ec669c63d68fca6edcec4694dbffb50263e",
+          "csv_rows": [
+            5,
+            6,
+            7,
+            16,
+            17,
+            18,
+            19
+          ],
+          "selected_inputs": {
+            "soil": "II",
+            "damping_percent": 5
+          },
+          "edition": "IS 1893 (Part 1):2016 + Amendments 1 (2017) and 2 (2020)",
+          "licensed_pdf": {
+            "file": "IS_1893_Part_1_2016_Amd2_Reff2021.pdf",
+            "sha256": "00d38dbdac596654a3aa141e378b8018cc665597c3468d3ae91f38e6aeb96805"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 808, section 9 and dimensional tables",
+          "source_path": "IS_808_2021/markdown/pages_search/page_006.md",
+          "sha256": "bcf7151a329b6adb4243daad88b043de02f650052d93cf841998160cde725d9b",
+          "edition": "IS 808:2021",
+          "licensed_pdf": {
+            "file": "IS_808_2021.pdf",
+            "sha256": "d95b1099da248b7dd6bea5e2e5cf328380734b6a409911c8a9433467cf4fdefa"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 18168, earthquake-resistant steel design",
+          "source_path": "IS_18168_2023/markdown/pages_search/page_003.md",
+          "sha256": "5ce06aef2d60ae962e41d2dedc0b7416e9b12f2f38ac66fbcd12dd67d6d96b95",
+          "edition": "IS 18168:2023",
+          "licensed_pdf": {
+            "file": "IS_18168_2023.pdf",
+            "sha256": "e3563ca3bbf2c1f0febb28278f1d081290cea32e4115c3e4dd52aa9f065bd415"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 875 Part 3, Annex A, Chandigarh",
+          "source_path": "IS_875_Part_3_2015/tables/IS_875_Part_3_2015_Table_AnnexA_recovered.csv",
+          "sha256": "4d81896bccbae71a3cfa5a5de4c47542db1e537053d6cbaa660286ddd68fdcb6",
+          "csv_rows": [
+            20
+          ],
+          "selected_inputs": {
+            "town": "Chandigarh",
+            "Vb_mps": 47.0,
+            "site_proxy": false
+          },
+          "edition": "IS 875 (Part 3):2015",
+          "licensed_pdf": {
+            "file": "IS_875_Part_3_2015.pdf",
+            "sha256": "c89a9e7858696e38353d65fedc26736fad1bde42c13cb4cdbf90714bf8991c5b"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 875 Part 3, Table 2, terrain 3 at 7.2 m",
+          "source_path": "IS_875_Part_3_2015/tables/IS_875_Part_3_2015_Table_2_recovered.csv",
+          "sha256": "162e00f79962ce263bf1d831660bde521ceac94881a24b8ebe6993d29b91482b",
+          "csv_rows": [
+            2
+          ],
+          "selected_inputs": {
+            "terrain": 3,
+            "height_m": 7.2,
+            "k2": 0.91
+          },
+          "edition": "IS 875 (Part 3):2015",
+          "licensed_pdf": {
+            "file": "IS_875_Part_3_2015.pdf",
+            "sha256": "c89a9e7858696e38353d65fedc26736fad1bde42c13cb4cdbf90714bf8991c5b"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 875 Part 3, Table 2, terrain 3 at 3.6 m",
+          "source_path": "IS_875_Part_3_2015/tables/IS_875_Part_3_2015_Table_2_recovered.csv",
+          "sha256": "162e00f79962ce263bf1d831660bde521ceac94881a24b8ebe6993d29b91482b",
+          "csv_rows": [
+            2
+          ],
+          "selected_inputs": {
+            "terrain": 3,
+            "height_m": 3.6,
+            "k2": 0.91
+          },
+          "edition": "IS 875 (Part 3):2015",
+          "licensed_pdf": {
+            "file": "IS_875_Part_3_2015.pdf",
+            "sha256": "c89a9e7858696e38353d65fedc26736fad1bde42c13cb4cdbf90714bf8991c5b"
+          }
+        }
+      ],
+      "native_checks": {
+        "status": "partial",
+        "native_findings": 213,
+        "finding_classes": {
+          "irregularity": 1,
+          "gates": 96,
+          "elements": 116
+        },
+        "model_gates": {
+          "rsa_X": true,
+          "modalmass_X": true,
+          "rsa_Y": true,
+          "modalmass_Y": true,
+          "stability": true,
+          "drift_X": true,
+          "drift_Y": true,
+          "wind_defl_X": true,
+          "wind_defl_Y": true,
+          "beam_deflection": true,
+          "model_declared": true,
+          "model_consistent": true,
+          "model_complete": true
+        },
+        "combination_count": 166,
+        "members": {
+          "groups": 6,
+          "groups_with_numeric_dc": 6,
+          "groups_above_unity": 0,
+          "governing_group": "lateral_col-WPB300X300X100.85",
+          "governing_dc": 0.9849370349127478,
+          "section": "WPB300X300X100.85",
+          "limit_state": "IS 800 9.3 interaction / member resistance",
+          "governing_element": 14,
+          "governing_combination": "1.5DL+1.5LL-N_Y"
+        },
+        "connections": {
+          "groups": 6,
+          "groups_with_numeric_dc": 4,
+          "groups_above_unity": 1,
+          "governing_group": "conn-lateral_col-WPB800X300X171.52",
+          "governing_dc": 1.264239649203195,
+          "section": "WPB800X300X171.52",
+          "limit_state": "column base (base-e5): bearing_biaxial",
+          "governing_element": null,
+          "governing_combination": null
+        },
+        "governing_drift": {
+          "storey": 2,
+          "dir": "Y",
+          "value": 0.0018632814972475238,
+          "limit": 0.004,
+          "dc": 0.46582037431188095,
+          "ok": true
+        }
+      }
+    },
+    {
+      "unit": "Gym",
+      "site": "Chandigarh",
+      "geometry": {
+        "bays_x": 2,
+        "bays_y": 2,
+        "span_x_m": 8.5,
+        "span_y_m": 8.5,
+        "storey_heights_m": [
+          8
+        ],
+        "footprint": "gym"
+      },
+      "loads_kN_per_m2": {
+        "D_roof": 1.2,
+        "Lr": 0.75,
+        "D_roof_collateral": 0.0,
+        "D_roof_pv": 0.0,
+        "D_floor": 3.0,
+        "L_floor": 4.0,
+        "clad": 0.5,
+        "partitions": false,
+        "partition_load_kNm2": 1.0,
+        "self_weight": true
+      },
+      "member_grade": "E250B0",
+      "lateral_system": {
+        "X": "SMRF",
+        "Y": "SMRF"
+      },
+      "seismic": {
+        "zone": "IV",
+        "Z": 0.24,
+        "I": 1.5,
+        "soil": "II",
+        "R_x": 5.0,
+        "R_y": 5.0,
+        "W_kN": 603.045,
+        "Ta_x_s": 0.4043,
+        "Ta_y_s": 0.4043,
+        "Sa_g_x": 2.5,
+        "Sa_g_y": 2.5,
+        "Ah_x": 0.09,
+        "Ah_y": 0.09,
+        "VB_x_kN": 54.274,
+        "VB_y_kN": 54.274,
+        "W_by_floor_kN": [
+          603.045
+        ]
+      },
+      "wind": {
+        "Vb_mps": 47.0,
+        "terrain_category": 3,
+        "k1": 1.0,
+        "k2": 0.91,
+        "k3": 1.0,
+        "k4": 1.0,
+        "Kd": 0.9,
+        "Ka": 0.842667,
+        "Ka_area_m2": 68.0,
+        "Kc": 1,
+        "pz_kNm2": 1.09756374,
+        "pd_kNm2": 0.832392669685122
+      },
+      "analysis": {
+        "method": "RSA",
+        "rsa_used_in_demands": true,
+        "scale_by_axis": {
+          "X": {
+            "VB_rsa_kN": 48.89,
+            "VBbar_kN": 54.27,
+            "scale": 1.1102,
+            "VB_scaled_kN": 54.27,
+            "mass_participation": 1.0
+          },
+          "Y": {
+            "VB_rsa_kN": 42.76,
+            "VBbar_kN": 54.27,
+            "scale": 1.2693,
+            "VB_scaled_kN": 54.27,
+            "mass_participation": 1.0
+          }
+        }
+      },
+      "grounding": [
+        {
+          "found": true,
+          "cite": "IS 1893 Part 1, Annex E, Chandigarh",
+          "source_path": "IS_1893_Part_1_2016/markdown/pages_search/page_038.md",
+          "sha256": "a3daad9a5fa2d2e7bfc8e166d546e035b10e59a10ce8846d1a2c3a12c64bee43",
+          "selected_inputs": {
+            "source": "Annex E town",
+            "town": "Chandigarh",
+            "zone": "IV",
+            "Z": 0.24
+          },
+          "edition": "IS 1893 (Part 1):2016 + Amendments 1 (2017) and 2 (2020)",
+          "licensed_pdf": {
+            "file": "IS_1893_Part_1_2016_Amd2_Reff2021.pdf",
+            "sha256": "00d38dbdac596654a3aa141e378b8018cc665597c3468d3ae91f38e6aeb96805"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 800 Table 2, local classification",
+          "source_path": "IS_800_2007/tables/IS_800_2007_Table_2_recovered.csv",
+          "sha256": "2fdfe1118964c9d7e5e2c7f761a40a5946c8f3ea9d295b4a35a9fd654c101b4d",
+          "csv_rows": [
+            2,
+            3
+          ],
+          "edition": "IS 800:2007",
+          "licensed_pdf": {
+            "file": "IS_800_2007.pdf",
+            "sha256": "06711fe3c87a3da0351806a9cdd87f014a7df974e9e07200a2dc0ddbc288617b"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 875 Part 2, Table 2, maintenance roof",
+          "source_path": "IS_875_Part_2_1987/tables/IS_875_Part_2_1987_Table_2_recovered.csv",
+          "sha256": "2ff62e543ed16a20e12d2a582d9b2eb9524013292a2051a0ee7f0eb5f13ece90",
+          "csv_rows": [
+            4
+          ],
+          "selected_inputs": {
+            "row": "i)(b)",
+            "pitch_deg": 0.0,
+            "roof_imposed_kNm2": 0.75
+          },
+          "edition": "IS 875 (Part 2):1987",
+          "licensed_pdf": {
+            "file": "IS_875_Part_2_1987.pdf",
+            "sha256": "9b77c1cd890b37df19b04ca8704d11e7657a45b36e8e124c6f30d36ab9044943"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 1893 Part 1, Table 3, zone factor",
+          "source_path": "IS_1893_Part_1_2016/tables/IS_1893_Part_1_2016_Table_3_recovered.csv",
+          "sha256": "a291b52db2f4f1b44a297d076c8528dd08ee9b05dc2f5fb4ee8ee3886b28a0d7",
+          "csv_rows": [
+            2
+          ],
+          "selected_inputs": {
+            "zone": "IV",
+            "Z": 0.24
+          },
+          "edition": "IS 1893 (Part 1):2016 + Amendments 1 (2017) and 2 (2020)",
+          "licensed_pdf": {
+            "file": "IS_1893_Part_1_2016_Amd2_Reff2021.pdf",
+            "sha256": "00d38dbdac596654a3aa141e378b8018cc665597c3468d3ae91f38e6aeb96805"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 1893 Part 1, Table 8 importance",
+          "source_path": "IS_1893_Part_1_2016/tables/IS_1893_Part_1_2016_Table_8_recovered.csv",
+          "sha256": "86a8b5de2b9be5856835833d40b8ce4deb96584b6b6e1e684a6995161549af41",
+          "csv_rows": [
+            2
+          ],
+          "selected_inputs": {
+            "I": 1.5,
+            "row": "i)"
+          },
+          "edition": "IS 1893 (Part 1):2016 + Amendments 1 (2017) and 2 (2020)",
+          "licensed_pdf": {
+            "file": "IS_1893_Part_1_2016_Amd2_Reff2021.pdf",
+            "sha256": "00d38dbdac596654a3aa141e378b8018cc665597c3468d3ae91f38e6aeb96805"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 1893 Part 1, Table 9 steel framing systems",
+          "source_path": "IS_1893_Part_1_2016/tables/IS_1893_Part_1_2016_Table_9_recovered.csv",
+          "sha256": "423d6cbdf1587420fa2c91c2c92933fb031d4db4eb32b9b4e0239208abaabc55",
+          "csv_rows": [
+            6
+          ],
+          "selected_inputs": {
+            "system_x": "SMRF",
+            "system_y": "SMRF"
+          },
+          "edition": "IS 1893 (Part 1):2016 + Amendments 1 (2017) and 2 (2020)",
+          "licensed_pdf": {
+            "file": "IS_1893_Part_1_2016_Amd2_Reff2021.pdf",
+            "sha256": "00d38dbdac596654a3aa141e378b8018cc665597c3468d3ae91f38e6aeb96805"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 875 Part 2, Table 1 occupancy",
+          "source_path": "IS_875_Part_2_1987/tables/IS_875_Part_2_1987_Table_1_recovered.csv",
+          "sha256": "de105ba64bc6c10f3318b3c0c247050c3942eb6db596ce397e25cde094571495",
+          "csv_rows": [
+            28,
+            41
+          ],
+          "selected_inputs": {
+            "occupancy_rows": [
+              "ii)(a)",
+              "ii)(m)"
+            ]
+          },
+          "edition": "IS 875 (Part 2):1987",
+          "licensed_pdf": {
+            "file": "IS_875_Part_2_1987.pdf",
+            "sha256": "9b77c1cd890b37df19b04ca8704d11e7657a45b36e8e124c6f30d36ab9044943"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 875 Part 1, Table 1 item 49, steel self-weight",
+          "source_path": "IS_875_Part_1_2026/markdown/pages_search/page_022.md",
+          "sha256": "cc8cee27725cdfea6e05caee6b81f5c37ec034c04c03bce36fb22b835b716774",
+          "selected_inputs": {
+            "steel_unit_weight_kN_per_m3": 78.5
+          },
+          "edition": "IS 875 (Part 1):2026",
+          "licensed_pdf": {
+            "file": "IS_875_Part_1_2026.pdf",
+            "sha256": "510034f7a6678a4cbdde39ee8c139196febb20b041856a7428417db29b9837cc"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 2062 Part 1, Table 3, grade and plate thickness",
+          "source_path": "IS_2062_Part_1_2025/markdown/pages_search/page_009.md",
+          "sha256": "e84a651fe7180146272f813ec8e3b30baf28a2d6e6ed02eab01923e5c2da70dc",
+          "selected_inputs": {
+            "grade": "E250 B0",
+            "basis": "Native thickness band per section"
+          },
+          "edition": "IS 2062 (Part 1):2025",
+          "licensed_pdf": {
+            "file": "IS_2062_Part_1_2025.pdf",
+            "sha256": "b6cc751e3f4c7b306877895cff2e4610b12d24932f7cfdde55c540c4e65d83e8"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 800 Table 4, load combinations",
+          "source_path": "IS_800_2007/tables/IS_800_2007_Table_4_recovered.csv",
+          "sha256": "35147b891c7fcd77c44b0fc6034f9b7b94fbd993a76123357cace1cbe0517233",
+          "csv_rows": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "selected_inputs": {
+            "native_expansion": "IS 800 Table 4 with IS 1893 and Section 12 rows as applicable"
+          },
+          "edition": "IS 800:2007",
+          "licensed_pdf": {
+            "file": "IS_800_2007.pdf",
+            "sha256": "06711fe3c87a3da0351806a9cdd87f014a7df974e9e07200a2dc0ddbc288617b"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 1893 Part 1, 6.4.2, horizontal design spectrum",
+          "source_path": "IS_1893_Part_1_2016/tables/IS_1893_Part_1_2016_Table_6.4.2_spectrum_recovered.csv",
+          "sha256": "0a39baf073dab4a9f78c99060e762ec669c63d68fca6edcec4694dbffb50263e",
+          "csv_rows": [
+            5,
+            6,
+            7,
+            16,
+            17,
+            18,
+            19
+          ],
+          "selected_inputs": {
+            "soil": "II",
+            "damping_percent": 5
+          },
+          "edition": "IS 1893 (Part 1):2016 + Amendments 1 (2017) and 2 (2020)",
+          "licensed_pdf": {
+            "file": "IS_1893_Part_1_2016_Amd2_Reff2021.pdf",
+            "sha256": "00d38dbdac596654a3aa141e378b8018cc665597c3468d3ae91f38e6aeb96805"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 808, section 9 and dimensional tables",
+          "source_path": "IS_808_2021/markdown/pages_search/page_006.md",
+          "sha256": "bcf7151a329b6adb4243daad88b043de02f650052d93cf841998160cde725d9b",
+          "edition": "IS 808:2021",
+          "licensed_pdf": {
+            "file": "IS_808_2021.pdf",
+            "sha256": "d95b1099da248b7dd6bea5e2e5cf328380734b6a409911c8a9433467cf4fdefa"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 18168, earthquake-resistant steel design",
+          "source_path": "IS_18168_2023/markdown/pages_search/page_003.md",
+          "sha256": "5ce06aef2d60ae962e41d2dedc0b7416e9b12f2f38ac66fbcd12dd67d6d96b95",
+          "edition": "IS 18168:2023",
+          "licensed_pdf": {
+            "file": "IS_18168_2023.pdf",
+            "sha256": "e3563ca3bbf2c1f0febb28278f1d081290cea32e4115c3e4dd52aa9f065bd415"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 875 Part 3, Annex A, Chandigarh",
+          "source_path": "IS_875_Part_3_2015/tables/IS_875_Part_3_2015_Table_AnnexA_recovered.csv",
+          "sha256": "4d81896bccbae71a3cfa5a5de4c47542db1e537053d6cbaa660286ddd68fdcb6",
+          "csv_rows": [
+            20
+          ],
+          "selected_inputs": {
+            "town": "Chandigarh",
+            "Vb_mps": 47.0,
+            "site_proxy": false
+          },
+          "edition": "IS 875 (Part 3):2015",
+          "licensed_pdf": {
+            "file": "IS_875_Part_3_2015.pdf",
+            "sha256": "c89a9e7858696e38353d65fedc26736fad1bde42c13cb4cdbf90714bf8991c5b"
+          }
+        },
+        {
+          "found": true,
+          "cite": "IS 875 Part 3, Table 2, terrain 3 at 8 m",
+          "source_path": "IS_875_Part_3_2015/tables/IS_875_Part_3_2015_Table_2_recovered.csv",
+          "sha256": "162e00f79962ce263bf1d831660bde521ceac94881a24b8ebe6993d29b91482b",
+          "csv_rows": [
+            2
+          ],
+          "selected_inputs": {
+            "terrain": 3,
+            "height_m": 8,
+            "k2": 0.91
+          },
+          "edition": "IS 875 (Part 3):2015",
+          "licensed_pdf": {
+            "file": "IS_875_Part_3_2015.pdf",
+            "sha256": "c89a9e7858696e38353d65fedc26736fad1bde42c13cb4cdbf90714bf8991c5b"
+          }
+        }
+      ],
+      "native_checks": {
+        "status": "partial",
+        "native_findings": 125,
+        "finding_classes": {
+          "gates": 48,
+          "elements": 77
+        },
+        "model_gates": {
+          "rsa_X": true,
+          "modalmass_X": true,
+          "rsa_Y": true,
+          "modalmass_Y": true,
+          "stability": true,
+          "drift_X": true,
+          "drift_Y": true,
+          "wind_defl_X": true,
+          "wind_defl_Y": true,
+          "beam_deflection": true,
+          "model_declared": true,
+          "model_consistent": true,
+          "model_complete": true
+        },
+        "combination_count": 198,
+        "members": {
+          "groups": 3,
+          "groups_with_numeric_dc": 3,
+          "groups_above_unity": 0,
+          "governing_group": "lateral_col-BOX350X350X10",
+          "governing_dc": 0.7933463110814565,
+          "section": "BOX350X350X10",
+          "limit_state": "IS 800 9.3 interaction / member resistance",
+          "governing_element": 2,
+          "governing_combination": "1.5DL+1.5LL-N_X"
+        },
+        "connections": {
+          "groups": 3,
+          "groups_with_numeric_dc": 1,
+          "groups_above_unity": 0,
+          "governing_group": "conn-lateral_col-BOX350X350X10",
+          "governing_dc": 0.9871305802815602,
+          "section": "BOX350X350X10",
+          "limit_state": "column base (base-e7): bearing_biaxial",
+          "governing_element": null,
+          "governing_combination": null
+        },
+        "governing_drift": {
+          "storey": 1,
+          "dir": "Y",
+          "value": 0.0014337689115776471,
+          "limit": 0.004,
+          "dc": 0.35844222789441177,
+          "ok": true
+        }
+      }
+    }
+  ],
+  "handoff_sha256": "b18d02e87e5cfe43960c32985442d1ea1246b029be1a562d61c54b8afee7abb5",
+  "members": 209,
+  "panels": 30,
+  "connections": 92,
+  "physical_profiles": 12,
+  "source_evidence": {
+    "producer": "steltic_india.openbim_handoff",
+    "files": {
+      "units_summary.json": "487014ec5b3494de9ff04a8528bdcfb6f247533b23ea77b36419bcfadb2c85a9",
+      "units/Classroom/design/calc_package.json": "378b66ffe013bdcbee250a5d42ac0e033595a5d7082c5f373dcc03fb7f8461ff",
+      "units/Classroom/design/cfg_snapshot.json": "b2e40787948a6096b38d705e21d0a6b01c261a3073e78dd26a33f361d9576899",
+      "units/Classroom/design/member_schedule.csv": "1629063a716e279637971ceae13176f1dbc6e1fed1fc883d71a9c9b4a94831a7",
+      "units/Classroom/report.html": "0067fae99ce6e112ae8d2480d1d2be6aaa3a5b549e242e0ceb857a479d7e5861",
+      "units/Classroom/viewer_3d.html": "041445b7dde771747de9034cdf185a1decdae26efe9cb017da8d66ee504e404c",
+      "units/Classroom/STATUS.engine.md": "6a306ad69d22cfcf7881a717e8cbb07d3e9ce467efd9efe46bb46e70c06ee9e2",
+      "units/Gym/design/calc_package.json": "00b15ff31fc141dfe60c05185158dca579db143e9e45f9dcfdd27d788743e51b",
+      "units/Gym/design/cfg_snapshot.json": "caf5b4108978a93dfcbd00711ca901209dfd00f4b2e2c810e80b77a1beb3f417",
+      "units/Gym/design/member_schedule.csv": "087776cf58ea318f0a9ad9c975ba818014bee744daf645a9c31685b336ec868b",
+      "units/Gym/report.html": "41f6fb3ead45f8334eb58da77e788d2068ce9b4a0f034692b541ce64f20b7ac0",
+      "units/Gym/viewer_3d.html": "57df6f6811671a5796f1ed4294b7bb6e0053e843d86df4de7b8e8c58263ddd0f",
+      "units/Gym/STATUS.engine.md": "5a6676649bf0402a5398dbcdd85e525fdf1eabd2fd418c7c7abdcca6d69ac023",
+      "units/Link/design/calc_package.json": "5b3ab9c829555403b72d58682ba95367a54d5d535f0507b4f9b7240b3319c1fe",
+      "units/Link/design/cfg_snapshot.json": "8e899502708006e55e6bd32988f1556927b0a6d996b87026fdaaccfd88510e94",
+      "units/Link/design/member_schedule.csv": "0ce4a02f8a50dad71892200d4fa5751777152151d1341c86d1e30738159fd5b6",
+      "units/Link/report.html": "2fce978aaea9df255a96665e415350c9d059d8b73c12eba3438298ebfde8c19c",
+      "units/Link/viewer_3d.html": "01d64b9b05fc47e2183d0b9573aee5c8a2d8ff0867343e768b9a79f691e6c177",
+      "units/Link/STATUS.engine.md": "9fbc763fb96c3b8c103e1e7f24e17566911111efcafbfd5eaf787e7a9d48e284"
+    },
+    "native_status": {
+      "Classroom": "partial",
+      "Gym": "partial",
+      "Link": "partial",
+      "composite": "partial"
+    },
+    "native_elements": 149,
+    "bound_elements": 149,
+    "open_items": []
+  },
+  "checked_design_status": "fail",
+  "assumptions": [
+    "250 mm seismic joints separate all three wings; gym roof DL 1.2 kN/m².",
+    "Site soil Type II pending geotechnical confirmation.",
+    "Trial connection details and matched source member checks are recorded where available. Each unverified design item retains review status."
+  ],
+  "separation_joints": [
+    {
+      "id": "SJ1",
+      "units": [
+        "Classroom",
+        "Link"
+      ],
+      "axis": "x",
+      "direction": 1,
+      "declared_gap_mm": 250,
+      "reference": "IS 1893 Part 1, 7.11.3; native inter-unit displacement envelope",
+      "stations_mm": [
+        8500.0,
+        17000.0
+      ],
+      "required_gap_mm": 27.07067166710554,
+      "measured_clear_mm": 250.0,
+      "limiting_occurrences": [
+        "Classroom-J41-BP",
+        "Link-E1"
+      ],
+      "native_demand_mm": 27.07067166710554,
+      "axis_gap_mm": 1210.0
+    },
+    {
+      "id": "SJ2",
+      "units": [
+        "Link",
+        "Gym"
+      ],
+      "axis": "x",
+      "direction": 1,
+      "declared_gap_mm": 250,
+      "reference": "IS 1893 Part 1, 7.11.3; native inter-unit displacement envelope",
+      "stations_mm": [
+        17000.0,
+        25500.0
+      ],
+      "required_gap_mm": 72.30252873034908,
+      "measured_clear_mm": 250.0,
+      "limiting_occurrences": [
+        "Link-E17",
+        "Gym-J1-BP"
+      ],
+      "native_demand_mm": 72.30252873034908,
+      "axis_gap_mm": 1035.0
+    }
+  ]
+}

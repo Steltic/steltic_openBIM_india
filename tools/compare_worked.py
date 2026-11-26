@@ -71,6 +71,16 @@ def fresh_from_job(path,family):
     summary={"native_status":st.get("status"),"strength_dc":strength.get("dc"),"governing_member":strength.get("member"),
              "check":strength.get("check"),"combination":strength.get("combination"),"clause":strength.get("clause"),
              "reason_count":st.get("n_reasons",len(st.get("reasons",[])))}
+    authority=path/("STATUS.engine.md" if family=="hr" else "STATUS.md")
+    text=authority.read_text(encoding="utf-8-sig")
+    status=re.search(r"^# .*?design status:\s*([a-z]+)",text,re.I|re.M)
+    reasons=re.search(r"Open reasons \((\d+)",text)
+    if not status:
+        raise ValueError(f"{path.name}: cannot read the native issued status")
+    summary.update(calculation_status=summary["native_status"],native_status=status[1].lower(),
+                   authority_file=authority.name,authority_sha256=digest(authority))
+    if reasons:
+        summary["reason_count"]=int(reasons[1])
     takeoff=path/"design/takeoff.json"
     if takeoff.is_file():
         record=read(takeoff)
@@ -84,8 +94,9 @@ def fresh_from_job(path,family):
     summary["printed_strength"]=shown
     summary["report_matches_native_headline"]=(abs(shown["dc"]-strength["dc"])<=.00056 and
         shown["member"]==strength["member"]) if shown and strength.get("dc") is not None else None
-    reasons=st.get("reasons",[])
-    summary["open_reasons_sample"]=[str(r) for r in reasons[:4]]
+    open_part=text.split("Open reasons",1)[-1].split("\n\n",1)[0]
+    reasons=[s[2:] for s in open_part.splitlines() if s.startswith("- ")] or st.get("reasons",[])
+    summary["open_reasons_sample"]=[str(r) for r in reasons[:4]] if summary["reason_count"] else []
     return summary
 
 

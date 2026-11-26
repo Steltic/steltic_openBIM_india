@@ -736,7 +736,229 @@
         "ok": true,
         "demand_evaluated": true
       }
-    ]
+    ],
+    "collector_envelopes": {
+      "applied_to_member_checks": true,
+      "force_basis": "Largest absolute axial force per collector line and direction for unit wind or earthquake. Chords are enveloped per level and direction. Positive is compression. Native IS 800 beam checks combine axial force with flexure.",
+      "rows": [
+        {
+          "level": 1,
+          "direction": "X",
+          "line_m": 0.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -12.6904,
+          "native_element": 20
+        },
+        {
+          "level": 1,
+          "direction": "X",
+          "line_m": 18.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -12.6904,
+          "native_element": 28
+        },
+        {
+          "level": 1,
+          "direction": "X",
+          "line_m": null,
+          "role": "chord",
+          "action": "EQ",
+          "N_kN": 3.1726,
+          "native_element": 35
+        },
+        {
+          "level": 1,
+          "direction": "Y",
+          "line_m": 0.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -0.9518,
+          "native_element": 35
+        },
+        {
+          "level": 1,
+          "direction": "Y",
+          "line_m": 6.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -1.9036,
+          "native_element": 37
+        },
+        {
+          "level": 1,
+          "direction": "Y",
+          "line_m": 12.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -1.9036,
+          "native_element": 39
+        },
+        {
+          "level": 1,
+          "direction": "Y",
+          "line_m": 18.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -2.8553,
+          "native_element": 41
+        },
+        {
+          "level": 1,
+          "direction": "Y",
+          "line_m": 30.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -2.8553,
+          "native_element": 45
+        },
+        {
+          "level": 1,
+          "direction": "Y",
+          "line_m": 36.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -1.9036,
+          "native_element": 47
+        },
+        {
+          "level": 1,
+          "direction": "Y",
+          "line_m": 42.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -1.9036,
+          "native_element": 49
+        },
+        {
+          "level": 1,
+          "direction": "Y",
+          "line_m": 48.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -0.9518,
+          "native_element": 51
+        },
+        {
+          "level": 1,
+          "direction": "Y",
+          "line_m": null,
+          "role": "chord",
+          "action": "EQ",
+          "N_kN": 1.269,
+          "native_element": 19
+        },
+        {
+          "level": 1,
+          "direction": "X",
+          "line_m": 0.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": 12.8547,
+          "native_element": 25
+        },
+        {
+          "level": 1,
+          "direction": "X",
+          "line_m": 18.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": 12.8547,
+          "native_element": 33
+        },
+        {
+          "level": 1,
+          "direction": "X",
+          "line_m": null,
+          "role": "chord",
+          "action": "W",
+          "N_kN": 3.2137,
+          "native_element": 35
+        },
+        {
+          "level": 1,
+          "direction": "Y",
+          "line_m": 0.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": -3.754,
+          "native_element": 35
+        },
+        {
+          "level": 1,
+          "direction": "Y",
+          "line_m": 6.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": -7.5081,
+          "native_element": 38
+        },
+        {
+          "level": 1,
+          "direction": "Y",
+          "line_m": 12.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": -7.5081,
+          "native_element": 40
+        },
+        {
+          "level": 1,
+          "direction": "Y",
+          "line_m": 18.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": -11.2621,
+          "native_element": 41
+        },
+        {
+          "level": 1,
+          "direction": "Y",
+          "line_m": 30.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": -11.2621,
+          "native_element": 45
+        },
+        {
+          "level": 1,
+          "direction": "Y",
+          "line_m": 36.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": -7.5081,
+          "native_element": 48
+        },
+        {
+          "level": 1,
+          "direction": "Y",
+          "line_m": 42.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": -7.5081,
+          "native_element": 50
+        },
+        {
+          "level": 1,
+          "direction": "Y",
+          "line_m": 48.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": -3.754,
+          "native_element": 51
+        },
+        {
+          "level": 1,
+          "direction": "Y",
+          "line_m": null,
+          "role": "chord",
+          "action": "W",
+          "N_kN": 5.0054,
+          "native_element": 19
+        }
+      ]
+    }
   },
   "physical_layout": {
     "roles": {
@@ -1197,5 +1419,37 @@
     "lateral/IN_CFS_Ex1_lateral/lateral_result.json": "7d82ee05410b5f268490ce68f8aa062367ff152dd9292e03d3db09e370381724",
     "lateral/IN_CFS_Ex1_lateral/report.html": "cef22e4ac8a0348eff62e11b973cf3a536782d2a9406c8c677c7a507459fc1e6",
     "lateral/IN_CFS_Ex1_lateral/viewer_3d.html": "ce83861f31af6f79bcaf00df108d15edc8a32e36b5e87f22482221b396c33e10"
+  },
+  "wind": {
+    "Vb_mps": 50.0,
+    "terrain_category": 2,
+    "k1": 1.0,
+    "k3": 1.0,
+    "k4": 1.15,
+    "Kd": 1.0,
+    "Ka_X": 0.8,
+    "Ka_Y": 0.885333,
+    "Cpe_X": {
+      "windward": 0.7,
+      "leeward": -0.1,
+      "net": 0.7999999999999999,
+      "cite": "IS 875 (Part 3) : 2015 Table 5 / cl.7.3.3.1 (in-repo fallback; prefer corpus exact_table 5)",
+      "h_over_w": 0.3333333333333333,
+      "l_over_w": 2.6666666666666665,
+      "theta_deg": 90.0,
+      "face_width_m": 18.0
+    },
+    "Cpe_Y": {
+      "windward": 0.7,
+      "leeward": -0.25,
+      "net": 0.95,
+      "cite": "IS 875 (Part 3) : 2015 Table 5 / cl.7.3.3.1 (in-repo fallback; prefer corpus exact_table 5)",
+      "h_over_w": 0.3333333333333333,
+      "l_over_w": 2.6666666666666665,
+      "theta_deg": 0.0,
+      "face_width_m": 48.0
+    },
+    "VB_x_kN": 68.55839999999998,
+    "VB_y_kN": 240.2590135409999
   }
 }

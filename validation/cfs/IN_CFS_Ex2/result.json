@@ -1402,7 +1402,67 @@
         "ok": true,
         "demand_evaluated": true
       }
-    ]
+    ],
+    "collector_envelopes": {
+      "applied_to_member_checks": true,
+      "force_basis": "Largest absolute axial force per collector line and direction for unit wind or earthquake. Chords are enveloped per level and direction. Positive is compression. Native IS 800 beam checks combine axial force with flexure.",
+      "rows": [
+        {
+          "level": 1,
+          "direction": "X",
+          "line_m": 0.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -193.3193,
+          "native_element": 43
+        },
+        {
+          "level": 1,
+          "direction": "X",
+          "line_m": 21.0,
+          "role": "collector",
+          "action": "EQ",
+          "N_kN": -193.3193,
+          "native_element": 70
+        },
+        {
+          "level": 1,
+          "direction": "X",
+          "line_m": null,
+          "role": "chord",
+          "action": "EQ",
+          "N_kN": 28.4492,
+          "native_element": 95
+        },
+        {
+          "level": 1,
+          "direction": "X",
+          "line_m": 0.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": -10.3634,
+          "native_element": 43
+        },
+        {
+          "level": 1,
+          "direction": "X",
+          "line_m": 21.0,
+          "role": "collector",
+          "action": "W",
+          "N_kN": -10.3634,
+          "native_element": 70
+        },
+        {
+          "level": 1,
+          "direction": "X",
+          "line_m": null,
+          "role": "chord",
+          "action": "W",
+          "N_kN": 1.5251,
+          "native_element": 95
+        }
+      ]
+    }
   },
   "physical_layout": {
     "roles": {
@@ -1910,5 +1970,37 @@
     "lateral/IN_CFS_Ex2_lateral/lateral_result.json": "58c9f488aeaf82d161e876b0f3eb0a75bb9ea69115c8b3adb72dd815876bed13",
     "lateral/IN_CFS_Ex2_lateral/report.html": "8b0396cc50de0ebcebd437018e515c904e728208eb48f634025fa5bd0ca26b13",
     "lateral/IN_CFS_Ex2_lateral/viewer_3d.html": "7bcce5c511224ddc64a3fe4192dbe7c7f08f388e0c8bfdfa6bc99b5b0d3d6aec"
+  },
+  "wind": {
+    "Vb_mps": 39.0,
+    "terrain_category": 2,
+    "k1": 1.0,
+    "k3": 1.0,
+    "k4": 1.0,
+    "Kd": 0.9,
+    "Ka_X": 0.8,
+    "Ka_Y": 0.890667,
+    "Cpe_X": {
+      "windward": 0.7,
+      "leeward": -0.1,
+      "net": 0.7999999999999999,
+      "cite": "IS 875 (Part 3) : 2015 Table 5 / cl.7.3.3.1 (in-repo fallback; prefer corpus exact_table 5)",
+      "h_over_w": 0.38095238095238093,
+      "l_over_w": 3.619047619047619,
+      "theta_deg": 90.0,
+      "face_width_m": 21.0
+    },
+    "Cpe_Y": {
+      "windward": 0.7,
+      "leeward": -0.25,
+      "net": 0.95,
+      "cite": "IS 875 (Part 3) : 2015 Table 5 / cl.7.3.3.1 (in-repo fallback; prefer corpus exact_table 5)",
+      "h_over_w": 0.38095238095238093,
+      "l_over_w": 3.619047619047619,
+      "theta_deg": 0.0,
+      "face_width_m": 76.0
+    },
+    "VB_x_kN": 44.1552384,
+    "VB_y_kN": 211.26887727566404
   }
 }

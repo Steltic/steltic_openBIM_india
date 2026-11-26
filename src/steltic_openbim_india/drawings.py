@@ -245,6 +245,41 @@ class Sheets:
             self.table("G-005","Intersections of plates in separate units","plate_clashes",[("Units",.17),("Plate pair",.32),
                        ("Intersection area (mm²)",.17),("Overlap depth (mm)",.16),("Common volume (mm³)",.18)],rows)
 
+    def label_site(self,translate,high):
+        units=self.data["units"]
+        footprints={}
+        for u in units:
+            points=[p[:2] for m in self.data['members'] if m['unit']==u['id'] for p in (m['start'],m['end'])]
+            if points:footprints[u['id']]=bounds(points)
+        centers=[[(a+b)/2 for a,b in box] for box in footprints.values()]
+        if not centers:return
+        spread=bounds(centers)
+        along=0 if spread[0][1]-spread[0][0]>=spread[1][1]-spread[1][0] else 1
+        def leader(point,label,lane,color):
+            p=translate(point)
+            if along==0:
+                q=[p[0],high[1]+lane]
+                self.line(p,q,color,.65)
+                self.text(q[0],q[1]+5,label,15,color=color,bold=True,align='center')
+            else:
+                q=[high[0]+lane,p[1]]
+                self.line(p,q,color,.65)
+                self.text(q[0]+5,q[1]-4,label,15,color=color,bold=True)
+        for u in units:
+            box=footprints.get(u['id'])
+            if box:
+                point=[b for a,b in box];point[along]=sum(box[along])/2
+                leader(point,u['name'],85,BLUE)
+        for joint in self.gaps:
+            a,b=(footprints.get(uid) for uid in joint['units'])
+            if not a or not b:continue
+            i='xy'.index(joint['axis'].lower());j=1-i
+            left,right=sorted((a,b),key=lambda box:box[i][0])
+            point=[0.,0.];point[i]=(left[i][1]+right[i][0])/2;point[j]=min(left[j][1],right[j][1])
+            clear=joint.get('measured_clear_mm')
+            label=joint['id']+(f"  /  {printed(round(clear,2))} mm clear" if clear is not None else '')
+            leader(point,label,123,INK)
+
     def physical_outline(self,m,axes,tr,scale):
         """Projected outside envelope; end-on sections retain their open folds and bores."""
         a,b=m["start"],m["end"]
@@ -293,17 +328,21 @@ class Sheets:
         self.views.append(projection)
         for i in (0,1):
             selected = [(k,v) for k,v in sorted(datums[i],key=lambda t:t[1]) if ranges[i][0]-.01 <= v <= ranges[i][1]+.01]
-            last = None
+            lane_ends=[]
             for key, val in selected:
                 p, q = list(low), list(high)
                 p[i] = q[i] = off[i]+val*s
                 self.line(p,q,LIGHT,.55,[9,4])
-                if last is None or (val-last)*s >= 30:
-                    if i==0:
-                        self.text(p[0], high[1]+18,key,11,color=MUTED,align="center")
-                    else:
-                        self.text(high[0]+12,p[1]-4,key,11,color=MUTED)
-                    last=val
+                half=stringWidth(printed(key),'Helvetica',11)/2+5 if i==0 else 9
+                lane=next((k for k,end in enumerate(lane_ends) if p[i]-half>end),len(lane_ends))
+                if lane==len(lane_ends):lane_ends.append(0)
+                lane_ends[lane]=p[i]+half
+                if i==0:
+                    self.line((p[0],high[1]),(p[0],high[1]+13+15*lane),LIGHT,.45)
+                    self.text(p[0],high[1]+18+15*lane,key,11,color=MUTED,align='center')
+                else:
+                    self.line((high[0],p[1]),(high[0]+8+36*lane,p[1]),LIGHT,.45)
+                    self.text(high[0]+12+36*lane,p[1]-4,key,11,color=MUTED)
             for j,((ka,a),(kb,b)) in enumerate(zip(selected,selected[1:])):
                 pos, end = list(low),list(low)
                 pos[i],end[i] = off[i]+a*s,off[i]+b*s
@@ -335,6 +374,7 @@ class Sheets:
                 x,y=(p[0]+q[0])/2+4,(p[1]+q[1])/2+5
                 if all(abs(x-u)>42 or abs(y-v)>16 for u,v in occupied):
                     self.text(x,y,mark,10,color=BLUE,bold=True); occupied.append((x,y)); break
+        if kind=='key_plan':self.label_site(translate,high)
         self.text(72,192,f"{len(members)} member occurrences  /  {len(panels)} panel boundaries  /  reference grid and worklines in mm",13)
         self.text(72,159,"Member axes and outer envelopes are shown. Member marks refer to the M-series. Dashed red outlines indicate panel openings.",12,color=MUTED)
 
@@ -475,11 +515,21 @@ class Sheets:
         self.text(73,H-145,f"{c['id']}  /  joint {coord(c['at'])} mm  /  {len(group)} occurrence(s) of this detail",16,bold=True)
         y=H-183
         selected = c.get("description","")
-        for txt in [selected, "Connected members: "+", ".join(c["members"]),
-                    "Selected parameters: "+json.dumps(c.get("parameters",{}),sort_keys=True,ensure_ascii=False)]:
+        parameters=[]
+        for key,value in sorted(c.get('parameters',{}).items()):
+            suffix=' mm' if key.endswith('_mm') else ''
+            label=(key[:-3] if suffix else key).replace('_',' ')
+            value=json.dumps(value,ensure_ascii=False) if isinstance(value,(list,dict)) else printed(value)
+            parameters.append(f'{label} {value}{suffix}')
+        parts=c.get('parts',[])
+        printed_parts=Counter(p['kind'] for p in parts)
+        texts=[selected,'Connected members  /  '+', '.join(c['members'])]
+        if parameters:texts.append('Selected dimensions and properties  /  '+'   ·   '.join(parameters))
+        if parts:texts.append('Drawn parts  /  '+', '.join(f'{n} {kind}'+('s' if n!=1 else '') for kind,n in sorted(printed_parts.items()))+
+                              f'.  See {number}-P for the part schedule. The red cross shows the design workpoint.')
+        for txt in texts:
             for line in wrap(txt,W-145,14):
                 self.text(73,y,line,14); y-=20
-        parts=c.get("parts",[])
         if not parts:
             self.text(73,y-15,"Located connection specification. Plate, fastener and weld geometry has not been supplied.",15,color=RED,bold=True)
         # Project the supplied part geometry onto three orthogonal planes, with
@@ -515,9 +565,10 @@ class Sheets:
             outlines=lines
         for j,axes in enumerate(((0,1),(0,2),(1,2))):
             k,l=axes; pts=[(p[k],p[l]) for ring,_ in outlines for p in ring]
+            envelope=bounds(pts) if pts else None
             pts.append((c["at"][k],c["at"][l]))
             ranges=bounds(pts); x=83+j*(W-135)/3
-            den,s,off=fit(ranges,(x+40,530,(W-300)/3,420))
+            den,s,off=fit(ranges,(x+40,395,(W-300)/3,740))
             detail["projections"].append(dict(axes=axes,origin_pt=off,points_per_mm=s))
             def tr(p): return [off[0]+p[k]*s,off[1]+p[l]*s]
             for ring,closed in outlines:
@@ -525,13 +576,13 @@ class Sheets:
                 if closed:self.polyline(xy,INK,.8)
                 else:self.line(xy[0],xy[-1],BLUE,.85)
             q=tr(c["at"]); self.line([q[0]-5,q[1]],[q[0]+5,q[1]],RED,.8); self.line([q[0],q[1]-5],[q[0],q[1]+5],RED,.8)
-            if parts:
-                low=[r[0] for r in ranges]; high=[r[1] for r in ranges]
+            if parts and envelope:
+                low=[r[0] for r in envelope]; high=[r[1] for r in envelope]
                 a=[off[i]+low[i]*s for i in (0,1)]
                 for i in (0,1):
                     b=a.copy(); b[i]=off[i]+high[i]*s
                     self.dimension(a,b,high[i]-low[i],-22 if i==0 else 22,dict(kind="assembly_envelope",connection=c["id"],axis=axes[i]))
-            self.text(x,455,f"{'XYZ'[k]}-{'XYZ'[l]} projection   /   1:{den}",14,bold=True)
+            self.text(x,295,f"{'XYZ'[k]}-{'XYZ'[l]} projection   /   1:{den}",14,bold=True)
         if parts:
             rows=[]
             for p in parts:

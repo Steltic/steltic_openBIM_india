@@ -1,0 +1,276 @@
+{
+  "IN_Ex10": {
+    "native_status": "partial",
+    "reason_classes": {
+      "irregularity": 1,
+      "gates": 1,
+      "evidence": 1,
+      "elements": 189
+    },
+    "failed_analysis_gates": [
+      "beam_deflection"
+    ],
+    "max_member_dc": 9.43693539247071,
+    "max_connection_dc": 19.04857222240453,
+    "calc_package_sha256": "7032254faa9c8dd26e3ad6ad5bb0c4b940c6d922b974bb06e61948d0befe42ba"
+  },
+  "IN_Ex13": {
+    "native_status": "partial",
+    "reason_classes": {
+      "irregularity": 1,
+      "elements": 800
+    },
+    "failed_analysis_gates": [],
+    "max_member_dc": 1.6666158255161594,
+    "max_connection_dc": 6.270940855395551,
+    "calc_package_sha256": "9286faaea431328fe2cabd8e1af51af560143e2f8d97880f44c721fc2282c020"
+  },
+  "IN_Ex14": {
+    "native_status": "partial",
+    "reason_classes": {
+      "elements": 1752
+    },
+    "failed_analysis_gates": [],
+    "max_member_dc": 2.8777862210696563,
+    "max_connection_dc": 19.04857222240453,
+    "calc_package_sha256": "9af10d51b9d1a33970ee3b21066275ea4ee26bc969a2be73a7300dab350da388"
+  },
+  "IN_Ex15": {
+    "native_status": "partial",
+    "reason_classes": {
+      "gates": 467,
+      "elements": 1061
+    },
+    "failed_analysis_gates": [
+      "beam_deflection"
+    ],
+    "max_member_dc": 4.626634228893004,
+    "max_connection_dc": 5.579055441478439,
+    "calc_package_sha256": "457ceea42c41be391c51223c0c04373cc0086c2973155253df71bab418872fdc"
+  },
+  "IN_Ex16": {
+    "native_status": "partial",
+    "reason_classes": {
+      "gates": 709,
+      "elements": 1019
+    },
+    "failed_analysis_gates": [
+      "drift_X",
+      "wind_defl_X",
+      "dynamic_wind"
+    ],
+    "max_member_dc": 2.1001453166568615,
+    "max_connection_dc": 1.287366349005496,
+    "calc_package_sha256": "aeca1a637ca9f539dac299c9bc91d4ca8d862adcfdef3dae7f1f6b6c9930c578"
+  },
+  "IN_Ex17": {
+    "native_status": "partial",
+    "reason_classes": {
+      "gates": 2,
+      "elements": 1300
+    },
+    "failed_analysis_gates": [
+      "dynamic_wind",
+      "beam_deflection"
+    ],
+    "max_member_dc": 8.02572144996307,
+    "max_connection_dc": 19.04857222240453,
+    "calc_package_sha256": "db1237aa2c260aaf295b019be1da8dc910df8729c68bcaa8d01e61b947011a26"
+  },
+  "IN_Ex18": {
+    "native_status": "partial",
+    "reason_classes": {
+      "gates": 418,
+      "elements": 985
+    },
+    "failed_analysis_gates": [
+      "dynamic_wind",
+      "beam_deflection"
+    ],
+    "max_member_dc": 4.626634228893004,
+    "max_connection_dc": 12.450765338945105,
+    "calc_package_sha256": "dd854a68551457f0a25975a230daaa21948e55ce16ad88c6de023df97a9598fa"
+  },
+  "IN_Ex20": {
+    "native_status": "partial",
+    "reason_classes": {
+      "gates": 2,
+      "elements": 2698
+    },
+    "failed_analysis_gates": [
+      "dynamic_wind",
+      "beam_deflection"
+    ],
+    "max_member_dc": 12929.059437649925,
+    "max_connection_dc": 19.04857222240453,
+    "calc_package_sha256": "b6b797f6f0c1144dd8f4fd364025d0ca0de31dbaf30e4f4e29be56d431333ae2"
+  },
+  "IN_Ex21": {
+    "native_status": "partial",
+    "reason_classes": {
+      "gates": 14,
+      "elements": 510
+    },
+    "failed_analysis_gates": [],
+    "max_member_dc": 2.2641509433962264,
+    "max_connection_dc": 1.8194968516769465,
+    "calc_package_sha256": "b466e473ea1eee39408a25cf0676ff370191441d0b422466c166e552e202ffc0"
+  },
+  "IN_Ex6": {
+    "native_status": "partial",
+    "reason_classes": {
+      "irregularity": 1,
+      "gates": 77,
+      "elements": 149
+    },
+    "failed_analysis_gates": [
+      "drift_X",
+      "drift_Y",
+      "wind_defl_X",
+      "wind_defl_Y",
+      "dynamic_wind"
+    ],
+    "max_member_dc": 3.447980803231396,
+    "max_connection_dc": 0.6676550150505978,
+    "calc_package_sha256": "540114517f216ed1e8814a6dbe69b38936714fc94237b889ae565b2291366e87"
+  },
+  "IN_Ex7": {
+    "native_status": "partial",
+    "reason_classes": {
+      "gates": 19,
+      "elements": 98
+    },
+    "failed_analysis_gates": [
+      "wind_defl_X"
+    ],
+    "max_member_dc": 3.2702217908194453,
+    "max_connection_dc": 2.2983954564175653,
+    "calc_package_sha256": "63845cf729d6cf1da1b34f1babdd19075e0343240eb4efaece0a1bb2deac7bc5"
+  },
+  "IN_Ex8": {
+    "native_status": "partial",
+    "reason_classes": {
+      "gates": 99,
+      "evidence": 1,
+      "elements": 178
+    },
+    "failed_analysis_gates": [
+      "wind_defl_Y"
+    ],
+    "max_member_dc": 3.22659501517198,
+    "max_connection_dc": 2.7914578228365565,
+    "calc_package_sha256": "f29867aec9df623e46fa98407790e548f68c01e6434c39439e387dc5d11ddaaf"
+  },
+  "IN_Ex9": {
+    "native_status": "partial",
+    "reason_classes": {
+      "gates": 72,
+      "evidence": 1,
+      "elements": 240
+    },
+    "failed_analysis_gates": [],
+    "max_member_dc": 3.0188679245283017,
+    "max_connection_dc": 19.04857222240453,
+    "calc_package_sha256": "6b37714188da23aa4772b61e899efce8b5db1a2c8ae84845dcbea05fde717319"
+  },
+  "IN_Ex11/units/Office": {
+    "native_status": "partial",
+    "reason_classes": {
+      "gates": 1,
+      "elements": 126
+    },
+    "failed_analysis_gates": [
+      "beam_deflection"
+    ],
+    "max_member_dc": 4.68734765011741,
+    "max_connection_dc": 1.3560428467053698,
+    "calc_package_sha256": "79d0adcea9ebcb7941bf0b141000446cf948fc06637f1a13f7e40bc9b2fddffe"
+  },
+  "IN_Ex11/units/Workshop": {
+    "native_status": "partial",
+    "reason_classes": {
+      "gates": 1,
+      "elements": 95
+    },
+    "failed_analysis_gates": [
+      "beam_deflection"
+    ],
+    "max_member_dc": 3.960004872001131,
+    "max_connection_dc": 1.209631426964958,
+    "calc_package_sha256": "fc43bd2f071d28d97d0d3ee9bfc004cb201ee42d8563416a3928a9f79c469e98"
+  },
+  "IN_Ex12/units/Classroom": {
+    "native_status": "partial",
+    "reason_classes": {
+      "gates": 186,
+      "elements": 274
+    },
+    "failed_analysis_gates": [
+      "drift_X",
+      "drift_Y",
+      "dynamic_wind",
+      "beam_deflection"
+    ],
+    "max_member_dc": 6.520077074819735,
+    "max_connection_dc": 2.8167287348178203,
+    "calc_package_sha256": "f6942a44086dd98aef16a025cce57cb6fdcddbeafd3a304030cc339d784d3810"
+  },
+  "IN_Ex12/units/Gym": {
+    "native_status": "partial",
+    "reason_classes": {
+      "gates": 49,
+      "elements": 104
+    },
+    "failed_analysis_gates": [
+      "wind_defl_X",
+      "wind_defl_Y",
+      "dynamic_wind"
+    ],
+    "max_member_dc": 3.8751411962384292,
+    "max_connection_dc": 1.2077900141796545,
+    "calc_package_sha256": "ed6aa820628421b933c91fa8437a40c7754ffcb336225de23e66efd8b35781c6"
+  },
+  "IN_Ex12/units/Link": {
+    "native_status": "partial",
+    "reason_classes": {
+      "irregularity": 1,
+      "gates": 104,
+      "elements": 158
+    },
+    "failed_analysis_gates": [
+      "drift_X",
+      "drift_Y",
+      "beam_deflection"
+    ],
+    "max_member_dc": 4.465566089408165,
+    "max_connection_dc": 1.4975260948417841,
+    "calc_package_sha256": "a29f6f2e8e7a6a8aba553574b6429b3e07acac8afacec32cc1da8e84e2ad9c6b"
+  },
+  "IN_Ex19/units/Flange": {
+    "native_status": "partial",
+    "reason_classes": {
+      "gates": 653,
+      "elements": 1339
+    },
+    "failed_analysis_gates": [
+      "beam_deflection"
+    ],
+    "max_member_dc": 8.882994896963488,
+    "max_connection_dc": 9.703746543125314,
+    "calc_package_sha256": "14a34b38a459a4d3c0e3747ab42594be532e8622cbe614226d584fdbefabfc96"
+  },
+  "IN_Ex19/units/Stem": {
+    "native_status": "partial",
+    "reason_classes": {
+      "irregularity": 1,
+      "gates": 261,
+      "elements": 601
+    },
+    "failed_analysis_gates": [
+      "beam_deflection"
+    ],
+    "max_member_dc": 4.4643288394391805,
+    "max_connection_dc": 9.063056122317425,
+    "calc_package_sha256": "6c0b3f110d6e75802ff520483af00005c366ebe0da3ac19f6c2a4dab2dad2434"
+  }
+}
