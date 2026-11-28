@@ -1,0 +1,77 @@
+.publication {
+  font: 15px/1.45 'Segoe UI', Arial, sans-serif;
+  color: #203b43;
+  background: #eff5f3;
+  border: 1px solid #bfceca;
+  border-left: 5px solid #29645d;
+  padding: 1rem 1.2rem;
+  margin: .8rem 0 1.5rem;
+  overflow-wrap: anywhere
+}
+
+.publication.fail {
+  background: #fff3ee;
+  border-color: #cd9d8c;
+  border-left-color: #a54524
+}
+
+.publication h2 {
+  font: 600 1.14rem/1.35 'Segoe UI', Arial, sans-serif;
+  color: #203b43;
+  margin: 0 0 .35rem;
+  padding: 0;
+  border: 0
+}
+
+.publication.fail h2 {
+  color: #7c311c
+}
+
+.publication p {
+  margin: .35rem 0;
+  font-size: .93rem
+}
+
+.publication nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .3rem 1rem;
+  margin: .65rem 0
+}
+
+.publication a {
+  color: #155650;
+  text-underline-offset: .2em
+}
+
+.publication summary {
+  cursor: pointer;
+  font-weight: 600
+}
+
+.publication details {
+  margin: .65rem 0
+}
+
+.publication li {
+  margin: .3rem 0
+}
+
+.publication .minor {
+  font-size: .83rem;
+  color: #415861
+}
+
+.publication .current-model {
+  font-weight: 650
+}
+
+@media print {
+  .publication {
+    break-inside: auto
+  }
+
+  .publication details {
+    display: block
+  }
+}
