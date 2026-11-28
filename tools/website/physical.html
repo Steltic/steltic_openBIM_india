@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>$title · Physical model · Steltic India</title><link rel="stylesheet" href="$assets/model.css"><script defer src="$assets/model.js"></script></head>
+<body data-scene="$scene" data-case="$case" data-unit="$unit">
+<header><div class="identity"><a href="$home" class="brand">Steltic</a><span>India / $family</span></div>
+<nav aria-label="Example documents"><a aria-current="page" href="viewer_3d.html">Physical model</a><a href="analysis.html">$analysis_label</a><a href="report.html">Design report</a><a href="$download">IFC &amp; drawings ↗</a></nav></header>
+<main><div class="title"><div><p class="eyebrow">$case_display · $unit_display</p><h1>$title</h1></div><a class="decision $status" href="report.html#coordination">$decision</a></div>
+<div class="workspace"><section class="viewport" aria-label="Interactive model"><div class="toolbar"><label>View <select id="camera"><option>Isometric</option><option>Plan</option><option>Front</option><option>Side</option></select></label><button id="fit">Fit model</button><label class="panel-control"><input type="checkbox" id="panels"> Show panels</label></div>
+<div class="drawing"><canvas id="model" tabindex="0" aria-label="Orbit the building model. Arrow keys rotate, plus and minus zoom. Select an object in the inspector for a text description."></canvas><div class="orientation" aria-hidden="true">Z up &nbsp;·&nbsp; m</div><div id="loading" role="status">Opening IFC geometry…</div></div>
+<p class="hint">Drag to orbit · Shift-drag to pan · Scroll or pinch to zoom · Click a member to inspect</p></section>
+<aside aria-label="Model inspector"><div class="section-heading"><h2>Model inspector</h2><p id="summary" aria-live="polite"></p></div>
+<label>Level<select id="level"><option value="">All levels</option></select></label>
+<label>Framing layer<select id="layer"><option value="">All framing</option></select></label>
+<label>Find an object<input id="search" type="search" placeholder="Mark, section or IFC GlobalId"></label>
+<label>Visible objects<select id="objects" aria-describedby="matches"><option value="">Select an object</option></select></label><small id="matches"></small>
+<div id="properties" aria-live="polite"><h3>Object details</h3><p>Select steel or a panel to see its issued properties.</p></div>
+</aside></div>
+<footer><p>Geometry comes from the issued IFC4. The browser shows structural members and panels. The IFC download includes connection assemblies, plates, welds and fasteners.</p><a href="$scene" download>Download this 3D view (.glb)</a></footer></main></body></html>

@@ -55,6 +55,8 @@ Under **Request register and drawing revisions**, choose a drawing set, name the
 
 ## Reproduce the acceptance runs
 
+The website publication tools build a physical viewer from each issued IFC and pair it with the native report and analytical results at the existing example address. [Website publication guide](tools/website/README.md)
+
 ```shell
 python -m pip install ".[test]"
 python -m pytest -q
